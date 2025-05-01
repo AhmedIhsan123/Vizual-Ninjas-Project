@@ -1,0 +1,200 @@
+[
+  {
+    "EVENT_ID": 75101,
+    "EVENT_NAME": "Winnipeg Spring Warmup",
+    "DATE_EVENT_END": "4/29/2025",
+    "EVENT_CITY": "Winnipeg",
+    "EVENT_STATE_ID": "MB",
+    "COUNTRY_ID": "CA",
+    "EVENT_LATITUDE": 49.9344666,
+    "EVENT_LONGITUDE": -97.0405458,
+    "EVENT_TIER_ID": "C"
+  },
+  {
+    "EVENT_ID": 75223,
+    "EVENT_NAME": "Rumble at Rotary Island",
+    "DATE_EVENT_END": "5/3/2025",
+    "EVENT_CITY": "Portage La Prarie",
+    "EVENT_STATE_ID": "MB",
+    "COUNTRY_ID": "CA",
+    "EVENT_LATITUDE": 49.96288,
+    "EVENT_LONGITUDE": -98.2886777,
+    "EVENT_TIER_ID": "B"
+  },
+  {
+    "EVENT_ID": 75894,
+    "EVENT_NAME": "The Classic",
+    "DATE_EVENT_END": "5/13/2025",
+    "EVENT_CITY": "Winnipeg",
+    "EVENT_STATE_ID": "MB",
+    "COUNTRY_ID": "CA",
+    "EVENT_LATITUDE": 49.8811759,
+    "EVENT_LONGITUDE": -97.1055209,
+    "EVENT_TIER_ID": "C"
+  },
+  {
+    "EVENT_ID": 76840,
+    "EVENT_NAME": "Summer Slammer",
+    "DATE_EVENT_END": "6/12/2025",
+    "EVENT_CITY": "Winnipeg",
+    "EVENT_STATE_ID": "MB",
+    "COUNTRY_ID": "CA",
+    "EVENT_LATITUDE": 49.890061,
+    "EVENT_LONGITUDE": -97.258132,
+    "EVENT_TIER_ID": "C"
+  },
+  {
+    "EVENT_ID": 78852,
+    "EVENT_NAME": "Bemidji Blast",
+    "DATE_EVENT_END": "6/22/2025",
+    "EVENT_CITY": "Bemidji",
+    "EVENT_STATE_ID": "MN",
+    "COUNTRY_ID": "US",
+    "EVENT_LATITUDE": 47.4898826,
+    "EVENT_LONGITUDE": -94.9033974,
+    "EVENT_TIER_ID": "C"
+  },
+  {
+    "EVENT_ID": 79001,
+    "EVENT_NAME": "Throw Down the Stony Mountain",
+    "DATE_EVENT_END": "7/20/2025",
+    "EVENT_CITY": "Stony Mountain",
+    "EVENT_STATE_ID": "MB",
+    "COUNTRY_ID": "CA",
+    "EVENT_LATITUDE": 50.093988,
+    "EVENT_LONGITUDE": -97.2136447,
+    "EVENT_TIER_ID": "B"
+  },
+  {
+    "EVENT_ID": 79154,
+    "EVENT_NAME": "Pembina Valley Open",
+    "DATE_EVENT_END": "7/30/2025",
+    "EVENT_CITY": "Morden",
+    "EVENT_STATE_ID": "MB",
+    "COUNTRY_ID": "CA",
+    "EVENT_LATITUDE": 49.148003,
+    "EVENT_LONGITUDE": -98.1968807,
+    "EVENT_TIER_ID": "A"
+  },
+  {
+    "EVENT_ID": 79646,
+    "EVENT_NAME": "Manitoba Provincials",
+    "DATE_EVENT_END": "8/13/2025",
+    "EVENT_CITY": "Winnipeg",
+    "EVENT_STATE_ID": "MB",
+    "COUNTRY_ID": "CA",
+    "EVENT_LATITUDE": 49.719533,
+    "EVENT_LONGITUDE": -97.1746697,
+    "EVENT_TIER_ID": "M"
+  },
+  {
+    "EVENT_ID": 84324,
+    "EVENT_NAME": "Clear for Takeoff",
+    "DATE_EVENT_END": "9/1/2025",
+    "EVENT_CITY": "Winnipeg",
+    "EVENT_STATE_ID": "MB",
+    "COUNTRY_ID": "CA",
+    "EVENT_LATITUDE": 49.890061,
+    "EVENT_LONGITUDE": -97.258132,
+    "EVENT_TIER_ID": "B"
+  },
+  {
+    "EVENT_ID": 88565,
+    "EVENT_NAME": "Fall Windup",
+    "DATE_EVENT_END": "9/13/2025",
+    "EVENT_CITY": "Winnipeg",
+    "EVENT_STATE_ID": "MB",
+    "COUNTRY_ID": "CA",
+    "EVENT_LATITUDE": 49.9344666,
+    "EVENT_LONGITUDE": -97.0405458,
+    "EVENT_TIER_ID": "C"
+  },
+  {
+    "EVENT_ID": 74987,
+    "EVENT_NAME": "Bay State Open",
+    "DATE_EVENT_END": "6/1/2025",
+    "EVENT_CITY": "Leicester",
+    "EVENT_STATE_ID": "MA",
+    "COUNTRY_ID": "US",
+    "EVENT_LATITUDE": 42.27654221,
+    "EVENT_LONGITUDE": -71.89607142,
+    "EVENT_TIER_ID": "A"
+  },
+  {
+    "EVENT_ID": 77757,
+    "EVENT_NAME": "Ocean State Classic",
+    "DATE_EVENT_END": "7/7/2025",
+    "EVENT_CITY": "South Kingstown",
+    "EVENT_STATE_ID": "RI",
+    "COUNTRY_ID": "US",
+    "EVENT_LATITUDE": 41.46323423,
+    "EVENT_LONGITUDE": -71.52272517,
+    "EVENT_TIER_ID": "C"
+  },
+  {
+    "EVENT_ID": 80101,
+    "EVENT_NAME": "Western Mass Weekend",
+    "DATE_EVENT_END": "6/24/2025",
+    "EVENT_CITY": "Greenfield",
+    "EVENT_STATE_ID": "MA",
+    "COUNTRY_ID": "US",
+    "EVENT_LATITUDE": 42.6345587,
+    "EVENT_LONGITUDE": -72.583157,
+    "EVENT_TIER_ID": "B"
+  },
+  {
+    "EVENT_ID": 87748,
+    "EVENT_NAME": "South Vermont Championship",
+    "DATE_EVENT_END": "10/20/2025",
+    "EVENT_CITY": "Brattleboro",
+    "EVENT_STATE_ID": "VT",
+    "COUNTRY_ID": "US",
+    "EVENT_LATITUDE": 42.84609638,
+    "EVENT_LONGITUDE": -72.58698409,
+    "EVENT_TIER_ID": "C"
+  },
+  {
+    "EVENT_ID": 84390,
+    "EVENT_NAME": "Otter Brook Open",
+    "DATE_EVENT_END": "7/26/2025",
+    "EVENT_CITY": "Keene",
+    "EVENT_STATE_ID": "NH",
+    "COUNTRY_ID": "US",
+    "EVENT_LATITUDE": 42.9664879,
+    "EVENT_LONGITUDE": -72.23375603,
+    "EVENT_TIER_ID": "C"
+  },
+  {
+    "EVENT_ID": 79997,
+    "EVENT_NAME": "Granite State Shootout",
+    "DATE_EVENT_END": "5/15/2025",
+    "EVENT_CITY": "Canterbury",
+    "EVENT_STATE_ID": "NH",
+    "COUNTRY_ID": "US",
+    "EVENT_LATITUDE": 43.30512775,
+    "EVENT_LONGITUDE": -71.56730272,
+    "EVENT_TIER_ID": "B"
+  },
+  {
+    "EVENT_ID": 81939,
+    "EVENT_NAME": "Nantucket Challenge",
+    "DATE_EVENT_END": "9/21/2025",
+    "EVENT_CITY": "Nantucket",
+    "EVENT_STATE_ID": "MA",
+    "COUNTRY_ID": "US",
+    "EVENT_LATITUDE": 41.26112718,
+    "EVENT_LONGITUDE": -70.08016343,
+    "EVENT_TIER_ID": "B"
+  },
+  {
+    "EVENT_ID": 83339,
+    "EVENT_NAME": "New England Champions Invitational",
+    "DATE_EVENT_END": "8/25/2025",
+    "EVENT_CITY": "Haverhill",
+    "EVENT_STATE_ID": "MA",
+    "COUNTRY_ID": "US",
+    "EVENT_LATITUDE": 42.81374853,
+    "EVENT_LONGITUDE": -71.10559244,
+    "EVENT_TIER_ID": "A"
+  }
+]
