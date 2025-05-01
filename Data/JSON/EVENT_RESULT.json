@@ -1,0 +1,3201 @@
+[
+  {
+    "RESULT_ID": 2345233,
+    "EVENT_ID": 75101,
+    "PDGA_NUMBER": 131914,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2345240,
+    "EVENT_ID": 75101,
+    "PDGA_NUMBER": 162877,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2345243,
+    "EVENT_ID": 75101,
+    "PDGA_NUMBER": 55440,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2345249,
+    "EVENT_ID": 75101,
+    "PDGA_NUMBER": 72418,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2345257,
+    "EVENT_ID": 75101,
+    "PDGA_NUMBER": 237777,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2345264,
+    "EVENT_ID": 75101,
+    "PDGA_NUMBER": 235837,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2345267,
+    "EVENT_ID": 75101,
+    "PDGA_NUMBER": 266341,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2345273,
+    "EVENT_ID": 75101,
+    "PDGA_NUMBER": 57655,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 5
+  },
+  {
+    "RESULT_ID": 2345281,
+    "EVENT_ID": 75101,
+    "PDGA_NUMBER": 168021,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2345288,
+    "EVENT_ID": 75101,
+    "PDGA_NUMBER": 234768,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 7
+  },
+  {
+    "RESULT_ID": 2345291,
+    "EVENT_ID": 75223,
+    "PDGA_NUMBER": 90954,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2345297,
+    "EVENT_ID": 75223,
+    "PDGA_NUMBER": 111948,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2345305,
+    "EVENT_ID": 75223,
+    "PDGA_NUMBER": 200280,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2345312,
+    "EVENT_ID": 75223,
+    "PDGA_NUMBER": 249355,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2345315,
+    "EVENT_ID": 75223,
+    "PDGA_NUMBER": 95080,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2345321,
+    "EVENT_ID": 75223,
+    "PDGA_NUMBER": 88789,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2345329,
+    "EVENT_ID": 75223,
+    "PDGA_NUMBER": 64350,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2345336,
+    "EVENT_ID": 75223,
+    "PDGA_NUMBER": 197786,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2345339,
+    "EVENT_ID": 75223,
+    "PDGA_NUMBER": 57655,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 5
+  },
+  {
+    "RESULT_ID": 2345345,
+    "EVENT_ID": 75223,
+    "PDGA_NUMBER": 233071,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2345353,
+    "EVENT_ID": 75223,
+    "PDGA_NUMBER": 194523,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2345360,
+    "EVENT_ID": 75223,
+    "PDGA_NUMBER": 158271,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2345363,
+    "EVENT_ID": 75223,
+    "PDGA_NUMBER": 284518,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2345369,
+    "EVENT_ID": 75223,
+    "PDGA_NUMBER": 261865,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2345377,
+    "EVENT_ID": 75223,
+    "PDGA_NUMBER": 103544,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2345384,
+    "EVENT_ID": 75223,
+    "PDGA_NUMBER": 42131,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2345387,
+    "EVENT_ID": 75223,
+    "PDGA_NUMBER": 246627,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2345393,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 117187,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2345401,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 270296,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2345408,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 71794,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2345411,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 284518,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2345417,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 200280,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2345425,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 88789,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2345432,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 289069,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2345435,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 197786,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2345441,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 248935,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2345449,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 126266,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2345456,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 282066,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2345459,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 246627,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2345465,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 162877,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2345473,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 249355,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2345480,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 133895,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2345483,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 262077,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2345489,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 93575,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 10
+  },
+  {
+    "RESULT_ID": 2345497,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 206320,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 11
+  },
+  {
+    "RESULT_ID": 2345504,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 237777,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 12
+  },
+  {
+    "RESULT_ID": 2345507,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 134976,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 13
+  },
+  {
+    "RESULT_ID": 2345513,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 103358,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 14
+  },
+  {
+    "RESULT_ID": 2345521,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 151085,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 15
+  },
+  {
+    "RESULT_ID": 2345528,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 90954,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 16
+  },
+  {
+    "RESULT_ID": 2345531,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 101923,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 16
+  },
+  {
+    "RESULT_ID": 2345537,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 266341,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 16
+  },
+  {
+    "RESULT_ID": 2345545,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 131926,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 19
+  },
+  {
+    "RESULT_ID": 2345552,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 112001,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 20
+  },
+  {
+    "RESULT_ID": 2345555,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 103182,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 21
+  },
+  {
+    "RESULT_ID": 2345561,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 158271,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 22
+  },
+  {
+    "RESULT_ID": 2345569,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 300710,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 23
+  },
+  {
+    "RESULT_ID": 2345576,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 214535,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 24
+  },
+  {
+    "RESULT_ID": 2345579,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 276696,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 25
+  },
+  {
+    "RESULT_ID": 2345585,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 192243,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 26
+  },
+  {
+    "RESULT_ID": 2345593,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 125154,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 27
+  },
+  {
+    "RESULT_ID": 2345600,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 88685,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 28
+  },
+  {
+    "RESULT_ID": 2345603,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 133733,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 29
+  },
+  {
+    "RESULT_ID": 2345609,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 56161,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 30
+  },
+  {
+    "RESULT_ID": 2345617,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 97481,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 31
+  },
+  {
+    "RESULT_ID": 2345624,
+    "EVENT_ID": 75894,
+    "PDGA_NUMBER": 146656,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 32
+  },
+  {
+    "RESULT_ID": 2345627,
+    "EVENT_ID": 76840,
+    "PDGA_NUMBER": 296769,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2345633,
+    "EVENT_ID": 76840,
+    "PDGA_NUMBER": 291437,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2345641,
+    "EVENT_ID": 76840,
+    "PDGA_NUMBER": 192243,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2345648,
+    "EVENT_ID": 76840,
+    "PDGA_NUMBER": 111948,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2345651,
+    "EVENT_ID": 76840,
+    "PDGA_NUMBER": 208391,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 5
+  },
+  {
+    "RESULT_ID": 2345657,
+    "EVENT_ID": 76840,
+    "PDGA_NUMBER": 282066,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2345665,
+    "EVENT_ID": 76840,
+    "PDGA_NUMBER": 262077,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 7
+  },
+  {
+    "RESULT_ID": 2345672,
+    "EVENT_ID": 78852,
+    "PDGA_NUMBER": 141240,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2345675,
+    "EVENT_ID": 78852,
+    "PDGA_NUMBER": 197786,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2345681,
+    "EVENT_ID": 78852,
+    "PDGA_NUMBER": 245048,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2345689,
+    "EVENT_ID": 78852,
+    "PDGA_NUMBER": 251483,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2345696,
+    "EVENT_ID": 78852,
+    "PDGA_NUMBER": 133733,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2345699,
+    "EVENT_ID": 78852,
+    "PDGA_NUMBER": 296769,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2345705,
+    "EVENT_ID": 78852,
+    "PDGA_NUMBER": 211498,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2345713,
+    "EVENT_ID": 78852,
+    "PDGA_NUMBER": 189219,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2345720,
+    "EVENT_ID": 78852,
+    "PDGA_NUMBER": 83445,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2345723,
+    "EVENT_ID": 78852,
+    "PDGA_NUMBER": 77434,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2345729,
+    "EVENT_ID": 78852,
+    "PDGA_NUMBER": 256964,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2345737,
+    "EVENT_ID": 78852,
+    "PDGA_NUMBER": 80221,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2345744,
+    "EVENT_ID": 78852,
+    "PDGA_NUMBER": 112085,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2345747,
+    "EVENT_ID": 78852,
+    "PDGA_NUMBER": 88820,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2345753,
+    "EVENT_ID": 78852,
+    "PDGA_NUMBER": 60530,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2345761,
+    "EVENT_ID": 78852,
+    "PDGA_NUMBER": 249410,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 5
+  },
+  {
+    "RESULT_ID": 2345768,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 219767,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2345771,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 117187,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2345777,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 184026,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2345785,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 200280,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2345792,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 273934,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2345795,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 266341,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2345801,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 291437,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2345809,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 234768,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2345816,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 119312,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2345819,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 88820,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2345825,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 106807,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 5
+  },
+  {
+    "RESULT_ID": 2345833,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 137696,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2345840,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 72418,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2345843,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 80221,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2345849,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 202764,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2345857,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 133895,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2345864,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 292835,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2345867,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 103544,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2345873,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 208391,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 5
+  },
+  {
+    "RESULT_ID": 2345881,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 261865,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2345888,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 88685,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 7
+  },
+  {
+    "RESULT_ID": 2345891,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 245048,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 8
+  },
+  {
+    "RESULT_ID": 2345897,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 155552,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 9
+  },
+  {
+    "RESULT_ID": 2345905,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 103182,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 10
+  },
+  {
+    "RESULT_ID": 2345912,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 168021,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 11
+  },
+  {
+    "RESULT_ID": 2345915,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 189219,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 12
+  },
+  {
+    "RESULT_ID": 2345921,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 192243,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 13
+  },
+  {
+    "RESULT_ID": 2345929,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 237777,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 14
+  },
+  {
+    "RESULT_ID": 2345936,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 47872,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 15
+  },
+  {
+    "RESULT_ID": 2345939,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 134976,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 16
+  },
+  {
+    "RESULT_ID": 2345945,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 233071,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 17
+  },
+  {
+    "RESULT_ID": 2345953,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 206320,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 18
+  },
+  {
+    "RESULT_ID": 2345960,
+    "EVENT_ID": 79001,
+    "PDGA_NUMBER": 249410,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 19
+  },
+  {
+    "RESULT_ID": 2345963,
+    "EVENT_ID": 79154,
+    "PDGA_NUMBER": 72418,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2345969,
+    "EVENT_ID": 79154,
+    "PDGA_NUMBER": 235635,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2345977,
+    "EVENT_ID": 79154,
+    "PDGA_NUMBER": 131771,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2345984,
+    "EVENT_ID": 79154,
+    "PDGA_NUMBER": 202764,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2345987,
+    "EVENT_ID": 79154,
+    "PDGA_NUMBER": 141240,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 5
+  },
+  {
+    "RESULT_ID": 2345993,
+    "EVENT_ID": 79154,
+    "PDGA_NUMBER": 245048,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2346001,
+    "EVENT_ID": 79154,
+    "PDGA_NUMBER": 103182,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 7
+  },
+  {
+    "RESULT_ID": 2346008,
+    "EVENT_ID": 79154,
+    "PDGA_NUMBER": 282066,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 8
+  },
+  {
+    "RESULT_ID": 2346011,
+    "EVENT_ID": 79154,
+    "PDGA_NUMBER": 47872,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 9
+  },
+  {
+    "RESULT_ID": 2346017,
+    "EVENT_ID": 79154,
+    "PDGA_NUMBER": 292835,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 9
+  },
+  {
+    "RESULT_ID": 2346025,
+    "EVENT_ID": 79154,
+    "PDGA_NUMBER": 88789,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 11
+  },
+  {
+    "RESULT_ID": 2346032,
+    "EVENT_ID": 79154,
+    "PDGA_NUMBER": 184026,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 12
+  },
+  {
+    "RESULT_ID": 2346035,
+    "EVENT_ID": 79154,
+    "PDGA_NUMBER": 103358,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 13
+  },
+  {
+    "RESULT_ID": 2346041,
+    "EVENT_ID": 79154,
+    "PDGA_NUMBER": 273934,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 14
+  },
+  {
+    "RESULT_ID": 2346049,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 249410,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2346056,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 88820,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2346059,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 211498,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2346065,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 112085,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2346073,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 256964,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 5
+  },
+  {
+    "RESULT_ID": 2346080,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 80221,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2346083,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 60530,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 7
+  },
+  {
+    "RESULT_ID": 2346089,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 77434,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 8
+  },
+  {
+    "RESULT_ID": 2346097,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 296769,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 9
+  },
+  {
+    "RESULT_ID": 2346104,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 64350,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 10
+  },
+  {
+    "RESULT_ID": 2346107,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 42131,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 11
+  },
+  {
+    "RESULT_ID": 2346113,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 77859,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 12
+  },
+  {
+    "RESULT_ID": 2346121,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 196730,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 12
+  },
+  {
+    "RESULT_ID": 2346128,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 125154,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 14
+  },
+  {
+    "RESULT_ID": 2346131,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 131926,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 15
+  },
+  {
+    "RESULT_ID": 2346137,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 103544,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 16
+  },
+  {
+    "RESULT_ID": 2346145,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 122499,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 17
+  },
+  {
+    "RESULT_ID": 2346152,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 155552,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 18
+  },
+  {
+    "RESULT_ID": 2346155,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 71794,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 19
+  },
+  {
+    "RESULT_ID": 2346161,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 168021,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 20
+  },
+  {
+    "RESULT_ID": 2346169,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 194523,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 21
+  },
+  {
+    "RESULT_ID": 2346176,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 47182,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 22
+  },
+  {
+    "RESULT_ID": 2346179,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 291437,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 23
+  },
+  {
+    "RESULT_ID": 2346185,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 300710,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 24
+  },
+  {
+    "RESULT_ID": 2346193,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 197786,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 25
+  },
+  {
+    "RESULT_ID": 2346200,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 273934,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 26
+  },
+  {
+    "RESULT_ID": 2346203,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 251483,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 27
+  },
+  {
+    "RESULT_ID": 2346209,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 192243,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 28
+  },
+  {
+    "RESULT_ID": 2346217,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 235635,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2346224,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 233071,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2346227,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 126266,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2346233,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 129392,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2346241,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 60376,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2346248,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 47872,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2346251,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 162877,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 7
+  },
+  {
+    "RESULT_ID": 2346257,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 76358,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 8
+  },
+  {
+    "RESULT_ID": 2346265,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 158271,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 9
+  },
+  {
+    "RESULT_ID": 2346272,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 72418,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 10
+  },
+  {
+    "RESULT_ID": 2346275,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 131771,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 11
+  },
+  {
+    "RESULT_ID": 2346281,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 219767,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 12
+  },
+  {
+    "RESULT_ID": 2346289,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 248935,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 13
+  },
+  {
+    "RESULT_ID": 2346296,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 65170,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 14
+  },
+  {
+    "RESULT_ID": 2346299,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 133895,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 15
+  },
+  {
+    "RESULT_ID": 2346305,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 140025,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 16
+  },
+  {
+    "RESULT_ID": 2346313,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 200280,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 17
+  },
+  {
+    "RESULT_ID": 2346320,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 137696,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 18
+  },
+  {
+    "RESULT_ID": 2346323,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 293399,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 19
+  },
+  {
+    "RESULT_ID": 2346329,
+    "EVENT_ID": 79646,
+    "PDGA_NUMBER": 103358,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 20
+  },
+  {
+    "RESULT_ID": 2346337,
+    "EVENT_ID": 84324,
+    "PDGA_NUMBER": 119312,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2346344,
+    "EVENT_ID": 84324,
+    "PDGA_NUMBER": 246627,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2346347,
+    "EVENT_ID": 84324,
+    "PDGA_NUMBER": 202764,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2346353,
+    "EVENT_ID": 84324,
+    "PDGA_NUMBER": 194523,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2346361,
+    "EVENT_ID": 84324,
+    "PDGA_NUMBER": 191114,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2346368,
+    "EVENT_ID": 84324,
+    "PDGA_NUMBER": 101923,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2346371,
+    "EVENT_ID": 84324,
+    "PDGA_NUMBER": 42131,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2346377,
+    "EVENT_ID": 84324,
+    "PDGA_NUMBER": 172990,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2346385,
+    "EVENT_ID": 84324,
+    "PDGA_NUMBER": 214535,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2346392,
+    "EVENT_ID": 84324,
+    "PDGA_NUMBER": 237777,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2346395,
+    "EVENT_ID": 84324,
+    "PDGA_NUMBER": 131914,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 5
+  },
+  {
+    "RESULT_ID": 2346401,
+    "EVENT_ID": 84324,
+    "PDGA_NUMBER": 151085,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 5
+  },
+  {
+    "RESULT_ID": 2346409,
+    "EVENT_ID": 84324,
+    "PDGA_NUMBER": 112001,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 5
+  },
+  {
+    "RESULT_ID": 2346416,
+    "EVENT_ID": 84324,
+    "PDGA_NUMBER": 235837,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 5
+  },
+  {
+    "RESULT_ID": 2346419,
+    "EVENT_ID": 84324,
+    "PDGA_NUMBER": 125154,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 9
+  },
+  {
+    "RESULT_ID": 2346425,
+    "EVENT_ID": 84324,
+    "PDGA_NUMBER": 95080,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 10
+  },
+  {
+    "RESULT_ID": 2346429,
+    "EVENT_ID": 84324,
+    "PDGA_NUMBER": 251483,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 11
+  },
+  {
+    "RESULT_ID": 2346432,
+    "EVENT_ID": 88565,
+    "PDGA_NUMBER": 235837,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2346435,
+    "EVENT_ID": 88565,
+    "PDGA_NUMBER": 125154,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2346438,
+    "EVENT_ID": 88565,
+    "PDGA_NUMBER": 95080,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2346441,
+    "EVENT_ID": 88565,
+    "PDGA_NUMBER": 251483,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2346444,
+    "EVENT_ID": 88565,
+    "PDGA_NUMBER": 106807,
+    "DIVISION_ID": "AM1",
+    "EVENT_PLACE": 5
+  },
+  {
+    "RESULT_ID": 2346447,
+    "EVENT_ID": 88565,
+    "PDGA_NUMBER": 140025,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2346450,
+    "EVENT_ID": 88565,
+    "PDGA_NUMBER": 137696,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2346453,
+    "EVENT_ID": 88565,
+    "PDGA_NUMBER": 57655,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2346456,
+    "EVENT_ID": 88565,
+    "PDGA_NUMBER": 55440,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 5
+  },
+  {
+    "RESULT_ID": 2346459,
+    "EVENT_ID": 88565,
+    "PDGA_NUMBER": 291437,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2346462,
+    "EVENT_ID": 88565,
+    "PDGA_NUMBER": 56161,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 7
+  },
+  {
+    "RESULT_ID": 2346465,
+    "EVENT_ID": 88565,
+    "PDGA_NUMBER": 131771,
+    "DIVISION_ID": "AM2",
+    "EVENT_PLACE": 8
+  },
+  {
+    "RESULT_ID": 2346468,
+    "EVENT_ID": 88565,
+    "PDGA_NUMBER": 276696,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2346471,
+    "EVENT_ID": 88565,
+    "PDGA_NUMBER": 155552,
+    "DIVISION_ID": "AM3",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2346474,
+    "EVENT_ID": 74987,
+    "PDGA_NUMBER": 249410,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2346477,
+    "EVENT_ID": 74987,
+    "PDGA_NUMBER": 277483,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2346480,
+    "EVENT_ID": 74987,
+    "PDGA_NUMBER": 55555,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2346483,
+    "EVENT_ID": 74987,
+    "PDGA_NUMBER": 184950,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2346486,
+    "EVENT_ID": 74987,
+    "PDGA_NUMBER": 122394,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 5
+  },
+  {
+    "RESULT_ID": 2346489,
+    "EVENT_ID": 74987,
+    "PDGA_NUMBER": 296769,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2346492,
+    "EVENT_ID": 74987,
+    "PDGA_NUMBER": 248958,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 7
+  },
+  {
+    "RESULT_ID": 2346495,
+    "EVENT_ID": 74987,
+    "PDGA_NUMBER": 8495,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 8
+  },
+  {
+    "RESULT_ID": 2346498,
+    "EVENT_ID": 74987,
+    "PDGA_NUMBER": 189480,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 9
+  },
+  {
+    "RESULT_ID": 2346501,
+    "EVENT_ID": 74987,
+    "PDGA_NUMBER": 211498,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 10
+  },
+  {
+    "RESULT_ID": 2346504,
+    "EVENT_ID": 74987,
+    "PDGA_NUMBER": 74393,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 11
+  },
+  {
+    "RESULT_ID": 2346507,
+    "EVENT_ID": 74987,
+    "PDGA_NUMBER": 140040,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 12
+  },
+  {
+    "RESULT_ID": 2346510,
+    "EVENT_ID": 74987,
+    "PDGA_NUMBER": 133045,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 13
+  },
+  {
+    "RESULT_ID": 2346513,
+    "EVENT_ID": 74987,
+    "PDGA_NUMBER": 256964,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 14
+  },
+  {
+    "RESULT_ID": 2346516,
+    "EVENT_ID": 74987,
+    "PDGA_NUMBER": 83445,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 15
+  },
+  {
+    "RESULT_ID": 2346519,
+    "EVENT_ID": 74987,
+    "PDGA_NUMBER": 132904,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 16
+  },
+  {
+    "RESULT_ID": 2346522,
+    "EVENT_ID": 74987,
+    "PDGA_NUMBER": 100394,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 17
+  },
+  {
+    "RESULT_ID": 2346525,
+    "EVENT_ID": 74987,
+    "PDGA_NUMBER": 98540,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 18
+  },
+  {
+    "RESULT_ID": 2346528,
+    "EVENT_ID": 74987,
+    "PDGA_NUMBER": 23580,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 19
+  },
+  {
+    "RESULT_ID": 2346531,
+    "EVENT_ID": 74987,
+    "PDGA_NUMBER": 189219,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 20
+  },
+  {
+    "RESULT_ID": 2346534,
+    "EVENT_ID": 77757,
+    "PDGA_NUMBER": 11011,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2346537,
+    "EVENT_ID": 77757,
+    "PDGA_NUMBER": 77434,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2346540,
+    "EVENT_ID": 77757,
+    "PDGA_NUMBER": 99485,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2346543,
+    "EVENT_ID": 77757,
+    "PDGA_NUMBER": 40799,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2346546,
+    "EVENT_ID": 77757,
+    "PDGA_NUMBER": 60530,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 5
+  },
+  {
+    "RESULT_ID": 2346549,
+    "EVENT_ID": 77757,
+    "PDGA_NUMBER": 132904,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2346552,
+    "EVENT_ID": 77757,
+    "PDGA_NUMBER": 23580,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 7
+  },
+  {
+    "RESULT_ID": 2346555,
+    "EVENT_ID": 77757,
+    "PDGA_NUMBER": 55555,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 8
+  },
+  {
+    "RESULT_ID": 2346558,
+    "EVENT_ID": 77757,
+    "PDGA_NUMBER": 8495,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 9
+  },
+  {
+    "RESULT_ID": 2346561,
+    "EVENT_ID": 77757,
+    "PDGA_NUMBER": 211498,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 10
+  },
+  {
+    "RESULT_ID": 2346564,
+    "EVENT_ID": 77757,
+    "PDGA_NUMBER": 256964,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 11
+  },
+  {
+    "RESULT_ID": 2346567,
+    "EVENT_ID": 77757,
+    "PDGA_NUMBER": 83445,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 12
+  },
+  {
+    "RESULT_ID": 2346570,
+    "EVENT_ID": 77757,
+    "PDGA_NUMBER": 122394,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 13
+  },
+  {
+    "RESULT_ID": 2346573,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 77859,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2346576,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 276696,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2346579,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 134976,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2346582,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 266341,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2346585,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 76358,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 5
+  },
+  {
+    "RESULT_ID": 2346588,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 137696,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2346591,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 292835,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 7
+  },
+  {
+    "RESULT_ID": 2346594,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 131771,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 8
+  },
+  {
+    "RESULT_ID": 2346597,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 133045,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 9
+  },
+  {
+    "RESULT_ID": 2346600,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 277483,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 10
+  },
+  {
+    "RESULT_ID": 2346603,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 72418,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 11
+  },
+  {
+    "RESULT_ID": 2346606,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 95080,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 12
+  },
+  {
+    "RESULT_ID": 2346609,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 129392,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 13
+  },
+  {
+    "RESULT_ID": 2346612,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 112085,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 14
+  },
+  {
+    "RESULT_ID": 2346615,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 219767,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 15
+  },
+  {
+    "RESULT_ID": 2346618,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 248935,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 16
+  },
+  {
+    "RESULT_ID": 2346621,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 103182,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 17
+  },
+  {
+    "RESULT_ID": 2346624,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 103544,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 18
+  },
+  {
+    "RESULT_ID": 2346627,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 117187,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 19
+  },
+  {
+    "RESULT_ID": 2346630,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 57655,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 20
+  },
+  {
+    "RESULT_ID": 2346633,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 273934,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 21
+  },
+  {
+    "RESULT_ID": 2346636,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 284518,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 22
+  },
+  {
+    "RESULT_ID": 2346639,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 100394,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 23
+  },
+  {
+    "RESULT_ID": 2346642,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 191114,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 24
+  },
+  {
+    "RESULT_ID": 2346645,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 140040,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 25
+  },
+  {
+    "RESULT_ID": 2346648,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 64350,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 26
+  },
+  {
+    "RESULT_ID": 2346651,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 47872,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 27
+  },
+  {
+    "RESULT_ID": 2346654,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 245048,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 28
+  },
+  {
+    "RESULT_ID": 2346657,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 8339,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 29
+  },
+  {
+    "RESULT_ID": 2346660,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 99485,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 30
+  },
+  {
+    "RESULT_ID": 2346663,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 291437,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 31
+  },
+  {
+    "RESULT_ID": 2346666,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 206320,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 32
+  },
+  {
+    "RESULT_ID": 2346669,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 199304,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 33
+  },
+  {
+    "RESULT_ID": 2346672,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 40799,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 34
+  },
+  {
+    "RESULT_ID": 2346675,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 214535,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 35
+  },
+  {
+    "RESULT_ID": 2346678,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 88820,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 36
+  },
+  {
+    "RESULT_ID": 2346681,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 158271,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 37
+  },
+  {
+    "RESULT_ID": 2346684,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 106807,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 38
+  },
+  {
+    "RESULT_ID": 2346687,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 194523,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 39
+  },
+  {
+    "RESULT_ID": 2346690,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 233071,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 40
+  },
+  {
+    "RESULT_ID": 2346693,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 270296,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 41
+  },
+  {
+    "RESULT_ID": 2346696,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 237777,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 42
+  },
+  {
+    "RESULT_ID": 2346699,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 172990,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 43
+  },
+  {
+    "RESULT_ID": 2346702,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 42131,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 44
+  },
+  {
+    "RESULT_ID": 2346705,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 88685,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 45
+  },
+  {
+    "RESULT_ID": 2346708,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 47182,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 46
+  },
+  {
+    "RESULT_ID": 2346711,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 60530,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 47
+  },
+  {
+    "RESULT_ID": 2346714,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 8495,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 48
+  },
+  {
+    "RESULT_ID": 2346717,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 298859,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 49
+  },
+  {
+    "RESULT_ID": 2346720,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 192243,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 50
+  },
+  {
+    "RESULT_ID": 2346723,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 146656,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 51
+  },
+  {
+    "RESULT_ID": 2346726,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 271726,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 52
+  },
+  {
+    "RESULT_ID": 2346729,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 104478,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 53
+  },
+  {
+    "RESULT_ID": 2346732,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 125154,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 54
+  },
+  {
+    "RESULT_ID": 2346735,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 141240,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 55
+  },
+  {
+    "RESULT_ID": 2346738,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 196730,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 56
+  },
+  {
+    "RESULT_ID": 2346741,
+    "EVENT_ID": 80101,
+    "PDGA_NUMBER": 122394,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 57
+  },
+  {
+    "RESULT_ID": 2346744,
+    "EVENT_ID": 87748,
+    "PDGA_NUMBER": 40799,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2346747,
+    "EVENT_ID": 87748,
+    "PDGA_NUMBER": 140040,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2346750,
+    "EVENT_ID": 87748,
+    "PDGA_NUMBER": 98540,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2346753,
+    "EVENT_ID": 87748,
+    "PDGA_NUMBER": 248958,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2346756,
+    "EVENT_ID": 87748,
+    "PDGA_NUMBER": 196730,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 5
+  },
+  {
+    "RESULT_ID": 2346759,
+    "EVENT_ID": 87748,
+    "PDGA_NUMBER": 300104,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2346762,
+    "EVENT_ID": 87748,
+    "PDGA_NUMBER": 132904,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 7
+  },
+  {
+    "RESULT_ID": 2346765,
+    "EVENT_ID": 87748,
+    "PDGA_NUMBER": 100394,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 8
+  },
+  {
+    "RESULT_ID": 2346768,
+    "EVENT_ID": 87748,
+    "PDGA_NUMBER": 60530,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 9
+  },
+  {
+    "RESULT_ID": 2346771,
+    "EVENT_ID": 87748,
+    "PDGA_NUMBER": 55555,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 10
+  },
+  {
+    "RESULT_ID": 2346774,
+    "EVENT_ID": 87748,
+    "PDGA_NUMBER": 8495,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 11
+  },
+  {
+    "RESULT_ID": 2346777,
+    "EVENT_ID": 87748,
+    "PDGA_NUMBER": 273934,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 12
+  },
+  {
+    "RESULT_ID": 2346780,
+    "EVENT_ID": 87748,
+    "PDGA_NUMBER": 83445,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 13
+  },
+  {
+    "RESULT_ID": 2346783,
+    "EVENT_ID": 87748,
+    "PDGA_NUMBER": 199304,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 14
+  },
+  {
+    "RESULT_ID": 2346786,
+    "EVENT_ID": 87748,
+    "PDGA_NUMBER": 189480,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 15
+  },
+  {
+    "RESULT_ID": 2346789,
+    "EVENT_ID": 87748,
+    "PDGA_NUMBER": 8339,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 16
+  },
+  {
+    "RESULT_ID": 2346792,
+    "EVENT_ID": 87748,
+    "PDGA_NUMBER": 88820,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 17
+  },
+  {
+    "RESULT_ID": 2346795,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 277480,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2346798,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 189480,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2346801,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 112085,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2346804,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 55555,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2346807,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 196730,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 5
+  },
+  {
+    "RESULT_ID": 2346810,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 103358,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2346813,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 140040,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 7
+  },
+  {
+    "RESULT_ID": 2346816,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 277483,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 8
+  },
+  {
+    "RESULT_ID": 2346819,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 189219,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 9
+  },
+  {
+    "RESULT_ID": 2346822,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 12012,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 10
+  },
+  {
+    "RESULT_ID": 2346825,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 99485,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 11
+  },
+  {
+    "RESULT_ID": 2346828,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 74393,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 12
+  },
+  {
+    "RESULT_ID": 2346831,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 248958,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 13
+  },
+  {
+    "RESULT_ID": 2346834,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 184950,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 14
+  },
+  {
+    "RESULT_ID": 2346837,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 11011,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 15
+  },
+  {
+    "RESULT_ID": 2346840,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 150495,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 16
+  },
+  {
+    "RESULT_ID": 2346843,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 100394,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 17
+  },
+  {
+    "RESULT_ID": 2346846,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 199304,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 18
+  },
+  {
+    "RESULT_ID": 2346849,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 88789,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 19
+  },
+  {
+    "RESULT_ID": 2346852,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 122394,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 20
+  },
+  {
+    "RESULT_ID": 2346855,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 60530,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 21
+  },
+  {
+    "RESULT_ID": 2346858,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 256964,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 22
+  },
+  {
+    "RESULT_ID": 2346861,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 273934,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 23
+  },
+  {
+    "RESULT_ID": 2346864,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 249410,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 24
+  },
+  {
+    "RESULT_ID": 2346867,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 300104,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 25
+  },
+  {
+    "RESULT_ID": 2346870,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 133045,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 26
+  },
+  {
+    "RESULT_ID": 2346873,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 184026,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 27
+  },
+  {
+    "RESULT_ID": 2346876,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 120394,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 28
+  },
+  {
+    "RESULT_ID": 2346879,
+    "EVENT_ID": 84390,
+    "PDGA_NUMBER": 87087,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 29
+  },
+  {
+    "RESULT_ID": 2346882,
+    "EVENT_ID": 79997,
+    "PDGA_NUMBER": 8339,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2346885,
+    "EVENT_ID": 79997,
+    "PDGA_NUMBER": 8495,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2346888,
+    "EVENT_ID": 79997,
+    "PDGA_NUMBER": 11011,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2346891,
+    "EVENT_ID": 79997,
+    "PDGA_NUMBER": 12012,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2346894,
+    "EVENT_ID": 79997,
+    "PDGA_NUMBER": 23580,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 5
+  },
+  {
+    "RESULT_ID": 2346897,
+    "EVENT_ID": 79997,
+    "PDGA_NUMBER": 38299,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2346900,
+    "EVENT_ID": 79997,
+    "PDGA_NUMBER": 40799,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 7
+  },
+  {
+    "RESULT_ID": 2346903,
+    "EVENT_ID": 79997,
+    "PDGA_NUMBER": 55555,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 8
+  },
+  {
+    "RESULT_ID": 2346906,
+    "EVENT_ID": 79997,
+    "PDGA_NUMBER": 60530,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 9
+  },
+  {
+    "RESULT_ID": 2346909,
+    "EVENT_ID": 79997,
+    "PDGA_NUMBER": 74393,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 10
+  },
+  {
+    "RESULT_ID": 2346912,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 300104,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2346915,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 277483,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2346918,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 288393,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2346921,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 248958,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2346924,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 256964,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 5
+  },
+  {
+    "RESULT_ID": 2346927,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 140040,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2346930,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 150495,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 7
+  },
+  {
+    "RESULT_ID": 2346933,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 248038,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 8
+  },
+  {
+    "RESULT_ID": 2346936,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 60530,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 9
+  },
+  {
+    "RESULT_ID": 2346939,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 40799,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 10
+  },
+  {
+    "RESULT_ID": 2346942,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 296769,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 11
+  },
+  {
+    "RESULT_ID": 2346945,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 12012,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 12
+  },
+  {
+    "RESULT_ID": 2346948,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 211498,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 13
+  },
+  {
+    "RESULT_ID": 2346951,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 38299,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 14
+  },
+  {
+    "RESULT_ID": 2346954,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 183944,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 15
+  },
+  {
+    "RESULT_ID": 2346957,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 122394,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 16
+  },
+  {
+    "RESULT_ID": 2346960,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 88820,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 17
+  },
+  {
+    "RESULT_ID": 2346963,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 8495,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 18
+  },
+  {
+    "RESULT_ID": 2346966,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 277480,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 19
+  },
+  {
+    "RESULT_ID": 2346969,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 99485,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 20
+  },
+  {
+    "RESULT_ID": 2346972,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 133045,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 21
+  },
+  {
+    "RESULT_ID": 2346975,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 100394,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 22
+  },
+  {
+    "RESULT_ID": 2346978,
+    "EVENT_ID": 81939,
+    "PDGA_NUMBER": 120394,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 23
+  },
+  {
+    "RESULT_ID": 2346981,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 140025,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 1
+  },
+  {
+    "RESULT_ID": 2346984,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 101923,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 2
+  },
+  {
+    "RESULT_ID": 2346987,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 293399,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 3
+  },
+  {
+    "RESULT_ID": 2346990,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 189480,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 4
+  },
+  {
+    "RESULT_ID": 2346993,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 125154,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 5
+  },
+  {
+    "RESULT_ID": 2346996,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 194523,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 6
+  },
+  {
+    "RESULT_ID": 2346999,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 129392,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 7
+  },
+  {
+    "RESULT_ID": 2347002,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 140040,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 8
+  },
+  {
+    "RESULT_ID": 2347005,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 151085,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 9
+  },
+  {
+    "RESULT_ID": 2347008,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 234768,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 10
+  },
+  {
+    "RESULT_ID": 2347011,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 248958,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 11
+  },
+  {
+    "RESULT_ID": 2347014,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 122394,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 12
+  },
+  {
+    "RESULT_ID": 2347017,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 196730,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 13
+  },
+  {
+    "RESULT_ID": 2347020,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 291437,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 14
+  },
+  {
+    "RESULT_ID": 2347023,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 298859,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 15
+  },
+  {
+    "RESULT_ID": 2347026,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 72418,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 16
+  },
+  {
+    "RESULT_ID": 2347029,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 103358,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 17
+  },
+  {
+    "RESULT_ID": 2347032,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 208391,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 18
+  },
+  {
+    "RESULT_ID": 2347035,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 98540,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 19
+  },
+  {
+    "RESULT_ID": 2347038,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 64350,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 20
+  },
+  {
+    "RESULT_ID": 2347041,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 162877,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 21
+  },
+  {
+    "RESULT_ID": 2347044,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 249410,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 22
+  },
+  {
+    "RESULT_ID": 2347047,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 270296,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 23
+  },
+  {
+    "RESULT_ID": 2347050,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 133045,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 24
+  },
+  {
+    "RESULT_ID": 2347053,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 88685,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 25
+  },
+  {
+    "RESULT_ID": 2347056,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 132904,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 26
+  },
+  {
+    "RESULT_ID": 2347059,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 271726,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 27
+  },
+  {
+    "RESULT_ID": 2347062,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 277483,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 28
+  },
+  {
+    "RESULT_ID": 2347065,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 248038,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 29
+  },
+  {
+    "RESULT_ID": 2347068,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 133895,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 30
+  },
+  {
+    "RESULT_ID": 2347071,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 183944,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 31
+  },
+  {
+    "RESULT_ID": 2347074,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 55440,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 32
+  },
+  {
+    "RESULT_ID": 2347077,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 235787,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 33
+  },
+  {
+    "RESULT_ID": 2347080,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 71794,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 34
+  },
+  {
+    "RESULT_ID": 2347083,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 296769,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 35
+  },
+  {
+    "RESULT_ID": 2347086,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 99485,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 36
+  },
+  {
+    "RESULT_ID": 2347089,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 90954,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 37
+  },
+  {
+    "RESULT_ID": 2347092,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 237777,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 38
+  },
+  {
+    "RESULT_ID": 2347095,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 189219,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 39
+  },
+  {
+    "RESULT_ID": 2347098,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 214535,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 40
+  },
+  {
+    "RESULT_ID": 2347101,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 40799,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 41
+  },
+  {
+    "RESULT_ID": 2347104,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 168021,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 42
+  },
+  {
+    "RESULT_ID": 2347107,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 65170,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 43
+  },
+  {
+    "RESULT_ID": 2347110,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 200280,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 44
+  },
+  {
+    "RESULT_ID": 2347113,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 74393,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 45
+  },
+  {
+    "RESULT_ID": 2347116,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 88789,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 46
+  },
+  {
+    "RESULT_ID": 2347119,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 200394,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 47
+  },
+  {
+    "RESULT_ID": 2347122,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 300104,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 48
+  },
+  {
+    "RESULT_ID": 2347125,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 289069,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 49
+  },
+  {
+    "RESULT_ID": 2347128,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 277480,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 50
+  },
+  {
+    "RESULT_ID": 2347131,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 197786,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 51
+  },
+  {
+    "RESULT_ID": 2347134,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 42131,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 52
+  },
+  {
+    "RESULT_ID": 2347137,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 273934,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 53
+  },
+  {
+    "RESULT_ID": 2347140,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 106807,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 54
+  },
+  {
+    "RESULT_ID": 2347143,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 103544,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 55
+  },
+  {
+    "RESULT_ID": 2347146,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 300710,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 56
+  },
+  {
+    "RESULT_ID": 2347149,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 12012,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 57
+  },
+  {
+    "RESULT_ID": 2347152,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 245048,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 58
+  },
+  {
+    "RESULT_ID": 2347155,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 131914,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 59
+  },
+  {
+    "RESULT_ID": 2347158,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 8495,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 60
+  },
+  {
+    "RESULT_ID": 2347161,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 131926,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 61
+  },
+  {
+    "RESULT_ID": 2347164,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 261865,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 62
+  },
+  {
+    "RESULT_ID": 2347167,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 235837,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 63
+  },
+  {
+    "RESULT_ID": 2347170,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 248935,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 64
+  },
+  {
+    "RESULT_ID": 2347173,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 119312,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 65
+  },
+  {
+    "RESULT_ID": 2347176,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 83445,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 66
+  },
+  {
+    "RESULT_ID": 2347179,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 184026,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 67
+  },
+  {
+    "RESULT_ID": 2347182,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 57655,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 68
+  },
+  {
+    "RESULT_ID": 2347185,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 155552,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 69
+  },
+  {
+    "RESULT_ID": 2347188,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 233071,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 70
+  },
+  {
+    "RESULT_ID": 2347191,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 192243,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 71
+  },
+  {
+    "RESULT_ID": 2347194,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 93575,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 72
+  },
+  {
+    "RESULT_ID": 2347197,
+    "EVENT_ID": 83339,
+    "PDGA_NUMBER": 80221,
+    "DIVISION_ID": "OPEN",
+    "EVENT_PLACE": 73
+  }
+]
