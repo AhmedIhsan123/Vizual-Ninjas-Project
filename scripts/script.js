@@ -11,10 +11,7 @@ async function getEventAverages() {
     }
 }
 
-// Store result into a variable
-let eventData = [];
 getEventAverages().then(data => {
-    // Sample data for a Bar Chart
     const chartData = {
         labels: data.map(event => event.EVENT_NAME),
         datasets: [{
@@ -25,20 +22,18 @@ getEventAverages().then(data => {
         }]
     };
 
-    // Options for the chart (can be customized)
     const options = {
         responsive: true,
         scales: {
             x: {
                 title: {
                     display: true,
-                    text: 'Events',  // Title for the x-axis
+                    text: 'Events',
                     font: {
                         size: 16
                     }
                 },
                 ticks: {
-                    // Rotate the tick labels by 90 degrees
                     maxRotation: 90,
                     minRotation: 90
                 }
@@ -46,37 +41,32 @@ getEventAverages().then(data => {
             y: {
                 title: {
                     display: true,
-                    text: 'Average Distance in Miles',  // Title for the y-axis
+                    text: 'Average Distance in Miles',
                     font: {
                         size: 16
                     }
                 },
                 ticks: {
                     beginAtZero: true,
-                    callback: function (value) {
-                        return 'Distance: ' + value.toFixed(2) + ' mi';  // Add "mi" to the y-axis labels and "Distance: "
-                    }
+                    callback: value => value.toFixed(2) + ' mi'
                 }
             }
         },
         plugins: {
             legend: {
-                display: false  // Hide the legend
+                display: false
             },
             tooltip: {
                 callbacks: {
-                    // Modify the tooltip label
-                    label: function (tooltipItem) {
-                        return 'Distance: ' + tooltipItem.raw.toFixed(2) + ' mi';  // Add "Distance: " to the tooltip value
+                    label: context => {
+                        const value = context.raw;
+                        return 'Distance: ' + value.toFixed(2) + ' mi';
                     }
                 }
             }
         }
     };
 
-    // Create an instance of the ChartBuilder class
     const chartBuilder = new ChartBuilder('eventChart', 'bar', chartData, options);
-
-    // Build the chart
     chartBuilder.build();
 });
