@@ -64,6 +64,15 @@ getEventAverages().then(data => {
         plugins: {
             legend: {
                 display: false  // Hide the legend
+            },
+            tooltip: {
+                callbacks: {
+                    // Modify the tooltip label
+                    label: function (tooltipItem) {
+                        // Append ' mi' to the tooltip value
+                        return tooltipItem.raw + ' mi';
+                    }
+                }
             }
         }
     };
