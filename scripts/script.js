@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     plugins: {
                         title: {
                             display: true,
-                            text: 'Average Distance Traveled Per Event in Miles', // Title text
+                            text: 'Average Distance Traveled Per Event', // Title text
                             position: 'top', // Ensure title is at the top
                             font: {
                                 size: 20,
