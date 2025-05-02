@@ -30,9 +30,19 @@ getEventAverages().then(data => {
     // Options for the chart (can be customized)
     const options = {
         responsive: true,
+        scales: {
+            x: {
+                ticks: {
+                    // Rotate the tick labels by 90 degrees
+                    maxRotation: 90,
+                    minRotation: 90
+                },
+                type: 'logarithmic'
+            }
+        },
         plugins: {
             legend: {
-                display: true
+                display: false
             }
         }
     };
