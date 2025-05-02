@@ -21,15 +21,9 @@ export default class ChartBuilder {
         return this.chart;
     }
 
-    // Method to update the chart data
-    updateData(newData) {
-        this.chart.data = newData;
-        this.chart.update();
-    }
-
-    // Method to update the chart options
-    updateOptions(titleX, titleY, textRot) {
-        this.chart.options = {
+    // 
+    buildOptions() {
+        return {
             responsive: true,
             scales: {
                 x: {
@@ -73,6 +67,17 @@ export default class ChartBuilder {
                 }
             }
         };
+    }
+
+    // Method to update the chart data
+    updateData(newData) {
+        this.chart.data = newData;
+        this.chart.update();
+    }
+
+    // Method to update the chart options
+    updateOptions(newOptions) {
+        this.chart.options = newOptions;
         this.chart.update();
     }
 

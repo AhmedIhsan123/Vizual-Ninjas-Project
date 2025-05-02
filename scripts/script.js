@@ -37,9 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 }]
             };
 
-            const eventChart = new ChartBuilder('eventChart', 'bar', chartData, []);
+            const eventChart = new ChartBuilder('eventChart', 'bar', chartData, this.buildOptions());
             eventChart.build();
-            eventChart.updateOptions("PDGA Events", "Average Distance Traveled by Members", 90);
         });
     }
 })
