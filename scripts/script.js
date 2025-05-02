@@ -56,7 +56,7 @@ getEventAverages().then(data => {
                 ticks: {
                     beginAtZero: true,
                     callback: function (value) {
-                        return value + ' mi';  // Add "mi" to the y-axis labels
+                        return value.toFixed(4) + ' mi';  // Add "mi" to the y-axis labels
                     }
                 }
             }
