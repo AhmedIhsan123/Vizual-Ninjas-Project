@@ -3,7 +3,7 @@ import ChartBuilder from "./charts.js";
 // Event application class
 class EventApp {
     // Default constructor
-    constructor() { };
+    constructor() { }
 
     // Method to fetch data through url and return the data found
     async fetchData(url) {
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const app = new EventApp();
     buildEventAverageDistance();
 
-    // Function to build the evnt average disance graph
+    // Function to build the event average distance graph
     function buildEventAverageDistance() {
         // Fetch data for average event travel distance
         app.fetchData('PHP/api.php?action=get_event_averages').then(data => {
@@ -68,6 +68,20 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
                     },
                     plugins: {
+                        title: {
+                            display: true,
+                            text: 'Average Distance Traveled Per Event', // Title text
+                            position: 'top', // Ensure title is at the top
+                            font: {
+                                size: 20,
+                                weight: 'bold'
+                            },
+                            padding: {
+                                top: 10,
+                                bottom: 20
+                            },
+                            color: '#333' // Optional: customize title color
+                        },
                         legend: {
                             display: false
                         },
@@ -90,4 +104,4 @@ document.addEventListener("DOMContentLoaded", () => {
             eventChart.build();
         });
     }
-})
+});
