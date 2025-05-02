@@ -37,7 +37,6 @@ getEventAverages().then(data => {
                     maxRotation: 90,
                     minRotation: 90
                 },
-                type: 'logarithmic'
             }
         },
         plugins: {
