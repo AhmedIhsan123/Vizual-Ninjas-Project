@@ -56,7 +56,7 @@ getEventAverages().then(data => {
                 ticks: {
                     beginAtZero: true,
                     callback: function (value) {
-                        return value.toFixed(4) + ' mi';  // Add "mi" to the y-axis labels
+                        return value + ' mi';  // Add "mi" to the y-axis labels
                     }
                 }
             }
@@ -70,7 +70,7 @@ getEventAverages().then(data => {
                     // Modify the tooltip label
                     label: function (tooltipItem) {
                         // Append ' mi' to the tooltip value
-                        return tooltipItem.raw + ' mi';
+                        return tooltipItem.raw.toFixed(2) + ' mi';
                     }
                 }
             }
