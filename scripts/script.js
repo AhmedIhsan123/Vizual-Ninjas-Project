@@ -11,6 +11,7 @@ async function getEventAverages() {
     }
 }
 
+
 getEventAverages().then(data => {
     const chartData = {
         labels: data.map(event => event.EVENT_NAME),

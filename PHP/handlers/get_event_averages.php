@@ -21,7 +21,7 @@ try {
         JOIN EVENT e ON er.EVENT_ID = e.EVENT_ID
         WHERE m.MEMBER_LAT IS NOT NULL AND m.MEMBER_LON IS NOT NULL
         GROUP BY e.EVENT_ID, e.EVENT_NAME
-        ORDER BY avg_distance_miles DESC
+        ORDER BY avg_distance_miles ASC
     ";
 
     $stmt = $pdo->query($sql);
