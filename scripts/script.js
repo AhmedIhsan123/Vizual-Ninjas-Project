@@ -37,39 +37,40 @@ getEventAverages().then(data => {
                     text: 'Events',  // Title for the x-axis
                     font: {
                         size: 16
-                    },
-                    ticks: {
-                        // Rotate the tick labels by 90 degrees
-                        maxRotation: 90,
-                        minRotation: 90
-                    },
-                },
-                y: {
-                    title: {
-                        display: true,
-                        text: 'Average Distance in Miles',  // Title for the y-axis
-                        font: {
-                            size: 16
-                        },
-                        ticks: {
-                            beginAtZero: true,
-                            callback: function (value) {
-                                return value + mi;
-                            }
-                        }
                     }
                 },
-                plugins: {
-                    legend: {
-                        display: false
+                ticks: {
+                    // Rotate the tick labels by 90 degrees
+                    maxRotation: 90,
+                    minRotation: 90
+                }
+            },
+            y: {
+                title: {
+                    display: true,
+                    text: 'Average Distance in Miles',  // Title for the y-axis
+                    font: {
+                        size: 16
+                    }
+                },
+                ticks: {
+                    beginAtZero: true,
+                    callback: function (value) {
+                        return value + ' mi';  // Add "mi" to the y-axis labels
                     }
                 }
-            };
+            }
+        },
+        plugins: {
+            legend: {
+                display: false  // Hide the legend
+            }
+        }
+    };
 
-            // Create an instance of the ChartBuilder class
-            const chartBuilder = new ChartBuilder('eventChart', 'bar', chartData, options);
+    // Create an instance of the ChartBuilder class
+    const chartBuilder = new ChartBuilder('eventChart', 'bar', chartData, options);
 
-            // Build the chart
-            chartBuilder.build();
-        });
-
+    // Build the chart
+    chartBuilder.build();
+});
