@@ -28,16 +28,65 @@ document.addEventListener("DOMContentLoaded", () => {
     function buildEventAverageDistance() {
         // Fetch data for average event travel distance
         app.fetchData('PHP/api.php?action=get_event_averages').then(data => {
-            const chartData = {
-                labels: data.map(event => event.EVENT_NAME),
-                datasets: [{
-                    data: data.map(event => event.avg_distance_miles),
-                    backgroundColor: 'green',
-                    borderWidth: 1
-                }]
+            const { chartData, options } = {
+                chartData: {
+                    labels: data.map(event => event.EVENT_NAME),
+                    datasets: [{
+                        data: data.map(event => event.avg_distance_miles),
+                        backgroundColor: 'green',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Events',
+                                font: {
+                                    size: 16
+                                }
+                            },
+                            ticks: {
+                                maxRotation: 90,
+                                minRotation: 90
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Average Distance in Miles',
+                                font: {
+                                    size: 16
+                                }
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                                callback: value => value.toFixed(2) + ' mi'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: context => {
+                                    const value = context.raw;
+                                    return 'Distance: ' + value.toFixed(2) + ' mi';
+                                }
+                            }
+                        }
+                    }
+                }
             };
 
-            const eventChart = new ChartBuilder('eventChart', 'bar', chartData, this.buildOptions());
+            // Create chart builder
+            const eventChart = new ChartBuilder('eventChart', 'bar', chartData,);
+
+            // Build the chart
             eventChart.build();
         });
     }

@@ -21,54 +21,6 @@ export default class ChartBuilder {
         return this.chart;
     }
 
-    // 
-    buildOptions() {
-        return {
-            responsive: true,
-            scales: {
-                x: {
-                    title: {
-                        display: true,
-                        text: 'Events',
-                        font: {
-                            size: 16
-                        }
-                    },
-                    ticks: {
-                        maxRotation: 90,
-                        minRotation: 90
-                    }
-                },
-                y: {
-                    title: {
-                        display: true,
-                        text: 'Average Distance in Miles',
-                        font: {
-                            size: 16
-                        }
-                    },
-                    ticks: {
-                        beginAtZero: true,
-                        callback: value => value.toFixed(2) + ' mi'
-                    }
-                }
-            },
-            plugins: {
-                legend: {
-                    display: false
-                },
-                tooltip: {
-                    callbacks: {
-                        label: context => {
-                            const value = context.raw;
-                            return 'Distance: ' + value.toFixed(2) + ' mi';
-                        }
-                    }
-                }
-            }
-        };
-    }
-
     // Method to update the chart data
     updateData(newData) {
         this.chart.data = newData;
