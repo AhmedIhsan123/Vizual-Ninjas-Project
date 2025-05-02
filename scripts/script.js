@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             },
                             ticks: {
                                 beginAtZero: true,
-                                callback: value => value.toFixed(2) + ' mi'
+                                callback: value => value + ' mi'
                             }
                         }
                     },
