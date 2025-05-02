@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             callbacks: {
                                 label: context => {
                                     const value = context.raw;
-                                    return 'Distance: ' + value.toFixed(2) + ' mi';
+                                    return 'Average Distance: ' + value.toFixed(2) + ' mi';
                                 }
                             }
                         }
