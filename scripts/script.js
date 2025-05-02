@@ -1,10 +1,10 @@
-import ChartBuilder from "/scripts/charts.js";
+import ChartBuilder from "./charts.js";
 
 
 
 async function getEventAverages() {
     try {
-        const response = await fetch('api.php?action=get_event_averages');
+        const response = await fetch('PHP/api.php?action=get_event_averages');
         const data = await response.json();
         return data;
     } catch (error) {
