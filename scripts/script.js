@@ -31,60 +31,15 @@ document.addEventListener("DOMContentLoaded", () => {
             const chartData = {
                 labels: data.map(event => event.EVENT_NAME),
                 datasets: [{
-                    label: 'Events',
                     data: data.map(event => event.avg_distance_miles),
                     backgroundColor: 'green',
                     borderWidth: 1
                 }]
             };
 
-            const options = {
-                responsive: true,
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Events',
-                            font: {
-                                size: 16
-                            }
-                        },
-                        ticks: {
-                            maxRotation: 90,
-                            minRotation: 90
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'Average Distance in Miles',
-                            font: {
-                                size: 16
-                            }
-                        },
-                        ticks: {
-                            beginAtZero: true,
-                            callback: value => value.toFixed(2) + ' mi'
-                        }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: context => {
-                                const value = context.raw;
-                                return 'Distance: ' + value.toFixed(2) + ' mi';
-                            }
-                        }
-                    }
-                }
-            };
-
-            const chartBuilder = new ChartBuilder('eventChart', 'bar', chartData, options);
-            chartBuilder.build();
+            const eventChart = new ChartBuilder('eventChart', 'bar', chartData, []);
+            eventChart.updateOptions("PDGA Events", "Average Distance Traveled by Members", 90);
+            eventChart.build();
         });
     }
 })
