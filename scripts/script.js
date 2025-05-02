@@ -70,7 +70,7 @@ getEventAverages().then(data => {
                     // Modify the tooltip label
                     label: function (tooltipItem) {
                         // Append ' mi' to the tooltip value
-                        return tooltipItem.raw.toFixed(2) + ' mi';
+                        return 'Distance: ' + tooltipItem.raw.toFixed(2) + ' mi';
                     }
                 }
             }
