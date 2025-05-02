@@ -1,7 +1,5 @@
 import ChartBuilder from "./charts.js";
 
-
-
 async function getEventAverages() {
     try {
         const response = await fetch('PHP/api.php?action=get_event_averages');
@@ -56,7 +54,7 @@ getEventAverages().then(data => {
                 ticks: {
                     beginAtZero: true,
                     callback: function (value) {
-                        return 'Distance: ' + value.toFixed(2) + ' mi';  // Add "mi" to the y-axis labels
+                        return 'Distance: ' + value.toFixed(2) + ' mi';  // Add "mi" to the y-axis labels and "Distance: "
                     }
                 }
             }
@@ -69,8 +67,7 @@ getEventAverages().then(data => {
                 callbacks: {
                     // Modify the tooltip label
                     label: function (tooltipItem) {
-                        // Append ' mi' to the tooltip value
-                        return tooltipItem.raw.toFixed(2) + ' mi';
+                        return 'Distance: ' + tooltipItem.raw.toFixed(2) + ' mi';  // Add "Distance: " to the tooltip value
                     }
                 }
             }
