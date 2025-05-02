@@ -315,15 +315,4 @@ Chart.register(window['chartjs-plugin-annotation']); // <-- register plugin glob
 // Start the app once the page loads
 document.addEventListener("DOMContentLoaded", () => {
   new EventApp();
-  // Fetch data from the PHP script
-  fetch('test.php')
-    .then(response => response.json())  // Parse the JSON response
-    .then(data => {
-      // Log the data to the console
-      console.log(data);
-    })
-    .catch(error => {
-      // Log any error that happens during the fetch
-      console.error('Error fetching events:', error);
-    });
 });
