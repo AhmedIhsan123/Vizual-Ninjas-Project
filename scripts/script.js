@@ -106,6 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Function to build the tier average distance 
     function buildTierAverageDistance() {
         // Fetch data for average event travel distance
         app.fetchData('PHP/api.php?action=get_tier_averages').then(data => {
@@ -180,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
 
             // Create chart builder
-            const eventChart = new ChartBuilder('eventChart', 'bar', chartData, options);
+            const eventChart = new ChartBuilder('tierChart', 'bar', chartData, options);
 
             // Build the chart
             eventChart.build();
