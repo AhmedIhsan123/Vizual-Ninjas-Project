@@ -41,7 +41,8 @@ try {
     $sql = "
         SELECT 
             e.EVENT_ID, 
-            e.EVENT_NAME, 
+            e.EVENT_NAME,
+            e.EVENT_TIER_ID,
             AVG(3959 * ACOS(
                 COS(RADIANS(m.MEMBER_LAT)) * COS(RADIANS(e.EVENT_LATITUDE)) *
                 COS(RADIANS(e.EVENT_LONGITUDE) - RADIANS(m.MEMBER_LON)) +
