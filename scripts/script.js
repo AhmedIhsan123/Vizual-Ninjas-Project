@@ -22,10 +22,10 @@ class EventApp {
 document.addEventListener("DOMContentLoaded", () => {
     // Create an app variable to store the application class
     const app = new EventApp();
-    buildEventAverageDistance();
-    // buildTierAverageDistance();
+    // buildEventAverageDistance();
+    buildTierAverageDistance();
 
-    // Function to build the event average distance graph
+    // Function to build the event average distance per tier graph
     function buildEventAverageDistance() {
         // Fetch data for average event travel distance
         app.fetchData('PHP/api.php?action=get_event_averages').then(data => {
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
         app.fetchData('PHP/api.php?action=get_tier_averages').then(data => {
             const { chartData, options } = {
                 chartData: {
-                    labels: data.map(event => event.EVENT_NAME),
+                    labels: data.map(event => event.EVENT_TIER_ID),
                     datasets: [{
                         data: data.map(event => event.avg_distance_miles),
                         backgroundColor: 'green',
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     plugins: {
                         title: {
                             display: true,
-                            text: 'Average Distance Traveled Per Event', // Title text
+                            text: 'Average Distance Traveled Per Tier', // Title text
                             position: 'top', // Ensure title is at the top
                             font: {
                                 size: 20,
