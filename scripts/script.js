@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const app = new EventApp();
 
-const url = `./PHP/handlers/event.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}`;
+const url = `./PHP/event.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}`;
 
 // Use the Fetch API to request data from the server
 fetch(url)
