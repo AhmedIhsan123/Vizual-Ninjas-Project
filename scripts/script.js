@@ -111,6 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
         app.fetchData('PHP/api.php?action=get_tier_averages').then(data => {
             const { chartData, options } = {
                 chartData: {
+                    // labels: data.map(event => event.EVENT_NAME),
                     labels: data.map(event => event.EVENT_TIER_ID),
                     datasets: [{
                         data: data.map(event => event.avg_distance_miles),
