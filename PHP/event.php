@@ -44,7 +44,7 @@ try {
             e.EVENT_NAME,
             e.EVENT_TIER_ID,
             e.EVENT_STATE_ID,
-            e.EVENT_COUNTRY_ID,
+            e.COUNTRY_ID,
             AVG(3959 * ACOS(
                 COS(RADIANS(m.MEMBER_LAT)) * COS(RADIANS(e.EVENT_LATITUDE)) *
                 COS(RADIANS(e.EVENT_LONGITUDE) - RADIANS(m.MEMBER_LON)) +
