@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const app = new EventApp();
 const queryStr = new URLSearchParams(filters.toString());
-const url = `/PHP/handlers/event.php?${queryStr}`;
+const url = `/PHP/handlers/event.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}`;
 const x = await app.fetchData(url);
 console.log(x);
 
