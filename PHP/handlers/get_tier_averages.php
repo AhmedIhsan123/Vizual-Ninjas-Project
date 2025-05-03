@@ -22,7 +22,7 @@ try {
         WHERE m.MEMBER_LAT IS NOT NULL
         AND m.MEMBER_LON IS NOT NULL
         GROUP BY e.EVENT_TIER_ID
-        ORDER BY avg_distance_miles DESC
+        ORDER BY e.EVENT_TIER_ID ASC
     ";
 
     $stmt = $pdo->query($sql);
