@@ -116,10 +116,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }*/
 
 const app = new EventApp();
-const queryStr = new URLSearchParams(filters.toString());
+
 const url = `./PHP/handlers/event.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}`;
-const x = await app.fetchData(url);
-console.log(x);
+
+// Use the Fetch API to request data from the server
+fetch(url)
+    .then(response => {
+        // Check if the response is OK (status 200-299)
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        // Parse the response as JSON
+        return response.json();
+    })
+    .then(data => {
+        // Handle the data from the response
+        console.log('Data received:', data);
+    })
+    .catch(error => {
+        // Handle any errors (network issues, JSON parsing errors, etc.)
+        console.error('There was a problem with the fetch operation:', error);
+    });
 
 // Function to build the tier average distance 
 function buildTierAverageDistance() {
