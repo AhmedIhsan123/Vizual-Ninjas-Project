@@ -31,16 +31,6 @@ try {
         $params[':state'] = $_GET['state'];
     }
 
-    if (!empty($_GET['start_date'])) {
-        $filters[] = "e.EVENT_START_DATE >= :start_date";
-        $params[':start_date'] = $_GET['start_date'];
-    }
-
-    if (!empty($_GET['end_date'])) {
-        $filters[] = "e.EVENT_START_DATE <= :end_date";
-        $params[':end_date'] = $_GET['end_date'];
-    }
-
     // Build WHERE clause
     $where = "WHERE m.MEMBER_LAT IS NOT NULL AND m.MEMBER_LON IS NOT NULL";
     if (!empty($filters)) {
