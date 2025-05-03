@@ -22,12 +22,12 @@ try {
     }
 
     if (!empty($_GET['country'])) {
-        $filters[] = "e.COUNTRY = :country";
+        $filters[] = "e.COUNTRY_ID = :country";
         $params[':country'] = $_GET['country'];
     }
 
     if (!empty($_GET['state'])) {
-        $filters[] = "e.STATE_PROV = :state";
+        $filters[] = "e.EVENT_STATE_ID = :state";
         $params[':state'] = $_GET['state'];
     }
 
