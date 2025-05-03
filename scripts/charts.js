@@ -10,10 +10,7 @@ export default class ChartBuilder {
     // Method to create the chart
     build() {
         const ctx = document.getElementById(this.canvasId).getContext('2d');
-        if (!canvas) {
-            console.error(`Canvas with ID "${this.canvasId}" not found.`);
-            return;
-        }
+
         // Create the chart using Chart.js
         this.chart = new Chart(ctx, {
             type: this.chartType, // Type of the chart (line, bar, etc.)

@@ -22,7 +22,10 @@ class EventApp {
 document.addEventListener("DOMContentLoaded", () => {
     // Create an app variable to store the application class
     const app = new EventApp();
+    console.log("Building Event Average Distance Chart");
     buildEventAverageDistance();
+
+    console.log("Building Tier Average Distance Chart");
     buildTierAverageDistance();
 
     // Function to build the event average distance per tier graph
