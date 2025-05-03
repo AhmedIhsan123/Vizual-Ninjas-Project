@@ -1,7 +1,7 @@
 import ChartBuilder from "./charts.js";
 
 const filters = {
-    tier: 1,              // Example tier
+    tier: 'A',              // Example tier
     country: 'US',        // Example country
     state: 'MA',  // Example state
     start_date: '04-29-2025',  // Example start date
