@@ -31,25 +31,38 @@
       <h1>Disc Golf Event Statistics</h1>
     </div>
 
-    <!-- Statistics Section -->
-    <div class="stats-section">
-      <!-- Tournament Stats -->
-      <div class="stats-block">
-        <h2>Tournament Statistics</h2>
-        <!-- <p><strong>Average Travel Time:</strong> <span id="avgTravelTime">N/A</span></p> -->
-        <p><strong>Total Players:</strong> <span id="totalPlayers">N/A</span></p>
-      </div>
+    <!-- Data filters section -->
+    <h2>Filter Events</h2>
+    <section class="data-filters">
+      <!-- Tier label -->
+      <label for="tier">Tier:</label>
+      <select id="tier">
+        <option value="">All</option>
+        <option value="A">A Tier</option>
+        <option value="B">B Tier</option>
+        <option value="C">C Tier</option>
+        <option value="M">M Tier</option>
+      </select>
 
-      <!-- Player Stats -->
-      <div class="stats-block">
-        <h2>Player Travel Statistics</h2>
-        <p><strong><b>Average</b> Travel Distance:</strong> <span id="avgTravelDist">N/A</span></p>
-        <p><strong><b>Maximum</b> Travel Distance:</strong> <span id="maxTravelDist">N/A</span></p>
-        <p><strong><b>Minimum</b> Travel Distance:</strong> <span id="minTravelDist">N/A</span></p>
-        <!-- <p><strong>Average Rating:</strong> <span id="avgRating">N/A</span></p>
-        <p><strong>Top Rated Player:</strong> <span id="topRated">N/A</span></p> -->
-      </div>
-    </div>
+      <!-- Country button -->
+      <label for="country">Country:</label>
+      <input type="text" id="country" placeholder="e.g., US">
+
+      <!-- State button -->
+      <label for="state">State:</label>
+      <input type="text" id="state" placeholder="e.g., TX">
+
+      <!-- Start Date input -->
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate">
+
+      <!-- End Date input -->
+      <label for="endDate">End Date:</label>
+      <input type="date" id="endDate">
+
+      <!-- Apply filters button -->
+      <button id="applyFilters">Apply Filters</button>
+    </section>
 
     <!-- Data Visualization Section -->
     <div class="visualizations">

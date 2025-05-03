@@ -16,6 +16,9 @@ switch ($action) {
         require 'handlers/get_tier_averages.php';
         break;
 
+    case 'event.php':
+        require 'handlers/event.php';
+
     default:
         http_response_code(400);
         echo json_encode(['error' => 'Invalid or missing action']);
