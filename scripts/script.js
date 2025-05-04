@@ -26,6 +26,7 @@ class EventApp {
         data.forEach(element => {
             const option = document.createElement('option');
             option.value = element;
+            console.log(option.value);
             option.textContent = element;
             parent.appendChild(option);
         });
