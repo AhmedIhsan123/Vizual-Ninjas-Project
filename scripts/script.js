@@ -151,6 +151,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Create URL to fetch
         let url = `./PHP/events.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}`;
 
+        console.log(url);
+
         // Fetch data for average event travel distance
         app.fetchData(url).then(data => {
             // Create a variable to store information about graph
