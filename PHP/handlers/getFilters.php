@@ -6,7 +6,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 header('Content-Type: application/json');
-require '.PHP/db.php';
+require '../db.php';
 
 if (!isset($pdo)) {
     http_response_code(500);
