@@ -20,7 +20,7 @@ class EventApp {
             this.addElements(data.countries, countryDropRef, false);
 
             // Aded the states to a dropdown
-            for (i = 0; i < data.states.length; i++) {
+            for (let i = 0; i < data.states.length; i++) {
                 const option = document.createElement('option');
                 option.value = data.states.state_id[i];
                 option.textContent = data.states.state_name[i];
