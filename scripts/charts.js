@@ -36,6 +36,8 @@ export default class ChartBuilder {
 
     // Method to destroy the chart
     destroy() {
-        this.chart.destroy();
+        if (this.chart) {
+            this.chart.destroy();
+        }
     }
 }
