@@ -20,7 +20,7 @@ try {
     $tiers = $stmt1->fetchAll(PDO::FETCH_COLUMN);
 
     // Query 2: Unique States
-    $stmt2 = $pdo->query("SELECT DISTINCT EVENT_STATE_ID AS state FROM EVENT WHERE EVENT_STATE_ID IS NOT NULL");
+    $stmt2 = $pdo->query("SELECT DISTINCT S.STATE_NAME AS state FROM EVENT E JOIN STATE S ON E.EVENT_STATE_ID = S.STATE_ID WHERE E.EVENT_STATE_ID IS NOT NULL;");
     $states = $stmt2->fetchAll(PDO::FETCH_COLUMN);
 
     // Query 3: Unique Countries
