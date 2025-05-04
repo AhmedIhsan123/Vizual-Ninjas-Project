@@ -27,8 +27,20 @@ class EventApp {
     setFiltersUI() {
         // Make API call to database
         this.fetchData('./PHP/handlers/getFilters.php').then(data => {
-            console.log(data);
+            addElements(data.tiers, this.tierDropRef);
+            addElements(data.countries, this.countryDropRef);
+            addElements(data.states, this.stateDropRef);
         });
+
+        // Helper method to create elements
+        function addElements(data, parent) {
+            data.forEach(element => {
+                const option = document.createElement('option');
+                option.value = element;
+                option.textContent = element;
+                parent.appendChild(option);
+            });
+        }
     }
 
     // Method to help set chart options
