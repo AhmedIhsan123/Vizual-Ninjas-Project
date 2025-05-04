@@ -149,6 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Change!");
         app.fetchData(`./PHP/handlers/getFilters.php?country=${countryDropRef.value}`).then(data => {
             // Remove all states but first option
+            console.log(data.states);
             for (let i = stateDropRef.children.length - 1; i > 0; i--) {
                 stateDropRef.removeChild(stateDropRef.children[i]);
             }
