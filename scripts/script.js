@@ -16,9 +16,16 @@ class EventApp {
         // Make API call to database
         this.fetchData('./PHP/handlers/getFilters.php').then(data => {
             console.log(data);
-            this.addElements(data.tiers, tierDropRef);
-            this.addElements(data.countries, countryDropRef);
-            this.addElements(data.states, stateDropRef);
+            this.addElements(data.tiers, tierDropRef, false);
+            this.addElements(data.countries, countryDropRef, false);
+
+            // Aded the states to a dropdown
+            data.states.forEach(element => {
+                const option = document.createElement('option');
+                option.value = data.states.state_ID;
+                option.textContent = element;
+                parent.appendChild(option);
+            })
         });
     }
 
