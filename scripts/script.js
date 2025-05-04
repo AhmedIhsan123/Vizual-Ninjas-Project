@@ -21,7 +21,7 @@ class EventApp {
 
     // Method to help set chart options
     setChartOptions(graphTitle, xTitle, yTitle, xData, yData) {
-        return { chartData, options } = {
+        return {
             chartData: {
                 labels: xData,
                 datasets: [{
