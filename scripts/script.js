@@ -21,9 +21,10 @@ class EventApp {
 
             // Aded the states to a dropdown
             for (let i = 0; i < data.states.length; i++) {
+                let currentState = data.states[i];
                 const option = document.createElement('option');
-                option.value = data.states.state_id[i];
-                option.textContent = data.states.state_name[i];
+                option.value = currentState['state_id'];
+                option.textContent = currentState['state_name'];
                 stateDropRef.appendChild(option);
             }
         });
