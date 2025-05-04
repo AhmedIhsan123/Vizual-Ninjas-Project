@@ -10,6 +10,11 @@ export default class ChartBuilder {
 
     // Method to create the chart
     build() {
+
+        if (this.chart) {
+            this.destroy;
+        }
+
         const ctx = document.getElementById(this.canvasId).getContext('2d');
 
         // Create the chart using Chart.js
@@ -32,12 +37,5 @@ export default class ChartBuilder {
     updateOptions(newOptions) {
         this.chart.options = newOptions;
         this.chart.update();
-    }
-
-    // Method to destroy the chart
-    destroy() {
-        if (this.chart) {
-            this.chart.destroy();
-        }
     }
 }
