@@ -106,9 +106,6 @@ class EventApp {
 
 // Once the DOM content has loaded
 document.addEventListener("DOMContentLoaded", () => {
-    // Update our filter UI
-    app.setFiltersUI();
-
     // Create an app variable to store the application class
     const app = new EventApp();
     const filters = {
@@ -116,6 +113,9 @@ document.addEventListener("DOMContentLoaded", () => {
         country: "",
         state: ""
     };
+
+    // Update our filter UI
+    app.setFiltersUI();
 
     // Create URL to fetch
     let url = `./PHP/events.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}`;
