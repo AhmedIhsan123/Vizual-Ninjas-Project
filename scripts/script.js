@@ -143,6 +143,8 @@ document.addEventListener("DOMContentLoaded", () => {
             // Create chart builder
             const eventChart = new ChartBuilder('eventChart', 'bar', chartData, options);
 
+            eventChart.destroy();
+
             // Build the chart
             eventChart.build();
         });
