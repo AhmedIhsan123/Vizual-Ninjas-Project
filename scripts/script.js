@@ -135,16 +135,23 @@ document.addEventListener("DOMContentLoaded", () => {
         // Create URL to fetch
         let url = `./PHP/events.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}`;
 
+        let currentChart = null;
+
         // Fetch data for average event travel distance
         app.fetchData(url).then(data => {
             // Create a variable to store information about graph
             const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', data.map(event => event.EVENT_NAME), data.map(event => event.avg_distance_miles));
 
+            // If a chart already exists, destroy it before creating a new one
+            if (currentChart) {
+                currentChart.destory();
+            }
+
             // Create chart builder
-            const eventChart = new ChartBuilder('eventChart', 'bar', chartData, options);
+            currentChart = new ChartBuilder('eventChart', 'bar', chartData, options);
 
             // Build the chart
-            eventChart.build();
+            currentChart.build();
         });
     })
 
