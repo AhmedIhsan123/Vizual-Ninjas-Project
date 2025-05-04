@@ -1,5 +1,7 @@
 import ChartBuilder from "./charts.js";
 
+
+
 // Event application class
 class EventApp {
     // Default constructor
@@ -16,27 +18,14 @@ class EventApp {
             return [];
         }
     }
-}
 
-
-// Once the DOM content has loaded
-document.addEventListener("DOMContentLoaded", () => {
-    // Create an app variable to store the application class
-    const app = new EventApp();
-    const filters = {
-        tier: "",
-        country: "",
-        state: ""
-    };
-    let url = `./PHP/event.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}`;
-
-    // Fetch data for average event travel distance
-    app.fetchData(url).then(data => {
-        const { chartData, options } = {
+    // Method to help set chart options
+    setChartOptions(graphTitle, xTitle, yTitle, xData, yData) {
+        return { chartData, options } = {
             chartData: {
-                labels: data.map(event => event.EVENT_NAME),
+                labels: xData,
                 datasets: [{
-                    data: data.map(event => event.avg_distance_miles),
+                    data: yData,
                     backgroundColor: 'green',
                     borderWidth: 1
                 }]
@@ -47,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     x: {
                         title: {
                             display: true,
-                            text: 'Events',
+                            text: xTitle,
                             font: {
                                 size: 16
                             }
@@ -60,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     y: {
                         title: {
                             display: true,
-                            text: 'Average Distance in Miles',
+                            text: yTitle,
                             font: {
                                 size: 16
                             }
@@ -74,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 plugins: {
                     title: {
                         display: true,
-                        text: 'Average Distance Traveled Per Event', // Title text
+                        text: graphTitle, // Title text
                         position: 'top', // Ensure title is at the top
                         font: {
                             size: 20,
@@ -100,6 +89,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         };
+    }
+}
+
+// Once the DOM content has loaded
+document.addEventListener("DOMContentLoaded", () => {
+    // Create an app variable to store the application class
+    const app = new EventApp();
+    const filters = {
+        tier: "",
+        country: "",
+        state: ""
+    };
+    let url = `./PHP/event.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}`;
+
+    // Fetch data for average event travel distance
+    app.fetchData(url).then(data => {
+        // Create a variable to store information about graph
+        const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', data.map(event => event.EVENT_NAME), data.map(event => event.avg_distance_miles));
 
         // Create chart builder
         const eventChart = new ChartBuilder('eventChart', 'bar', chartData, options);

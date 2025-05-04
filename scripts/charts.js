@@ -1,4 +1,5 @@
 export default class ChartBuilder {
+
     constructor(canvasId, chartType, data, options) {
         this.canvasId = canvasId;
         this.chartType = chartType;
