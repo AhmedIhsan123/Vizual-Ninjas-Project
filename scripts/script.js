@@ -26,7 +26,7 @@ class EventApp {
     // Method to update all filters
     setFiltersUI() {
         // Make API call to database
-        this.fetchData('./PHP/handlers/get_all_available_filters.php').then(data => {
+        this.fetchData('./PHP/handlers/getFilters.php').then(data => {
             console.log(data);
         });
     }
