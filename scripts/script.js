@@ -15,6 +15,7 @@ class EventApp {
     setFiltersUI() {
         // Make API call to database
         this.fetchData('./PHP/handlers/getFilters.php').then(data => {
+            console.log(data);
             this.addElements(data.tiers, tierDropRef);
             this.addElements(data.countries, countryDropRef);
             this.addElements(data.states, stateDropRef);
