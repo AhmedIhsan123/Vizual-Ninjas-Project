@@ -24,7 +24,7 @@ class EventApp {
                 const option = document.createElement('option');
                 option.value = data.states.state_ID;
                 option.textContent = element;
-                parent.appendChild(option);
+                stateDropRef.appendChild(option);
             })
         });
     }
