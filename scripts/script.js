@@ -1,11 +1,15 @@
 import ChartBuilder from "./charts.js";
 
-
-
 // Event application class
 class EventApp {
     // Default constructor
-    constructor() { }
+    constructor() {
+        this.tierDropRef = document.querySelector("#tier");
+        this.countryDropRef = document.querySelector("#country");
+        this.stateDropRef = document.querySelector("#state");
+        this.applyBtnRef = document.querySelector("#applyFilters");
+    }
+
 
     // Method to fetch data through url and return the data found
     async fetchData(url) {
@@ -17,6 +21,14 @@ class EventApp {
             console.error('Fetch error:', error);
             return [];
         }
+    }
+
+    // Method to update all filters
+    setFiltersUI() {
+        // Make API call to database
+        this.fetchData('./PHP/handlers/get_all_available_filters.php').then(data => {
+            console.log(data);
+        });
     }
 
     // Method to help set chart options
@@ -94,6 +106,9 @@ class EventApp {
 
 // Once the DOM content has loaded
 document.addEventListener("DOMContentLoaded", () => {
+    // Update our filter UI
+    app.setFiltersUI();
+
     // Create an app variable to store the application class
     const app = new EventApp();
     const filters = {
@@ -101,7 +116,9 @@ document.addEventListener("DOMContentLoaded", () => {
         country: "",
         state: ""
     };
-    let url = `./PHP/event.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}`;
+
+    // Create URL to fetch
+    let url = `./PHP/events.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}`;
 
     // Fetch data for average event travel distance
     app.fetchData(url).then(data => {
