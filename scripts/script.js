@@ -24,6 +24,7 @@ class EventApp {
                 let currentState = data.states[i];
                 const option = document.createElement('option');
                 option.value = currentState['state_id'];
+                console.log(option.value);
                 option.textContent = currentState['state_name'];
                 stateDropRef.appendChild(option);
             }
@@ -172,4 +173,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-
