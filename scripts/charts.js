@@ -10,11 +10,12 @@ export default class ChartBuilder {
 
     // Method to create the chart
     build() {
-
+        // If a chart already exists, destroy it before creating a new one
         if (this.chart) {
-            this.destroy;
+            this.destroy();
         }
 
+        // Create chart ctx
         const ctx = document.getElementById(this.canvasId).getContext('2d');
 
         // Create the chart using Chart.js
