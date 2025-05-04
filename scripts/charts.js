@@ -12,7 +12,7 @@ export default class ChartBuilder {
     build() {
         // If a chart already exists, destroy it before creating a new one
         if (this.chart) {
-            this.destroy();
+            this.chart.destroy();
         }
 
         // Create chart ctx
