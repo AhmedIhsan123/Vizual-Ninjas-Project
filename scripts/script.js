@@ -1,15 +1,35 @@
 import ChartBuilder from "./charts.js";
 
+// Global element vairables
+const tierDropRef = document.querySelector("#tier");
+const countryDropRef = document.querySelector("#country");
+const stateDropRef = document.querySelector("#state");
+const applyBtnRef = document.querySelector("#applyFilters");
+
 // Event application class
 class EventApp {
     // Default constructor
-    constructor() {
-        this.tierDropRef = document.querySelector("#tier");
-        this.countryDropRef = document.querySelector("#country");
-        this.stateDropRef = document.querySelector("#state");
-        this.applyBtnRef = document.querySelector("#applyFilters");
+    constructor() { }
+
+    // Method to update all filters
+    setFiltersUI() {
+        // Make API call to database
+        this.fetchData('./PHP/handlers/getFilters.php').then(data => {
+            this.addElements(data.tiers, tierDropRef);
+            this.addElements(data.countries, countryDropRef);
+            this.addElements(data.states, stateDropRef);
+        });
     }
 
+    // Helper method to create elements
+    addElements(data, parent) {
+        data.forEach(element => {
+            const option = document.createElement('option');
+            option.value = element;
+            option.textContent = element;
+            parent.appendChild(option);
+        });
+    }
 
     // Method to fetch data through url and return the data found
     async fetchData(url) {
@@ -20,26 +40,6 @@ class EventApp {
         } catch (error) {
             console.error('Fetch error:', error);
             return [];
-        }
-    }
-
-    // Method to update all filters
-    setFiltersUI() {
-        // Make API call to database
-        this.fetchData('./PHP/handlers/getFilters.php').then(data => {
-            addElements(data.tiers, this.tierDropRef);
-            addElements(data.countries, this.countryDropRef);
-            addElements(data.states, this.stateDropRef);
-        });
-
-        // Helper method to create elements
-        function addElements(data, parent) {
-            data.forEach(element => {
-                const option = document.createElement('option');
-                option.value = element;
-                option.textContent = element;
-                parent.appendChild(option);
-            });
         }
     }
 
@@ -143,4 +143,16 @@ document.addEventListener("DOMContentLoaded", () => {
         // Build the chart
         eventChart.build();
     });
+
+    // When country dropdown changes
+    countryDropRef.addEventListener("change", function () {
+        app.fetchData(`./PHP/handlers/getFilters?country=${countryDropRef.value}`).then(data => {
+            // Remove all states but first option
+            for (let i = stateDropRef.children.length - 1; i > 0; i--) {
+                stateDropRef.removeChild(stateDropRef.children[i]);
+            }
+            app.addElements(data.states, stateDropRef);
+        });
+    });
 });
+
