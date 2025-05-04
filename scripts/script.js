@@ -20,12 +20,12 @@ class EventApp {
             this.addElements(data.countries, countryDropRef, false);
 
             // Aded the states to a dropdown
-            data.states.forEach(element => {
+            for (i = 0; i < data.states.length; i++) {
                 const option = document.createElement('option');
-                option.value = data.states.state_ID;
-                option.textContent = element;
+                option.value = data.states.state_id[i];
+                option.textContent = data.states.state_name[i];
                 stateDropRef.appendChild(option);
-            })
+            }
         });
     }
 
