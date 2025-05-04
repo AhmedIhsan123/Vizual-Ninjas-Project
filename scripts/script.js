@@ -147,9 +147,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // When country dropdown changes
     countryDropRef.addEventListener("change", function () {
         console.log("Change!");
-        app.fetchData(`./PHP/handlers/getFilters.php?country=${'CA'}`).then(data => {
+        app.fetchData(`./PHP/handlers/getProvince.php?country=${'CA'}`).then(data => {
             // Remove all states but first option
-            console.log(data.states);
             for (let i = stateDropRef.children.length - 1; i > 0; i--) {
                 stateDropRef.removeChild(stateDropRef.children[i]);
             }
