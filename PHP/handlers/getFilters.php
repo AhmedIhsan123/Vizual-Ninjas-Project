@@ -1,5 +1,10 @@
 <?php
 
+// Enable error reporting
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 header('Content-Type: application/json');
 require 'db.php';
 
@@ -11,7 +16,7 @@ if (!isset($pdo)) {
 
 try {
     // Query 1: Unique Tiers
-    $stmt1 = $pdo->query("SELECT DISTINCT EVENT_TIER_ID AS tier FROM EVENT WHERE EVENT_TIER_ID IS NOT NULL");
+    $stmt1 = $pdo->query("SELECT DISTINCT EVENT_TIER_ID AS tier FROM EVENT WHERE EVENT_TIER_ID IS NOT NULL ORDER BY tier ASC;");
     $tiers = $stmt1->fetchAll(PDO::FETCH_COLUMN);
 
     // Query 2: Unique States
@@ -28,7 +33,8 @@ try {
         'states' => $states,
         'countries' => $countries
     ]);
+
 } catch (PDOException $e) {
     http_response_code(500);
-    echo json_encode(['error' => $e->getMessage()]);
+    echo json_encode(['error' => 'Query failed', 'details' => $e->getMessage()]);
 }
