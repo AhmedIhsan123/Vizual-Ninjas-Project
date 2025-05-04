@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const app = new EventApp();
 
     // Create chart builder
-    const eventChart = new ChartBuilder('eventChart', 'bar', chartData, options);
+    const eventChart = new ChartBuilder('eventChart', 'bar', [], []);
 
     // Build the chart
     eventChart.build();
