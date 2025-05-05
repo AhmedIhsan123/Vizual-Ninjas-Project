@@ -15,30 +15,29 @@ class EventApp {
     setFiltersUI() {
         // Make API call to database
         this.fetchData('./PHP/handlers/getFilters.php').then(data => {
-            console.log(data);
-            this.addElements(data.tiers, tierDropRef, false);
-            this.addElements(data.countries, countryDropRef, false);
+            // Add tiers dropdown information
+            data.tiers.forEach(element => {
+                this.addDropdownElement(element, element, tierDropRef);
+            });
 
-            // Aded the states to a dropdown
-            for (let i = 0; i < data.states.length; i++) {
-                let currentState = data.states[i];
-                const option = document.createElement('option');
-                option.value = currentState['state_id'];
-                console.log(option.value);
-                option.textContent = currentState['state_name'];
-                stateDropRef.appendChild(option);
-            }
+            // Add countries to country dropdown
+            data.countries.forEach(element => {
+                this.addDropdownElement(element, element, countryDropRef);
+            });
+
+            // Add states to state dropdown
+            data.states.forEach(element => {
+                this.addDropdownElement(element['state_id'], element['state_name'], stateDropRef);
+            });
         });
     }
 
-    // Helper method to create elements
-    addElements(data, parent) {
-        data.forEach(element => {
-            const option = document.createElement('option');
-            option.value = element;
-            option.textContent = element;
-            parent.appendChild(option);
-        });
+    // Method to add elements to a dropdown
+    addDropdownElement(value, text, parent) {
+        const option = document.createElement('option');
+        option.value = value;
+        option.textContent = text;
+        parent.appendChild(option);
     }
 
     // Method to fetch data through url and return the data found
@@ -167,11 +166,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // When country dropdown changes
     countryDropRef.addEventListener("change", function () {
         app.fetchData(`./PHP/handlers/getProvince.php?country=${countryDropRef.value}`).then(data => {
-            // Remove all states but first option
+            // Remove all state options
             for (let i = stateDropRef.children.length - 1; i > 0; i--) {
                 stateDropRef.removeChild(stateDropRef.children[i]);
             }
-            app.addElements(data.states, stateDropRef);
+
+            // Add states to state dropdown
+            data.states.forEach(element => {
+                app.addDropdownElement(element['state_id'], element['state_name'], stateDropRef);
+            });
         });
     });
 });
