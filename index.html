@@ -16,51 +16,58 @@
   <!-- Scripts -->
   <script type="module" src="./scripts/script.js" defer></script>
   <script type="module" src="./scripts/charts.js" defer></script>
-
 </head>
 
 <body>
   <header class="sticky-header">
     <div class="logo">
-      <img src="Img/VisualNinjaLogo.png" alt="Logo" class="logo-img">
+      <img src="Img/VisualNinjaLogo.png" alt="Visual Ninja Logo" class="logo-img">
       <p>Vizual Ninjas</p>
     </div>
   </header>
   <div class="container">
+
     <div class="center">
       <h1>Disc Golf Event Statistics</h1>
     </div>
 
     <!-- Data filters section -->
-    <h2>Filter Events</h2>
-    <section class="data-filters">
-      <!-- Tier label -->
-      <label for="tier">Tier:</label>
-      <select id="tier">
-        <option value="">Any</option>
-      </select>
+    <div class="filters-wrapper">
+      <div class="center">
+        <h2>Filter Events</h2>
+      </div>
+      <section class="data-filters">
+        <!-- Tier label -->
+        <label for="tier">Tier:</label>
+        <select id="tier">
+          <option value="">Any</option>
+        </select>
 
-      <!-- Country button -->
-      <label for="country">Country:</label>
-      <select id="country">
-        <option value="">Any</option>
-      </select>
+        <!-- Country button -->
+        <label for="country">Country:</label>
+        <select id="country">
+          <option value="">Any</option>
+        </select>
 
-      <!-- State button -->
-      <label for="state">State:</label>
-      <select id="state">
-        <option value="">Any</option>
-      </select>
+        <!-- State button -->
+        <label for="state">State:</label>
+        <select id="state">
+          <option value="">Any</option>
+        </select>
 
-      <!-- Apply filters button -->
-      <button id="applyFilters">Apply Filters</button>
-    </section>
+        <!-- Apply filters button -->
+        <button id="applyFilters">Apply Filters</button>
+      </section>
+    </div>
 
     <!-- Data Visualization Section -->
     <div class="visualizations">
-      <h2>Data Visualizations</h2>
+      <div class="center">
+        <h2>Data Visualizations</h2>
+      </div>
       <canvas id="eventChart"></canvas>
     </div>
+  </div>
 </body>
 
 </html>
