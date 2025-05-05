@@ -15,17 +15,16 @@ try {
     if ($countryCode) {
         // Query for states by specific country
         $stmt = $pdo->prepare("
-            SELECT DISTINCT S.STATE_NAME AS state
+            SELECT DISTINCT S.STATE_NAME AS state_name, S.STATE_ID AS state_id
             FROM EVENT E
             JOIN STATE S ON E.EVENT_STATE_ID = S.STATE_ID
-            WHERE E.COUNTRY_ID = :countryCode
-              AND E.EVENT_STATE_ID IS NOT NULL
+            WHERE E.COUNTRY_ID = :countryCode AND E.EVENT_STATE_ID IS NOT NULL
         ");
         $stmt->execute(['countryCode' => $countryCode]);
     } else {
         // Query for all unique states regardless of country
         $stmt = $pdo->prepare("
-            SELECT DISTINCT S.STATE_NAME AS state
+            SELECT DISTINCT S.STATE_NAME AS state_name, S.STATE_ID AS state_id
             FROM EVENT E
             JOIN STATE S ON E.EVENT_STATE_ID = S.STATE_ID
             WHERE E.EVENT_STATE_ID IS NOT NULL
@@ -33,7 +32,7 @@ try {
         $stmt->execute();
     }
 
-    $states = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    $states = $stmt->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode(['states' => $states]);
 
 } catch (PDOException $e) {
