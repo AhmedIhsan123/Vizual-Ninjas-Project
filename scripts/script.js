@@ -230,6 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', data.map(event => event.EVENT_NAME), data.map(event => event.AVG_DISTANCE_TRAVELED_MILES), data.MEMBERS_OUT_OF_STATE, data.MEMBERS_IN_STATE);
 
             console.log(data.MEMBERS_IN_STATE, data.MEMBERS_OUT_OF_STATE);
+            console.log(data);
 
             // Update data/options
             eventChart.updateData(chartData);
