@@ -2,7 +2,7 @@
 header('Content-Type: application/json');
 
 // Connect to the database
-require 'db.php';
+require '../db.php';
 
 // Get event_id from a GET parameter or other input
 $eventId = $_GET['event_id']; // Make sure to validate/sanitize this
