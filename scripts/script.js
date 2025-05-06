@@ -57,16 +57,16 @@ class EventApp {
 
     // Method to help set chart options
     setChartOptions(graphTitle, xTitle, yTitle, xData, yData) {
-        // if (!Array.isArray(yData) || yData.length === 0) {
-        //     console.error("Invalid or empty yData passed to chart options.");
-        //     return {
-        //         chartData: {
-        //             labels: [],
-        //             datasets: []
-        //         },
-        //         options: {}
-        //     };
-        // }
+        if (!Array.isArray(yData) || yData.length === 0) {
+            console.error("Invalid or empty yData passed to chart options.");
+            return {
+                chartData: {
+                    labels: [],
+                    datasets: []
+                },
+                options: {}
+            };
+        }
         
         // Calculates the min, max, and average
         const minValue = Math.min(...yData);
