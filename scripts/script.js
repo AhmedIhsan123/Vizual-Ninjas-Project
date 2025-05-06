@@ -155,8 +155,6 @@ document.addEventListener("DOMContentLoaded", () => {
             // Create a variable to store information about graph
             const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', data.map(event => event.EVENT_NAME), data.map(event => event.avg_distance_miles));
 
-            console.log(data);
-
             // Update data/options
             eventChart.updateData(chartData);
             eventChart.updateOptions(options);
