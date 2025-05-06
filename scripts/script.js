@@ -1,6 +1,5 @@
 import ChartBuilder from "./charts.js";
 
-// Global element variables
 // Global element vairables
 const tierDropRef = document.querySelector("#tier");
 const countryDropRef = document.querySelector("#country");
