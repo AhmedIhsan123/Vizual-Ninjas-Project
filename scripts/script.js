@@ -6,9 +6,6 @@ const countryDropRef = document.querySelector("#country");
 const stateDropRef = document.querySelector("#state");
 const applyBtnRef = document.querySelector("#applyFilters");
 
-let inStateCount = 0;
-let outStateCount = 0;
-
 // Event application class
 class EventApp {
     constructor() { }
@@ -58,17 +55,13 @@ class EventApp {
 
     // Method to set chart options safely
     setChartOptions(graphTitle, xTitle, yTitle, xData, yData) {
-        /*
-        if (!Array.isArray(yData) || yData.length === 0) {
-            console.error("Invalid or empty yData passed to chart options.");
-            return { chartData: { labels: [], datasets: [] }, options: {} };
-        }*/
+        // Variables to track annotation information
+        const averages = yData.map(point => point.y);
+        const minValue = Math.min(...averages);
+        const maxValue = Math.max(...averages);
+        const avgValue = averages.reduce((sum, value) => sum + value, 0) / averages.length;
 
-        const yValues = yData.map(point => point.y);
-        const minValue = Math.min(...yValues);
-        const maxValue = Math.max(...yValues);
-        const avgValue = yValues.reduce((sum, value) => sum + value, 0) / yValues.length;
-
+        // Return the combined data
         return {
             chartData: {
                 labels: xData,
@@ -118,9 +111,6 @@ class EventApp {
                         callbacks: {
                             label: context => {
                                 const point = context.raw;
-
-                                console.log(point);
-
                                 // Ensure point exists before accessing properties
                                 const avgDistance = point?.y?.toFixed(2) ?? 'N/A';
                                 const osCount = point?.osCount ?? 'N/A';
