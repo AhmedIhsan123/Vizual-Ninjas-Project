@@ -57,6 +57,11 @@ class EventApp {
 
     // Method to help set chart options
     setChartOptions(graphTitle, xTitle, yTitle, xData, yData) {
+        // Calculates the min, max, and average
+        const minValue = Math.min(...yData);
+        const maxValue = Math.max(...yData);
+        const avgValue = yData.reduce((sum, value) => sum + value, 0) / yData.length;
+
         return {
             chartData: {
                 labels: xData,
@@ -121,6 +126,49 @@ class EventApp {
                                 return `Average Distance: ${point.y.toFixed(2)} mi | Total In State: ${point.inState} | Total Out Of State: ${point.outState}`;
                             }
                         }
+                    },
+                    annotation: {
+                        annotations: {
+                            // Min value annotation
+                            min: {
+                                type: 'line',
+                                yMin: minValue,
+                                yMax: minValue,
+                                borderColor: 'green',
+                                borderWidth: 2,
+                                label: {
+                                    enabled: true,
+                                    content: `Min: ${minValue.toFixed(2)} mi`,
+                                    position: 'start'
+                                }
+                            },
+                            // Max value annotation
+                            max: {
+                                type: 'line',
+                                yMin: maxValue,
+                                yMax: maxValue,
+                                borderColor: 'red',
+                                borderWidth: 2,
+                                label: {
+                                    enabled: true,
+                                    content: `Max: ${maxValue.toFixed(2)} mi`,
+                                    position: 'start'
+                                }
+                            },
+                            // Average value annotation
+                            avg: {
+                                type: 'line',
+                                yMin: avgValue,
+                                yMax: avgValue,
+                                borderColor: 'yellow',
+                                borderWidth: 2,
+                                label: {
+                                    enabled: true,
+                                    content: `Avg: ${avgValue.toFixed(2)} mi`,
+                                    position: 'start'
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -162,8 +210,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (filters.endDate) {
             url += `&end_date=${encodeURIComponent(filters.endDate)}`;
         }
-
-        console.log("Request URL: ", url); 
 
         // Fetch data for average event travel distance
         app.fetchData(url).then(data => {
