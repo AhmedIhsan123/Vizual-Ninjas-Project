@@ -68,8 +68,6 @@ class EventApp {
             };
         }
 
-        console.log(osCount, isCount);
-
         // Calculates the min, max, and average
         const minValue = Math.min(...yData);
         const maxValue = Math.max(...yData);
@@ -227,10 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Fetch data for average event travel distance
         app.fetchData(url).then(data => {
             // Create a variable to store information about graph
-            const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', data.map(event => event.EVENT_NAME), data.map(event => event.AVG_DISTANCE_TRAVELED_MILES), data.MEMBERS_OUT_OF_STATE, data.MEMBERS_IN_STATE);
-
-            console.log(data.MEMBERS_IN_STATE);
-            console.log(data);
+            const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', data.map(event => event.EVENT_NAME), data.map(event => event.AVG_DISTANCE_TRAVELED_MILES), data.map(event => event.MEMBERS_OUT_OF_STATE), data.map(event => event.MEMBERS_IN_STATE));
 
             // Update data/options
             eventChart.updateData(chartData);
