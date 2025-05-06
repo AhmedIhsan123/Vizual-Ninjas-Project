@@ -163,6 +163,8 @@ document.addEventListener("DOMContentLoaded", () => {
             url += `&end_date=${encodeURIComponent(filters.endDate)}`;
         }
 
+        console.log("Request URL: ", url); 
+
         // Fetch data for average event travel distance
         app.fetchData(url).then(data => {
             // Create a variable to store information about graph
