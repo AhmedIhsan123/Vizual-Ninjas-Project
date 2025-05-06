@@ -1,6 +1,6 @@
 import ChartBuilder from "./charts.js";
 
-// Global element vairables
+// Global element variables
 const tierDropRef = document.querySelector("#tier");
 const countryDropRef = document.querySelector("#country");
 const stateDropRef = document.querySelector("#state");
@@ -11,13 +11,13 @@ let outStateCount = 0;
 
 // Event application class
 class EventApp {
-    // Default constructor
     constructor() { }
 
     // Method to update all filters
     setFiltersUI() {
-        // Make API call to database
         this.fetchData('./PHP/handlers/getFilters.php').then(data => {
+            if (!data) return;
+
             // Add tiers dropdown information
             data.tiers.forEach(element => {
                 this.addDropdownElement(element, element, tierDropRef);
@@ -32,11 +32,12 @@ class EventApp {
             data.states.forEach(element => {
                 this.addDropdownElement(element['state_id'], element['state_name'], stateDropRef);
             });
-        });
+        }).catch(error => console.error('Error fetching filters:', error));
     }
 
     // Method to add elements to a dropdown
     addDropdownElement(value, text, parent) {
+        if (!parent) return;
         const option = document.createElement('option');
         option.value = value;
         option.textContent = text;
@@ -47,37 +48,31 @@ class EventApp {
     async fetchData(url) {
         try {
             const response = await fetch(url);
-            const data = await response.json();
-            return data;
+            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+            return await response.json();
         } catch (error) {
             console.error('Fetch error:', error);
             return [];
         }
     }
 
-    // Method to help set chart options
-    setChartOptions(graphTitle, xTitle, yTitle, xData, yData, osCount, isCount) {
+    // Method to set chart options safely
+    setChartOptions(graphTitle, xTitle, yTitle, xData, yData) {
         if (!Array.isArray(yData) || yData.length === 0) {
             console.error("Invalid or empty yData passed to chart options.");
-            return {
-                chartData: {
-                    labels: [],
-                    datasets: []
-                },
-                options: {}
-            };
+            return { chartData: { labels: [], datasets: [] }, options: {} };
         }
 
-        // Calculates the min, max, and average
-        const minValue = Math.min(...yData);
-        const maxValue = Math.max(...yData);
-        const avgValue = yData.reduce((sum, value) => sum + value, 0) / yData.length;
+        const yValues = yData.map(point => point.y);
+        const minValue = Math.min(...yValues);
+        const maxValue = Math.max(...yValues);
+        const avgValue = yValues.reduce((sum, value) => sum + value, 0) / yValues.length;
 
         return {
             chartData: {
                 labels: xData,
                 datasets: [{
-                    data: yData,
+                    data: yValues,
                     backgroundColor: 'green',
                     borderWidth: 1
                 }]
@@ -89,9 +84,7 @@ class EventApp {
                         title: {
                             display: true,
                             text: xTitle,
-                            font: {
-                                size: 16
-                            }
+                            font: { size: 16 }
                         },
                         ticks: {
                             maxRotation: 90,
@@ -102,9 +95,7 @@ class EventApp {
                         title: {
                             display: true,
                             text: yTitle,
-                            font: {
-                                size: 16
-                            }
+                            font: { size: 16 }
                         },
                         ticks: {
                             beginAtZero: true,
@@ -115,69 +106,46 @@ class EventApp {
                 plugins: {
                     title: {
                         display: true,
-                        text: graphTitle, // Title text
-                        position: 'top', // Ensure title is at the top
-                        font: {
-                            size: 20,
-                            weight: 'bold'
-                        },
-                        padding: {
-                            top: 10,
-                            bottom: 20
-                        },
-                        color: '#333' // Optional: customize title color
+                        text: graphTitle,
+                        position: 'top',
+                        font: { size: 20, weight: 'bold' },
+                        padding: { top: 10, bottom: 20 },
+                        color: '#333'
                     },
-                    legend: {
-                        display: false
-                    },
+                    legend: { display: false },
                     tooltip: {
                         callbacks: {
                             label: context => {
                                 const point = context.raw;
-                                return `Average Distance: ${point.y.toFixed(2)}, OS: ${point.osCount}, IS: ${point.isCount}`;
+                                return `Average Distance: ${point.y.toFixed(2)} mi`;
                             }
                         }
                     },
                     annotation: {
                         annotations: {
-                            // Min value annotation
                             min: {
                                 type: 'line',
                                 yMin: minValue,
                                 yMax: minValue,
                                 borderColor: 'green',
                                 borderWidth: 2,
-                                label: {
-                                    enabled: true,
-                                    content: `Min: ${minValue.toFixed(2)} mi,`,
-                                    position: 'start'
-                                }
+                                label: { enabled: true, content: `Min: ${minValue.toFixed(2)} mi`, position: 'start' }
                             },
-                            // Max value annotation
                             max: {
                                 type: 'line',
                                 yMin: maxValue,
                                 yMax: maxValue,
                                 borderColor: 'red',
                                 borderWidth: 2,
-                                label: {
-                                    enabled: true,
-                                    content: `Max: ${maxValue.toFixed(2)} mi`,
-                                    position: 'start'
-                                }
+                                label: { enabled: true, content: `Max: ${maxValue.toFixed(2)} mi`, position: 'start' }
                             },
-                            // Average value annotation
                             avg: {
                                 type: 'line',
                                 yMin: avgValue,
                                 yMax: avgValue,
                                 borderColor: 'yellow',
                                 borderWidth: 2,
-                                label: {
-                                    enabled: true,
-                                    content: `Avg: ${avgValue.toFixed(2)} mi`,
-                                    position: 'start'
-                                }
+                                label: { enabled: true, content: `Avg: ${avgValue.toFixed(2)} mi`, position: 'start' }
                             }
                         }
                     }
@@ -185,66 +153,44 @@ class EventApp {
             }
         };
     }
-};
+}
 
-// Once the DOM content has loaded
+// Initialize app once DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
-    // Create an app variable to store the application class
     const app = new EventApp();
+    const eventChart = new ChartBuilder('eventChart', 'bar', [], app.setChartOptions('Undefined', 'Undefined', 'Undefined', null, []));
 
-    // Create chart builder
-    const eventChart = new ChartBuilder('eventChart', 'bar', [], app.setChartOptions('Undefined', 'Undefined', 'Undefined', null, null));
-
-    // Build the chart
     eventChart.build();
-
-    // Update our filter UI
     app.setFiltersUI();
 
-    // When apply flters is clicked
     applyBtnRef.addEventListener('click', function () {
-        const filters = {
-            tier: tierDropRef.value,
-            country: countryDropRef.value,
-            state: stateDropRef.value
-        };
+        const filters = { tier: tierDropRef.value, country: countryDropRef.value, state: stateDropRef.value };
+        const url = `./PHP/events.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}`;
 
-        // Create URL to fetch
-        let url = `./PHP/events.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}`;
-
-        // Fetch data for average event travel distance
         app.fetchData(url).then(data => {
             const xLabels = data.map(event => event.EVENT_NAME);
             const yData = data.map(event => ({
                 x: event.EVENT_NAME,
-                y: event.avg_distance_miles,
-                inState: event.MEMBERS_IN_STATE,
-                outState: event.MEMBERS_OUT_OF_STATE
+                y: event.avg_distance_miles
             }));
 
-            const { chartData, options } = app.setChartOptions(
-                'Average Distance Traveled Per Event',
-                'Events',
-                'Average Distance Traveled in Miles',
-                xLabels,
-                yData
-            );
+            const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', xLabels, yData);
 
             eventChart.updateData(chartData);
             eventChart.updateOptions(options);
         });
     });
-})
+});
 
-// When country dropdown changes
+// When country dropdown changes, update state options
 countryDropRef.addEventListener("change", function () {
     app.fetchData(`./PHP/handlers/getProvince.php?country=${countryDropRef.value}`).then(data => {
-        // Remove all state options
-        for (let i = stateDropRef.children.length - 1; i > 0; i--) {
-            stateDropRef.removeChild(stateDropRef.children[i]);
+        if (!data.states) return;
+
+        while (stateDropRef.children.length > 1) {
+            stateDropRef.removeChild(stateDropRef.lastChild);
         }
 
-        // Add states to state dropdown
         data.states.forEach(element => {
             app.addDropdownElement(element['state_id'], element['state_name'], stateDropRef);
         });
