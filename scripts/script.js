@@ -6,6 +6,9 @@ const countryDropRef = document.querySelector("#country");
 const stateDropRef = document.querySelector("#state");
 const applyBtnRef = document.querySelector("#applyFilters");
 
+let inStateCount = 0;
+let outStateCount = 0;
+
 // Event application class
 class EventApp {
     // Default constructor
@@ -115,7 +118,7 @@ class EventApp {
                         callbacks: {
                             label: context => {
                                 const value = context.raw;
-                                return 'Average Distance: ' + value.toFixed(2) + ' mi';
+                                return 'Average Distance: ' + value.toFixed(2) + ' mi | Total Count: ' + (inStateCount + outStateCount);
                             }
                         }
                     }
@@ -158,6 +161,17 @@ document.addEventListener("DOMContentLoaded", () => {
             // Update data/options
             eventChart.updateData(chartData);
             eventChart.updateOptions(options);
+
+            inStateCount = 0;
+            outStateCount = 0;
+
+            // FOR EACH LOOP THAT FETCHES getMembers.php
+            data.forEach(event => {
+                app.fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`).then(counts => {
+                    inStateCount += parseInt(counts.members_same_state);
+                    outStateCount += parseInt(counts.members_different_state);
+                });
+            });
         });
     })
 
