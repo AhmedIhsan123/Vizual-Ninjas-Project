@@ -56,7 +56,7 @@ class EventApp {
     }
 
     // Method to help set chart options
-    setChartOptions(graphTitle, xTitle, yTitle, xData, yData) {
+    setChartOptions(graphTitle, xTitle, yTitle, xData, yData, osCount, isCount) {
         return {
             chartData: {
                 labels: xData,
@@ -118,7 +118,7 @@ class EventApp {
                         callbacks: {
                             label: context => {
                                 const point = context.raw;
-                                return `Average Distance: ${point.y.toFixed(2)} mi | Total In State: ${point.inState} | Total Out Of State: ${point.outState}`;
+                                return `Average Distance: ${point}, OS: ${osCount}, IS: ${isCount}`;
                             }
                         }
                     }
@@ -156,41 +156,11 @@ document.addEventListener("DOMContentLoaded", () => {
         // Fetch data for average event travel distance
         app.fetchData(url).then(data => {
             // Create a variable to store information about graph
-            const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', data.map(event => event.EVENT_NAME), data.map(event => event.avg_distance_miles));
+            const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', data.map(event => event.EVENT_NAME), data.map(event => event.avg_distance_miles), data.members_different_state, data.members_same_state);
 
             // Update data/options
             eventChart.updateData(chartData);
             eventChart.updateOptions(options);
-
-            Promise.all(
-                data.map(event =>
-                    app.fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`)
-                        .then(counts => ({
-                            ...event,
-                            inState: parseInt(counts.members_same_state),
-                            outState: parseInt(counts.members_different_state)
-                        }))
-                )
-            ).then(eventsWithCounts => {
-                const xLabels = eventsWithCounts.map(event => event.EVENT_NAME);
-                const yData = eventsWithCounts.map(event => ({
-                    x: event.EVENT_NAME,
-                    y: event.avg_distance_miles,
-                    inState: event.inState,
-                    outState: event.outState
-                }));
-
-                const { chartData, options } = app.setChartOptions(
-                    'Average Distance Traveled Per Event',
-                    'Events',
-                    'Average Distance Traveled in Miles',
-                    xLabels,
-                    yData
-                );
-
-                eventChart.updateData(chartData);
-                eventChart.updateOptions(options);
-            });
         });
     })
 
