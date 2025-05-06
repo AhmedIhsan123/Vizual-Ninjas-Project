@@ -118,6 +118,8 @@ class EventApp {
                             label: context => {
                                 const point = context.raw;
 
+                                console.log(point);
+
                                 // Ensure point and point.y exist before using toFixed()
                                 const avgDistance = point?.y?.toFixed(2) ?? 'N/A';
                                 const osCount = point?.osCount ?? 'N/A';
