@@ -58,10 +58,11 @@ class EventApp {
 
     // Method to set chart options safely
     setChartOptions(graphTitle, xTitle, yTitle, xData, yData) {
+        /*
         if (!Array.isArray(yData) || yData.length === 0) {
             console.error("Invalid or empty yData passed to chart options.");
             return { chartData: { labels: [], datasets: [] }, options: {} };
-        }
+        }*/
 
         const yValues = yData.map(point => point.y);
         const minValue = Math.min(...yValues);
@@ -165,28 +166,36 @@ class EventApp {
 
 // Initialize app once DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
+    // Create a new EventApp to handle data
     const app = new EventApp();
+    // Construct a new chartbuilder
     const eventChart = new ChartBuilder('eventChart', 'bar', [], app.setChartOptions('Undefined', 'Undefined', 'Undefined', null, []));
 
+    // Build an empty chart to start the site
     eventChart.build();
+
+    // Populate filter dropdowns
     app.setFiltersUI();
 
+    // Clicking on Apply Filters
     applyBtnRef.addEventListener('click', function () {
-        const filters = { tier: tierDropRef.value, country: countryDropRef.value, state: stateDropRef.value, startDate: document.querySelector("#startDate").value, endDate: document.querySelector("#endDate").value };
+        // Store the filters in an object to construct the URL later
+        const filters = {
+            tier: tierDropRef.value,
+            country: countryDropRef.value,
+            state: stateDropRef.value,
+            startDate: document.querySelector("#startDate").value,
+            endDate: document.querySelector("#endDate").value
+        };
 
         // URL to fetch
-        let url = `./PHP/events.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}`;
+        let url = `./PHP/events.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}&start_date=${filters.startDate}&end_date=${filters.endDate}`;
 
-        // Adds dates if given
-        if (filters.startDate) {
-            url += `&start_date=${encodeURIComponent(filters.startDate)}`;
-        }
-        if (filters.endDate) {
-            url += `&end_date=${encodeURIComponent(filters.endDate)}`;
-        }
-
+        // Fetch the URL
         app.fetchData(url).then(data => {
+            // Variables to store options
             const xLabels = data.map(event => event.EVENT_NAME);
+            // Data information for y axis
             const yData = data.map(event => ({
                 x: event.EVENT_NAME,
                 y: event.AVG_TRAVEL_DISTANCE_MILES,
@@ -194,10 +203,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 isCount: event.MEMBERS_IN_STATE
             }));
 
-            console.log(yData);
-
+            // Variable to store the combined data
             const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', xLabels, yData);
 
+            // Update the data and options of new chart
             eventChart.updateData(chartData);
             eventChart.updateOptions(options);
         });
@@ -209,10 +218,12 @@ countryDropRef.addEventListener("change", function () {
     app.fetchData(`./PHP/handlers/getProvince.php?country=${countryDropRef.value}`).then(data => {
         if (!data.states) return;
 
+        // Clear the state dropdown options
         while (stateDropRef.children.length > 1) {
             stateDropRef.removeChild(stateDropRef.lastChild);
         }
 
+        // Add new state dropdown options
         data.states.forEach(element => {
             app.addDropdownElement(element['state_id'], element['state_name'], stateDropRef);
         });
