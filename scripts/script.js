@@ -56,7 +56,7 @@ class EventApp {
     }
 
     // Method to help set chart options
-    setChartOptions(graphTitle, xTitle, yTitle, xData, yData) {
+    setChartOptions(graphTitle, xTitle, yTitle, xData, yData, osCount, isCount) {
         if (!Array.isArray(yData) || yData.length === 0) {
             console.error("Invalid or empty yData passed to chart options.");
             return {
@@ -67,7 +67,7 @@ class EventApp {
                 options: {}
             };
         }
-        
+
         // Calculates the min, max, and average
         const minValue = Math.min(...yData);
         const maxValue = Math.max(...yData);
@@ -134,7 +134,7 @@ class EventApp {
                         callbacks: {
                             label: context => {
                                 const point = context.raw;
-                                return `Average Distance: ${point.y.toFixed(2)} mi | Total In State: ${point.inState} | Total Out Of State: ${point.outState}`;
+                                return `Average Distance: ${point.y.toFixed(2)}, OS: ${point.osCount}, IS: ${point.isCount}`;
                             }
                         }
                     },
@@ -224,71 +224,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Fetch data for average event travel distance
         app.fetchData(url).then(data => {
-            
             const xData = data.map(event => event.EVENT_NAME);
+            const yData = data.map(event => event.avg_distance_miles);
             
-            const rawYData = data.map(event => event.avg_distance_miles);
-            const yData = rawYData
-                .map(val => parseFloat(val))
-                .filter(val => !isNaN(val));
-            
-            if (yData.length > 0) {
-                // Generate dynamic title
-                let title = 'Average Distance Traveled Per Event';
-        
-                const tierLabel = tierDropRef.options[tierDropRef.selectedIndex].text;
-                const countryLabel = countryDropRef.options[countryDropRef.selectedIndex].text;
-                const stateLabel = stateDropRef.options[stateDropRef.selectedIndex].text;
-        
-                let subtitleParts = [];
-        
-                if (tierDropRef.value) subtitleParts.push(`by Tier "${tierLabel}"`);
-                if (countryDropRef.value) subtitleParts.push(`in ${countryLabel}`);
-                if (stateDropRef.value) subtitleParts.push(`(${stateLabel})`);
-        
-                if (subtitleParts.length > 0) {
-                    title += ' (' + subtitleParts.join(', ') + ')';
-                }
-
-                // Create a variable to store information about graph
-                const { chartData, options } = app.setChartOptions(title, 'Events', 'Average Distance Traveled in Miles', xData, yData);
-            } else {
-                console.warn("yData had no valid numeric entries.");
-            }
+            // Create a variable to store information about graph
+            const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', data.map(event => event.EVENT_NAME), data.map(event => event.avg_distance_miles));
 
             // Update data/options
             eventChart.updateData(chartData);
             eventChart.updateOptions(options);
-
-            Promise.all(
-                data.map(event =>
-                    app.fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`)
-                        .then(counts => ({
-                            ...event,
-                            inState: parseInt(counts.members_same_state),
-                            outState: parseInt(counts.members_different_state)
-                        }))
-                )
-            ).then(eventsWithCounts => {
-                const xLabels = eventsWithCounts.map(event => event.EVENT_NAME);
-                const yData = eventsWithCounts.map(event => ({
-                    x: event.EVENT_NAME,
-                    y: event.avg_distance_miles,
-                    inState: event.inState,
-                    outState: event.outState
-                }));
-
-                const { chartData, options } = app.setChartOptions(
-                    'Average Distance Traveled Per Event',
-                    'Events',
-                    'Average Distance Traveled in Miles',
-                    xLabels,
-                    yData
-                );
-
-                eventChart.updateData(chartData);
-                eventChart.updateOptions(options);
-            });
         });
     })
 
