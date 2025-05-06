@@ -56,7 +56,7 @@ class EventApp {
     }
 
     // Method to help set chart options
-    setChartOptions(graphTitle, xTitle, yTitle, xData, yData, osCount, isCount) {
+    setChartOptions(graphTitle, xTitle, yTitle, xData, yData) {
         if (!Array.isArray(yData) || yData.length === 0) {
             console.error("Invalid or empty yData passed to chart options.");
             return {
@@ -164,8 +164,6 @@ class EventApp {
         }
     }
 };
-    }
-}
 
 // Once the DOM content has loaded
 document.addEventListener("DOMContentLoaded", () => {
@@ -222,6 +220,36 @@ document.addEventListener("DOMContentLoaded", () => {
             // Update data/options
             eventChart.updateData(chartData);
             eventChart.updateOptions(options);
+
+            Promise.all(
+                data.map(event =>
+                    app.fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`)
+                        .then(counts => ({
+                            ...event,
+                            inState: parseInt(counts.members_same_state),
+                            outState: parseInt(counts.members_different_state)
+                        }))
+                )
+            ).then(eventsWithCounts => {
+                const xLabels = eventsWithCounts.map(event => event.EVENT_NAME);
+                const yData = eventsWithCounts.map(event => ({
+                    x: event.EVENT_NAME,
+                    y: event.avg_distance_miles,
+                    inState: event.inState,
+                    outState: event.outState
+                }));
+
+                const { chartData, options } = app.setChartOptions(
+                    'Average Distance Traveled Per Event',
+                    'Events',
+                    'Average Distance Traveled in Miles',
+                    xLabels,
+                    yData
+                );
+
+                eventChart.updateData(chartData);
+                eventChart.updateOptions(options);
+            });
         });
     })
 
