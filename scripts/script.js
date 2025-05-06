@@ -224,12 +224,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Fetch data for average event travel distance
         app.fetchData(url).then(data => {
-            // Create a variable to store information about graph
-            const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', data.map(event => event.EVENT_NAME), data.map(event => event.avg_distance_miles));
+            const xData = data.map(event => event.EVENT_NAME);
+            const yData = data.map(event => event.avg_distance_miles);
+            
+            if (Array.isArray(yData) && yData.length > 0 && yData.every(val => typeof val === 'number' && !isNaN(val))) {
+                // Create a variable to store information about graph
+                const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', xData, yData);
 
-            // Update data/options
-            eventChart.updateData(chartData);
-            eventChart.updateOptions(options);
+                // Update data/options
+                eventChart.updateData(chartData);
+                eventChart.updateOptions(options);
+            } else {
+                console.warn("Invalid or empty yData. Chart will not update.", yData);
+            }
 
             Promise.all(
                 data.map(event =>
