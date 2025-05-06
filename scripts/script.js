@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
     app.setFiltersUI();
 
     applyBtnRef.addEventListener('click', function () {
-        const filters = { tier: tierDropRef.value, country: countryDropRef.value, state: stateDropRef.value, startDate: document.querySelector("#startDate").value, endDate: document.querySelector("#endDate").value};
+        const filters = { tier: tierDropRef.value, country: countryDropRef.value, state: stateDropRef.value, startDate: document.querySelector("#startDate").value, endDate: document.querySelector("#endDate").value };
         const url = `./PHP/events.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}`;
 
         app.fetchData(url).then(data => {
