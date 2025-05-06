@@ -1,7 +1,7 @@
 import ChartBuilder from "./charts.js";
 
 // Register annotation plugin for Chart.js
-Chart.register(window['chartjs-plugin-annotation']);
+Chart.register(window['chart.js-plugin-annotation']);
 
 // Global element variables
 const tierDropRef = document.querySelector("#tier");
