@@ -68,6 +68,8 @@ class EventApp {
             };
         }
 
+        console.log(osCount, isCount);
+
         // Calculates the min, max, and average
         const minValue = Math.min(...yData);
         const maxValue = Math.max(...yData);
