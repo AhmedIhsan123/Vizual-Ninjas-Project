@@ -57,16 +57,16 @@ class EventApp {
 
     // Method to help set chart options
     setChartOptions(graphTitle, xTitle, yTitle, xData, yData) {
-        if (!Array.isArray(yData) || yData.length === 0) {
-            console.error("Invalid or empty yData passed to chart options.");
-            return {
-                chartData: {
-                    labels: [],
-                    datasets: []
-                },
-                options: {}
-            };
-        }
+        // if (!Array.isArray(yData) || yData.length === 0) {
+        //     console.error("Invalid or empty yData passed to chart options.");
+        //     return {
+        //         chartData: {
+        //             labels: [],
+        //             datasets: []
+        //         },
+        //         options: {}
+        //     };
+        // }
         
         // Calculates the min, max, and average
         const minValue = Math.min(...yData);
@@ -227,16 +227,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const xData = data.map(event => event.EVENT_NAME);
             const yData = data.map(event => event.avg_distance_miles);
             
-            if (Array.isArray(yData) && yData.length > 0 && yData.every(val => typeof val === 'number' && !isNaN(val))) {
-                // Create a variable to store information about graph
-                const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', xData, yData);
+            // Create a variable to store information about graph
+            const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', data.map(event => event.EVENT_NAME), data.map(event => event.avg_distance_miles));
 
-                // Update data/options
-                eventChart.updateData(chartData);
-                eventChart.updateOptions(options);
-            } else {
-                console.warn("Invalid or empty yData. Chart will not update.", yData);
-            }
+            // Update data/options
+            eventChart.updateData(chartData);
+            eventChart.updateOptions(options);
 
             Promise.all(
                 data.map(event =>
