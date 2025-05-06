@@ -72,7 +72,7 @@ class EventApp {
             chartData: {
                 labels: xData,
                 datasets: [{
-                    data: yValues,
+                    data: yData,
                     backgroundColor: 'green',
                     borderWidth: 1
                 }]
@@ -120,12 +120,12 @@ class EventApp {
 
                                 console.log(point);
 
-                                // Ensure point and point.y exist before using toFixed()
+                                // Ensure point exists before accessing properties
                                 const avgDistance = point?.y?.toFixed(2) ?? 'N/A';
                                 const osCount = point?.osCount ?? 'N/A';
                                 const isCount = point?.isCount ?? 'N/A';
 
-                                return `Average Distance: ${avgDistance}, OS: ${osCount}, IS: ${isCount}`;
+                                return `Average Distance: ${avgDistance} mi, OS: ${osCount}, IS: ${isCount}`;
                             }
                         }
                     },
