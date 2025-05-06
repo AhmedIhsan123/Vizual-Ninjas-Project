@@ -118,7 +118,7 @@ class EventApp {
                         callbacks: {
                             label: context => {
                                 const point = context.raw;
-                                return `Average Distance: ${point.y.toFixed(2)} mi \nTotal In State: ${point.inState} \nTotal Out Of State: ${point.outState}`;
+                                return `Average Distance: ${point.y.toFixed(2)} mi | Total In State: ${point.inState} | Total Out Of State: ${point.outState}`;
                             }
                         }
                     }
