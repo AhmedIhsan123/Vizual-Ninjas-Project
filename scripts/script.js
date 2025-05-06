@@ -218,8 +218,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const yData = data.map(event => ({
                 x: event.EVENT_NAME,
                 y: event.avg_distance_miles,
-                inState: event.inState,
-                outState: event.outState
+                inState: event.MEMBERS_IN_STATE,
+                outState: event.MEMBERS_OUT_OF_STATE
             }));
 
             const { chartData, options } = app.setChartOptions(
@@ -249,5 +249,4 @@ countryDropRef.addEventListener("change", function () {
             app.addDropdownElement(element['state_id'], element['state_name'], stateDropRef);
         });
     });
-});
 });
