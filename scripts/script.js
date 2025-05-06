@@ -227,7 +227,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // Fetch data for average event travel distance
         app.fetchData(url).then(data => {
             // Create a variable to store information about graph
-            const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', data.map(event => event.EVENT_NAME), data.map(event => event.avg_distance_miles), data.members_different_state, data.members_same_state);
+            const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', data.map(event => event.EVENT_NAME), data.map(event => event.AVG_DISTANCE_TRAVELED_MILES), data.MEMBERS_OUT_OF_STATE, data.MEMBERS_IN_STATE);
+
+            console.log(data.MEMBERS_IN_STATE, data.MEMBERS_OUT_OF_STATE);
 
             // Update data/options
             eventChart.updateData(chartData);

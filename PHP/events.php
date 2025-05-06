@@ -58,15 +58,15 @@ try {
             e.EVENT_TIER_ID,
             e.EVENT_STATE_ID,
             e.COUNTRY_ID,
-            COUNT(CASE WHEN m.MEMBER_STATE_PROV = e.EVENT_STATE_ID THEN 1 END) AS members_same_state,
-            COUNT(CASE WHEN m.MEMBER_STATE_PROV <> e.EVENT_STATE_ID THEN 1 END) AS members_different_state,
+            COUNT(CASE WHEN m.MEMBER_STATE_PROV = e.EVENT_STATE_ID THEN 1 END) AS MEMBERS_IN_STATE,
+            COUNT(CASE WHEN m.MEMBER_STATE_PROV <> e.EVENT_STATE_ID THEN 1 END) AS MEMBERS_OUT_OF_STATE,
             ROUND(AVG(
                 3959 * ACOS(
                     COS(RADIANS(m.MEMBER_LAT)) * COS(RADIANS(e.EVENT_LATITUDE)) *
                     COS(RADIANS(e.EVENT_LONGITUDE) - RADIANS(m.MEMBER_LON)) +
                     SIN(RADIANS(m.MEMBER_LAT)) * SIN(RADIANS(e.EVENT_LATITUDE))
                 )
-            ), 2) AS avg_distance_miles
+            ), 2) AS AVG_DISTANCE_TRAVELED_MILES
         FROM 
             EVENT_RESULT er
         JOIN MEMBER m ON er.PDGA_NUMBER = m.PDGA_NUMBER
