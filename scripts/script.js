@@ -224,37 +224,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Fetch data for average event travel distance
         app.fetchData(url).then(data => {
-            
             const xData = data.map(event => event.EVENT_NAME);
+            const yData = data.map(event => event.avg_distance_miles);
             
-            const rawYData = data.map(event => event.avg_distance_miles);
-            const yData = rawYData
-                .map(val => parseFloat(val))
-                .filter(val => !isNaN(val));
-            
-            if (yData.length > 0) {
-                // Generate dynamic title
-                let title = 'Average Distance Traveled Per Event';
-        
-                const tierLabel = tierDropRef.options[tierDropRef.selectedIndex].text;
-                const countryLabel = countryDropRef.options[countryDropRef.selectedIndex].text;
-                const stateLabel = stateDropRef.options[stateDropRef.selectedIndex].text;
-        
-                let subtitleParts = [];
-        
-                if (tierDropRef.value) subtitleParts.push(`by Tier "${tierLabel}"`);
-                if (countryDropRef.value) subtitleParts.push(`in ${countryLabel}`);
-                if (stateDropRef.value) subtitleParts.push(`(${stateLabel})`);
-        
-                if (subtitleParts.length > 0) {
-                    title += ' (' + subtitleParts.join(', ') + ')';
-                }
-
-                // Create a variable to store information about graph
-                const { chartData, options } = app.setChartOptions(title, 'Events', 'Average Distance Traveled in Miles', xData, yData);
-            } else {
-                console.warn("yData had no valid numeric entries.");
-            }
+            // Create a variable to store information about graph
+            const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', data.map(event => event.EVENT_NAME), data.map(event => event.avg_distance_miles));
 
             // Update data/options
             eventChart.updateData(chartData);
