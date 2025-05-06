@@ -31,6 +31,19 @@ try {
         $params[':state'] = $_GET['state'];
     }
 
+    // Compare Dates
+    // Start Date
+    if (!empty($_GET['start_date'])) {
+        $filters[] = "STR_TO_DATE(e.DATE_EVENT_END, '%c/%e/%Y') >= :start_date";
+        $params[':start_date'] = $_GET['start_date'];
+    }
+    
+    // End Date
+    if (!empty($_GET['end_date'])) {
+        $filters[] = "STR_TO_DATE(e.DATE_EVENT_END, '%c/%e/%Y') <= :end_date";
+        $params[':end_date'] = $_GET['end_date'];
+    }
+
     // Build WHERE clause
     $where = "WHERE m.MEMBER_LAT IS NOT NULL AND m.MEMBER_LON IS NOT NULL";
     if (!empty($filters)) {

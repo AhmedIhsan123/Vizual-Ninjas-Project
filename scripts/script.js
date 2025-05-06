@@ -1,6 +1,6 @@
 import ChartBuilder from "./charts.js";
 
-// Global element vairables
+// Global element variables
 const tierDropRef = document.querySelector("#tier");
 const countryDropRef = document.querySelector("#country");
 const stateDropRef = document.querySelector("#state");
@@ -142,16 +142,26 @@ document.addEventListener("DOMContentLoaded", () => {
     // Update our filter UI
     app.setFiltersUI();
 
-    // When apply flters is clicked
+    // When apply filters is clicked
     applyBtnRef.addEventListener('click', function () {
         const filters = {
             tier: tierDropRef.value,
             country: countryDropRef.value,
-            state: stateDropRef.value
+            state: stateDropRef.value,
+            startDate: document.querySelector("#startDate").value,
+            endDate: document.querySelector("endDate").value
         };
 
         // Create URL to fetch
         let url = `./PHP/events.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}`;
+
+        // Adds dates if given
+        if (filters.startDate) {
+            url += `&start_date=${encodeURIComponent(filters.startDate)}`;
+        }
+        if (filters.endDate) {
+            url += `&end_date=${encodeURIComponent(filters.endDate)}`;
+        }
 
         // Fetch data for average event travel distance
         app.fetchData(url).then(data => {
