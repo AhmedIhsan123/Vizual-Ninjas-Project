@@ -57,95 +57,133 @@ class EventApp {
 
     // Method to help set chart options
     setChartOptions(graphTitle, xTitle, yTitle, xData, yData, osCount, isCount) {
+        if (!Array.isArray(yData) || yData.length === 0) {
+            console.error("Invalid or empty yData passed to chart options.");
+            return {
+                chartData: {
+                    labels: [],
+                    datasets: []
+                },
+                options: {}
+            };
+        }
+
+        // Calculates the min, max, and average
+        const minValue = Math.min(...yData);
+        const maxValue = Math.max(...yData);
+        const avgValue = yData.reduce((sum, value) => sum + value, 0) / yData.length;
+
         return {
             chartData: {
+                labels: xData,
                 datasets: [{
-                    label: graphTitle,
-                    data: combinedData,
+                    data: yData,
                     backgroundColor: 'green',
                     borderWidth: 1
                 }]
             },
             options: {
                 responsive: true,
-                parsing: false, // Important for custom data objects!
                 scales: {
                     x: {
-                        type: 'category',
                         title: {
                             display: true,
                             text: xTitle,
-                            font: { size: 16 }
+                            font: {
+                                size: 16
+                            }
+                        },
+                        ticks: {
+                            maxRotation: 90,
+                            minRotation: 90
                         }
                     },
                     y: {
                         title: {
                             display: true,
                             text: yTitle,
-                            font: { size: 16 }
+                            font: {
+                                size: 16
+                            }
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                            callback: value => value + ' mi'
                         }
                     }
                 },
                 plugins: {
+                    title: {
+                        display: true,
+                        text: graphTitle, // Title text
+                        position: 'top', // Ensure title is at the top
+                        font: {
+                            size: 20,
+                            weight: 'bold'
+                        },
+                        padding: {
+                            top: 10,
+                            bottom: 20
+                        },
+                        color: '#333' // Optional: customize title color
+                    },
+                    legend: {
+                        display: false
+                    },
                     tooltip: {
                         callbacks: {
                             label: context => {
                                 const point = context.raw;
-                                return `Average Distance: ${point.y.toFixed(2)} mi\nOut-of-State: ${point.osCount}\nIn-State: ${point.isCount}`;
+                                return `Average Distance: ${point.y.toFixed(2)}, OS: ${point.osCount}, IS: ${point.isCount}`;
                             }
                         }
                     },
-                    title: {
-                        display: true,
-                        text: graphTitle,
-                        font: { size: 20 }
-                    }
-                }
-            },
-            annotation: {
-                annotations: {
-                    // Min value annotation
-                    min: {
-                        type: 'line',
-                        yMin: minValue,
-                        yMax: minValue,
-                        borderColor: 'green',
-                        borderWidth: 2,
-                        label: {
-                            enabled: true,
-                            content: `Min: ${minValue.toFixed(2)} mi`,
-                            position: 'start'
-                        }
-                    },
-                    // Max value annotation
-                    max: {
-                        type: 'line',
-                        yMin: maxValue,
-                        yMax: maxValue,
-                        borderColor: 'red',
-                        borderWidth: 2,
-                        label: {
-                            enabled: true,
-                            content: `Max: ${maxValue.toFixed(2)} mi`,
-                            position: 'start'
-                        }
-                    },
-                    // Average value annotation
-                    avg: {
-                        type: 'line',
-                        yMin: avgValue,
-                        yMax: avgValue,
-                        borderColor: 'yellow',
-                        borderWidth: 2,
-                        label: {
-                            enabled: true,
-                            content: `Avg: ${avgValue.toFixed(2)} mi`,
-                            position: 'start'
+                    annotation: {
+                        annotations: {
+                            // Min value annotation
+                            min: {
+                                type: 'line',
+                                yMin: minValue,
+                                yMax: minValue,
+                                borderColor: 'green',
+                                borderWidth: 2,
+                                label: {
+                                    enabled: true,
+                                    content: `Min: ${minValue.toFixed(2)} mi,`,
+                                    position: 'start'
+                                }
+                            },
+                            // Max value annotation
+                            max: {
+                                type: 'line',
+                                yMin: maxValue,
+                                yMax: maxValue,
+                                borderColor: 'red',
+                                borderWidth: 2,
+                                label: {
+                                    enabled: true,
+                                    content: `Max: ${maxValue.toFixed(2)} mi`,
+                                    position: 'start'
+                                }
+                            },
+                            // Average value annotation
+                            avg: {
+                                type: 'line',
+                                yMin: avgValue,
+                                yMax: avgValue,
+                                borderColor: 'yellow',
+                                borderWidth: 2,
+                                label: {
+                                    enabled: true,
+                                    content: `Avg: ${avgValue.toFixed(2)} mi`,
+                                    position: 'start'
+                                }
+                            }
                         }
                     }
                 }
             }
-        }
+        };
     }
 };
 
