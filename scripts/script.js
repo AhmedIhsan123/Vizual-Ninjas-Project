@@ -94,7 +94,6 @@ class EventApp {
                                 return `Average Distance: ${point.y.toFixed(2)} mi\nOut-of-State: ${point.osCount}\nIn-State: ${point.isCount}`;
                             }
                         }
-<<<<<<< HEAD
                     },
                     title: {
                         display: true,
@@ -143,8 +142,6 @@ class EventApp {
                             content: `Avg: ${avgValue.toFixed(2)} mi`,
                             position: 'start'
                         }
-=======
->>>>>>> parent of 33c4df0 (Merge branch 'main' of https://github.com/AhmedIhsan123/Vizual-Ninjas-Project)
                     }
                 }
             }
@@ -179,7 +176,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Fetch data for average event travel distance
         app.fetchData(url).then(data => {
-<<<<<<< HEAD
             // Create a variable(s) to store information about graph
             const xLabels = data.map(event => event.EVENT_NAME);
             const distances = data.map(event => event.AVG_DISTANCE_TRAVELED_MILES);
@@ -194,10 +190,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 osCounts,
                 isCounts
             );
-=======
-            // Create a variable to store information about graph
-            const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', data.map(event => event.EVENT_NAME), data.map(event => event.avg_distance_miles), data.members_different_state, data.members_same_state);
->>>>>>> parent of 33c4df0 (Merge branch 'main' of https://github.com/AhmedIhsan123/Vizual-Ninjas-Project)
 
             // Update data/options
             eventChart.updateData(chartData);
