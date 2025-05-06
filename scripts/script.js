@@ -179,7 +179,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const xLabels = data.map(event => event.EVENT_NAME);
             const yData = data.map(event => ({
                 x: event.EVENT_NAME,
-                y: event.avg_distance_miles
+                y: event.avg_distance_miles,
+                osCount: event.MEMBERS_OUT_OF_STATE,
+                isCount: event.MEMBERS_IN_STATE
             }));
 
             const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', xLabels, yData);
