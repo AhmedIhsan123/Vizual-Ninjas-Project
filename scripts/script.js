@@ -1,5 +1,8 @@
 import ChartBuilder from "./charts.js";
 
+// Register annotation plugin for Chart.js
+Chart.register(window['chartjs-plugin-annotation']);
+
 // Global element variables
 const tierDropRef = document.querySelector("#tier");
 const countryDropRef = document.querySelector("#country");
@@ -224,14 +227,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Fetch data for average event travel distance
         app.fetchData(url).then(data => {
-            console.log("Fetched Data:", data);
-
-            const yData = data.map(event => event.avg_distance_miles);
-            const xData = data.map(event => event.EVENT_NAME);
-        
-            console.log("xData:", xData);
-            console.log("yData:", yData);
-
             // Create a variable to store information about graph
             const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', data.map(event => event.EVENT_NAME), data.map(event => event.avg_distance_miles));
 
