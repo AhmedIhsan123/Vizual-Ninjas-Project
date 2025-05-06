@@ -12,7 +12,7 @@ if (!isset($pdo)) {
 }
 
 try {
-    // Grab optional filters from URL
+    // Filters from GET parameters
     $filters = [];
     $params = [];
 
@@ -31,19 +31,6 @@ try {
         $params[':state'] = $_GET['state'];
     }
 
-    // Compare Dates
-    // Start Date
-    if (!empty($_GET['start_date'])) {
-        $filters[] = "STR_TO_DATE(e.DATE_EVENT_END, '%c/%e/%Y') >= :start_date";
-        $params[':start_date'] = $_GET['start_date'];
-    }
-    
-    // End Date
-    if (!empty($_GET['end_date'])) {
-        $filters[] = "STR_TO_DATE(e.DATE_EVENT_END, '%c/%e/%Y') <= :end_date";
-        $params[':end_date'] = $_GET['end_date'];
-    }
-
     // Build WHERE clause
     $where = "WHERE m.MEMBER_LAT IS NOT NULL AND m.MEMBER_LON IS NOT NULL";
     if (!empty($filters)) {
@@ -53,31 +40,38 @@ try {
     // Final query
     $sql = "
         SELECT 
-            e.EVENT_ID, 
+            e.EVENT_ID,
             e.EVENT_NAME,
             e.EVENT_TIER_ID,
             e.EVENT_STATE_ID,
             e.COUNTRY_ID,
-            AVG(3959 * ACOS(
-                COS(RADIANS(m.MEMBER_LAT)) * COS(RADIANS(e.EVENT_LATITUDE)) *
-                COS(RADIANS(e.EVENT_LONGITUDE) - RADIANS(m.MEMBER_LON)) +
-                SIN(RADIANS(m.MEMBER_LAT)) * SIN(RADIANS(e.EVENT_LATITUDE))
-            )) AS avg_distance_miles
-        FROM EVENT_RESULT er
+            COUNT(CASE WHEN m.MEMBER_STATE_PROV = e.EVENT_STATE_ID THEN 1 END) AS MEMBERS_IN_STATE,
+            COUNT(CASE WHEN m.MEMBER_STATE_PROV <> e.EVENT_STATE_ID THEN 1 END) AS MEMBERS_OUT_OF_STATE,
+            ROUND(AVG(
+                3959 * ACOS(
+                    COS(RADIANS(m.MEMBER_LAT)) * COS(RADIANS(e.EVENT_LATITUDE)) *
+                    COS(RADIANS(e.EVENT_LONGITUDE) - RADIANS(m.MEMBER_LON)) +
+                    SIN(RADIANS(m.MEMBER_LAT)) * SIN(RADIANS(e.EVENT_LATITUDE))
+                )
+            ), 2) AS AVG_TRAVEL_DISTANCE_MILES
+        FROM 
+            EVENT_RESULT er
         JOIN MEMBER m ON er.PDGA_NUMBER = m.PDGA_NUMBER
         JOIN EVENT e ON er.EVENT_ID = e.EVENT_ID
         $where
-        GROUP BY e.EVENT_ID, e.EVENT_NAME
-        ORDER BY e.EVENT_NAME ASC
+        GROUP BY 
+            e.EVENT_ID, e.EVENT_NAME, e.EVENT_TIER_ID, e.EVENT_STATE_ID, e.COUNTRY_ID
+        ORDER BY 
+            e.EVENT_NAME ASC
     ";
 
     $stmt = $pdo->prepare($sql);
     $stmt->execute($params);
-    $results = $stmt->fetchAll();
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     echo json_encode($results);
+
 } catch (PDOException $e) {
     http_response_code(500);
     echo json_encode(['error' => $e->getMessage()]);
-    exit;
 }
