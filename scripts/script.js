@@ -118,7 +118,7 @@ class EventApp {
                         callbacks: {
                             label: context => {
                                 const value = context.raw;
-                                return 'Average Distance: ' + value.toFixed(2) + ' mi | Total Count: ' + (inStateCount + outStateCount);
+                                return 'Average Distance: ' + value.toFixed(2) + ' mi | Total In State: ' + inStateCount + ' | Total Out Of State: ' + outStateCount;
                             }
                         }
                     }
