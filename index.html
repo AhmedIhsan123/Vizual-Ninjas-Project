@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Disc Golf Stats Visualizer</title>
   <link rel="stylesheet" href="style.css" />
+  
   <!-- Chart.js v4 -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
 
-  <!-- Chart.js Annotation Plugin for v4
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.1.0/dist/chartjs-plugin-annotation.min.js"
-    defer></script> -->
+  <!-- Chart.js Annotation Plugin for v4 -->
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.1.0/dist/chartjs-plugin-annotation.min.js" defer></script>
 
   <!-- Scripts -->
   <script type="module" src="./scripts/script.js" defer></script>
@@ -54,6 +54,14 @@
         <select id="state">
           <option value="">Any</option>
         </select>
+
+        <!-- Start date picker -->
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate">
+
+        <!-- End date picker -->
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate">
 
         <!-- Apply filters button -->
         <button id="applyFilters">Apply Filters</button>

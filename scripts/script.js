@@ -1,6 +1,6 @@
 import ChartBuilder from "./charts.js";
 
-// Global element vairables
+// Global element variables
 const tierDropRef = document.querySelector("#tier");
 const countryDropRef = document.querySelector("#country");
 const stateDropRef = document.querySelector("#state");
@@ -56,7 +56,23 @@ class EventApp {
     }
 
     // Method to help set chart options
-    setChartOptions(graphTitle, xTitle, yTitle, xData, yData, osCount, isCount) {
+    setChartOptions(graphTitle, xTitle, yTitle, xData, yData) {
+        if (!Array.isArray(yData) || yData.length === 0) {
+            console.error("Invalid or empty yData passed to chart options.");
+            return {
+                chartData: {
+                    labels: [],
+                    datasets: []
+                },
+                options: {}
+            };
+        }
+
+        // Calculates the min, max, and average
+        const minValue = Math.min(...yData);
+        const maxValue = Math.max(...yData);
+        const avgValue = yData.reduce((sum, value) => sum + value, 0) / yData.length;
+
         return {
             chartData: {
                 labels: xData,
@@ -121,6 +137,49 @@ class EventApp {
                                 return `Average Distance: ${point}, OS: ${osCount}, IS: ${isCount}`;
                             }
                         }
+                    },
+                    annotation: {
+                        annotations: {
+                            // Min value annotation
+                            min: {
+                                type: 'line',
+                                yMin: minValue,
+                                yMax: minValue,
+                                borderColor: 'green',
+                                borderWidth: 2,
+                                label: {
+                                    enabled: true,
+                                    content: `Min: ${minValue.toFixed(2)} mi`,
+                                    position: 'start'
+                                }
+                            },
+                            // Max value annotation
+                            max: {
+                                type: 'line',
+                                yMin: maxValue,
+                                yMax: maxValue,
+                                borderColor: 'red',
+                                borderWidth: 2,
+                                label: {
+                                    enabled: true,
+                                    content: `Max: ${maxValue.toFixed(2)} mi`,
+                                    position: 'start'
+                                }
+                            },
+                            // Average value annotation
+                            avg: {
+                                type: 'line',
+                                yMin: avgValue,
+                                yMax: avgValue,
+                                borderColor: 'yellow',
+                                borderWidth: 2,
+                                label: {
+                                    enabled: true,
+                                    content: `Avg: ${avgValue.toFixed(2)} mi`,
+                                    position: 'start'
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -142,19 +201,32 @@ document.addEventListener("DOMContentLoaded", () => {
     // Update our filter UI
     app.setFiltersUI();
 
-    // When apply flters is clicked
+    // When apply filters is clicked
     applyBtnRef.addEventListener('click', function () {
         const filters = {
             tier: tierDropRef.value,
             country: countryDropRef.value,
-            state: stateDropRef.value
+            state: stateDropRef.value,
+            startDate: document.querySelector("#startDate").value,
+            endDate: document.querySelector("#endDate").value
         };
 
         // Create URL to fetch
         let url = `./PHP/events.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}`;
 
+        // Adds dates if given
+        if (filters.startDate) {
+            url += `&start_date=${encodeURIComponent(filters.startDate)}`;
+        }
+        if (filters.endDate) {
+            url += `&end_date=${encodeURIComponent(filters.endDate)}`;
+        }
+
         // Fetch data for average event travel distance
         app.fetchData(url).then(data => {
+            const xData = data.map(event => event.EVENT_NAME);
+            const yData = data.map(event => event.avg_distance_miles);
+
             // Create a variable to store information about graph
             const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', data.map(event => event.EVENT_NAME), data.map(event => event.avg_distance_miles), data.members_different_state, data.members_same_state);
 
