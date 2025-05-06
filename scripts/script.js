@@ -184,6 +184,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 isCount: event.MEMBERS_IN_STATE
             }));
 
+            console.log(yData);
+
             const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', xLabels, yData);
 
             eventChart.updateData(chartData);
