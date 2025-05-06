@@ -117,8 +117,8 @@ class EventApp {
                     tooltip: {
                         callbacks: {
                             label: context => {
-                                const value = context.raw;
-                                return 'Average Distance: ' + value.toFixed(2) + ' mi | Total In State: ' + inStateCount + ' | Total Out Of State: ' + outStateCount;
+                                const point = context.raw;
+                                return `Average Distance: ${point.y.toFixed(2)} mi | Total In State: ${point.inState} | Total Out Of State: ${point.outState}`;
                             }
                         }
                     }
@@ -162,15 +162,34 @@ document.addEventListener("DOMContentLoaded", () => {
             eventChart.updateData(chartData);
             eventChart.updateOptions(options);
 
-            inStateCount = 0;
-            outStateCount = 0;
+            Promise.all(
+                data.map(event =>
+                    app.fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`)
+                        .then(counts => ({
+                            ...event,
+                            inState: parseInt(counts.members_same_state),
+                            outState: parseInt(counts.members_different_state)
+                        }))
+                )
+            ).then(eventsWithCounts => {
+                const xLabels = eventsWithCounts.map(event => event.EVENT_NAME);
+                const yData = eventsWithCounts.map(event => ({
+                    x: event.EVENT_NAME,
+                    y: event.avg_distance_miles,
+                    inState: event.inState,
+                    outState: event.outState
+                }));
 
-            // FOR EACH LOOP THAT FETCHES getMembers.php
-            data.forEach(event => {
-                app.fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`).then(counts => {
-                    inStateCount += parseInt(counts.members_same_state);
-                    outStateCount += parseInt(counts.members_different_state);
-                });
+                const { chartData, options } = app.setChartOptions(
+                    'Average Distance Traveled Per Event',
+                    'Events',
+                    'Average Distance Traveled in Miles',
+                    xLabels,
+                    yData
+                );
+
+                eventChart.updateData(chartData);
+                eventChart.updateOptions(options);
             });
         });
     })
