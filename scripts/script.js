@@ -1,6 +1,7 @@
 import ChartBuilder from "./charts.js";
 
 // Global element variables
+// Global element vairables
 const tierDropRef = document.querySelector("#tier");
 const countryDropRef = document.querySelector("#country");
 const stateDropRef = document.querySelector("#state");
@@ -56,23 +57,7 @@ class EventApp {
     }
 
     // Method to help set chart options
-    setChartOptions(graphTitle, xTitle, yTitle, xData, yData) {
-        if (!Array.isArray(yData) || yData.length === 0) {
-            console.error("Invalid or empty yData passed to chart options.");
-            return {
-                chartData: {
-                    labels: [],
-                    datasets: []
-                },
-                options: {}
-            };
-        }
-
-        // Calculates the min, max, and average
-        const minValue = Math.min(...yData);
-        const maxValue = Math.max(...yData);
-        const avgValue = yData.reduce((sum, value) => sum + value, 0) / yData.length;
-
+    setChartOptions(graphTitle, xTitle, yTitle, xData, yData, osCount, isCount) {
         return {
             chartData: {
                 datasets: [{
@@ -110,6 +95,7 @@ class EventApp {
                                 return `Average Distance: ${point.y.toFixed(2)} mi\nOut-of-State: ${point.osCount}\nIn-State: ${point.isCount}`;
                             }
                         }
+<<<<<<< HEAD
                     },
                     title: {
                         display: true,
@@ -158,6 +144,8 @@ class EventApp {
                             content: `Avg: ${avgValue.toFixed(2)} mi`,
                             position: 'start'
                         }
+=======
+>>>>>>> parent of 33c4df0 (Merge branch 'main' of https://github.com/AhmedIhsan123/Vizual-Ninjas-Project)
                     }
                 }
             }
@@ -179,29 +167,20 @@ document.addEventListener("DOMContentLoaded", () => {
     // Update our filter UI
     app.setFiltersUI();
 
-    // When apply filters is clicked
+    // When apply flters is clicked
     applyBtnRef.addEventListener('click', function () {
         const filters = {
             tier: tierDropRef.value,
             country: countryDropRef.value,
-            state: stateDropRef.value,
-            startDate: document.querySelector("#startDate").value,
-            endDate: document.querySelector("#endDate").value
+            state: stateDropRef.value
         };
 
         // Create URL to fetch
         let url = `./PHP/events.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}`;
 
-        // Adds dates if given
-        if (filters.startDate) {
-            url += `&start_date=${encodeURIComponent(filters.startDate)}`;
-        }
-        if (filters.endDate) {
-            url += `&end_date=${encodeURIComponent(filters.endDate)}`;
-        }
-
         // Fetch data for average event travel distance
         app.fetchData(url).then(data => {
+<<<<<<< HEAD
             // Create a variable(s) to store information about graph
             const xLabels = data.map(event => event.EVENT_NAME);
             const distances = data.map(event => event.AVG_DISTANCE_TRAVELED_MILES);
@@ -216,6 +195,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 osCounts,
                 isCounts
             );
+=======
+            // Create a variable to store information about graph
+            const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', data.map(event => event.EVENT_NAME), data.map(event => event.avg_distance_miles), data.members_different_state, data.members_same_state);
+>>>>>>> parent of 33c4df0 (Merge branch 'main' of https://github.com/AhmedIhsan123/Vizual-Ninjas-Project)
 
             // Update data/options
             eventChart.updateData(chartData);
