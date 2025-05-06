@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
             country: countryDropRef.value,
             state: stateDropRef.value,
             startDate: document.querySelector("#startDate").value,
-            endDate: document.querySelector("endDate").value
+            endDate: document.querySelector("#endDate").value
         };
 
         // Create URL to fetch
