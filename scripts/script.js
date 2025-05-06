@@ -117,7 +117,13 @@ class EventApp {
                         callbacks: {
                             label: context => {
                                 const point = context.raw;
-                                return `Average Distance: ${point.y.toFixed(2)} mi`;
+
+                                // Ensure point and point.y exist before using toFixed()
+                                const avgDistance = point?.y?.toFixed(2) ?? 'N/A';
+                                const osCount = point?.osCount ?? 'N/A';
+                                const isCount = point?.isCount ?? 'N/A';
+
+                                return `Average Distance: ${avgDistance}, OS: ${osCount}, IS: ${isCount}`;
                             }
                         }
                     },
