@@ -214,50 +214,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Fetch data for average event travel distance
         app.fetchData(url).then(data => {
-            Promise.all(
-                data.map(event =>
-                    app.fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`)
-                        .then(counts => ({
-                            ...event,
-                            inState: parseInt(counts.members_same_state),
-                            outState: parseInt(counts.members_different_state)
-                        }))
-                )
-            ).then(eventsWithCounts => {
-                const xLabels = eventsWithCounts.map(event => event.EVENT_NAME);
-                const yData = eventsWithCounts.map(event => ({
-                    x: event.EVENT_NAME,
-                    y: event.avg_distance_miles,
-                    inState: event.inState,
-                    outState: event.outState
-                }));
+            const xLabels = data.map(event => event.EVENT_NAME);
+            const yData = data.map(event => ({
+                x: event.EVENT_NAME,
+                y: event.avg_distance_miles,
+                inState: event.inState,
+                outState: event.outState
+            }));
 
-                const { chartData, options } = app.setChartOptions(
-                    'Average Distance Traveled Per Event',
-                    'Events',
-                    'Average Distance Traveled in Miles',
-                    xLabels,
-                    yData
-                );
+            const { chartData, options } = app.setChartOptions(
+                'Average Distance Traveled Per Event',
+                'Events',
+                'Average Distance Traveled in Miles',
+                xLabels,
+                yData
+            );
 
-                eventChart.updateData(chartData);
-                eventChart.updateOptions(options);
-            });
-        });
-    })
-
-    // When country dropdown changes
-    countryDropRef.addEventListener("change", function () {
-        app.fetchData(`./PHP/handlers/getProvince.php?country=${countryDropRef.value}`).then(data => {
-            // Remove all state options
-            for (let i = stateDropRef.children.length - 1; i > 0; i--) {
-                stateDropRef.removeChild(stateDropRef.children[i]);
-            }
-
-            // Add states to state dropdown
-            data.states.forEach(element => {
-                app.addDropdownElement(element['state_id'], element['state_name'], stateDropRef);
-            });
+            eventChart.updateData(chartData);
+            eventChart.updateOptions(options);
         });
     });
+})
+
+// When country dropdown changes
+countryDropRef.addEventListener("change", function () {
+    app.fetchData(`./PHP/handlers/getProvince.php?country=${countryDropRef.value}`).then(data => {
+        // Remove all state options
+        for (let i = stateDropRef.children.length - 1; i > 0; i--) {
+            stateDropRef.removeChild(stateDropRef.children[i]);
+        }
+
+        // Add states to state dropdown
+        data.states.forEach(element => {
+            app.addDropdownElement(element['state_id'], element['state_name'], stateDropRef);
+        });
+    });
+});
 });
