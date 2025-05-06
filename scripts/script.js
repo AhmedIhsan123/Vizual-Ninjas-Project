@@ -134,7 +134,7 @@ class EventApp {
                         callbacks: {
                             label: context => {
                                 const point = context.raw;
-                                return `Average Distance: ${point}, OS: ${osCount}, IS: ${isCount}`;
+                                return `Average Distance: ${point.y.toFixed(2)}, OS: ${point.osCount}, IS: ${point.isCount}`;
                             }
                         }
                     },
