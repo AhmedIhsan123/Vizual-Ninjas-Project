@@ -176,25 +176,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Fetch data for average event travel distance
         app.fetchData(url).then(data => {
-            // Create a variable(s) to store information about graph
-            const xLabels = data.map(event => event.EVENT_NAME);
-            const distances = data.map(event => event.AVG_DISTANCE_TRAVELED_MILES);
-            const osCounts = data.map(event => event.MEMBERS_OUT_OF_STATE);
-            const isCounts = data.map(event => event.MEMBERS_IN_STATE);
-            const { chartData, options } = app.setChartOptions(
-                'Average Distance Traveled Per Event',
-                'Events',
-                'Distance (Miles)',
-                xLabels,
-                distances,
-                osCounts,
-                isCounts
-            );
-
-            // Update data/options
-            eventChart.updateData(chartData);
-            eventChart.updateOptions(options);
-
             Promise.all(
                 data.map(event =>
                     app.fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`)
