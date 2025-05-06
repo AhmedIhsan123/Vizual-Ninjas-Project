@@ -173,7 +173,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     applyBtnRef.addEventListener('click', function () {
         const filters = { tier: tierDropRef.value, country: countryDropRef.value, state: stateDropRef.value, startDate: document.querySelector("#startDate").value, endDate: document.querySelector("#endDate").value };
-        const url = `./PHP/events.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}`;
+
+        // URL to fetch
+        let url = `./PHP/events.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}`;
+
+        // Adds dates if given
+        if (filters.startDate) {
+            url += `&start_date=${encodeURIComponent(filters.startDate)}`;
+        }
+        if (filters.endDate) {
+            url += `&end_date=${encodeURIComponent(filters.endDate)}`;
+        }
 
         app.fetchData(url).then(data => {
             const xLabels = data.map(event => event.EVENT_NAME);
