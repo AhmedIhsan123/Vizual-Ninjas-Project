@@ -56,7 +56,7 @@ class EventApp {
     }
 
     // Method to help set chart options
-    setChartOptions(graphTitle, xTitle, yTitle, xData, yData) {
+    setChartOptions(graphTitle, xTitle, yTitle, xData, yData, osCount, isCount) {
         if (!Array.isArray(yData) || yData.length === 0) {
             console.error("Invalid or empty yData passed to chart options.");
             return {
@@ -224,9 +224,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Fetch data for average event travel distance
         app.fetchData(url).then(data => {
-            const xData = data.map(event => event.EVENT_NAME);
-            const yData = data.map(event => event.avg_distance_miles);
-
             // Create a variable to store information about graph
             const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', data.map(event => event.EVENT_NAME), data.map(event => event.avg_distance_miles), data.members_different_state, data.members_same_state);
 
