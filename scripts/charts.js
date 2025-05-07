@@ -1,92 +1,10 @@
 export default class ChartBuilder {
 
-    constructor(canvasId, chartType, data) {
+    constructor(canvasId, chartType, data, options) {
         this.canvasId = canvasId;
         this.chartType = chartType;
-        this.data = {
-            label: data.xLabels,
-            datasets: [
-                {
-                    label: 'Average Travel Distance',
-                    data: data.yData, // This has x and y already
-                    parsing: true // optional; true by default
-                }
-            ]
-        };
-        this.options = {
-            responsive: true,
-            scales: {
-                x: {
-                    title: {
-                        display: true,
-                        text: 'xTitle',
-                        font: { size: 16 }
-                    },
-                    ticks: {
-                        maxRotation: 90,
-                        minRotation: 90
-                    }
-                },
-                y: {
-                    title: {
-                        display: true,
-                        text: 'yTitle',
-                        font: { size: 16 }
-                    },
-                    ticks: {
-                        beginAtZero: true,
-                        callback: value => value + ' mi'
-                    }
-                }
-            },
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'graphTitle',
-                    position: 'top',
-                    font: { size: 20, weight: 'bold' },
-                    padding: { top: 10, bottom: 20 },
-                    color: '#333'
-                },
-                legend: { display: false },
-                tooltip: {
-                    callbacks: {
-                        label: context => {
-                            const point = context.raw;
-                            return `Average Distance: ${point.y} mi, OS: ${point.osCount}, IS: ${point.isCount}`;
-                        }
-                    }
-                },
-                annotation: {
-                    annotations: {
-                        min: {
-                            type: 'line',
-                            yMin: 0, // EDIT THIS
-                            yMax: 0, // EDIT THIS
-                            borderColor: 'green',
-                            borderWidth: 2,
-                            label: { enabled: true, content: `Min: ${0} mi`, position: 'start' }
-                        },
-                        max: {
-                            type: 'line',
-                            yMin: 0, // EDIT THIS
-                            yMax: 0, // EDIT THIS
-                            borderColor: 'red',
-                            borderWidth: 2,
-                            label: { enabled: true, content: `Max: ${0} mi`, position: 'start' }
-                        },
-                        avg: {
-                            type: 'line',
-                            yMin: 0, // EDIT THIS
-                            yMax: 0, // EDIT THIS
-                            borderColor: 'yellow',
-                            borderWidth: 2,
-                            label: { enabled: true, content: `Avg: ${0} mi`, position: 'start' }
-                        }
-                    }
-                }
-            }
-        };
+        this.data = data;
+        this.options = options;
         this.chart = null;
     }
 

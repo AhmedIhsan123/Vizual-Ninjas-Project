@@ -93,11 +93,120 @@ class ChartManager {
                 }));
 
                 // Build chart
-                const chart = new ChartBuilder('event-chart', 'bar', { xLabels, yData });
+                const chart = new ChartBuilder('event-chart', 'bar',);
+
+                // Variable to store the combined data
+                const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', xLabels, yData);
+
+                // Update the data and options of new chart
+                eventChart.updateData(chartData);
+                eventChart.updateOptions(options);
+
+                // Return the chart
                 return chart.build();
             default:
                 return null;
         }
+    }
+
+    // Method to set chart options safely
+    setChartOptions(graphTitle, xTitle, yTitle, xData, yData) {
+        // Variables to track annotation information
+        const averages = yData.map(point => point.y);
+        const minValue = Math.min(...averages);
+        const maxValue = Math.max(...averages);
+        const avgValue = averages.reduce((sum, value) => sum + value, 0) / averages.length;
+
+        // Return the combined data
+        return {
+            chartData: {
+                labels: xData,
+                datasets: [{
+                    data: yData,
+                    backgroundColor: 'green',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: xTitle,
+                            font: { size: 16 }
+                        },
+                        ticks: {
+                            maxRotation: 90,
+                            minRotation: 90
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: yTitle,
+                            font: { size: 16 }
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                            callback: value => value + ' mi'
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: graphTitle,
+                        position: 'top',
+                        font: { size: 20, weight: 'bold' },
+                        padding: { top: 10, bottom: 20 },
+                        color: '#333'
+                    },
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: context => {
+                                const point = context.raw;
+                                // Ensure point exists before accessing properties
+                                const avgDistance = point?.y?.toFixed(2) ?? 'N/A';
+                                const osCount = point?.osCount ?? 'N/A';
+                                const isCount = point?.isCount ?? 'N/A';
+
+                                return `Average Distance: ${avgDistance} mi, OS: ${osCount}, IS: ${isCount}`;
+                            }
+                        }
+                    },
+                    annotation: {
+                        annotations: {
+                            min: {
+                                type: 'line',
+                                yMin: minValue,
+                                yMax: minValue,
+                                borderColor: 'green',
+                                borderWidth: 2,
+                                label: { enabled: true, content: `Min: ${minValue.toFixed(2)} mi`, position: 'start' }
+                            },
+                            max: {
+                                type: 'line',
+                                yMin: maxValue,
+                                yMax: maxValue,
+                                borderColor: 'red',
+                                borderWidth: 2,
+                                label: { enabled: true, content: `Max: ${maxValue.toFixed(2)} mi`, position: 'start' }
+                            },
+                            avg: {
+                                type: 'line',
+                                yMin: avgValue,
+                                yMax: avgValue,
+                                borderColor: 'yellow',
+                                borderWidth: 2,
+                                label: { enabled: true, content: `Avg: ${avgValue.toFixed(2)} mi`, position: 'start' }
+                            }
+                        }
+                    }
+                }
+            }
+        };
     }
 }
 
