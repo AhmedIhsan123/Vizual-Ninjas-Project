@@ -6,7 +6,7 @@ const countryDropdown = document.querySelector("#country");
 const stateDropdown = document.querySelector("#state");
 const dateStartSelect = document.querySelector("#startDate");
 const dateEndSelect = document.querySelector("#endDate");
-
+/* -------- END OF GLOBAL VARIABLES -------- */
 
 /* -------- CLASSES START -------- */
 /**
@@ -75,19 +75,12 @@ class ChartManager {
         // Construct chart based on name
         switch (chart) {
             case "event":
-                const URL = `./PHP/events.php?${1}`;
+                const URL = `./PHP/events.php?tier=${tierDropdown.value}&country=${countryDropdown.value}&state=${stateDropdown.value}&start_date=${dateStartSelect.value}&${dateEndSelect.value}`;
                 return new ChartBuilder('eventChart', 'bar', this.fetchData(URL));
             default:
                 return null;
         }
     }
-
-
-
-
-
-
-
 }
 
 /**
@@ -133,12 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const chartManager = new ChartManager();
     const chartReference = chartManager.constructChart("event");
     chartReference.build();
-
-
-
-
-
-
 });
 
 
