@@ -65,77 +65,6 @@ class ChartManager {
             return [];
         }
     }
-
-    createChart(chartID) {
-        const chartRef = document.createElement('canvas');
-        chartRef.id = chartID;
-        chartsParent.appendChild(chartRef);
-        return chartID;
-    }
-
-    buildChart(chartID, type, data, options) {
-        const chart = new ChartBuilder(chartID, type, data, options);
-        return chart.build();
-    }
-
-    async generateData(URL) {
-        this.fetchData(URL).then(data => {
-            return data;
-        });
-    }
-
-
-    // Method to set chart options safely
-    async generateOptions(graphTitle, xTitle, yTitle) {
-        // Return the options
-        return {
-            options: {
-                responsive: true,
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: xTitle,
-                            font: { size: 16 }
-                        },
-                        ticks: {
-                            maxRotation: 90,
-                            minRotation: 90
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: yTitle,
-                            font: { size: 16 }
-                        },
-                        ticks: {
-                            beginAtZero: true,
-                            callback: value => value + ' mi'
-                        }
-                    }
-                },
-                plugins: {
-                    title: {
-                        display: true,
-                        text: graphTitle,
-                        position: 'top',
-                        font: { size: 20, weight: 'bold' },
-                        padding: { top: 10, bottom: 20 },
-                        color: '#333'
-                    },
-                    legend: { display: false },
-                    tooltip: {
-                        callbacks: {
-                            label: context => {
-                                return `Average Distance: ${0} mi, OS: ${0}, IS: ${0}`;
-                            }
-                        }
-                    },
-                }
-            }
-        };
-    }
 }
 
 /**
@@ -182,7 +111,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const URL = `./PHP/events.php?tier=${tierDropdown.value}&country=${countryDropdown.value}&state=${stateDropdown.value}&start_date=${dateStartSelect.value}&end_date=${dateEndSelect.value}`;
 
-    await chartManager.buildChart(chartManager.createChart('event-chart'), 'bar', await chartManager.generateData(URL), await chartManager.generateOptions('Average Distance Traveled Per Event', 'Event Name', 'Average Distance in Miles'));
+    chartManager.fetchData(URL).then(data => {
+        console.log(data);
+    });
 });
 
 
