@@ -113,53 +113,61 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Fetch for events
     chartManager.fetchData(URL).then(data => {
-        const chart = new ChartBuilder('event-chart', 'bar', data, {
-            options: {
-                responsive: true,
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Event Name',
-                            font: { size: 16 }
+        const chart = new ChartBuilder('event-chart', 'bar', {
+            labels: data.EVENT_NAME,
+            datasets: [{
+                data: data.AVG_TRAVEL_DISTANCE_MILES,
+                backgroundColor: 'green',
+                borderWidth: 1
+            }]
+        },
+            {
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Event Name',
+                                font: { size: 16 }
+                            },
+                            ticks: {
+                                maxRotation: 90,
+                                minRotation: 90
+                            }
                         },
-                        ticks: {
-                            maxRotation: 90,
-                            minRotation: 90
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'Average Distance Traveled in Miles',
-                            font: { size: 16 }
-                        },
-                        ticks: {
-                            beginAtZero: true,
-                            callback: value => value + ' mi'
-                        }
-                    }
-                },
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Average Distance Traveled in Miles Per Event',
-                        position: 'top',
-                        font: { size: 20, weight: 'bold' },
-                        padding: { top: 10, bottom: 20 },
-                        color: '#333'
-                    },
-                    legend: { display: false },
-                    tooltip: {
-                        callbacks: {
-                            label: context => {
-                                return `Average Distance: ${data.AVG_TRAVEL_DISTANCE_MILES} mi, OS: ${data.MEMBERS_IN_STATE}, IS: ${data.MEMBERS_OUT_OF_STATE}`;
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Average Distance Traveled in Miles',
+                                font: { size: 16 }
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                                callback: value => value + ' mi'
                             }
                         }
                     },
-                }
-            },
-        });
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Average Distance Traveled in Miles Per Event',
+                            position: 'top',
+                            font: { size: 20, weight: 'bold' },
+                            padding: { top: 10, bottom: 20 },
+                            color: '#333'
+                        },
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: context => {
+                                    return `Average Distance: ${data.AVG_TRAVEL_DISTANCE_MILES} mi, OS: ${data.MEMBERS_IN_STATE}, IS: ${data.MEMBERS_OUT_OF_STATE}`;
+                                }
+                            }
+                        },
+                    }
+                },
+            });
         chart.build();
     });
 });
