@@ -78,9 +78,6 @@ class ChartManager {
                 // Store URL in a constant
                 const URL = `./PHP/events.php?tier=${tierDropdown.value}&country=${countryDropdown.value}&state=${stateDropdown.value}&start_date=${dateStartSelect.value}&${dateEndSelect.value}`;
 
-                // Store the new chart in a variable
-                const chartRef = new ChartBuilder('event-chart', 'bar', {});
-
                 // Store data in a constant
                 const fetchResult = this.fetchData(URL);
 
@@ -101,11 +98,8 @@ class ChartManager {
                     }));
                 });
 
-                // Update data after fetch
-                chartRef.updateData({ xLabels, yData });
-
                 // Return the charts reference
-                return chartRef;
+                return new ChartBuilder('event-chart', 'bar', { xLabels, yData });;
             default:
                 return null;
         }
