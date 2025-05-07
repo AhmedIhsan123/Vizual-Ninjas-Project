@@ -6,6 +6,7 @@ const countryDropdown = document.querySelector("#country");
 const stateDropdown = document.querySelector("#state");
 const dateStartSelect = document.querySelector("#start-date");
 const dateEndSelect = document.querySelector("#end-date");
+const chartsParent = document.querySelector(".visualizations");
 /* -------- END OF GLOBAL VARIABLES -------- */
 
 /* -------- CLASSES START -------- */
@@ -64,6 +65,16 @@ class ChartManager {
             return [];
         }
     }
+
+    createChart(chartID) {
+
+
+
+
+
+
+    }
+
 }
 
 /**
@@ -107,7 +118,8 @@ class Coordinate {
 document.addEventListener("DOMContentLoaded", async () => {
     // Construct a event manager to handle events logic
     const chartManager = new ChartManager();
-    const chartReference = await chartManager.constructChart("event");
+
+    chartManager.createChart('event-chart');
 });
 
 
