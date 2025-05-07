@@ -96,7 +96,7 @@ class EventApp {
 // Initialize app once DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
     const app = new EventApp();
-    const eventChart = new ChartBuilder('eventChart', 'bar', [], app.setChartOptions('Undefined', 'Undefined', 'Undefined', [], []));
+    const eventChart = new ChartBuilder('event-chart', 'bar', [], app.setChartOptions('Undefined', 'Undefined', 'Undefined', [], []));
 
     eventChart.build();
     app.setFiltersUI();
