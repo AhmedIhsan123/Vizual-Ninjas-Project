@@ -106,7 +106,7 @@ export default class ChartBuilder {
 
     // Method to update the chart options
     updateOptions(newOptions) {
-        this.chart.options = _.merge(this.chart.options, newOptions);
+        this.chart.options = newOptions;
         this.chart.update();
     }
 }

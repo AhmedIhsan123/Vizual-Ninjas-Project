@@ -67,7 +67,7 @@ class ChartManager {
 
     /**
      * Developer - Ahmed Ihsan
-     * This method simply constructs a chart, DOES NOT BUILD IT
+     * This method simply constructs a chart, ALSO BUILD IT
      * @param {string} chart 
      * @returns - ChartBuilder object
      */
@@ -92,8 +92,12 @@ class ChartManager {
                     isCount: event.MEMBERS_IN_STATE
                 }));
 
+                // Build chart
+                const chart = new ChartBuilder('event-chart', 'bar', { xLabels, yData });
+                chartReference.build();
+
                 // Return the charts reference
-                return new ChartBuilder('event-chart', 'bar', { xLabels, yData });
+                return chart;
             default:
                 return null;
         }
@@ -142,24 +146,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Construct a event manager to handle events logic
     const chartManager = new ChartManager();
     const chartReference = await chartManager.constructChart("event");
-    const newOptions = {
-        scales: {
-            x: {
-                title: {
-                    display: true,
-                    text: 'xTitle',
-                    font: { size: 16 }
-                },
-                ticks: {
-                    maxRotation: 50,
-                    minRotation: 50
-                }
-            }
-        }
-    };
 
-    chartReference.build();
-    chartReference.updateOptions(newOptions);
+    chartReference.updateOptions(chartReference.options.scales.x.ticks.maxRotation = 50);
+
 
 });
 
