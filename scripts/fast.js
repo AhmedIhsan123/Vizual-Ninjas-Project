@@ -139,10 +139,10 @@ class Coordinate {
  * Developer - Ahmed Ihsan
  * This event listner will trigger when the DOM is loaded...(Start program).
  */
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
     // Construct a event manager to handle events logic
     const chartManager = new ChartManager();
-    const chartReference = chartManager.constructChart("event");
+    const chartReference = await chartManager.constructChart("event");
     console.log(chartReference);
     chartReference.build();
 });
