@@ -74,7 +74,8 @@ class ChartManager {
     }
 
     buildChart(chartID, type, data, options) {
-        return new ChartBuilder(chartID, type, data, options);
+        const chart = new ChartBuilder(chartID, type, data, options);
+        return chart.build();
     }
 
     async generateData(URL) {
