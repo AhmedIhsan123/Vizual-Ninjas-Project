@@ -71,35 +71,32 @@ class ChartManager {
      * @param {string} chart 
      * @returns - ChartBuilder object
      */
-    constructChart(chart) {
+    async constructChart(chart) {
         // Construct chart based on name
         switch (chart) {
             case "event":
                 // Store URL in a constant
                 const URL = `./PHP/events.php?tier=${tierDropdown.value}&country=${countryDropdown.value}&state=${stateDropdown.value}&start_date=${dateStartSelect.value}&${dateEndSelect.value}`;
 
-                // Variables to hold information
-                let xLabels = 0, yData = 0;
+                // Fetch the data
+                const data = await this.fetchData(URL);
+                console.log(data);
 
-                // Fetch for results
-                this.fetchData(URL).then(data => {
-                    console.log(data);
-                    // Store x labels
-                    xLabels = data.map(event => event.EVENT_NAME);
+                // Store x labels
+                const xLabels = data.map(event => event.EVENT_NAME);
 
-                    // Data information for y axis
-                    yData = data.map(event => ({
-                        x: event.EVENT_NAME,
-                        y: event.AVG_TRAVEL_DISTANCE_MILES,
-                        osCount: event.MEMBERS_OUT_OF_STATE,
-                        isCount: event.MEMBERS_IN_STATE
-                    }));
-                });
+                // Data information for y axis
+                const yData = data.map(event => ({
+                    x: event.EVENT_NAME,
+                    y: event.AVG_TRAVEL_DISTANCE_MILES,
+                    osCount: event.MEMBERS_OUT_OF_STATE,
+                    isCount: event.MEMBERS_IN_STATE
+                }));
 
                 console.log(xLabels, yData);
 
                 // Return the charts reference
-                return new ChartBuilder('event-chart', 'bar', { xLabels, yData });;
+                return new ChartBuilder('event-chart', 'bar', { xLabels, yData });
             default:
                 return null;
         }
