@@ -79,9 +79,24 @@ class ChartManager {
                 const URL = `./PHP/events.php?tier=${tierDropdown.value}&country=${countryDropdown.value}&state=${stateDropdown.value}&start_date=${dateStartSelect.value}&${dateEndSelect.value}`;
 
                 // Store data in a constant
-                const data = this.fetchData(URL);
-                console.log(data);
-                return new ChartBuilder('event-chart', 'bar', data);
+                const fetchResult = this.fetchData(URL);
+                let xLabels, yData;
+                console.log(fetchResult);
+
+
+                fetchResult.then(data => {
+                    // Store x labels
+                    xLabels = data.map(event => event.EVENT_NAME);
+
+                    // Data information for y axis
+                    yData = data.map(event => ({
+                        x: event.EVENT_NAME,
+                        y: event.AVG_TRAVEL_DISTANCE_MILES,
+                        osCount: event.MEMBERS_OUT_OF_STATE,
+                        isCount: event.MEMBERS_IN_STATE
+                    }));
+                });
+                return new ChartBuilder('event-chart', 'bar', { xLabels, yData });
             default:
                 return null;
         }
