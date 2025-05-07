@@ -80,7 +80,7 @@ class ChartManager {
 
                 // Store data in a constant
                 const data = this.fetchData(URL);
-                return new ChartBuilder('eventChart', 'bar', data);
+                return new ChartBuilder('event-chart', 'bar', data);
             default:
                 return null;
         }
