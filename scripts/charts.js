@@ -1,3 +1,4 @@
+import merge from 'lodash.merge';
 export default class ChartBuilder {
 
     constructor(canvasId, chartType, data) {
@@ -106,7 +107,7 @@ export default class ChartBuilder {
 
     // Method to update the chart options
     updateOptions(newOptions) {
-        this.chart.options = newOptions;
+        merge(this.chart.options, newOptions);
         this.chart.update();
     }
 }

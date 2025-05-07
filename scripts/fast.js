@@ -93,7 +93,7 @@ class ChartManager {
                 }));
 
                 // Return the charts reference
-                return new ChartBuilder('event-chart', 'bar', { yData });
+                return new ChartBuilder('event-chart', 'bar', { xLabels, yData });
             default:
                 return null;
         }
@@ -142,6 +142,22 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Construct a event manager to handle events logic
     const chartManager = new ChartManager();
     const chartReference = await chartManager.constructChart("event");
+    const newOptions = {
+        scales: {
+            x: {
+                title: {
+                    display: true,
+                    text: 'xTitle',
+                    font: { size: 16 }
+                },
+                ticks: {
+                    maxRotation: 50,
+                    minRotation: 50
+                }
+            }
+        }
+    };
+    chartReference.updateOptions(newOptions);
     chartReference.build();
 });
 
