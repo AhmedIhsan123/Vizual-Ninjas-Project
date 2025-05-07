@@ -93,6 +93,8 @@ export default class ChartBuilder {
             options: this.options // Configuration options for the chart
         });
 
+        console.log(this.data);
+
         return this.chart;
     }
 
