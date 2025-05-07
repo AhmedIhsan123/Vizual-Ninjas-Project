@@ -4,10 +4,11 @@ export default class ChartBuilder {
         this.canvasId = canvasId;
         this.chartType = chartType;
         this.data = {
+            label = data.xLabels
             datasets: [
                 {
                     label: 'Average Travel Distance',
-                    data: data, // This has x and y already
+                    data: data.yData, // This has x and y already
                     parsing: true // optional; true by default
                 }
             ]
