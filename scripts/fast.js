@@ -70,11 +70,71 @@ class ChartManager {
         const chartRef = document.createElement('canvas');
         chartRef.id = chartID;
         chartsParent.appendChild(chartRef);
+        return chartID;
+    }
 
-
+    buildChart(chartID, options, data) {
 
     }
 
+    async generateData(URL) {
+        this.fetchData(URL).then(data => {
+            return data;
+        });
+    }
+
+
+    // Method to set chart options safely
+    generateOptions(graphTitle, xTitle, yTitle) {
+        // Return the options
+        return {
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: xTitle,
+                            font: { size: 16 }
+                        },
+                        ticks: {
+                            maxRotation: 90,
+                            minRotation: 90
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: yTitle,
+                            font: { size: 16 }
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                            callback: value => value + ' mi'
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: graphTitle,
+                        position: 'top',
+                        font: { size: 20, weight: 'bold' },
+                        padding: { top: 10, bottom: 20 },
+                        color: '#333'
+                    },
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: context => {
+                                return `Average Distance: ${0} mi, OS: ${0}, IS: ${0}`;
+                            }
+                        }
+                    },
+                }
+            }
+        };
+    }
 }
 
 /**
@@ -119,7 +179,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Construct a event manager to handle events logic
     const chartManager = new ChartManager();
 
-    chartManager.createChart('event-chart');
+    const URL = `./PHP/events.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}&start_date=${filters.startDate}&end_date=${filters.endDate}`;
+    chartManager.buildChart(chartManager.createChart('event-chart'), chartManager.generateOptions('Average Distance Traveled Per Event', 'Event Name', 'Average Distance in Miles'), chartManager.generateData(URL));
 });
 
 
