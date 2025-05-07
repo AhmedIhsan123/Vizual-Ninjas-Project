@@ -3,7 +3,15 @@ export default class ChartBuilder {
     constructor(canvasId, chartType, data) {
         this.canvasId = canvasId;
         this.chartType = chartType;
-        this.data = data;
+        this.data = {
+            datasets: [
+                {
+                    label: 'Average Travel Distance',
+                    data: data, // This has x and y already
+                    parsing: true // optional; true by default
+                }
+            ]
+        };
         this.options = {
             responsive: true,
             scales: {
