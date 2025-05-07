@@ -93,8 +93,6 @@ class ChartManager {
                     isCount: event.MEMBERS_IN_STATE
                 }));
 
-                console.log(xLabels, yData);
-
                 // Return the charts reference
                 return new ChartBuilder('event-chart', 'bar', { xLabels, yData });
             default:
@@ -145,6 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Construct a event manager to handle events logic
     const chartManager = new ChartManager();
     const chartReference = chartManager.constructChart("event");
+    console.log(chartReference);
     chartReference.build();
 });
 
