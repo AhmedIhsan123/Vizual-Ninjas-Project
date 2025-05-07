@@ -89,7 +89,7 @@ export default class ChartBuilder {
         // Create the chart using Chart.js
         this.chart = new Chart(ctx, {
             type: this.chartType, // Type of the chart (line, bar, etc.)
-            data: this.data, // Data to be displayed
+            data: this.data.yData, // Data to be displayed
             options: this.options // Configuration options for the chart
         });
 

@@ -94,10 +94,7 @@ class ChartManager {
 
                 // Build chart
                 const chart = new ChartBuilder('event-chart', 'bar', { xLabels, yData });
-                chart.build();
-
-                // Return the charts reference
-                return chart;
+                return chart.build();
             default:
                 return null;
         }
@@ -147,7 +144,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const chartManager = new ChartManager();
     const chartReference = await chartManager.constructChart("event");
 
-    chartReference.updateOptions(chartReference.options.scales.x.ticks.maxRotation = 50);
+    chartReference.updateOptions();
 
 
 });
