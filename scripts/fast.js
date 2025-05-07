@@ -73,8 +73,8 @@ class ChartManager {
         return chartID;
     }
 
-    buildChart(chartID, options, data) {
-
+    buildChart(chartID, type, data, options) {
+        return new ChartBuilder(chartID, type, data, options);
     }
 
     async generateData(URL) {
@@ -180,7 +180,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const chartManager = new ChartManager();
 
     const URL = `./PHP/events.php?tier=${tierDropdown.value}&country=${countryDropdown.value}&state=${stateDropdown.value}&start_date=${dateStartSelect.value}&end_date=${dateEndSelect.value}`;
-    chartManager.buildChart(chartManager.createChart('event-chart'), chartManager.generateOptions('Average Distance Traveled Per Event', 'Event Name', 'Average Distance in Miles'), chartManager.generateData(URL));
+
+    chartManager.buildChart(chartManager.createChart('event-chart'), 'bar', chartManager.generateData(URL), chartManager.generateOptions('Average Distance Traveled Per Event', 'Event Name', 'Average Distance in Miles'));
 });
 
 
