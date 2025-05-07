@@ -4,7 +4,7 @@ export default class ChartBuilder {
         this.canvasId = canvasId;
         this.chartType = chartType;
         this.data = {
-            label = data.xLabels
+            label: data.xLabels,
             datasets: [
                 {
                     label: 'Average Travel Distance',
