@@ -4,8 +4,8 @@ import ChartBuilder from "./charts.js";
 const tierDropdown = document.querySelector("#tier");
 const countryDropdown = document.querySelector("#country");
 const stateDropdown = document.querySelector("#state");
-const dateStartSelect = document.querySelector("#startDate");
-const dateEndSelect = document.querySelector("#endDate");
+const dateStartSelect = document.querySelector("#start-date");
+const dateEndSelect = document.querySelector("#end-data");
 /* -------- END OF GLOBAL VARIABLES -------- */
 
 /* -------- CLASSES START -------- */
