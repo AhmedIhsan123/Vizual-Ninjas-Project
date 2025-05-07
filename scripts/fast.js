@@ -78,6 +78,8 @@ class ChartManager {
                 // Store URL in a constant
                 const URL = `./PHP/events.php?tier=${tierDropdown.value}&country=${countryDropdown.value}&state=${stateDropdown.value}&start_date=${dateStartSelect.value}&${dateEndSelect.value}`;
 
+                const chartRef = new ChartBuilder('event-chart', 'bar', { xLabels, yData });
+
                 // Store data in a constant
                 const fetchResult = this.fetchData(URL);
                 let xLabels, yData;
@@ -96,7 +98,8 @@ class ChartManager {
                         isCount: event.MEMBERS_IN_STATE
                     }));
                 });
-                return new ChartBuilder('event-chart', 'bar', { xLabels, yData });
+                chartRef.updateData({ xLabels, yData });
+                return chartRef;
             default:
                 return null;
         }
