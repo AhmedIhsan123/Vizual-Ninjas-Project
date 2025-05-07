@@ -53,7 +53,7 @@ export default class ChartBuilder {
                     callbacks: {
                         label: context => {
                             const point = context.raw;
-                            return `Average Distance: ${0} mi, OS: ${0}, IS: ${0}`;
+                            return `Average Distance: ${point.y} mi, OS: ${point.osCount}, IS: ${point.isCount}`;
                         }
                     }
                 },
