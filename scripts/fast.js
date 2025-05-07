@@ -5,9 +5,9 @@ const elements = {
     tier: document.querySelector("#tier"),
     country: document.querySelector("#country"),
     state: document.querySelector("#state"),
-    applyBtn: document.querySelector("#applyFilters"),
-    startDate: document.querySelector("#startDate"),
-    endDate: document.querySelector("#endDate")
+    applyBtn: document.querySelector("#apply-filters"),
+    startDate: document.querySelector("#start-date"),
+    endDate: document.querySelector("#end-date")
 };
 
 // Event application class
