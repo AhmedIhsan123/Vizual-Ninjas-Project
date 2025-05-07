@@ -111,8 +111,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const URL = `./PHP/events.php?tier=${tierDropdown.value}&country=${countryDropdown.value}&state=${stateDropdown.value}&start_date=${dateStartSelect.value}&end_date=${dateEndSelect.value}`;
 
+    // Fetch for events
     chartManager.fetchData(URL).then(data => {
-        console.log(data);
+
     });
 });
 
