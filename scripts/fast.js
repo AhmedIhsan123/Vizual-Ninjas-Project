@@ -143,10 +143,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Construct a event manager to handle events logic
     const chartManager = new ChartManager();
     const chartReference = await chartManager.constructChart("event");
-
-    chartReference.updateOptions();
-
-
 });
 
 
