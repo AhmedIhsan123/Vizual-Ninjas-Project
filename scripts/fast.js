@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Construct a event manager to handle events logic
     const chartManager = new ChartManager();
 
-    const URL = `./PHP/events.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}&start_date=${filters.startDate}&end_date=${filters.endDate}`;
+    const URL = `./PHP/events.php?tier=${tierDropdown.value}&country=${countryDropdown.value}&state=${stateDropdown.value}&start_date=${dateStartSelect.value}&end_date=${dateEndSelect.value}`;
     chartManager.buildChart(chartManager.createChart('event-chart'), chartManager.generateOptions('Average Distance Traveled Per Event', 'Event Name', 'Average Distance in Miles'), chartManager.generateData(URL));
 });
 
