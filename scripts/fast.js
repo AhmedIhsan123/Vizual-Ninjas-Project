@@ -94,7 +94,7 @@ class ChartManager {
 
                 // Build chart
                 const chart = new ChartBuilder('event-chart', 'bar', { xLabels, yData });
-                chartReference.build();
+                chart.build();
 
                 // Return the charts reference
                 return chart;
