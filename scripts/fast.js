@@ -83,6 +83,7 @@ class ChartManager {
 
                 // Fetch for results
                 this.fetchData(URL).then(data => {
+                    console.log(data);
                     // Store x labels
                     xLabels = data.map(event => event.EVENT_NAME);
 
