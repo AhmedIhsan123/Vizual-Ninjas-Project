@@ -80,7 +80,6 @@ class ChartManager {
 
                 // Fetch the data
                 const data = await this.fetchData(URL);
-                console.log(data);
 
                 // Store x labels
                 const xLabels = data.map(event => event.EVENT_NAME);
@@ -143,7 +142,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Construct a event manager to handle events logic
     const chartManager = new ChartManager();
     const chartReference = await chartManager.constructChart("event");
-    console.log(chartReference);
     chartReference.build();
 });
 
