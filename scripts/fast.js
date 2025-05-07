@@ -162,8 +162,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
         chart.build();
     });
-
-
+});
 
 
 
