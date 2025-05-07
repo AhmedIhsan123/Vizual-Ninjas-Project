@@ -78,14 +78,11 @@ class ChartManager {
                 // Store URL in a constant
                 const URL = `./PHP/events.php?tier=${tierDropdown.value}&country=${countryDropdown.value}&state=${stateDropdown.value}&start_date=${dateStartSelect.value}&${dateEndSelect.value}`;
 
-                // Store data in a constant
-                const fetchResult = this.fetchData(URL);
-
                 // Variables to hold information
                 let xLabels, yData;
 
                 // Fetch for results
-                fetchResult.then(data => {
+                this.fetchData(URL).then(data => {
                     // Store x labels
                     xLabels = data.map(event => event.EVENT_NAME);
 
@@ -97,6 +94,8 @@ class ChartManager {
                         isCount: event.MEMBERS_IN_STATE
                     }));
                 });
+
+                console.log(xLabels, yData);
 
                 // Return the charts reference
                 return new ChartBuilder('event-chart', 'bar', { xLabels, yData });;
