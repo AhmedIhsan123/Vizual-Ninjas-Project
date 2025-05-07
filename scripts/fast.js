@@ -67,9 +67,9 @@ class ChartManager {
     }
 
     createChart(chartID) {
-
-
-
+        const chartRef = document.createElement('canvas');
+        chartRef.id = chartID;
+        chartsParent.appendChild(chartRef);
 
 
 
