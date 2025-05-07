@@ -157,8 +157,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
         }
     };
-    chartReference.updateOptions(newOptions);
+
     chartReference.build();
+    chartReference.updateOptions(newOptions);
+
 });
 
 
