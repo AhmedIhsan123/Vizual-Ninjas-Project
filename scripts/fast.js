@@ -79,7 +79,7 @@ class ChartManager {
                 const URL = `./PHP/events.php?tier=${tierDropdown.value}&country=${countryDropdown.value}&state=${stateDropdown.value}&start_date=${dateStartSelect.value}&${dateEndSelect.value}`;
 
                 // Variables to hold information
-                let xLabels, yData;
+                let xLabels = 0, yData = 0;
 
                 // Fetch for results
                 this.fetchData(URL).then(data => {
