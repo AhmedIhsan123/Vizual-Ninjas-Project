@@ -113,9 +113,57 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Fetch for events
     chartManager.fetchData(URL).then(data => {
-
+        const chart = new ChartBuilder('event-chart', 'bar', data, {
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: xTitle,
+                            font: { size: 16 }
+                        },
+                        ticks: {
+                            maxRotation: 90,
+                            minRotation: 90
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: yTitle,
+                            font: { size: 16 }
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                            callback: value => value + ' mi'
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: graphTitle,
+                        position: 'top',
+                        font: { size: 20, weight: 'bold' },
+                        padding: { top: 10, bottom: 20 },
+                        color: '#333'
+                    },
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: context => {
+                                return `Average Distance: ${avgDistance} mi, OS: ${osCount}, IS: ${isCount}`;
+                            }
+                        }
+                    },
+                }
+            },
+        });
+        chart.build();
     });
-});
+
+
 
 
 
