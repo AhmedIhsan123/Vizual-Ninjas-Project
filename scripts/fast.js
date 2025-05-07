@@ -86,7 +86,7 @@ class ChartManager {
 
 
     // Method to set chart options safely
-    generateOptions(graphTitle, xTitle, yTitle) {
+    async generateOptions(graphTitle, xTitle, yTitle) {
         // Return the options
         return {
             options: {
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const URL = `./PHP/events.php?tier=${tierDropdown.value}&country=${countryDropdown.value}&state=${stateDropdown.value}&start_date=${dateStartSelect.value}&end_date=${dateEndSelect.value}`;
 
-    chartManager.buildChart(chartManager.createChart('event-chart'), 'bar', chartManager.generateData(URL), chartManager.generateOptions('Average Distance Traveled Per Event', 'Event Name', 'Average Distance in Miles'));
+    chartManager.buildChart(chartManager.createChart('event-chart'), 'bar', await chartManager.generateData(URL), await chartManager.generateOptions('Average Distance Traveled Per Event', 'Event Name', 'Average Distance in Miles'));
 });
 
 
