@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     x: {
                         title: {
                             display: true,
-                            text: xTitle,
+                            text: 'Event Name',
                             font: { size: 16 }
                         },
                         ticks: {
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     y: {
                         title: {
                             display: true,
-                            text: yTitle,
+                            text: 'Average Distance Traveled in Miles',
                             font: { size: 16 }
                         },
                         ticks: {
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 plugins: {
                     title: {
                         display: true,
-                        text: graphTitle,
+                        text: 'Average Distance Traveled in Miles Per Event',
                         position: 'top',
                         font: { size: 20, weight: 'bold' },
                         padding: { top: 10, bottom: 20 },
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     tooltip: {
                         callbacks: {
                             label: context => {
-                                return `Average Distance: ${avgDistance} mi, OS: ${osCount}, IS: ${isCount}`;
+                                return `Average Distance: ${data.AVG_TRAVEL_DISTANCE_MILES} mi, OS: ${data.MEMBERS_IN_STATE}, IS: ${data.MEMBERS_OUT_OF_STATE}`;
                             }
                         }
                     },
