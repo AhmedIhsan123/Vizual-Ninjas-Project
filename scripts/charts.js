@@ -1,10 +1,83 @@
 export default class ChartBuilder {
 
-    constructor(canvasId, chartType, data, options) {
+    constructor(canvasId, chartType, data) {
         this.canvasId = canvasId;
         this.chartType = chartType;
         this.data = data;
-        this.options = options || {};
+        this.options = {
+            responsive: true,
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'xTitle',
+                        font: { size: 16 }
+                    },
+                    ticks: {
+                        maxRotation: 90,
+                        minRotation: 90
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'yTitle',
+                        font: { size: 16 }
+                    },
+                    ticks: {
+                        beginAtZero: true,
+                        callback: value => value + ' mi'
+                    }
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'graphTitle',
+                    position: 'top',
+                    font: { size: 20, weight: 'bold' },
+                    padding: { top: 10, bottom: 20 },
+                    color: '#333'
+                },
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: context => {
+                            const point = context.raw;
+                            return `Average Distance: ${0} mi, OS: ${0}, IS: ${0}`;
+                        }
+                    }
+                },
+                annotation: {
+                    annotations: {
+                        min: {
+                            type: 'line',
+                            yMin: 0, // EDIT THIS
+                            yMax: 0, // EDIT THIS
+                            borderColor: 'green',
+                            borderWidth: 2,
+                            label: { enabled: true, content: `Min: ${0} mi`, position: 'start' }
+                        },
+                        max: {
+                            type: 'line',
+                            yMin: 0, // EDIT THIS
+                            yMax: 0, // EDIT THIS
+                            borderColor: 'red',
+                            borderWidth: 2,
+                            label: { enabled: true, content: `Max: ${0} mi`, position: 'start' }
+                        },
+                        avg: {
+                            type: 'line',
+                            yMin: 0, // EDIT THIS
+                            yMax: 0, // EDIT THIS
+                            borderColor: 'yellow',
+                            borderWidth: 2,
+                            label: { enabled: true, content: `Avg: ${0} mi`, position: 'start' }
+                        }
+                    }
+                }
+            }
+        };
         this.chart = null;
     }
 

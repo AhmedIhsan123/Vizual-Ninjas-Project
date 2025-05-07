@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disc Golf Stats Visualizer</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Chart.js v4 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+
+    <!-- Chart.js Annotation Plugin for v4 -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.1.0/dist/chartjs-plugin-annotation.min.js"
+        defer></script>
+
+    <!-- Scripts -->
+    <!-- <script type="module" src="./scripts/script.js" defer></script> -->
+    <script type="module" src="./scripts/fast.js" defer></script>
+    <script type="module" src="./scripts/charts.js" defer></script>
+</head>
+
+<body>
+    <header class="sticky-header">
+        <div class="logo">
+            <img src="Img/VisualNinjaLogo.png" alt="Visual Ninja Logo" class="logo-img">
+            <p>Vizual Ninjas</p>
+        </div>
+    </header>
+    <div class="container">
+
+        <div class="center">
+            <h1>Disc Golf Event Statistics</h1>
+        </div>
+
+        <!-- Data filters section -->
+        <div class="filters-wrapper">
+            <div class="center">
+                <h2>Filter Events</h2>
+            </div>
+            <section class="data-filters">
+                <!-- Tier label -->
+                <label for="tier">Tier:</label>
+                <select id="tier">
+                    <option value="">Any</option>
+                </select>
+
+                <!-- Country button -->
+                <label for="country">Country:</label>
+                <select id="country">
+                    <option value="">Any</option>
+                </select>
+
+                <!-- State button -->
+                <label for="state">State:</label>
+                <select id="state">
+                    <option value="">Any</option>
+                </select>
+
+                <!-- Start date picker -->
+                <label for="startDate">Start Date:</label>
+                <input type="date" id="start-date">
+
+                <!-- End date picker -->
+                <label for="endDate">End Date:</label>
+                <input type="date" id="end-date">
+
+                <!-- Apply filters button -->
+                <button id="apply-filters">Apply Filters</button>
+            </section>
+        </div>
+
+        <!-- Data Visualization Section -->
+        <div class="visualizations">
+            <div class="center">
+                <h2>Data Visualizations</h2>
+            </div>
+            <canvas id="event-chart"></canvas>
+        </div>
+    </div>
+</body>
+
+</html>
