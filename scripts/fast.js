@@ -98,12 +98,15 @@ class ChartManager {
                 // Variable to store the combined data
                 const { chartData, options } = this.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', xLabels, yData);
 
+                // Build chart
+                chart.build()
+
                 // Update the data and options of new chart
-                eventChart.updateData(chartData);
-                eventChart.updateOptions(options);
+                chart.updateData(chartData);
+                chart.updateOptions(options);
 
                 // Return the chart
-                return chart.build();
+                return chart;
             default:
                 return null;
         }
