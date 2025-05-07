@@ -75,8 +75,12 @@ class ChartManager {
         // Construct chart based on name
         switch (chart) {
             case "event":
+                // Store URL in a constant
                 const URL = `./PHP/events.php?tier=${tierDropdown.value}&country=${countryDropdown.value}&state=${stateDropdown.value}&start_date=${dateStartSelect.value}&${dateEndSelect.value}`;
-                return new ChartBuilder('eventChart', 'bar', this.fetchData(URL));
+
+                // Store data in a constant
+                const data = this.fetchData(URL);
+                return new ChartBuilder('eventChart', 'bar', data);
             default:
                 return null;
         }
