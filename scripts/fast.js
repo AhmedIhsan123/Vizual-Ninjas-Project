@@ -93,7 +93,7 @@ class ChartManager {
                 }));
 
                 // Return the charts reference
-                return new ChartBuilder('event-chart', 'bar', { xLabels, yData });
+                return new ChartBuilder('event-chart', 'bar', { yData });
             default:
                 return null;
         }
