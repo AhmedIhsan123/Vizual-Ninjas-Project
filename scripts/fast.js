@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 //* -------- EVENT LISTENERS START -------- */
 // Event listener for the apply filters button
 countryDropdown.addEventListener("change", async () => {
+    // Fetch states based on the selected country
     const selectedCountry = countryDropdown.value;
     const url = `./PHP/handlers/getProvince.php?country=${selectedCountry}`;
     const states = await fetchData(url);
@@ -138,15 +139,13 @@ async function buildEventChart() {
         eventChart.destroy();
     }
 
-    console.log(chartData.datasets[0].data);
-
     // Variables to track annotation information
     const averages = chartData.datasets[0].data.map(point => point.y);
     const minValue = Math.min(...averages);
     const maxValue = Math.max(...averages);
     const avgValue = averages.reduce((sum, value) => sum + value, 0) / averages.length;
 
-    console.log(minValue, maxValue, avgValue);
+    // Create the chart instance
     eventChart = new Chart(ctx, {
         type: "bar",
         data: chartData,
