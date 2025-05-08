@@ -1,30 +1,82 @@
-const ctx = document.getElementById('event-chart').getContext('2d');
-const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [{
-        label: 'My First dataset',
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgba(255, 99, 132, 1)',
-        borderWidth: 1,
-        data: [0, 10, 5, 2, 20, 30, 45],
-    }]
-};
-const options = {
-    options: {
-        responsive: true,
-        plugins: {
-            legend: {
-                position: 'top',
+/* -------- GLOBAL VARIABLES START -------- */
+const tierDropdown = document.querySelector("#tier-dropdown");
+const countryDropdown = document.querySelector("#country-dropdown");
+const stateDropdown = document.querySelector("#state-dropdown");
+const startDateInput = document.querySelector("#start-date");
+const endDateInput = document.querySelector("#end-date");
+const applyFiltersButton = document.querySelector("#apply-filters");
+/* -------- GLOBAL VARIABLES END -------- */
+
+/* -------- CLASSES START -------- */
+class ChartManager {
+    constructor(canvasID) {
+        this.chart = null;
+        this.chartData = null;
+        this.chartOptions = null;
+        this.chartType = "bar"; // Default chart type
+        this.canvasId = canvasID; // Default canvas ID
+        this.init();
+    }
+
+    init() {
+        // Initialize the chart with default data and options
+        this.chartData = this.getDefaultData();
+        this.chartOptions = this.getDefaultOptions();
+        this.buildChart(this.canvasId, this.chartType, this.chartData, this.chartOptions);
+    }
+
+    // Method to build the chart
+    getDefaultData() {
+        return {
+            labels: [],
+            datasets: [
+                {
+                    label: "Default Dataset",
+                    data: [],
+                    backgroundColor: "rgba(75, 192, 192, 0.2)",
+                    borderColor: "rgba(75, 192, 192, 1)",
+                    borderWidth: 1,
+                },
+            ],
+        };
+    }
+
+    // Method to build the chart
+    getDefaultOptions() {
+        return {
+            responsive: true,
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: "X Axis",
+                    },
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: "Y Axis",
+                    },
+                },
             },
-            title: {
-                display: true,
-                text: 'Chart.js Line Chart'
-            }
-        }
+        };
     }
 }
-const myChart = new Chart(ctx, {
-    type: 'bar',
-    data: data,
-    options: options
-});
+/* -------- CLASSES END -------- */
+
+/* -------- FUNCTIONS START -------- */
+async function fetchData(URL) {
+    try {
+        const response = await fetch(URL);
+        return await response.json();
+    } catch (error) {
+        return console.error('Error fetching data:', error);
+    }
+}
+/* -------- FUNCTIONS END -------- */
+
+/* -------- PROGRAM START -------- */
+document.addEventListener("DOMContentLoaded", () => {
+    const eventManager = new ChartManager("event-chart");
+
+})
