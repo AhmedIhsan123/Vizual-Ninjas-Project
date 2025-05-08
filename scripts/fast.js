@@ -26,6 +26,6 @@ async function fetchData(url) {
 }
 
 async function updateFilters() {
-    const filters = await chartUtils.fetchData('./PHP/handlers/getFilters.php');
+    const filters = await fetchData('./PHP/handlers/getFilters.php');
     console.log(filters);
 }
