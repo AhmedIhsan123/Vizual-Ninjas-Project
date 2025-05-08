@@ -9,20 +9,39 @@ const applyFiltersButton = document.querySelector("#apply-filters");
 
 /* -------- CLASSES START -------- */
 class ChartManager {
+    // Class to manage the chart
+    // Constructor to initialize the chart with default values
+    // and set up the canvas ID
     constructor(canvasID) {
         this.chart = null;
         this.chartData = null;
         this.chartOptions = null;
         this.chartType = "bar"; // Default chart type
-        this.canvasId = canvasID; // Default canvas ID
+        this.canvasID = canvasID; // Default canvas ID
         this.init();
     }
 
+    // Method to initialize the chart
     init() {
-        // Initialize the chart with default data and options
-        this.chartData = this.getDefaultData();
-        this.chartOptions = this.getDefaultOptions();
-        this.buildChart(this.canvasId, this.chartType, this.chartData, this.chartOptions);
+        // Set up the chart with default data and options
+        const URL = `./PHP/events.php?tier=${tierDropdown.value}&country=${countryDropdown.value}&state=${stateDropdown.value}&start_date=${startDateInput.value}&end_date=${endDateInput.value}`;
+
+        // Fetch data from the server and build the chart
+        fetchData(URL).then((data) => {
+            this.chartData = data;
+            this.chartOptions = this.getDefaultOptions();
+            this.buildChart(this.chartData, this.chartOptions);
+        });
+    }
+
+    // Method to update the chart data and options
+    buildChart(data, options) {
+        const ctx = document.getElementById(this.canvasID).getContext("2d");
+        this.chart = new Chart(ctx, {
+            type: this.chartType,
+            data: data,
+            options: options,
+        });
     }
 
     // Method to build the chart
@@ -78,5 +97,6 @@ async function fetchData(URL) {
 /* -------- PROGRAM START -------- */
 document.addEventListener("DOMContentLoaded", () => {
     const eventManager = new ChartManager("event-chart");
+
 
 })
