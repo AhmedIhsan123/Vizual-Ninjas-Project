@@ -41,8 +41,8 @@ class ChartManager {
         return {
             labels: data.map(event => event.EVENT_NAME),
             datasets: [{
-                label: "Average Travel Distance (Miles)",
-                data: data.map(event => event.AVG_TRAVEL_DISTANCE_MILES),
+                label: "Average Distance",
+                data: data.map(event => event.AVG_TRAVEL_DISTANCE_MILES) + "mi",
                 backgroundColor: "rgba(132, 192, 75, 0.2)",
                 borderColor: "rgb(75, 192, 120)",
                 borderWidth: 1,
