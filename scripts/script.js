@@ -4,7 +4,10 @@ import ChartBuilder from "./charts.js";
 const tierDropRef = document.querySelector("#tier");
 const countryDropRef = document.querySelector("#country");
 const stateDropRef = document.querySelector("#state");
+const startDateRef = document.querySelector("#startDate");
+const endDateRef = document.querySelector("#endDate");
 const applyBtnRef = document.querySelector("#applyFilters");
+const clearBtnRef = document.querySelector("#clearFilters");
 
 // Event application class
 class EventApp {
@@ -174,8 +177,8 @@ document.addEventListener("DOMContentLoaded", () => {
             tier: tierDropRef.value,
             country: countryDropRef.value,
             state: stateDropRef.value,
-            startDate: document.querySelector("#startDate").value,
-            endDate: document.querySelector("#endDate").value
+            startDate: startDateRef.value,
+            endDate: endDateRef.value
         };
 
         // URL to fetch
@@ -201,6 +204,21 @@ document.addEventListener("DOMContentLoaded", () => {
             eventChart.updateOptions(options);
         });
     });
+
+    // Clicking on Clear Filters
+    clearBtnRef.addEventListener("click", function () {
+        // Resets the filter values
+        tierDropRef.value = "";
+        countryDropRef.value = "";
+        stateDropRef.value = "";
+        startDateRef.value = "";
+        endDateRef.value = "";
+
+        // Clears the chart
+        const emptyChart = app.setChartOptions('Undefined', 'Undefined', 'Undefined', null, []);
+        eventChart.updateData(emptyChart.chartData);
+        eventChart.updateOptions(emptyChart.options);
+    })
 });
 
 // When country dropdown changes, update state options
