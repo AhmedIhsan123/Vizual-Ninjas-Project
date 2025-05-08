@@ -181,8 +181,7 @@ async function buildEventChart() {
                 },
             },
         },
-    },
     });
-eventChart.update();
+    eventChart.update();
 }
 /* -------- FUNCTIONS END -------- */
