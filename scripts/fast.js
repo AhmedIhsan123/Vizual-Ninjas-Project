@@ -82,7 +82,7 @@ class ChartManager {
                             borderColor: 'blue',
                             borderWidth: 2,
                             label: {
-                                content: 'Average',
+                                content: `Average: ${avg.toFixed(2)} mi`,
                                 enabled: true,
                                 position: 'end'
                             }
@@ -94,7 +94,7 @@ class ChartManager {
                             borderColor: 'green',
                             borderWidth: 2,
                             label: {
-                                content: 'Max',
+                                content: `Max: ${max.toFixed(2)} mi`,
                                 enabled: true,
                                 position: 'end'
                             }
@@ -106,7 +106,7 @@ class ChartManager {
                             borderColor: 'red',
                             borderWidth: 2,
                             label: {
-                                content: 'Min',
+                                content: `Min: ${min.toFixed(2)} mi`,
                                 enabled: true,
                                 position: 'end'
                             }
