@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
 
             // Variable to store the combined data
-            const { chartData, options } = app.setChartOptions(`Average Distance Traveled Per Event ${filtersAdded()}`, 'Events', 'Average Distance Traveled in Miles', xLabels, yData);
+            const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', xLabels, yData);
 
             // Update the data and options of new chart
             eventChart.updateData(chartData);
