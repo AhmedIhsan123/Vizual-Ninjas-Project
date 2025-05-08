@@ -37,6 +37,7 @@ class ChartManager {
         const chartData = this.formatChartData(data);
         const chartOptions = this.getDefaultOptions();
         console.log(chartData, chartOptions);
+        console.log(data);
         this.buildChart(chartData, chartOptions);
     }
 
