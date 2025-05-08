@@ -64,8 +64,11 @@ applyFiltersButton.addEventListener("click", async () => {
     // Prepare the data for the chart
     data.forEach(event => {
         chartData.labels.push(event.EVENT_NAME);
-        chartData.datasets.push({
-            data: event.AVG_TRAVEL_DISTANCE_MILES,
+        chartData.datasets.data.push({
+            x: event.EVENT_NAME,
+            y: event.AVG_TRAVEL_DISTANCE_MILES,
+            osCount: event.MEMBERS_OUT_OF_STATE,
+            isCount: event.MEMBERS_IN_STATE,
         });
     });
 
