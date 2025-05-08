@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
         start_date: startDateInput.value,
         end_date: endDateInput.value,
     };
-
+    handleCountryChange(); // Populate state dropdown on page load
     const defaultURL = buildURL("./PHP/events.php", defaultParams);
     window.eventChartManager = new ChartManager("event-chart");
     eventChartManager.initialize(defaultURL);
