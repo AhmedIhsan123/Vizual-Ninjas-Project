@@ -71,7 +71,7 @@ applyFiltersButton.addEventListener("click", async () => {
     });
 
     // Create the chart using Chart.js
-    const ctx = document.getElementById("eventChart").getContext("2d");
+    const ctx = document.getElementById("event-chart").getContext("2d");
     const eventChart = new Chart(ctx, {
         type: "bar",
         data: chartData,
