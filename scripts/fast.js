@@ -129,6 +129,7 @@ async function buildEventChart() {
             y: event.AVG_TRAVEL_DISTANCE_MILES,
             osCount: event.MEMBERS_OUT_OF_STATE,
             isCount: event.MEMBERS_IN_STATE,
+            backgroundColor: "green"
         });
     });
 
