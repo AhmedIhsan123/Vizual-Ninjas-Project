@@ -12,6 +12,27 @@ document.addEventListener("DOMContentLoaded", async () => {
     updateFilters();
 });
 
+countryDropdown.addEventListener("change", async () => {
+    const selectedCountry = countryDropdown.value;
+    const url = `./PHP/handlers/getProvince.php?country=${selectedCountry}`;
+    const states = await fetchData(url);
+
+    // Clear existing options in state dropdown
+    if (!states) return;
+
+    // Clear existing options in state dropdown
+    stateDropdown.innerHTML = '<option value="">Any</option>';
+
+    // Populate state dropdown with new options
+    states.forEach(state => {
+        const option = document.createElement('option');
+        option.value = state.state_id;
+        option.textContent = state.state_name;
+        stateDropdown.appendChild(option);
+    });
+});
+
+/* -------- FUNCTIONS -------- */
 // Method to set chart options based on the data
 async function fetchData(url) {
     try {
@@ -25,6 +46,7 @@ async function fetchData(url) {
     }
 }
 
+// Method to add elements to a dropdown
 async function updateFilters() {
     // Fetch filters data from the server
     const filters = await fetchData('./PHP/handlers/getFilters.php');
