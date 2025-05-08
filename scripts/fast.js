@@ -120,3 +120,20 @@ document.addEventListener("DOMContentLoaded", () => {
     applyFiltersButton.addEventListener("click", handleApplyFilters);
 });
 /* -------- PROGRAM END -------- */
+
+// When country dropdown changes, update state options
+countryDropdown.addEventListener("change", function () {
+    app.fetchData(`./PHP/handlers/getProvince.php?country=${countryDropRef.value}`).then(data => {
+        if (!data.states) return;
+
+        // Clear the state dropdown options
+        while (stateDropRef.children.length > 1) {
+            stateDropdown.removeChild(stateDropdown.lastChild);
+        }
+
+        // Add new state dropdown options
+        data.states.forEach(element => {
+            app.addDropdownElement(element['state_id'], element['state_name'], stateDropRef);
+        });
+    });
+});
