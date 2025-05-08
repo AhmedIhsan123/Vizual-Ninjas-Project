@@ -1,7 +1,7 @@
 /* -------- GLOBAL VARIABLES START -------- */
-const tierDropdown = document.querySelector("#tier-dropdown");
-const countryDropdown = document.querySelector("#country-dropdown");
-const stateDropdown = document.querySelector("#state-dropdown");
+const tierDropdown = document.querySelector("#tier");
+const countryDropdown = document.querySelector("#country");
+const stateDropdown = document.querySelector("#state");
 const startDateInput = document.querySelector("#start-date");
 const endDateInput = document.querySelector("#end-date");
 const applyFiltersButton = document.querySelector("#apply-filters");
