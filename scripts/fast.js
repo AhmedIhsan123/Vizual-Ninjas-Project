@@ -111,7 +111,7 @@ async function buildEventChart() {
 
     // Fetch data based on the selected filters
     const data = await fetchData(url);
-    let chartData = { labels: [], datasets: [{ label: "Average Distance Traveled", data: [] }] };
+    let chartData = { labels: [], datasets: [{ label: "Average Player Distance Traveled ", data: [] }] };
 
     // Check if data is empty
     if (!data || data.length === 0) {
@@ -173,13 +173,16 @@ async function buildEventChart() {
                     callbacks: {
                         label: function (tooltipItem) {
                             const avgValue = tooltipItem.raw.y;
-                            return `Avg: ${avgValue.toFixed(2)} mi`;
+                            const osCount = tooltipItem.raw.osCount;
+                            const isCount = tooltipItem.raw.isCount;
+                            return `Avg: ${avgValue.toFixed(2)} mi\nOut of State: ${osCount}\nIn State: ${isCount}`;
                         },
                     },
                 },
             },
         },
+    },
     });
-    eventChart.update();
+eventChart.update();
 }
 /* -------- FUNCTIONS END -------- */
