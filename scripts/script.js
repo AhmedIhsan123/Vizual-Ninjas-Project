@@ -186,15 +186,12 @@ document.addEventListener("DOMContentLoaded", () => {
             if (filters.tier) filterParts.push(`Tier "${filters.tier}"`);
             if (filters.country) filterParts.push(`Country "${filters.country}"`);
             if (filters.state) filterParts.push(`State "${filters.state}"`);
-            if (filters.startDate) filterParts.push(`Start Date "${filters.startDate}"`)
-            if (filters.endDate) filterParts.push(`End Date "${filters.endDate}"`)
-            // if (filters.startDate && filters.endDate) {
-            //     filterParts.push(`from ${filters.startDate} to ${filters.endDate}`);
-            // }
+            if (filters.startDate) filterParts.push(`Start Date: "${filters.startDate}"`)
+            if (filters.endDate) filterParts.push(`End Date: "${filters.endDate}"`)
 
             let title = "Average Distance Traveled Per Event";
             if (filterParts.length > 0) {
-                title += " (by " + filterParts.join(', ') + ")";
+                title += " (filtered by " + filterParts.join(', ') + ")";
             }
 
         // URL to fetch
