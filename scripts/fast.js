@@ -5,7 +5,6 @@ const stateDropdown = document.querySelector("#state");
 const startDateInput = document.querySelector("#start-date");
 const endDateInput = document.querySelector("#end-date");
 const applyFiltersButton = document.querySelector("#apply-filters");
-const chartUtils = new ChartUtilities();
 /* -------- GLOBAL VARIABLES END -------- */
 
 /* -------- INITIALIZATION -------- */
