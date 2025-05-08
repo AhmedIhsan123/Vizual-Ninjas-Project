@@ -128,9 +128,9 @@ async function buildEventChart() {
             x: event.EVENT_NAME,
             y: event.AVG_TRAVEL_DISTANCE_MILES,
             osCount: event.MEMBERS_OUT_OF_STATE,
-            isCount: event.MEMBERS_IN_STATE,
-            backgroundColor: "green"
+            isCount: event.MEMBERS_IN_STATE
         });
+        chartData.datasets[0].backgroundColor = "green";
     });
 
     // Create the chart using Chart.js
