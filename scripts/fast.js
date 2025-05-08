@@ -147,6 +147,9 @@ async function buildEventChart() {
     const avgValue = averages.reduce((sum, value) => sum + value, 0) / averages.length;
 
     // Create a new chart instance
+    // Register the annotation plugin
+    Chart.register(ChartAnnotation);
+
     eventChart = new Chart(ctx, {
         type: "bar",
         data: chartData,
