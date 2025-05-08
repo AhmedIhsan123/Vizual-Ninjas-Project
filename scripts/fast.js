@@ -61,6 +61,10 @@ class ChartManager {
                         display: true,
                         text: "Event Names",
                     },
+                    ticks: {
+                        maxRotation: 90,
+                        minRotation: 90,
+                    }
                 },
                 y: {
                     title: {
