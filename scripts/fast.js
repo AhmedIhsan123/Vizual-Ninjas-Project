@@ -28,7 +28,16 @@ class ChartManager {
 
         // Fetch data from the server and build the chart
         fetchData(URL).then((data) => {
-            this.chartData = data;
+            this.chartData = {
+                labels: data.EVENT_NAME,
+                datasets: [{
+                    label: "Event Data",
+                    data: data.map(event => event.AVG_TRAVEL_DISTANCE_MILES),
+                    backgroundColor: "rgba(75, 192, 192, 0.2)",
+                    borderColor: "rgba(75, 192, 192, 1)",
+                    borderWidth: 1,
+                }]
+            };
             this.chartOptions = this.getDefaultOptions();
             this.buildChart(this.chartData, this.chartOptions);
         });
