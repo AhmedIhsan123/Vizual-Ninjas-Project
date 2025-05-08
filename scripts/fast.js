@@ -175,7 +175,7 @@ async function buildEventChart() {
                             const avgValue = tooltipItem.raw.y;
                             const osCount = tooltipItem.raw.osCount;
                             const isCount = tooltipItem.raw.isCount;
-                            return `Avg: ${avgValue.toFixed(2)} mi\nOut of State: ${osCount}\nIn State: ${isCount}`;
+                            return `Avg: ${avgValue.toFixed(2)} mi, Out of State: ${osCount}, In State: ${isCount}`;
                         },
                     },
                 },
