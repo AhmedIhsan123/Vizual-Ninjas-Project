@@ -26,6 +26,15 @@ async function fetchData(url) {
 }
 
 async function updateFilters() {
+    // Fetch filters data from the server
     const filters = await fetchData('./PHP/handlers/getFilters.php');
-    console.log(filters);
+
+    // No data to update
+    if (!filters) return;
+
+    // Clear existing options in dropdowns
+    tierDropdown.innerHTML = '<option value="">Any</option>';
+    countryDropdown.innerHTML = '<option value="">Any</option>';
+    stateDropdown.innerHTML = '<option value="">Any</option>';
+
 }
