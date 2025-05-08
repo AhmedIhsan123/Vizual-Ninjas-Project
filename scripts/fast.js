@@ -39,6 +39,66 @@ countryDropdown.addEventListener("change", async () => {
 
 // Event listener for the apply filters button
 applyFiltersButton.addEventListener("click", async () => {
+    buildEventChart();
+});
+
+
+//* -------- EVENT LISTENERS END -------- */
+
+/* -------- FUNCTIONS START -------- */
+// Method to fetch data through url and return the data found
+async function fetchData(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error("Network response was not ok " + response.statusText);
+        }
+        return await response.json();
+    } catch (error) {
+        return console.error("Fetch error: ", error);
+    }
+}
+
+// Method to update the filters dropdowns
+async function updateFilters() {
+    // Fetch filters data from the server
+    const filters = await fetchData('./PHP/handlers/getFilters.php');
+
+    // No data to update
+    if (!filters) return;
+
+    // Clear existing options in dropdowns
+    tierDropdown.innerHTML = '<option value="">Any</option>';
+    countryDropdown.innerHTML = '<option value="">Any</option>';
+    stateDropdown.innerHTML = '<option value="">Any</option>';
+
+    // Populate tier dropdown
+    filters.tiers.forEach(tier => {
+        const option = document.createElement('option');
+        option.value = tier;
+        option.textContent = tier;
+        tierDropdown.appendChild(option);
+    });
+
+    // Populate country dropdown
+    filters.countries.forEach(country => {
+        const option = document.createElement('option');
+        option.value = country;
+        option.textContent = country;
+        countryDropdown.appendChild(option);
+    });
+
+    // Populate state dropdown
+    filters.states.forEach(state => {
+        const option = document.createElement('option');
+        option.value = state.state_id;
+        option.textContent = state.state_name;
+        stateDropdown.appendChild(option);
+    });
+}
+
+// Method to build the event chart based on selected filters
+async function buildEventChart() {
     // Get the selected values from the dropdowns and inputs
     const selectedTier = tierDropdown.value;
     const selectedCountry = countryDropdown.value;
@@ -51,7 +111,7 @@ applyFiltersButton.addEventListener("click", async () => {
 
     // Fetch data based on the selected filters
     const data = await fetchData(url);
-    let chartData = { labels: [], datasets: [{ label: "Travel Data", data: [] }] };
+    let chartData = { labels: [], datasets: [{ label: "Average Distance Traveled", data: [] }] };
 
     // Check if data is empty
     if (!data || data.length === 0) {
@@ -121,60 +181,5 @@ applyFiltersButton.addEventListener("click", async () => {
         },
     });
     eventChart.update();
-});
-
-
-//* -------- EVENT LISTENERS END -------- */
-
-/* -------- FUNCTIONS START -------- */
-// Method to fetch data through url and return the data found
-async function fetchData(url) {
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error("Network response was not ok " + response.statusText);
-        }
-        return await response.json();
-    } catch (error) {
-        return console.error("Fetch error: ", error);
-    }
-}
-
-// Method to update the filters dropdowns
-async function updateFilters() {
-    // Fetch filters data from the server
-    const filters = await fetchData('./PHP/handlers/getFilters.php');
-
-    // No data to update
-    if (!filters) return;
-
-    // Clear existing options in dropdowns
-    tierDropdown.innerHTML = '<option value="">Any</option>';
-    countryDropdown.innerHTML = '<option value="">Any</option>';
-    stateDropdown.innerHTML = '<option value="">Any</option>';
-
-    // Populate tier dropdown
-    filters.tiers.forEach(tier => {
-        const option = document.createElement('option');
-        option.value = tier;
-        option.textContent = tier;
-        tierDropdown.appendChild(option);
-    });
-
-    // Populate country dropdown
-    filters.countries.forEach(country => {
-        const option = document.createElement('option');
-        option.value = country;
-        option.textContent = country;
-        countryDropdown.appendChild(option);
-    });
-
-    // Populate state dropdown
-    filters.states.forEach(state => {
-        const option = document.createElement('option');
-        option.value = state.state_id;
-        option.textContent = state.state_name;
-        stateDropdown.appendChild(option);
-    });
 }
 /* -------- FUNCTIONS END -------- */
