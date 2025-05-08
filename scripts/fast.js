@@ -1,13 +1,12 @@
-/* -------- GLOBAL VARIABLES START -------- */
+/* -------- GLOBAL VARIABLES -------- */
 const tierDropdown = document.querySelector("#tier");
 const countryDropdown = document.querySelector("#country");
 const stateDropdown = document.querySelector("#state");
 const startDateInput = document.querySelector("#start-date");
 const endDateInput = document.querySelector("#end-date");
 const applyFiltersButton = document.querySelector("#apply-filters");
-/* -------- GLOBAL VARIABLES END -------- */
 
-/* -------- UTILITY FUNCTIONS START -------- */
+/* -------- UTILITY FUNCTIONS -------- */
 const fetchData = async (url) => {
     try {
         const response = await fetch(url);
@@ -22,9 +21,8 @@ const buildURL = (baseURL, params) => {
     const query = new URLSearchParams(params).toString();
     return `${baseURL}?${query}`;
 };
-/* -------- UTILITY FUNCTIONS END -------- */
 
-/* -------- CHART MANAGER CLASS START -------- */
+/* -------- CHART MANAGER CLASS -------- */
 class ChartManager {
     constructor(canvasID, chartType = "bar") {
         this.chart = null;
@@ -35,9 +33,7 @@ class ChartManager {
     async initialize(url) {
         const data = await fetchData(url);
         const chartData = this.formatChartData(data);
-        const chartOptions = this.getDefaultOptions();
-        console.log(chartData, chartOptions);
-        console.log(data);
+        const chartOptions = this.getDefaultOptions(data);
         this.buildChart(chartData, chartOptions);
     }
 
@@ -50,13 +46,74 @@ class ChartManager {
                 backgroundColor: "rgba(132, 192, 75, 0.2)",
                 borderColor: "rgb(75, 192, 120)",
                 borderWidth: 1,
+                extraData: data.map(event => ({
+                    inState: event.MEMBERS_IN_STATE,
+                    outState: event.MEMBERS_OUT_OF_STATE
+                }))
             }]
         };
     }
 
-    getDefaultOptions() {
+    getDefaultOptions(data) {
+        const avg = data.reduce((sum, event) => sum + event.AVG_TRAVEL_DISTANCE_MILES, 0) / data.length;
+        const max = Math.max(...data.map(event => event.AVG_TRAVEL_DISTANCE_MILES));
+        const min = Math.min(...data.map(event => event.AVG_TRAVEL_DISTANCE_MILES));
+
         return {
             responsive: true,
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        afterLabel: (tooltipItem) => {
+                            const extraData = tooltipItem.dataset.extraData[tooltipItem.dataIndex];
+                            return [
+                                `In-State Players: ${extraData.inState}`,
+                                `Out-of-State Players: ${extraData.outState}`
+                            ];
+                        }
+                    }
+                },
+                annotation: {
+                    annotations: {
+                        avgLine: {
+                            type: 'line',
+                            yMin: avg,
+                            yMax: avg,
+                            borderColor: 'blue',
+                            borderWidth: 2,
+                            label: {
+                                content: 'Average',
+                                enabled: true,
+                                position: 'end'
+                            }
+                        },
+                        maxLine: {
+                            type: 'line',
+                            yMin: max,
+                            yMax: max,
+                            borderColor: 'green',
+                            borderWidth: 2,
+                            label: {
+                                content: 'Max',
+                                enabled: true,
+                                position: 'end'
+                            }
+                        },
+                        minLine: {
+                            type: 'line',
+                            yMin: min,
+                            yMax: min,
+                            borderColor: 'red',
+                            borderWidth: 2,
+                            label: {
+                                content: 'Min',
+                                enabled: true,
+                                position: 'end'
+                            }
+                        }
+                    }
+                }
+            },
             scales: {
                 x: {
                     title: {
@@ -88,9 +145,8 @@ class ChartManager {
         });
     }
 }
-/* -------- CHART MANAGER CLASS END -------- */
 
-/* -------- EVENT HANDLERS START -------- */
+/* -------- EVENT HANDLERS -------- */
 const handleApplyFilters = () => {
     const params = {
         tier: tierDropdown.value,
@@ -101,33 +157,12 @@ const handleApplyFilters = () => {
     };
 
     const url = buildURL("./PHP/events.php", params);
-    console.log(params, url);
-
     eventChartManager.initialize(url);
 };
-/* -------- EVENT HANDLERS END -------- */
 
-/* -------- PROGRAM START -------- */
-document.addEventListener("DOMContentLoaded", () => {
-    const defaultParams = {
-        tier: tierDropdown.value,
-        country: countryDropdown.value,
-        state: stateDropdown.value,
-        start_date: startDateInput.value,
-        end_date: endDateInput.value,
-    };
-
-    const defaultURL = buildURL("./PHP/events.php", defaultParams);
-    window.eventChartManager = new ChartManager("event-chart");
-    eventChartManager.initialize(defaultURL);
-
-    applyFiltersButton.addEventListener("click", handleApplyFilters);
-});
-/* -------- PROGRAM END -------- */
-
-// When country dropdown changes, update state options
-countryDropdown.addEventListener("change", function () {
-    fetchData(`./PHP/handlers/getProvince.php?country=${countryDropdown.value}`).then(data => {
+const handleCountryChange = () => {
+    const url = `./PHP/handlers/getProvince.php?country=${countryDropdown.value}`;
+    fetchData(url).then(data => {
         if (!data.states) return;
 
         // Clear the state dropdown options
@@ -143,4 +178,22 @@ countryDropdown.addEventListener("change", function () {
             stateDropdown.appendChild(option);
         });
     });
+};
+
+/* -------- INITIALIZATION -------- */
+document.addEventListener("DOMContentLoaded", () => {
+    const defaultParams = {
+        tier: tierDropdown.value,
+        country: countryDropdown.value,
+        state: stateDropdown.value,
+        start_date: startDateInput.value,
+        end_date: endDateInput.value,
+    };
+
+    const defaultURL = buildURL("./PHP/events.php", defaultParams);
+    window.eventChartManager = new ChartManager("event-chart");
+    eventChartManager.initialize(defaultURL);
+
+    applyFiltersButton.addEventListener("click", handleApplyFilters);
+    countryDropdown.addEventListener("change", handleCountryChange);
 });
