@@ -53,7 +53,62 @@ applyFiltersButton.addEventListener("click", async () => {
 
     // Fetch data based on the selected filters
     const data = await fetchData(url);
-    console.log(data);
+    let chartData = { labels: [], datasets: [] };
+
+    // Check if data is empty
+    if (!data || data.length === 0) {
+        console.error("No data found for the selected filters.");
+        return;
+    }
+
+    // Prepare the data for the chart
+    data.forEach(event => {
+        chartData.labels.push(event.EVENT_NAME);
+        chartData.datasets.push({
+            label: event.EVENT_NAME,
+            data: event.AVG_TRAVEL_DISTANCE_MILES,
+        });
+    });
+
+    // Create the chart using Chart.js
+    const ctx = document.getElementById("eventChart").getContext("2d");
+    const eventChart = new Chart(ctx, {
+        type: "bar",
+        data: chartData,
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: "Events",
+                    },
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: "Average Distance Traveled in Miles",
+                    },
+                    beginAtZero: true,
+                },
+            },
+            plugins: {
+                legend: {
+                    display: true,
+                    position: "top",
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (tooltipItem) {
+                            const avgValue = tooltipItem.raw.y;
+                            return `Avg: ${avgValue.toFixed(2)} mi`;
+                        },
+                    },
+                },
+            },
+        },
+    });
+    eventChart.update();
 });
 
 
