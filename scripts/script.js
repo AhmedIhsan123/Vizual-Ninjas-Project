@@ -195,12 +195,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 osCount: event.MEMBERS_OUT_OF_STATE,
                 isCount: event.MEMBERS_IN_STATE
             }));
-
-            // filtersAdded = () => {
-            //     if(tierDropRef.value != null){ 
-            //         return "by tier";
-            //     }
-            // }
             
             // Variable to store the combined data
             const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', xLabels, yData);
