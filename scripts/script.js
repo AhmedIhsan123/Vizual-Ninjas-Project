@@ -196,8 +196,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 isCount: event.MEMBERS_IN_STATE
             }));
 
+            filtersAdded = () => {
+                if(tierDropRef.value != null){ 
+                    return "by tier";
+                }
+            }
+            
+
             // Variable to store the combined data
-            const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', xLabels, yData);
+            const { chartData, options } = app.setChartOptions(`Average Distance Traveled Per Event ${filtersAdded()}`, 'Events', 'Average Distance Traveled in Miles', xLabels, yData);
 
             // Update the data and options of new chart
             eventChart.updateData(chartData);
@@ -215,10 +222,10 @@ document.addEventListener("DOMContentLoaded", () => {
         endDateRef.value = "";
 
         // Clears the chart
-        const emptyChart = app.setChartOptions('Undefined', 'Undefined', 'Undefined', null, []);
+        const emptyChart = app.setChartOptions('', '', '', null, []);
         eventChart.updateData(emptyChart.chartData);
         eventChart.updateOptions(emptyChart.options);
-    })
+    });
 });
 
 // When country dropdown changes, update state options
