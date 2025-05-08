@@ -12,6 +12,7 @@ let eventChart = null; // Placeholder for the chart instance
 document.addEventListener("DOMContentLoaded", async () => {
     // Set the correct possible filters for the dropdowns
     updateFilters();
+    buildEventChart();
 });
 
 //* -------- EVENT LISTENERS START -------- */
