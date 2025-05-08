@@ -183,15 +183,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Checks if a filter is selected and dynamically adds it to the chart 
             let filterParts = [];
-            if (filters.tier) filterParts.push(`Tier ${filters.tier}`);
+            if (filters.tier) filterParts.push(`Tier - ${filters.tier}`);
             if (filters.country) filterParts.push(`Country - ${filters.country}`);
-            if (filters.state) filterParts.push(`${filters.state}`);
+            if (filters.state) filterParts.push(`State/Province - ${filters.state}`);
             if (filters.startDate) filterParts.push(`Start Date: ${filters.startDate}`)
             if (filters.endDate) filterParts.push(`End Date: ${filters.endDate}`)
 
             let title = "Average Distance Traveled Per Event";
             if (filterParts.length > 0) {
-                title += " (filtered by " + filterParts.join(', ') + ")";
+                title += " (filtered by: " + filterParts.join(', ') + ")";
             }
 
         // URL to fetch
