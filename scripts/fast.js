@@ -12,9 +12,6 @@ let eventChart = null; // Placeholder for the chart instance
 document.addEventListener("DOMContentLoaded", async () => {
     // Set the correct possible filters for the dropdowns
     updateFilters();
-
-
-
 });
 
 //* -------- EVENT LISTENERS START -------- */
@@ -92,6 +89,11 @@ applyFiltersButton.addEventListener("click", async () => {
                     title: {
                         display: true,
                         text: "Events",
+                    },
+                    ticks: {
+                        autoSkip: false,
+                        maxRotation: 90,
+                        minRotation: 0,
                     },
                 },
                 y: {
