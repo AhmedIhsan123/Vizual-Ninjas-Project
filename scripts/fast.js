@@ -138,10 +138,10 @@ async function buildEventChart() {
         eventChart.destroy();
     }
 
-    console.log(chartData);
+    console.log(chartData.datasets[0].data);
 
     // Variables to track annotation information
-    const averages = chartData.datasets.data.map(point => point.y);
+    const averages = chartData.datasets[0].data.map(point => point.y);
     const minValue = Math.min(...averages);
     const maxValue = Math.max(...averages);
     const avgValue = averages.reduce((sum, value) => sum + value, 0) / averages.length;
