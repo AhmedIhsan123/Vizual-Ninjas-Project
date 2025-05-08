@@ -68,6 +68,7 @@ class ChartManager {
                         afterLabel: (tooltipItem) => {
                             const extraData = tooltipItem.dataset.extraData[tooltipItem.dataIndex];
                             return [
+                                `Average Distance: ${tooltipItem.raw.toFixed(2)} mi`,
                                 `In-State Players: ${extraData.inState}`,
                                 `Out-of-State Players: ${extraData.outState}`
                             ];
