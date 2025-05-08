@@ -181,6 +181,20 @@ document.addEventListener("DOMContentLoaded", () => {
             endDate: endDateRef.value
         };
 
+            // Build part of the title from selected filters
+            let filterParts = [];
+            if (filters.tier) filterParts.push(`Tier "${filters.tier}"`);
+            if (filters.country) filterParts.push(`Country "${filters.country}"`);
+            if (filters.state) filterParts.push(`State "${filters.state}"`);
+            if (filters.startDate && filters.endDate) {
+                filterParts.push(`from ${filters.startDate} to ${filters.endDate}`);
+            }
+
+            let title = "Average Distance Traveled Per Event";
+            if (filterParts.length > 0) {
+                title += " (by " + filterParts.join(', ') + ")";
+            }
+
         // URL to fetch
         let url = `./PHP/events.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}&start_date=${filters.startDate}&end_date=${filters.endDate}`;
 
@@ -197,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }));
             
             // Variable to store the combined data
-            const { chartData, options } = app.setChartOptions('Average Distance Traveled Per Event', 'Events', 'Average Distance Traveled in Miles', xLabels, yData);
+            const { chartData, options } = app.setChartOptions(title, 'Events', 'Average Distance Traveled in Miles', xLabels, yData);
 
             // Update the data and options of new chart
             eventChart.updateData(chartData);
