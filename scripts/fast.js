@@ -162,7 +162,7 @@ async function buildEventChart() {
                     ticks: {
                         autoSkip: false,
                         maxRotation: 90,
-                        minRotation: 0,
+                        minRotation: 90,
                     },
                 },
                 y: {
