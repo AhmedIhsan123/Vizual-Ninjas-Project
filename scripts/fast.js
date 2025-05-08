@@ -54,6 +54,7 @@ class ChartManager {
         };
     }
 
+    // Default options for the chart
     getDefaultOptions(data) {
         const avg = data.reduce((sum, event) => sum + event.AVG_TRAVEL_DISTANCE_MILES, 0) / data.length;
         const max = Math.max(...data.map(event => event.AVG_TRAVEL_DISTANCE_MILES));
@@ -135,6 +136,7 @@ class ChartManager {
         };
     }
 
+    // Method to build the chart
     buildChart(data, options) {
         const ctx = document.getElementById(this.canvasID).getContext("2d");
         if (this.chart) this.chart.destroy(); // Destroy existing chart if any
