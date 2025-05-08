@@ -53,7 +53,7 @@ applyFiltersButton.addEventListener("click", async () => {
 
     // Fetch data based on the selected filters
     const data = await fetchData(url);
-    let chartData = { labels: [], datasets: [] };
+    let chartData = { labels: [], datasets: [{ label: "Travel Data", data: [] }] };
 
     // Check if data is empty
     if (!data || data.length === 0) {
@@ -64,7 +64,7 @@ applyFiltersButton.addEventListener("click", async () => {
     // Prepare the data for the chart
     data.forEach(event => {
         chartData.labels.push(event.EVENT_NAME);
-        chartData.datasets.data.push({
+        chartData.datasets[0].data.push({
             x: event.EVENT_NAME,
             y: event.AVG_TRAVEL_DISTANCE_MILES,
             osCount: event.MEMBERS_OUT_OF_STATE,
