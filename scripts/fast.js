@@ -9,9 +9,15 @@ const applyFiltersButton = document.querySelector("#apply-filters");
 
 /* -------- INITIALIZATION -------- */
 document.addEventListener("DOMContentLoaded", async () => {
+    // Set the correct possible filters for the dropdowns
     updateFilters();
+
+
+
 });
 
+//* -------- EVENT LISTENERS START -------- */
+// Event listener for the apply filters button
 countryDropdown.addEventListener("change", async () => {
     const selectedCountry = countryDropdown.value;
     const url = `./PHP/handlers/getProvince.php?country=${selectedCountry}`;
@@ -33,8 +39,28 @@ countryDropdown.addEventListener("change", async () => {
     });
 });
 
-/* -------- FUNCTIONS -------- */
-// Method to set chart options based on the data
+// Event listener for the apply filters button
+applyFiltersButton.addEventListener("click", async () => {
+    // Get the selected values from the dropdowns and inputs
+    const selectedTier = tierDropdown.value;
+    const selectedCountry = countryDropdown.value;
+    const selectedState = stateDropdown.value;
+    const startDate = startDateInput.value;
+    const endDate = endDateInput.value;
+
+    // Construct the URL with the selected filters
+    let url = `./PHP/events.php?tier=${selectedTier}&country=${selectedCountry}&state=${selectedState}&start_date=${startDate}&end_date=${endDate}`;
+
+    // Fetch data based on the selected filters
+    const data = await fetchData(url);
+    console.log(data);
+});
+
+
+//* -------- EVENT LISTENERS END -------- */
+
+/* -------- FUNCTIONS START -------- */
+// Method to fetch data through url and return the data found
 async function fetchData(url) {
     try {
         const response = await fetch(url);
@@ -47,7 +73,7 @@ async function fetchData(url) {
     }
 }
 
-// Method to add elements to a dropdown
+// Method to update the filters dropdowns
 async function updateFilters() {
     // Fetch filters data from the server
     const filters = await fetchData('./PHP/handlers/getFilters.php');
@@ -84,3 +110,4 @@ async function updateFilters() {
         stateDropdown.appendChild(option);
     });
 }
+/* -------- FUNCTIONS END -------- */
