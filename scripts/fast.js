@@ -100,9 +100,9 @@ const handleApplyFilters = () => {
         end_date: endDateInput.value,
     };
 
-    console.log(params);
-
     const url = buildURL("./PHP/events.php", params);
+    console.log(params, url);
+
     eventChartManager.initialize(url);
 };
 /* -------- EVENT HANDLERS END -------- */
