@@ -25,7 +25,7 @@ countryDropdown.addEventListener("change", async () => {
     stateDropdown.innerHTML = '<option value="">Any</option>';
 
     // Populate state dropdown with new options
-    states.forEach(state => {
+    states.states.forEach(state => {
         const option = document.createElement('option');
         option.value = state['state_id'];
         option.textContent = state['state_name'];
