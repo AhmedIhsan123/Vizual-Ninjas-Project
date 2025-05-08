@@ -5,6 +5,7 @@ const stateDropdown = document.querySelector("#state");
 const startDateInput = document.querySelector("#start-date");
 const endDateInput = document.querySelector("#end-date");
 const applyFiltersButton = document.querySelector("#apply-filters");
+const eventChart = null; // Placeholder for the chart instance
 /* -------- GLOBAL VARIABLES END -------- */
 
 /* -------- INITIALIZATION -------- */
@@ -74,7 +75,14 @@ applyFiltersButton.addEventListener("click", async () => {
 
     // Create the chart using Chart.js
     const ctx = document.getElementById("event-chart").getContext("2d");
-    const eventChart = new Chart(ctx, {
+
+    // Destroy the previous chart instance if it exists
+    if (eventChart) {
+        eventChart.destroy();
+    }
+
+    // Create a new chart instance
+    eventChart = new Chart(ctx, {
         type: "bar",
         data: chartData,
         options: {
