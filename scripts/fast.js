@@ -65,7 +65,6 @@ applyFiltersButton.addEventListener("click", async () => {
     data.forEach(event => {
         chartData.labels.push(event.EVENT_NAME);
         chartData.datasets.push({
-            label: event.EVENT_NAME,
             data: event.AVG_TRAVEL_DISTANCE_MILES,
         });
     });
