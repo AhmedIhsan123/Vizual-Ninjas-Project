@@ -23,4 +23,8 @@ const options = {
         }
     }
 }
-const myChart = new Chart(ctx, "bar", data, options);
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: options
+});
