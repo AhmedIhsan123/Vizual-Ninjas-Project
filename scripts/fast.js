@@ -123,17 +123,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // When country dropdown changes, update state options
 countryDropdown.addEventListener("change", function () {
-    app.fetchData(`./PHP/handlers/getProvince.php?country=${countryDropRef.value}`).then(data => {
+    fetchData(`./PHP/handlers/getProvince.php?country=${countryDropdown.value}`).then(data => {
         if (!data.states) return;
 
         // Clear the state dropdown options
-        while (stateDropRef.children.length > 1) {
+        while (stateDropdown.children.length > 1) {
             stateDropdown.removeChild(stateDropdown.lastChild);
         }
 
         // Add new state dropdown options
         data.states.forEach(element => {
-            app.addDropdownElement(element['state_id'], element['state_name'], stateDropRef);
+            const option = document.createElement("option");
+            option.value = element['state_id'];
+            option.textContent = element['state_name'];
+            stateDropdown.appendChild(option);
         });
     });
 });
