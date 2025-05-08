@@ -187,35 +187,35 @@ async function buildEventChart() {
                         },
                     },
                 },
-            },
-            annotation: {
-                annotations: {
-                    min: {
-                        type: 'line',
-                        yMin: minValue,
-                        yMax: minValue,
-                        borderColor: 'green',
-                        borderWidth: 2,
-                        label: { enabled: true, content: `Min: ${minValue.toFixed(2)} mi`, position: 'start' }
-                    },
-                    max: {
-                        type: 'line',
-                        yMin: maxValue,
-                        yMax: maxValue,
-                        borderColor: 'red',
-                        borderWidth: 2,
-                        label: { enabled: true, content: `Max: ${maxValue.toFixed(2)} mi`, position: 'start' }
-                    },
-                    avg: {
-                        type: 'line',
-                        yMin: avgValue,
-                        yMax: avgValue,
-                        borderColor: 'yellow',
-                        borderWidth: 2,
-                        label: { enabled: true, content: `Avg: ${avgValue.toFixed(2)} mi`, position: 'start' }
+                annotation: {
+                    annotations: {
+                        min: {
+                            type: 'line',
+                            yMin: minValue,
+                            yMax: minValue,
+                            borderColor: 'green',
+                            borderWidth: 2,
+                            label: { enabled: true, content: `Min: ${minValue.toFixed(2)} mi`, position: 'start' }
+                        },
+                        max: {
+                            type: 'line',
+                            yMin: maxValue,
+                            yMax: maxValue,
+                            borderColor: 'red',
+                            borderWidth: 2,
+                            label: { enabled: true, content: `Max: ${maxValue.toFixed(2)} mi`, position: 'start' }
+                        },
+                        avg: {
+                            type: 'line',
+                            yMin: avgValue,
+                            yMax: avgValue,
+                            borderColor: 'yellow',
+                            borderWidth: 2,
+                            label: { enabled: true, content: `Avg: ${avgValue.toFixed(2)} mi`, position: 'start' }
+                        }
                     }
                 }
-            }
+            },
         },
     });
     eventChart.update();
