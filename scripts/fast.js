@@ -138,6 +138,8 @@ async function buildEventChart() {
         eventChart.destroy();
     }
 
+    console.log(chartData);
+
     // Variables to track annotation information
     const averages = chartData.map(point => point.y);
     const minValue = Math.min(...averages);
