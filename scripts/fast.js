@@ -37,6 +37,7 @@ class ChartManager {
         this.buildChart(chartData, chartOptions);
     }
 
+    // Format the data for the chart
     formatChartData(data) {
         return {
             labels: data.map(event => event.EVENT_NAME),
