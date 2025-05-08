@@ -5,7 +5,7 @@ const stateDropdown = document.querySelector("#state");
 const startDateInput = document.querySelector("#start-date");
 const endDateInput = document.querySelector("#end-date");
 const applyFiltersButton = document.querySelector("#apply-filters");
-const eventChart = null; // Placeholder for the chart instance
+let eventChart = null; // Placeholder for the chart instance
 /* -------- GLOBAL VARIABLES END -------- */
 
 /* -------- INITIALIZATION -------- */
