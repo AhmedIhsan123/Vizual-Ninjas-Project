@@ -36,6 +36,7 @@ class ChartManager {
         const data = await fetchData(url);
         const chartData = this.formatChartData(data);
         const chartOptions = this.getDefaultOptions();
+        console.log(chartData, chartOptions);
         this.buildChart(chartData, chartOptions);
     }
 
