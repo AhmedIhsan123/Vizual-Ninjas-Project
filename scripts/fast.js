@@ -37,4 +37,27 @@ async function updateFilters() {
     countryDropdown.innerHTML = '<option value="">Any</option>';
     stateDropdown.innerHTML = '<option value="">Any</option>';
 
+    // Populate tier dropdown
+    filters.tiers.forEach(tier => {
+        const option = document.createElement('option');
+        option.value = tier;
+        option.textContent = tier;
+        tierDropdown.appendChild(option);
+    });
+
+    // Populate country dropdown
+    filters.countries.forEach(country => {
+        const option = document.createElement('option');
+        option.value = country;
+        option.textContent = country;
+        countryDropdown.appendChild(option);
+    });
+
+    // Populate state dropdown
+    filters.states.forEach(state => {
+        const option = document.createElement('option');
+        option.value = state.state_id;
+        option.textContent = state.state_name;
+        stateDropdown.appendChild(option);
+    });
 }
