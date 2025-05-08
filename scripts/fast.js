@@ -16,6 +16,7 @@ countryDropdown.addEventListener("change", async () => {
     const selectedCountry = countryDropdown.value;
     const url = `./PHP/handlers/getProvince.php?country=${selectedCountry}`;
     const states = await fetchData(url);
+    console.log(states);
 
     // Clear existing options in state dropdown
     if (!states) return;
@@ -26,8 +27,8 @@ countryDropdown.addEventListener("change", async () => {
     // Populate state dropdown with new options
     states.forEach(state => {
         const option = document.createElement('option');
-        option.value = state.state_id;
-        option.textContent = state.state_name;
+        option.value = state['state_id'];
+        option.textContent = state['state_name'];
         stateDropdown.appendChild(option);
     });
 });
