@@ -29,7 +29,7 @@ class ChartManager {
         // Fetch data from the server and build the chart
         fetchData(URL).then((data) => {
             this.chartData = {
-                labels: data.EVENT_NAME,
+                labels: data.map(event => event.EVENT_NAME),
                 datasets: [{
                     label: "Event Data",
                     data: data.map(event => event.AVG_TRAVEL_DISTANCE_MILES),
