@@ -7,69 +7,51 @@ const endDateInput = document.querySelector("#end-date");
 const applyFiltersButton = document.querySelector("#apply-filters");
 /* -------- GLOBAL VARIABLES END -------- */
 
-/* -------- CLASSES START -------- */
+/* -------- UTILITY FUNCTIONS START -------- */
+const fetchData = async (url) => {
+    try {
+        const response = await fetch(url);
+        return await response.json();
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        return [];
+    }
+};
+
+const buildURL = (baseURL, params) => {
+    const query = new URLSearchParams(params).toString();
+    return `${baseURL}?${query}`;
+};
+/* -------- UTILITY FUNCTIONS END -------- */
+
+/* -------- CHART MANAGER CLASS START -------- */
 class ChartManager {
-    // Class to manage the chart
-    // Constructor to initialize the chart with default values
-    // and set up the canvas ID
-    constructor(canvasID) {
+    constructor(canvasID, chartType = "bar") {
         this.chart = null;
-        this.chartData = null;
-        this.chartOptions = null;
-        this.chartType = "bar"; // Default chart type
-        this.canvasID = canvasID; // Default canvas ID
-        this.init();
+        this.chartType = chartType;
+        this.canvasID = canvasID;
     }
 
-    // Method to initialize the chart
-    init() {
-        // Set up the chart with default data and options
-        const URL = `./PHP/events.php?tier=${tierDropdown.value}&country=${countryDropdown.value}&state=${stateDropdown.value}&start_date=${startDateInput.value}&end_date=${endDateInput.value}`;
-
-        // Fetch data from the server and build the chart
-        fetchData(URL).then((data) => {
-            this.chartData = {
-                labels: data.map(event => event.EVENT_NAME),
-                datasets: [{
-                    label: "Event Data",
-                    data: data.map(event => event.AVG_TRAVEL_DISTANCE_MILES),
-                    backgroundColor: "rgba(75, 192, 192, 0.2)",
-                    borderColor: "rgba(75, 192, 192, 1)",
-                    borderWidth: 1,
-                }]
-            };
-            this.chartOptions = this.getDefaultOptions();
-            this.buildChart(this.chartData, this.chartOptions);
-        });
+    async initialize(url) {
+        const data = await fetchData(url);
+        const chartData = this.formatChartData(data);
+        const chartOptions = this.getDefaultOptions();
+        this.buildChart(chartData, chartOptions);
     }
 
-    // Method to update the chart data and options
-    buildChart(data, options) {
-        const ctx = document.getElementById(this.canvasID).getContext("2d");
-        this.chart = new Chart(ctx, {
-            type: this.chartType,
-            data: data,
-            options: options,
-        });
-    }
-
-    // Method to build the chart
-    getDefaultData() {
+    formatChartData(data) {
         return {
-            labels: [],
-            datasets: [
-                {
-                    label: "Default Dataset",
-                    data: [],
-                    backgroundColor: "rgba(75, 192, 192, 0.2)",
-                    borderColor: "rgba(75, 192, 192, 1)",
-                    borderWidth: 1,
-                },
-            ],
+            labels: data.map(event => event.EVENT_NAME),
+            datasets: [{
+                label: "Event Data",
+                data: data.map(event => event.AVG_TRAVEL_DISTANCE_MILES),
+                backgroundColor: "rgba(132, 192, 75, 0.2)",
+                borderColor: "rgb(75, 192, 120)",
+                borderWidth: 1,
+            }]
         };
     }
 
-    // Method to build the chart
     getDefaultOptions() {
         return {
             responsive: true,
@@ -77,35 +59,60 @@ class ChartManager {
                 x: {
                     title: {
                         display: true,
-                        text: "X Axis",
+                        text: "Event Names",
                     },
                 },
                 y: {
                     title: {
                         display: true,
-                        text: "Y Axis",
+                        text: "Average Travel Distance (Miles)",
                     },
                 },
             },
         };
     }
-}
-/* -------- CLASSES END -------- */
 
-/* -------- FUNCTIONS START -------- */
-async function fetchData(URL) {
-    try {
-        const response = await fetch(URL);
-        return await response.json();
-    } catch (error) {
-        return console.error('Error fetching data:', error);
+    buildChart(data, options) {
+        const ctx = document.getElementById(this.canvasID).getContext("2d");
+        if (this.chart) this.chart.destroy(); // Destroy existing chart if any
+        this.chart = new Chart(ctx, {
+            type: this.chartType,
+            data: data,
+            options: options,
+        });
     }
 }
-/* -------- FUNCTIONS END -------- */
+/* -------- CHART MANAGER CLASS END -------- */
+
+/* -------- EVENT HANDLERS START -------- */
+const handleApplyFilters = () => {
+    const params = {
+        tier: tierDropdown.value,
+        country: countryDropdown.value,
+        state: stateDropdown.value,
+        start_date: startDateInput.value,
+        end_date: endDateInput.value,
+    };
+
+    const url = buildURL("./PHP/events.php", params);
+    eventChartManager.initialize(url);
+};
+/* -------- EVENT HANDLERS END -------- */
 
 /* -------- PROGRAM START -------- */
 document.addEventListener("DOMContentLoaded", () => {
-    const eventManager = new ChartManager("event-chart");
+    const defaultParams = {
+        tier: tierDropdown.value,
+        country: countryDropdown.value,
+        state: stateDropdown.value,
+        start_date: startDateInput.value,
+        end_date: endDateInput.value,
+    };
 
+    const defaultURL = buildURL("./PHP/events.php", defaultParams);
+    window.eventChartManager = new ChartManager("event-chart");
+    eventChartManager.initialize(defaultURL);
 
-})
+    applyFiltersButton.addEventListener("click", handleApplyFilters);
+});
+/* -------- PROGRAM END -------- */
