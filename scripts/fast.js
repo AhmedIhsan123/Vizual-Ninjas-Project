@@ -138,6 +138,12 @@ async function buildEventChart() {
         eventChart.destroy();
     }
 
+    // Variables to track annotation information
+    const averages = data.y.map(point => point.y);
+    const minValue = Math.min(...averages);
+    const maxValue = Math.max(...averages);
+    const avgValue = averages.reduce((sum, value) => sum + value, 0) / averages.length;
+
     // Create a new chart instance
     eventChart = new Chart(ctx, {
         type: "bar",
@@ -180,6 +186,34 @@ async function buildEventChart() {
                     },
                 },
             },
+            annotation: {
+                annotations: {
+                    min: {
+                        type: 'line',
+                        yMin: minValue,
+                        yMax: minValue,
+                        borderColor: 'green',
+                        borderWidth: 2,
+                        label: { enabled: true, content: `Min: ${minValue.toFixed(2)} mi`, position: 'start' }
+                    },
+                    max: {
+                        type: 'line',
+                        yMin: maxValue,
+                        yMax: maxValue,
+                        borderColor: 'red',
+                        borderWidth: 2,
+                        label: { enabled: true, content: `Max: ${maxValue.toFixed(2)} mi`, position: 'start' }
+                    },
+                    avg: {
+                        type: 'line',
+                        yMin: avgValue,
+                        yMax: avgValue,
+                        borderColor: 'yellow',
+                        borderWidth: 2,
+                        label: { enabled: true, content: `Avg: ${avgValue.toFixed(2)} mi`, position: 'start' }
+                    }
+                }
+            }
         },
     });
     eventChart.update();
