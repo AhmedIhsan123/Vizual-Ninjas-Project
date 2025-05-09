@@ -117,7 +117,7 @@ async function buildEventChart() {
 
     // Check if data is empty
     if (!data || data.length === 0) {
-        console.error("No data found for the selected filters.");
+        eventChart = null; // Reset the chart instance
         return;
     }
 
