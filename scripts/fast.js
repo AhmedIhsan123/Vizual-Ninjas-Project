@@ -176,7 +176,7 @@ async function buildEventChart() {
             plugins: {
                 title: {
                     display: true,
-                    text: "Average Distance Traveled by Players",
+                    text: "Average Distance Traveled by Players Per Event",
                     font: {
                         size: 20,
                     },
