@@ -174,9 +174,15 @@ async function buildEventChart() {
                 },
             },
             plugins: {
-                legend: {
+                title: {
                     display: true,
-                    position: "top",
+                    text: "Average Distance Traveled by Players",
+                    font: {
+                        size: 20,
+                    },
+                },
+                legend: {
+                    display: false
                 },
                 tooltip: {
                     callbacks: {
