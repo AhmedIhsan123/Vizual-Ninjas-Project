@@ -117,7 +117,6 @@ async function buildEventChart() {
 
     // Check if data is empty
     if (!data || data.length === 0) {
-        eventChart = null; // Reset the chart instance
         const ctx = document.getElementById("event-chart").getContext("2d");
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); // Clear the canvas
         ctx.fillText("No data available for the selected filters.", 10, 50); // Display a message
