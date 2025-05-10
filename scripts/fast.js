@@ -149,14 +149,6 @@ async function buildEventChart() {
     const minValue = Math.min(...averages);
     const maxValue = Math.max(...averages);
     const avgValue = averages.reduce((sum, value) => sum + value, 0) / averages.length;
-    let title = "Average Distance Traveled Per Event";
-
-    // Edit the title based on selected filters
-    title += selectedTier ? `<br> Tier: ${selectedTier}` : "";
-    title += selectedCountry ? `<br> Country: ${selectedCountry}` : "";
-    title += selectedState ? `<br> State: ${selectedState}` : "";
-    title += startDate ? `<br> Start Date: ${startDate}` : "";
-    title += endDate ? `<br> End Date: ${endDate}` : "";
 
     // Create the chart instance
     eventChart = new Chart(ctx, {
@@ -187,7 +179,7 @@ async function buildEventChart() {
             plugins: {
                 title: {
                     display: true,
-                    text: title,
+                    text: "Average Distance Traveled Per Event",
                     font: {
                         size: 18,
                     },
@@ -232,7 +224,19 @@ async function buildEventChart() {
                             label: { enabled: true, content: `Avg: ${avgValue.toFixed(2)} mi`, position: 'start' }
                         }
                     }
-                }
+                },
+                subtitle: {
+                    display: true,
+                    text: `Filters Applied: Tier: ${selectedTier || "Any"}, Country: ${selectedCountry || "Any"}, State: ${selectedState || "Any"}, Start Date: ${startDate || "Any"}, End Date: ${endDate || "Any"}`,
+                    align: 'start',
+                    position: 'bottom',
+                    font: {
+                        size: 12,
+                    },
+                    padding: {
+                        top: 10,
+                    },
+                },
             },
         },
     });
