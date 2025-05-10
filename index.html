@@ -13,10 +13,8 @@
   <!-- Chart.js Annotation Plugin for v4 -->
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.1.0/dist/chartjs-plugin-annotation.min.js"
     defer></script>
-
   <!-- Scripts -->
-  <script type="module" src="./scripts/script.js" defer></script>
-  <script type="module" src="./scripts/charts.js" defer></script>
+  <script type="module" src="./scripts/fast.js" defer></script>
 </head>
 
 <body>
@@ -57,16 +55,16 @@
         </select>
 
         <!-- Start date picker -->
-        <label for="startDate">Start Date:</label>
-        <input type="date" id="startDate">
+        <label for="start-date">Start Date:</label>
+        <input type="date" id="start-date">
 
         <!-- End date picker -->
-        <label for="endDate">End Date:</label>
-        <input type="date" id="endDate">
+        <label for="end-date">End Date:</label>
+        <input type="date" id="end-date">
 
         <!-- Apply filters button -->
-        <button id="applyFilters">Apply Filters</button>
-        <button id="clearFilters">Clear Filters</button>
+        <button id="apply-filters">Apply Filters</button>
+        <button id="reset-filters">Reset Filters</button>
       </section>
     </div>
 
@@ -75,7 +73,7 @@
       <div class="center">
         <h2>Data Visualizations</h2>
       </div>
-      <canvas id="eventChart"></canvas>
+      <canvas id="event-chart"></canvas>
     </div>
   </div>
 </body>
