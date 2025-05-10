@@ -7,10 +7,9 @@ const endDateInput = document.querySelector("#end-date");
 const applyFiltersButton = document.querySelector("#apply-filters");
 const resetFiltersButton = document.querySelector("#reset-filters");
 let eventChart = null; // Placeholder for the chart instance
-
 /* -------- GLOBAL VARIABLES END -------- */
 
-/* -------- INITIALIZATION -------- */
+/* -------- INITIALIZATION  -------- */
 document.addEventListener("DOMContentLoaded", async () => {
     // Set the correct possible filters for the dropdowns
     updateFilters();
@@ -18,6 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Build the initial event chart
     buildEventChart();
 });
+/* -------- INITIALIZATION END  -------- */
 
 //* -------- EVENT LISTENERS START -------- */
 // Event listener for the apply filters button
