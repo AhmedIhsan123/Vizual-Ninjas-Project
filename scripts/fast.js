@@ -152,11 +152,11 @@ async function buildEventChart() {
     let title = "Average Distance Traveled Per Event";
 
     // Edit the title based on selected filters
-    title += selectedTier ? `\n Tier: ${selectedTier}` : "";
-    title += selectedCountry ? `\n Country: ${selectedCountry}` : "";
-    title += selectedState ? `\n State: ${selectedState}` : "";
-    title += startDate ? `\n Start Date: ${startDate}` : "";
-    title += endDate ? `\n End Date: ${endDate}` : "";
+    title += selectedTier ? `<br> Tier: ${selectedTier}` : "";
+    title += selectedCountry ? `<br> Country: ${selectedCountry}` : "";
+    title += selectedState ? `<br> State: ${selectedState}` : "";
+    title += startDate ? `<br> Start Date: ${startDate}` : "";
+    title += endDate ? `<br> End Date: ${endDate}` : "";
 
     // Create the chart instance
     eventChart = new Chart(ctx, {
