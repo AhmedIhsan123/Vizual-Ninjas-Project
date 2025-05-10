@@ -156,6 +156,7 @@ async function buildEventChart() {
     title += selectedCountry ? ` - Country: ${selectedCountry}` : "";
     title += selectedState ? ` - State: ${selectedState}` : "";
     title += startDate ? ` - Start Date: ${startDate}` : "";
+    title += endDate ? ` - End Date: ${endDate}` : "";
 
     // Create the chart instance
     eventChart = new Chart(ctx, {
