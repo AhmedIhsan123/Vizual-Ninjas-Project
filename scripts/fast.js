@@ -12,6 +12,8 @@ let eventChart = null; // Placeholder for the chart instance
 document.addEventListener("DOMContentLoaded", async () => {
     // Set the correct possible filters for the dropdowns
     updateFilters();
+
+    // Build the initial event chart
     buildEventChart();
 });
 
@@ -43,7 +45,6 @@ countryDropdown.addEventListener("change", async () => {
 applyFiltersButton.addEventListener("click", async () => {
     buildEventChart();
 });
-
 
 //* -------- EVENT LISTENERS END -------- */
 
@@ -148,6 +149,13 @@ async function buildEventChart() {
     const minValue = Math.min(...averages);
     const maxValue = Math.max(...averages);
     const avgValue = averages.reduce((sum, value) => sum + value, 0) / averages.length;
+    const title = "Average Distance Traveled by Players Per Event";
+
+    // Edit the title based on selected filters
+    title += selectedTier ? ` - Tier: ${selectedTier}` : "";
+    title += selectedCountry ? ` - Country: ${selectedCountry}` : "";
+    title += selectedState ? ` - State: ${selectedState}` : "";
+    title += startDate ? ` - Start Date: ${startDate}` : "";
 
     // Create the chart instance
     eventChart = new Chart(ctx, {
@@ -178,7 +186,7 @@ async function buildEventChart() {
             plugins: {
                 title: {
                     display: true,
-                    text: "Average Distance Traveled by Players Per Event",
+                    text: title,
                     font: {
                         size: 20,
                     },
