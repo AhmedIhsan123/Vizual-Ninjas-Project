@@ -61,7 +61,6 @@ resetFiltersButton.addEventListener("click", async () => {
     await updateFilters();
     buildEventChart();
 });
-
 //* -------- EVENT LISTENERS END -------- */
 
 /* -------- FUNCTIONS START -------- */
@@ -145,7 +144,7 @@ async function buildEventChart() {
         // Clear the chart canvas
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-
+        // Return early if no data is found
         return;
     }
 
