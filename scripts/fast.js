@@ -149,7 +149,7 @@ async function buildEventChart() {
     const minValue = Math.min(...averages);
     const maxValue = Math.max(...averages);
     const avgValue = averages.reduce((sum, value) => sum + value, 0) / averages.length;
-    const title = "Average Distance Traveled by Players Per Event";
+    let title = "Average Distance Traveled by Players Per Event";
 
     // Edit the title based on selected filters
     title += selectedTier ? ` - Tier: ${selectedTier}` : "";
