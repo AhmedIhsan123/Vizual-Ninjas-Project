@@ -5,6 +5,7 @@ const stateDropdown = document.querySelector("#state");
 const startDateInput = document.querySelector("#start-date");
 const endDateInput = document.querySelector("#end-date");
 const applyFiltersButton = document.querySelector("#apply-filters");
+const resetFiltersButton = document.querySelector("#reset-filters");
 let eventChart = null; // Placeholder for the chart instance
 
 /* -------- GLOBAL VARIABLES END -------- */
@@ -44,6 +45,20 @@ countryDropdown.addEventListener("change", async () => {
 
 // Event listener for the apply filters button
 applyFiltersButton.addEventListener("click", async () => {
+    buildEventChart();
+});
+
+// Event listener for the reset filters button
+resetFiltersButton.addEventListener("click", async () => {
+    // Reset all dropdowns and inputs to default values
+    tierDropdown.value = "";
+    countryDropdown.value = "";
+    stateDropdown.value = "";
+    startDateInput.value = "";
+    endDateInput.value = "";
+
+    // Rebuild the filters and chart
+    await updateFilters();
     buildEventChart();
 });
 
