@@ -6,6 +6,7 @@ const startDateInput = document.querySelector("#start-date");
 const endDateInput = document.querySelector("#end-date");
 const applyFiltersButton = document.querySelector("#apply-filters");
 let eventChart = null; // Placeholder for the chart instance
+
 /* -------- GLOBAL VARIABLES END -------- */
 
 /* -------- INITIALIZATION -------- */
@@ -125,7 +126,11 @@ async function buildEventChart() {
             eventChart.destroy();
             eventChart = null;
         }
+
+        // Clear the chart canvas
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+
         return;
     }
 

@@ -1,252 +1,255 @@
-import ChartBuilder from "./charts.js";
+/* -------- GLOBAL VARIABLES START -------- */
+const tierDropdown = document.querySelector("#tier");
+const countryDropdown = document.querySelector("#country");
+const stateDropdown = document.querySelector("#state");
+const startDateInput = document.querySelector("#start-date");
+const endDateInput = document.querySelector("#end-date");
+const applyFiltersButton = document.querySelector("#apply-filters");
+let eventChart = null; // Placeholder for the chart instance
 
-// Global element variables
-const tierDropRef = document.querySelector("#tier");
-const countryDropRef = document.querySelector("#country");
-const stateDropRef = document.querySelector("#state");
-const startDateRef = document.querySelector("#startDate");
-const endDateRef = document.querySelector("#endDate");
-const applyBtnRef = document.querySelector("#applyFilters");
-const clearBtnRef = document.querySelector("#clearFilters");
+/* -------- GLOBAL VARIABLES END -------- */
 
-// Event application class
-class EventApp {
-    constructor() { }
+/* -------- INITIALIZATION -------- */
+document.addEventListener("DOMContentLoaded", async () => {
+    // Set the correct possible filters for the dropdowns
+    updateFilters();
 
-    // Method to update all filters
-    setFiltersUI() {
-        this.fetchData('./PHP/handlers/getFilters.php').then(data => {
-            if (!data) return;
+    // Build the initial event chart
+    buildEventChart();
+});
 
-            // Add tiers dropdown information
-            data.tiers.forEach(element => {
-                this.addDropdownElement(element, element, tierDropRef);
-            });
+//* -------- EVENT LISTENERS START -------- */
+// Event listener for the apply filters button
+countryDropdown.addEventListener("change", async () => {
+    // Fetch states based on the selected country
+    const selectedCountry = countryDropdown.value;
+    const url = `./PHP/handlers/getProvince.php?country=${selectedCountry}`;
+    const states = await fetchData(url);
+    console.log(states);
 
-            // Add countries to country dropdown
-            data.countries.forEach(element => {
-                this.addDropdownElement(element, element, countryDropRef);
-            });
+    // Clear existing options in state dropdown
+    if (!states) return;
 
-            // Add states to state dropdown
-            data.states.forEach(element => {
-                this.addDropdownElement(element['state_id'], element['state_name'], stateDropRef);
-            });
-        }).catch(error => console.error('Error fetching filters:', error));
-    }
+    // Clear existing options in state dropdown
+    stateDropdown.innerHTML = '<option value="">Any</option>';
 
-    // Method to add elements to a dropdown
-    addDropdownElement(value, text, parent) {
-        if (!parent) return;
+    // Populate state dropdown with new options
+    states.states.forEach(state => {
         const option = document.createElement('option');
-        option.value = value;
-        option.textContent = text;
-        parent.appendChild(option);
-    }
+        option.value = state['state_id'];
+        option.textContent = state['state_name'];
+        stateDropdown.appendChild(option);
+    });
+});
 
-    // Method to fetch data through url and return the data found
-    async fetchData(url) {
-        try {
-            const response = await fetch(url);
-            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-            return await response.json();
-        } catch (error) {
-            console.error('Fetch error:', error);
-            return [];
+// Event listener for the apply filters button
+applyFiltersButton.addEventListener("click", async () => {
+    buildEventChart();
+});
+
+//* -------- EVENT LISTENERS END -------- */
+
+/* -------- FUNCTIONS START -------- */
+// Method to fetch data through url and return the data found
+async function fetchData(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error("Network response was not ok " + response.statusText);
         }
-    }
-
-    // Method to set chart options safely
-    setChartOptions(graphTitle, xTitle, yTitle, xData, yData) {
-        // Variables to track annotation information
-        const averages = yData.map(point => point.y);
-        const minValue = Math.min(...averages);
-        const maxValue = Math.max(...averages);
-        const avgValue = averages.reduce((sum, value) => sum + value, 0) / averages.length;
-
-        // Return the combined data
-        return {
-            chartData: {
-                labels: xData,
-                datasets: [{
-                    data: yData,
-                    backgroundColor: 'green',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: xTitle,
-                            font: { size: 16 }
-                        },
-                        ticks: {
-                            maxRotation: 90,
-                            minRotation: 90
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: yTitle,
-                            font: { size: 16 }
-                        },
-                        ticks: {
-                            beginAtZero: true,
-                            callback: value => value + ' mi'
-                        }
-                    }
-                },
-                plugins: {
-                    title: {
-                        display: true,
-                        text: graphTitle,
-                        position: 'top',
-                        font: { size: 20, weight: 'bold' },
-                        padding: { top: 10, bottom: 20 },
-                        color: '#333'
-                    },
-                    legend: { display: false },
-                    tooltip: {
-                        callbacks: {
-                            label: context => {
-                                const point = context.raw;
-                                // Ensure point exists before accessing properties
-                                const avgDistance = point?.y?.toFixed(2) ?? 'N/A';
-                                const osCount = point?.osCount ?? 'N/A';
-                                const isCount = point?.isCount ?? 'N/A';
-
-                                return `Average Distance: ${avgDistance} mi, OS: ${osCount}, IS: ${isCount}`;
-                            }
-                        }
-                    },
-                    annotation: {
-                        annotations: {
-                            min: {
-                                type: 'line',
-                                yMin: minValue,
-                                yMax: minValue,
-                                borderColor: 'green',
-                                borderWidth: 2,
-                                label: { enabled: true, content: `Min: ${minValue.toFixed(2)} mi`, position: 'start' }
-                            },
-                            max: {
-                                type: 'line',
-                                yMin: maxValue,
-                                yMax: maxValue,
-                                borderColor: 'red',
-                                borderWidth: 2,
-                                label: { enabled: true, content: `Max: ${maxValue.toFixed(2)} mi`, position: 'start' }
-                            },
-                            avg: {
-                                type: 'line',
-                                yMin: avgValue,
-                                yMax: avgValue,
-                                borderColor: 'yellow',
-                                borderWidth: 2,
-                                label: { enabled: true, content: `Avg: ${avgValue.toFixed(2)} mi`, position: 'start' }
-                            }
-                        }
-                    }
-                }
-            }
-        };
+        return await response.json();
+    } catch (error) {
+        return console.error("Fetch error: ", error);
     }
 }
 
-// Initialize app once DOM is loaded
-document.addEventListener("DOMContentLoaded", () => {
-    // Create a new EventApp to handle data
-    const app = new EventApp();
-    // Construct a new chartbuilder
-    const eventChart = new ChartBuilder('eventChart', 'bar', [], app.setChartOptions('Undefined', 'Undefined', 'Undefined', null, []));
+// Method to update the filters dropdowns
+async function updateFilters() {
+    // Fetch filters data from the server
+    const filters = await fetchData('./PHP/handlers/getFilters.php');
 
-    // Build an empty chart to start the site
-    eventChart.build();
+    // No data to update
+    if (!filters) return;
 
-    // Populate filter dropdowns
-    app.setFiltersUI();
+    // Clear existing options in dropdowns
+    tierDropdown.innerHTML = '<option value="">Any</option>';
+    countryDropdown.innerHTML = '<option value="">Any</option>';
+    stateDropdown.innerHTML = '<option value="">Any</option>';
 
-    // Clicking on Apply Filters
-    applyBtnRef.addEventListener('click', function () {
-        // Store the filters in an object to construct the URL later
-        const filters = {
-            tier: tierDropRef.value,
-            country: countryDropRef.value,
-            state: stateDropRef.value,
-            startDate: startDateRef.value,
-            endDate: endDateRef.value
-        };
-
-            // Checks if a filter is selected and dynamically adds it to the chart 
-            let filterParts = [];
-            if (filters.tier) filterParts.push(`Tier - ${filters.tier}`);
-            if (filters.country) filterParts.push(`Country - ${filters.country}`);
-            if (filters.state) filterParts.push(`State/Province - ${filters.state}`);
-            if (filters.startDate) filterParts.push(`Start Date: ${filters.startDate}`)
-            if (filters.endDate) filterParts.push(`End Date: ${filters.endDate}`)
-
-            let title = "Distance Traveled Per Event";
-            if (filterParts.length > 0) {
-                title += " (filtered by: " + filterParts.join(', ') + ")";
-            }
-
-        // URL to fetch
-        let url = `./PHP/events.php?tier=${filters.tier}&country=${filters.country}&state=${filters.state}&start_date=${filters.startDate}&end_date=${filters.endDate}`;
-
-        // Fetch the URL
-        app.fetchData(url).then(data => {
-            // Variables to store options
-            const xLabels = data.map(event => event.EVENT_NAME);
-            // Data information for y axis
-            const yData = data.map(event => ({
-                x: event.EVENT_NAME,
-                y: event.AVG_TRAVEL_DISTANCE_MILES,
-                osCount: event.MEMBERS_OUT_OF_STATE,
-                isCount: event.MEMBERS_IN_STATE
-            }));
-            
-            // Variable to store the combined data
-            const { chartData, options } = app.setChartOptions(title, 'Events', 'Distance Traveled in Miles', xLabels, yData);
-
-            // Update the data and options of new chart
-            eventChart.updateData(chartData);
-            eventChart.updateOptions(options);
-        });
+    // Populate tier dropdown
+    filters.tiers.forEach(tier => {
+        const option = document.createElement('option');
+        option.value = tier;
+        option.textContent = tier;
+        tierDropdown.appendChild(option);
     });
 
-    // Clicking on Clear Filters
-    clearBtnRef.addEventListener("click", function () {
-        // Resets the filter values
-        tierDropRef.value = "";
-        countryDropRef.value = "";
-        stateDropRef.value = "";
-        startDateRef.value = "";
-        endDateRef.value = "";
-
-        // Clears the chart
-        const emptyChart = app.setChartOptions('', '', '', null, []);
-        eventChart.updateData(emptyChart.chartData);
-        eventChart.updateOptions(emptyChart.options);
+    // Populate country dropdown
+    filters.countries.forEach(country => {
+        const option = document.createElement('option');
+        option.value = country;
+        option.textContent = country;
+        countryDropdown.appendChild(option);
     });
-});
 
-// When country dropdown changes, update state options
-countryDropRef.addEventListener("change", function () {
-    app.fetchData(`./PHP/handlers/getProvince.php?country=${countryDropRef.value}`).then(data => {
-        if (!data.states) return;
+    // Populate state dropdown
+    filters.states.forEach(state => {
+        const option = document.createElement('option');
+        option.value = state.state_id;
+        option.textContent = state.state_name;
+        stateDropdown.appendChild(option);
+    });
+}
 
-        // Clear the state dropdown options
-        while (stateDropRef.children.length > 1) {
-            stateDropRef.removeChild(stateDropRef.lastChild);
+// Method to build the event chart based on selected filters
+async function buildEventChart() {
+    // Get the selected values from the dropdowns and inputs
+    const selectedTier = tierDropdown.value;
+    const selectedCountry = countryDropdown.value;
+    const selectedState = stateDropdown.value;
+    const startDate = startDateInput.value;
+    const endDate = endDateInput.value;
+
+    // Construct the URL with the selected filters
+    let url = `./PHP/events.php?tier=${selectedTier}&country=${selectedCountry}&state=${selectedState}&start_date=${startDate}&end_date=${endDate}`;
+
+    // Fetch data based on the selected filters
+    const data = await fetchData(url);
+    let chartData = { labels: [], datasets: [{ label: "Average Player Distance Traveled ", data: [] }] };
+
+    // Check if data is empty
+    if (!data || data.length === 0) {
+        const ctx = document.getElementById("event-chart").getContext("2d");
+
+        // Destroy the previous chart instance if it exists
+        if (eventChart) {
+            eventChart.destroy();
+            eventChart = null;
         }
 
-        // Add new state dropdown options
-        data.states.forEach(element => {
-            app.addDropdownElement(element['state_id'], element['state_name'], stateDropRef);
+        // Clear the chart canvas
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+
+        return;
+    }
+
+    // Prepare the data for the chart
+    data.forEach(event => {
+        chartData.labels.push(event.EVENT_NAME);
+        chartData.datasets[0].data.push({
+            x: event.EVENT_NAME,
+            y: event.AVG_TRAVEL_DISTANCE_MILES,
+            osCount: event.MEMBERS_OUT_OF_STATE,
+            isCount: event.MEMBERS_IN_STATE
         });
+        chartData.datasets[0].backgroundColor = "green";
     });
-});
+
+    // Create the chart using Chart.js
+    const ctx = document.getElementById("event-chart").getContext("2d");
+
+    // Destroy the previous chart instance if it exists
+    if (eventChart) {
+        eventChart.destroy();
+    }
+
+    // Variables to track annotation information
+    const averages = chartData.datasets[0].data.map(point => point.y);
+    const minValue = Math.min(...averages);
+    const maxValue = Math.max(...averages);
+    const avgValue = averages.reduce((sum, value) => sum + value, 0) / averages.length;
+
+    // Create the chart instance
+    eventChart = new Chart(ctx, {
+        type: "bar",
+        data: chartData,
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: "Events",
+                    },
+                    ticks: {
+                        autoSkip: false,
+                        maxRotation: 90,
+                        minRotation: 90,
+                    },
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: "Average Distance Traveled in Miles",
+                    },
+                    beginAtZero: true,
+                },
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: "Average Distance Traveled Per Event",
+                    font: {
+                        size: 18,
+                    },
+                },
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (tooltipItem) {
+                            const avgValue = tooltipItem.raw.y;
+                            const osCount = tooltipItem.raw.osCount;
+                            const isCount = tooltipItem.raw.isCount;
+                            return `Avg: ${avgValue.toFixed(2)} mi, Out of State: ${osCount}, In State: ${isCount}`;
+                        },
+                    },
+                },
+                annotation: {
+                    annotations: {
+                        min: {
+                            type: 'line',
+                            yMin: minValue,
+                            yMax: minValue,
+                            borderColor: 'green',
+                            borderWidth: 2,
+                            label: { enabled: true, content: `Min: ${minValue.toFixed(2)} mi`, position: 'start' }
+                        },
+                        max: {
+                            type: 'line',
+                            yMin: maxValue,
+                            yMax: maxValue,
+                            borderColor: 'red',
+                            borderWidth: 2,
+                            label: { enabled: true, content: `Max: ${maxValue.toFixed(2)} mi`, position: 'start' }
+                        },
+                        avg: {
+                            type: 'line',
+                            yMin: avgValue,
+                            yMax: avgValue,
+                            borderColor: 'yellow',
+                            borderWidth: 2,
+                            label: { enabled: true, content: `Avg: ${avgValue.toFixed(2)} mi`, position: 'start' }
+                        }
+                    }
+                },
+                subtitle: {
+                    display: true,
+                    text: `Filters Applied: Tier: ${selectedTier || "Any"}, Country: ${selectedCountry || "Any"}, State: ${selectedState || "Any"}, Start Date: ${startDate || "Any"}, End Date: ${endDate || "Any"}`,
+                    align: 'start',
+                    position: 'bottom',
+                    font: {
+                        size: 12,
+                    },
+                    padding: {
+                        top: 10,
+                    },
+                },
+            },
+        },
+    });
+    eventChart.update();
+}
+/* -------- FUNCTIONS END -------- */
