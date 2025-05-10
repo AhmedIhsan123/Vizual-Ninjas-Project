@@ -125,13 +125,7 @@ async function buildEventChart() {
             eventChart.destroy();
             eventChart = null;
         }
-
-        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); // Clear the canvas
-        // Display the message
-        ctx.font = "5px Arial";
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        ctx.fillText("No data available for the selected filters.", ctx.canvas.width, ctx.canvas.height);
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         return;
     }
 
