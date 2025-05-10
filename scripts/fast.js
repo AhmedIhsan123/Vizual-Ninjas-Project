@@ -131,7 +131,7 @@ async function buildEventChart() {
         ctx.font = "5px Arial";
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
-        ctx.fillText("No data available for the selected filters.", ctx.canvas.width / 2, ctx.canvas.height / 2);
+        ctx.fillText("No data available for the selected filters.", ctx.canvas.width, ctx.canvas.height);
         return;
     }
 
