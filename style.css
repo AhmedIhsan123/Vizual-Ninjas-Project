@@ -49,9 +49,9 @@ label {
 
 .chart-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 50%;
+  justify-content: stretch;
+  align-items: stretch;
+  max-width: 75%;
 }
 
 .visualizations {
