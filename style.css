@@ -51,7 +51,15 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 50%;
+}
+
+.visualizations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2em auto;
+  max-width: 80%;
 }
 
 .visualizations canvas {
