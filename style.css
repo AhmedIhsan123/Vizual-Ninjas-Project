@@ -48,10 +48,7 @@ label {
 }
 
 .chart-container {
-  display: flex;
-  justify-content: stretch;
-  align-items: stretch;
-  max-width: 75%;
+  width: 100%;
 }
 
 .visualizations {
