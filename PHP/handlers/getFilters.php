@@ -1,7 +1,7 @@
 <?php
 
 header('Content-Type: application/json');
-require '../db.php';
+require '/home/aabualha/db.php';
 
 if (!isset($pdo)) {
     http_response_code(500);

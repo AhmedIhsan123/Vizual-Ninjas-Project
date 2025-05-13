@@ -3,7 +3,7 @@
 header('Content-Type: application/json');
 
 // Connect to the database
-require 'db.php';
+require '/home/aabualha/db.php';
 
 if (!isset($pdo)) {
     http_response_code(500);
