@@ -124,11 +124,9 @@ label {
 }
 
 .logo-img {
-  border: 2px solid black;
   height: 50px;
   width: auto;
   margin-left: 20px;
-  border-radius: 100%;
 }
 
 .container {
