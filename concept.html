@@ -13,59 +13,65 @@
     <!-- Chart.js Annotation Plugin for v4 -->
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.1.0/dist/chartjs-plugin-annotation.min.js"
         defer></script>
-
     <!-- Scripts -->
     <script type="module" src="./scripts/script.js" defer></script>
 </head>
 
 <body>
-    <header class="header">
-        <div class="logo-container">
-            <img src="Img/StatmandoLogo.png" alt="Statmando Logo" class="logo-img">
+    <header class="sticky-header">
+        <div id="statmando-logo">
+            <img src="Img/StatmandoLogo.png" alt="Visual Ninja Logo" class="logo-img">
         </div>
     </header>
 
-    <main class="main-content">
-        <section class="title-section">
-            <h1>Disc Golf Event Finder Tool</h1>
-        </section>
+    <div class="main-container">
+        <div id="content-container">
+            <div id="title-container">
+                <h1>Disc Golf Event Finder Tool</h1>
+            </div>
 
-        <section class="filters-section">
-            <h2>Filter Events</h2>
+            <!-- Data filters section -->
             <div class="filters-container">
-                <label for="tier">Tier:</label>
-                <select id="tier">
-                    <option value="">Any</option>
-                </select>
+                <div class="center">
+                    <h2>Filter Events</h2>
+                </div>
 
-                <label for="country">Country:</label>
-                <select id="country">
-                    <option value="">Any</option>
-                    <option value="USA">USA</option>
-                </select>
+                <section class="data-filters">
+                    <!-- Tier label -->
+                    <label for="tier">Tier:</label>
+                    <select id="tier">
+                        <option value="">Any</option>
+                    </select>
 
-                <label for="state">State:</label>
-                <select id="state">
-                    <option value="">Any</option>
-                </select>
+                    <!-- Country button -->
+                    <label for="country">Country:</label>
+                    <select id="country">
+                        <option value="">Any</option>
+                    </select>
 
-                <label for="start-date">Start Date:</label>
-                <input type="date" id="start-date">
+                    <!-- State button -->
+                    <label for="state">State:</label>
+                    <select id="state">
+                        <option value="">Any</option>
+                    </select>
 
-                <label for="end-date">End Date:</label>
-                <input type="date" id="end-date">
+                    <!-- Start date picker -->
+                    <label for="start-date">Start Date:</label>
+                    <input type="date" id="start-date">
+
+                    <!-- End date picker -->
+                    <label for="end-date">End Date:</label>
+                    <input type="date" id="end-date">
+                </section>
             </div>
 
-            <div class="buttons-container">
-                <button class="button" id="apply-filters">Apply Filters</button>
-                <button class="button" id="reset-filters">Reset Filters</button>
+            <!-- Data Visualization Section -->
+            <div class="visualizations">
+                <div class="chart-container">
+                    <canvas id="event-chart"></canvas>
+                </div>
             </div>
-        </section>
-
-        <section class="chart-section">
-            <canvas id="event-chart"></canvas>
-        </section>
-    </main>
+        </div>
 </body>
 
 </html>
