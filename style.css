@@ -123,6 +123,12 @@ label {
   transition: background 0.3s ease;
 }
 
+.logo-img {
+  height: 50px;
+  width: auto;
+  margin-left: 20px;
+}
+
 .container {
   max-width: 93%;
   margin: auto;
