@@ -1,0 +1,251 @@
+COUNTRY_ID,COUNTRY_NAME,COUNTRY_PDGA_REGION
+AF,Afghanistan,PDGA Asia
+AL,Albania,PDGA Europe
+DZ,Algeria,PDGA Africa
+AS,American Samoa,PDGA Oceania
+AD,Andorra,PDGA Europe
+AO,Angola,PDGA Africa
+AI,Anguilla,PDGA Latin America & Caribbean
+AQ,Antarctica,PDGA Oceania
+AG,Antigua and Barbuda,PDGA Latin America & Caribbean
+AR,Argentina,PDGA Latin America & Caribbean
+AM,Armenia,PDGA Europe
+AW,Aruba,PDGA Latin America & Caribbean
+AU,Australia,PDGA Oceania
+AT,Austria,PDGA Europe
+AZ,Azerbaijan,PDGA Asia
+BS,Bahamas,PDGA Latin America & Caribbean
+BH,Bahrain,PDGA Asia
+BD,Bangladesh,PDGA Asia
+BB,Barbados,PDGA Latin America & Caribbean
+BY,Belarus,PDGA Europe
+BE,Belgium,PDGA Europe
+BZ,Belize,PDGA Latin America & Caribbean
+BJ,Benin,PDGA Africa
+BM,Bermuda,PDGA Latin America & Caribbean
+BT,Bhutan,PDGA Asia
+BO,Bolivia,PDGA Latin America & Caribbean
+BA,Bosnia and Herzegovina,PDGA Europe
+BW,Botswana,PDGA Africa
+BV,Bouvet Island,PDGA Oceania
+BR,Brazil,PDGA Latin America & Caribbean
+IO,British Indian Ocean Territory,PDGA Oceania
+BN,Brunei,PDGA Asia
+BG,Bulgaria,PDGA Europe
+BF,Burkina Faso,PDGA Africa
+BI,Burundi,PDGA Africa
+KH,Cambodia,PDGA Asia
+CM,Cameroon,PDGA Africa
+CA,Canada,PDGA Canada
+CV,Cape Verde,PDGA Africa
+KY,Cayman Islands,PDGA Latin America & Caribbean
+CF,Central African Republic,PDGA Africa
+TD,Chad,PDGA Africa
+CL,Chile,PDGA Latin America & Caribbean
+CN,China,PDGA Asia
+CX,Christmas Island,PDGA Asia
+CC,Cocos (Keeling) Islands,PDGA Asia
+CO,Colombia,PDGA Latin America & Caribbean
+KM,Comoros,PDGA Africa
+CG,Congo (Brazzaville),PDGA Africa
+CD,Congo (Kinshasa),PDGA Africa
+CK,Cook Islands,PDGA Oceania
+CR,Costa Rica,PDGA Latin America & Caribbean
+CI,Ivory Coast,PDGA Africa
+HR,Croatia,PDGA Europe
+CU,Cuba,PDGA Latin America & Caribbean
+CY,Cyprus,PDGA Europe
+CZ,Czech Republic,PDGA Europe
+DK,Denmark,PDGA Europe
+DJ,Djibouti,PDGA Africa
+DM,Dominica,PDGA Latin America & Caribbean
+DO,Dominican Republic,PDGA Latin America & Caribbean
+EC,Ecuador,PDGA Latin America & Caribbean
+EG,Egypt,PDGA Africa
+SV,El Salvador,PDGA Latin America & Caribbean
+GQ,Equatorial Guinea,PDGA Africa
+ER,Eritrea,PDGA Africa
+EE,Estonia,PDGA Europe
+ET,Ethiopia,PDGA Africa
+FK,Falkland Islands,PDGA Latin America & Caribbean
+FO,Faroe Islands,PDGA Europe
+FJ,Fiji,PDGA Oceania
+FI,Finland,PDGA Europe
+FR,France,PDGA Europe
+GF,French Guiana,PDGA Latin America & Caribbean
+PF,French Polynesia,PDGA Oceania
+TF,French Southern Territories,PDGA Oceania
+GA,Gabon,PDGA Africa
+GM,Gambia,PDGA Africa
+GE,Georgia,PDGA Asia
+DE,Germany,PDGA Europe
+GH,Ghana,PDGA Africa
+GI,Gibraltar,PDGA Europe
+GR,Greece,PDGA Europe
+GL,Greenland,PDGA Latin America & Caribbean
+GD,Grenada,PDGA Latin America & Caribbean
+GP,Guadeloupe,PDGA Latin America & Caribbean
+GU,Guam,PDGA Oceania
+GT,Guatemala,PDGA Latin America & Caribbean
+GN,Guinea,PDGA Africa
+GW,Guinea-Bissau,PDGA Africa
+GY,Guyana,PDGA Latin America & Caribbean
+HT,Haiti,PDGA Latin America & Caribbean
+HM,Heard Island and McDonald Islands,PDGA Oceania
+VA,Vatican,PDGA Europe
+HN,Honduras,PDGA Latin America & Caribbean
+HK,"Hong Kong S.A.R., China",PDGA Asia
+HU,Hungary,PDGA Europe
+IS,Iceland,PDGA Europe
+IN,India,PDGA Asia
+ID,Indonesia,PDGA Asia
+IR,Iran,PDGA Asia
+IQ,Iraq,PDGA Asia
+IE,Ireland,PDGA Europe
+IL,Israel,PDGA Asia
+IT,Italy,PDGA Europe
+JM,Jamaica,PDGA Latin America & Caribbean
+JP,Japan,PDGA Asia
+JO,Jordan,PDGA Asia
+KZ,Kazakhstan,PDGA Asia
+KE,Kenya,PDGA Africa
+KI,Kiribati,PDGA Oceania
+KP,North Korea,PDGA Asia
+KR,South Korea,PDGA Asia
+KW,Kuwait,PDGA Asia
+KG,Kyrgyzstan,PDGA Asia
+LA,Laos,PDGA Asia
+LV,Latvia,PDGA Europe
+LB,Lebanon,PDGA Asia
+LS,Lesotho,PDGA Africa
+LR,Liberia,PDGA Africa
+LY,Libya,PDGA Africa
+LI,Liechtenstein,PDGA Europe
+LT,Lithuania,PDGA Europe
+LU,Luxembourg,PDGA Europe
+MO,"Macao S.A.R., China",PDGA Asia
+MK,Macedonia,PDGA Europe
+MG,Madagascar,PDGA Africa
+MW,Malawi,PDGA Africa
+MY,Malaysia,PDGA Asia
+MV,Maldives,PDGA Asia
+ML,Mali,PDGA Africa
+MT,Malta,PDGA Europe
+MH,Marshall Islands,PDGA Oceania
+MQ,Martinique,PDGA Latin America & Caribbean
+MR,Mauritania,PDGA Africa
+MU,Mauritius,PDGA Africa
+YT,Mayotte,PDGA Africa
+MX,Mexico,PDGA Latin America & Caribbean
+FM,Micronesia,PDGA Oceania
+MD,Moldova,PDGA Europe
+MC,Monaco,PDGA Europe
+MN,Mongolia,PDGA Asia
+ME,Montenegro,PDGA Europe
+MS,Montserrat,PDGA Latin America & Caribbean
+MA,Morocco,PDGA Africa
+MZ,Mozambique,PDGA Africa
+MM,Myanmar,PDGA Asia
+NA,Namibia,PDGA Africa
+NR,Nauru,PDGA Oceania
+NP,Nepal,PDGA Asia
+NL,Netherlands,PDGA Europe
+AN,Netherlands Antilles,PDGA Latin America & Caribbean
+NC,New Caledonia,PDGA Oceania
+NZ,New Zealand,PDGA Oceania
+NI,Nicaragua,PDGA Latin America & Caribbean
+NE,Niger,PDGA Africa
+NG,Nigeria,PDGA Africa
+NU,Niue,PDGA Oceania
+NF,Norfolk Island,PDGA Oceania
+MP,Northern Mariana Islands,PDGA Oceania
+NO,Norway,PDGA Europe
+OM,Oman,PDGA Asia
+PK,Pakistan,PDGA Asia
+PW,Palau,PDGA Oceania
+PS,Palestinian Territory,PDGA Asia
+PA,Panama,PDGA Latin America & Caribbean
+PG,Papua New Guinea,PDGA Oceania
+PY,Paraguay,PDGA Latin America & Caribbean
+PE,Peru,PDGA Latin America & Caribbean
+PH,Philippines,PDGA Asia
+PN,Pitcairn,PDGA Oceania
+PL,Poland,PDGA Europe
+PT,Portugal,PDGA Europe
+PR,Puerto Rico,PDGA Latin America & Caribbean
+QA,Qatar,PDGA Asia
+RE,Reunion,PDGA Africa
+RO,Romania,PDGA Europe
+RU,Russia,PDGA Europe
+RW,Rwanda,PDGA Africa
+SH,Saint Helena,PDGA Africa
+KN,Saint Kitts and Nevis,PDGA Latin America & Caribbean
+LC,Saint Lucia,PDGA Latin America & Caribbean
+PM,Saint Pierre and Miquelon,PDGA Latin America & Caribbean
+VC,Saint Vincent and the Grenadines,PDGA Latin America & Caribbean
+WS,Samoa,PDGA Oceania
+SM,San Marino,PDGA Europe
+ST,Sao Tome and Principe,PDGA Africa
+SA,Saudi Arabia,PDGA Asia
+SN,Senegal,PDGA Africa
+RS,Serbia,PDGA Europe
+SC,Seychelles,PDGA Africa
+SL,Sierra Leone,PDGA Africa
+SG,Singapore,PDGA Asia
+SK,Slovakia,PDGA Europe
+SI,Slovenia,PDGA Europe
+SB,Solomon Islands,PDGA Oceania
+SO,Somalia,PDGA Africa
+ZA,South Africa,PDGA Africa
+GS,South Georgia and the South Sandwich Islands,PDGA Oceania
+ES,Spain,PDGA Europe
+LK,Sri Lanka,PDGA Asia
+SS,South Sudan,PDGA Africa
+SD,Sudan,PDGA Africa
+SR,Suriname,PDGA Latin America & Caribbean
+SJ,Svalbard and Jan Mayen,PDGA Europe
+SZ,Swaziland,PDGA Africa
+SE,Sweden,PDGA Europe
+CH,Switzerland,PDGA Europe
+SY,Syria,PDGA Asia
+TW,Taiwan,PDGA Asia
+TJ,Tajikistan,PDGA Asia
+TZ,Tanzania,PDGA Africa
+TH,Thailand,PDGA Asia
+TL,Timor-Leste,PDGA Asia
+TG,Togo,PDGA Africa
+TK,Tokelau,PDGA Oceania
+TO,Tonga,PDGA Oceania
+TT,Trinidad and Tobago,PDGA Latin America & Caribbean
+TN,Tunisia,PDGA Africa
+TR,Turkey,PDGA Asia
+TM,Turkmenistan,PDGA Asia
+TC,Turks and Caicos Islands,PDGA Latin America & Caribbean
+TV,Tuvalu,PDGA Oceania
+UG,Uganda,PDGA Africa
+UA,Ukraine,PDGA Europe
+AE,United Arab Emirates,PDGA Asia
+US,United States,PDGA USA
+UM,United States Minor Outlying Islands,PDGA Oceania
+UY,Uruguay,PDGA Latin America & Caribbean
+UZ,Uzbekistan,PDGA Asia
+VU,Vanuatu,PDGA Oceania
+VE,Venezuela,PDGA Latin America & Caribbean
+VN,Vietnam,PDGA Asia
+VG,British Virgin Islands,PDGA Latin America & Caribbean
+VI,U.S. Virgin Islands,PDGA Latin America & Caribbean
+WF,Wallis and Futuna,PDGA Oceania
+EH,Western Sahara,PDGA Africa
+YE,Yemen,PDGA Asia
+ZM,Zambia,PDGA Africa
+ZW,Zimbabwe,PDGA Africa
+AX,Aland Islands,PDGA Europe
+GG,Guernsey,PDGA Europe
+IM,Isle of Man,PDGA Europe
+JE,Jersey,PDGA Europe
+BL,Saint Barth�lemy,PDGA Latin America & Caribbean
+MF,Saint Martin (French part),PDGA Latin America & Caribbean
+GB,United Kingdom,PDGA Europe
+CW,Cura�ao,PDGA Latin America & Caribbean
+SX,Sint Maarten (Dutch part),PDGA Latin America & Caribbean
+BQ,"Bonaire, Sint Eustatius and Saba",PDGA Latin America & Caribbean
