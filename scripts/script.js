@@ -203,6 +203,15 @@ async function buildEventChart() {
                     beginAtZero: true,
                 },
             },
+            onClick: (e, elements) => {
+                const chartElement = elements[0];
+                const datasetIndex = chartElement.datasetIndex;
+                const dataIndex = chartElement.index;
+                const label = myChart.data.labels[dataIndex];
+                const value = myChart.data.datasets[datasetIndex].data[dataIndex];
+
+                alert(`Clicked on ${label} with value ${value}`);
+            },
             plugins: {
                 title: {
                     display: true,
