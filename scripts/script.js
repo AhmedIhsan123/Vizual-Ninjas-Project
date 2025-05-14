@@ -186,10 +186,12 @@ async function buildEventChart() {
             scales: {
                 x: {
                     title: {
+                        color: "white",
                         display: true,
                         text: "Events",
                     },
                     ticks: {
+                        color: "white",
                         autoSkip: false,
                         maxRotation: 90,
                         minRotation: 90,
@@ -216,6 +218,7 @@ async function buildEventChart() {
                 title: {
                     display: true,
                     text: "Average Distance Traveled Per Event",
+                    color: "white",
                     font: {
                         size: 18,
                     },
