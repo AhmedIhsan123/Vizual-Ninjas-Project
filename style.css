@@ -123,12 +123,6 @@ label {
   transition: background 0.3s ease;
 }
 
-.logo-img {
-  height: 50px;
-  width: auto;
-  margin-left: 20px;
-}
-
 .container {
   max-width: 93%;
   margin: auto;
@@ -157,7 +151,7 @@ button:hover {
 }
 
 .logo-img:hover {
-  transform: scale(1.05);
+  transform: scale(1.025);
 }
 
 h2::after {
