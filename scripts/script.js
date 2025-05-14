@@ -196,11 +196,21 @@ async function buildEventChart() {
                         maxRotation: 90,
                         minRotation: 90,
                     },
+                    grid: {
+                        color: "rgba(255, 255, 255, 0.2)"
+                    }
                 },
                 y: {
                     title: {
                         display: true,
+                        color: "white",
                         text: "Average Distance Traveled in Miles",
+                    },
+                    ticks: {
+                        color: "white"
+                    },
+                    grid: {
+                        color: "rgba(255, 255, 255, 0.2)"
                     },
                     beginAtZero: true,
                 },
@@ -275,6 +285,7 @@ async function buildEventChart() {
                     padding: {
                         top: 10,
                     },
+                    color: "white"
                 },
             },
         },
