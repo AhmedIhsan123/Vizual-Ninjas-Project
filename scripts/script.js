@@ -160,7 +160,7 @@ async function buildEventChart() {
             osCount: event.MEMBERS_OUT_OF_STATE,
             isCount: event.MEMBERS_IN_STATE
         });
-        chartData.datasets[0].backgroundColor = "green";
+        chartData.datasets[0].backgroundColor = "#999";
     });
 
     // Create the chart using Chart.js
