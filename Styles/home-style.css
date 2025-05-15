@@ -150,3 +150,16 @@ body {
     background-color: #333;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
 }
+.chart-container div {
+    /* Layout */
+    padding: 1rem;
+    user-select: none;
+    height: 100%;
+    width: 100%;
+
+    /* Styles */
+    background-color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+}
