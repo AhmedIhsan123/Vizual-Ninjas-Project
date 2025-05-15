@@ -2,84 +2,86 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Disc Golf Stats Visualizer</title>
-    <link rel="stylesheet" href="Styles/styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title -->
+    <title>Home Page</title>
+    <!-- Link the main stylesheet for the page -->
+    <link rel="stylesheet" href="Styles/style-main.css">
 
-    <!-- Chart.js v4 -->
+    <!-- Link the page stylesheet -->
+    <link rel="stylesheet" href="Styles/home-style.css">
+
+    <!-- Link Scripts -->
+    <script type="module" src="Scripts/script.js" defer></script>
+    <!-- Link Chart.js v4 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
-
-    <!-- Chart.js Annotation Plugin for v4 -->
+    <!-- Link Chart.js Annotation Plugin for v4 -->
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.1.0/dist/chartjs-plugin-annotation.min.js"
         defer></script>
-    <!-- Scripts -->
-    <script type="module" src="Scripts/script.js" defer></script>
 </head>
 
 <body>
-    <header class="sticky-header">
-        <div id="statmando-logo">
-            <img src="Img/StatmandoLogo.png" alt="Visual Ninja Logo" class="logo-img">
-        </div>
-    </header>
+    <main>
+        <section class="navigation-bar-container">
+            <!-- The sites logo -->
+            <img class="site-logo" src="Img/StatmandoLogo.png" alt="Logo">
 
-    <div class="main-container">
-        <div id="content-container">
-            <div id="title-container">
-                <h1>Disc Golf Event Finder Tool</h1>
+            <!-- Event viewer link -->
+            <div>
+                <a href="concept.html" target="_self" class="navigation-link"><span>Home</span></a>
+                <a href="#" target="_blank" class="navigation-link"><span>Event Viewer</span></a>
+                <a href="#" target="_blank" class="navigation-link"><span>About Us</span></a>
             </div>
+        </section>
 
-            <!-- Data filters section -->
-            <div class="filters-container">
-                <div class="center">
-                    <h2>Filter Events</h2>
-                </div>
+        <section class="main-container">
+            <!-- Sizebar area -->
+            <section class="sidebar-container">
+                <h2>Upcoming Events</h2>
+            </section>
 
-                <section class="data-filters">
-                    <!-- Tier label -->
-                    <label for="tier">Tier:</label>
-                    <select id="tier">
-                        <option value="">Any</option>
-                    </select>
+            <!-- Title area -->
+            <section class="title-container">
+                <h1>Find Events</h1>
+            </section>
 
-                    <!-- Country button -->
-                    <label for="country">Country:</label>
-                    <select id="country">
-                        <option value="">Any</option>
-                    </select>
+            <!-- Filters Area -->
+            <section class="filters-container">
+                <!-- Tier label -->
+                <label for="tier">Tier:</label>
+                <select id="tier">
+                    <option value="">Any</option>
+                </select>
 
-                    <!-- State button -->
-                    <label for="state">State:</label>
-                    <select id="state">
-                        <option value="">Any</option>
-                    </select>
+                <!-- Country button -->
+                <label for="country">Country:</label>
+                <select id="country">
+                    <option value="">Any</option>
+                </select>
 
-                    <!-- Start date picker -->
-                    <label for="start-date">Start Date:</label>
-                    <input type="date" id="start-date">
+                <!-- State button -->
+                <label for="state">State:</label>
+                <select id="state">
+                    <option value="">Any</option>
+                </select>
 
-                    <!-- End date picker -->
-                    <label for="end-date">End Date:</label>
-                    <input type="date" id="end-date">
-                </section>
+                <!-- Start date picker -->
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date">
+
+                <!-- End date picker -->
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date">
 
                 <!-- Apply filters button -->
-                <section id="apply-filters-section">
-                    <div class="button-container">
-                        <button class="button" id="apply-filters">Apply Filters</button>
-                        <button class="button" id="reset-filters">Reset Filters</button>
-                    </div>
-                </section>
-            </div>
+                <button class="button" id="apply-filters">Apply Filters</button>
+                <button class="button" id="reset-filters">Reset Filters</button>
+            </section>
+        </section>
 
-            <!-- Data Visualization Section -->
-            <div class="visualizations">
-                <div class="chart-container">
-                    <canvas id="event-chart"></canvas>
-                </div>
-            </div>
-        </div>
+    </main>
+
 </body>
 
 </html>

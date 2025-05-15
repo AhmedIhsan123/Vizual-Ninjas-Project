@@ -1,0 +1,108 @@
+/* Body styles */
+body {
+    height: 100vh;
+    overflow: scroll;
+}
+
+/* Main Container styles */
+.main-container {
+    /* Layout */
+  display: grid;
+  grid-template-columns: 15% 1fr 1fr 1fr;
+  grid-template-rows: auto auto 1fr 1fr;
+  grid-template-areas:
+    "sidebar title title title"
+    "sidebar filters filters filters"
+    "sidebar main main main"
+    "sidebar main main main"
+    "sidebar main main main";
+  height: 100vh;
+}
+
+/* Sidebar Container */
+.sidebar-container {
+    /* Layout */
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    grid-area: sidebar;
+
+    /* Styles */
+    background-color: #333;
+    color: whitesmoke;
+    /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); */
+}
+
+/* Title */
+.title-container {
+    /* Layout */
+    display: flex;
+    flex-direction: row;
+    grid-area: title;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    grid-area: title;
+    font: 2rem 'Poppins', sans-serif;
+    user-select: none;
+
+    /* Styles */
+    background-color: #333;
+    color: whitesmoke;
+    border-bottom: 2px solid #ccc;
+    /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); */
+}
+
+/* Filters Container */
+.filters-container {
+    /* Layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    grid-area: filters;
+    gap: 1rem;
+    padding: 1rem;
+    user-select: none;
+
+    /* Styles */
+    background-color: #444;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Filter Labels */
+.filters-container label {
+    /* Styles */
+    color: whitesmoke;
+}
+
+
+/* Select and dropdowns */
+.filters-container select,
+.filters-container input {
+    /* Layout */
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    /* Styles */
+    border: 1px solid #ccc;
+    background-color: #222;
+    color: whitesmoke;
+    
+    /* Transition */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Dropdown & Date Input Focus Effect */
+.filters-container select:focus,
+.filters-container input[type="date"]:focus {
+    /* Styles */
+    color: whitesmoke;;
+    outline: none;
+    border-color: #444;
+    box-shadow: 0 0 10px rgba(68, 68, 68, 0.75);
+}

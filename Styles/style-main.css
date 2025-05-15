@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+/* Global reset */
+* {
+    /* Layout */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    /* Aesthetics */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* -------- NAVIGATION BAR -------- */
+/* Site logo styles */
+.site-logo {
+    /* Layout */
+    width: 20%;
+    padding: 1rem;
+}
+
+/* Navigation bar styles */
+.navigation-bar-container {
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 2rem;
+    position: relative;
+
+    /* Aesthetics */
+    background-color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Event viewer link */
+.navigation-link {
+    /* Layout */
+    position: relative;
+    width: 1rem;
+    padding: 1rem 2rem;
+    user-select: none;
+
+    /* Aesthetics */
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+.navigation-link span {
+    /* Layout */
+    position: relative;
+    display: inline-block;
+}
+
+/* Buttons */
+.button {
+    /* Layout */
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    color: whitesmoke;
+    padding: 10px;
+
+    /* Aesthetics */
+    background-color: #222;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+
+    /* Transition */
+    transition: background-color 0.3s ease;
+}
+
+/* Animations */
+/* Event viewer link */
+.navigation-link:hover {
+    /* Aesthetics */
+    color: #999;
+
+    /* Transition */
+    transition: color 0.15s ease-in-out;
+}
+.navigation-link:hover span::after {
+    /* Layout */
+    width: 100%;
+
+    /* Aesthetics */
+    background-color: #999;
+}
+.navigation-link span::after {
+  /* Layout */
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 3px;
+
+  /* Aesthetics */
+  background: whitesmoke;
+
+  /* Transition */
+  transition: all 0.15s ease-in-out;
+}
+
+/* Buttons */
+.button:hover {
+  background-color: #444;
+}
