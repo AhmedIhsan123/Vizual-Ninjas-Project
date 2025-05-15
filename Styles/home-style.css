@@ -11,11 +11,10 @@ body {
   grid-template-columns: 15% 1fr 1fr 1fr;
   grid-template-rows: auto auto 1fr 1fr;
   grid-template-areas:
-    "sidebar title title title"
-    "sidebar filters filters filters"
-    "sidebar main main main"
-    "sidebar main main main"
-    "sidebar main main main";
+    "sidebar title title map"
+    "sidebar filters filters map"
+    "sidebar chart chart map"
+    "sidebar table table table";
   height: 100vh;
 }
 
@@ -33,6 +32,7 @@ body {
     /* Styles */
     background-color: #333;
     color: whitesmoke;
+    border-right: 2px solid #ccc;
     /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); */
 }
 
@@ -105,4 +105,48 @@ body {
     outline: none;
     border-color: #444;
     box-shadow: 0 0 10px rgba(68, 68, 68, 0.75);
+}
+
+/* Map Container */
+.map-container {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    grid-area: map;
+    padding: 1rem;
+    user-select: none;
+
+    /* Styles */
+    background-color: #333;
+    border-left: 2px solid #ccc;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Event List Container */
+.event-list-container {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    grid-area: table;
+    padding: 1rem;
+    user-select: none;
+
+    /* Styles */
+    background-color: #777;
+    border-top: 2px solid #ccc;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Chart Container */
+.chart-container {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    grid-area: chart;
+    padding: 1rem;
+    user-select: none;
+
+    /* Styles */
+    background-color: #999;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
 }
