@@ -172,12 +172,23 @@ body {
     /* Layout */
     display: flex;
     flex-direction: column;
-    grid-area: details;
+    gap: 1rem;
     padding: 1rem;
     width: 100%;
+    grid-area: details;;
     user-select: none;
 
     /* Styles */
     background-color: #444;
-    /* box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15); */
+    color: black;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+}
+
+.details-content {
+    /* Layout */
+    padding: 1rem;
+
+    /* Styles */
+    border-radius: 5px;
+    background-color: #333;
 }
