@@ -1,7 +1,7 @@
 /* Body styles */
 body {
     height: 100vh;
-    overflow: scroll;
+    overflow: hidden;
 }
 
 /* Main Container styles */
