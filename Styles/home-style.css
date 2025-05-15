@@ -1,7 +1,7 @@
 /* Body styles */
 body {
     height: 100vh;
-    overflow: hidden;
+    overflow: show;
 }
 
 /* Main Container styles */
@@ -14,8 +14,9 @@ body {
     "sidebar title title map"
     "sidebar filters filters map"
     "sidebar chart chart map"
-    "sidebar table table table";
+    "sidebar chart chart table";
   height: 100vh;
+  padding-top: 120px;
 }
 
 /* Sidebar Container */
@@ -30,7 +31,7 @@ body {
     grid-area: sidebar;
 
     /* Styles */
-    background-color: #333;
+    background-color: #555;
     color: whitesmoke;
     border-right: 2px solid #ccc;
     /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); */
@@ -117,7 +118,7 @@ body {
     user-select: none;
 
     /* Styles */
-    background-color: #333;
+    background-color: #555;
     border-left: 2px solid #ccc;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
 }
@@ -132,8 +133,9 @@ body {
     user-select: none;
 
     /* Styles */
-    background-color: #333;
+    background-color: #555;
     border-top: 2px solid #ccc;
+    border-left: 2px solid #ccc;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
 }
 
@@ -147,8 +149,8 @@ body {
     user-select: none;
 
     /* Styles */
-    background-color: #333;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+    background-color: #444;
+    /* box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15); */
 }
 .chart-container div {
     /* Layout */
@@ -160,6 +162,21 @@ body {
     /* Styles */
     background-color: #333;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Details Container */
+.details-container {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    grid-area: details;
+    padding: 1rem;
+    width: 100%;
+    user-select: none;
+
+    /* Styles */
+    background-color: #444;
+    /* box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15); */
 }

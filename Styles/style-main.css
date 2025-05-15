@@ -23,11 +23,15 @@
 /* Navigation bar styles */
 .navigation-bar-container {
     /* Layout */
+    position: fixed;
+    top: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem 2rem;
-    position: relative;
+    z-index: 1000;
+    width: 100%;
+    height: 120px;
 
     /* Aesthetics */
     background-color: #333;
