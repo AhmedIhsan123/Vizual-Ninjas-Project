@@ -126,6 +126,8 @@ async function buildEventChart() {
     const selectedState = stateDropdown.value;
     const startDate = startDateInput.value;
     const endDate = endDateInput.value;
+    const xTitle = "Event Name";
+    const yTitle = "Average Distance Traveled (miles)";
 
     // Construct the URL with the selected filters
     let url = `./PHP/events.php?tier=${selectedTier}&country=${selectedCountry}&state=${selectedState}&start_date=${startDate}&end_date=${endDate}`;
@@ -177,6 +179,33 @@ async function buildEventChart() {
     const maxValue = Math.max(...averages);
     const avgValue = averages.reduce((sum, value) => sum + value, 0) / averages.length;
 
+    let parts = [];
+
+    // Tier
+    if (tier && tier !== "Any") {
+        parts.push(`${tier} tier`);
+    }
+
+    // Location
+    if (stateDropdown.value && stateDropdown.value !== "Any") {
+        parts.push(`events in ${state.value}`);
+    } else if (country.value && country.value !== "Any") {
+        parts.push(`events in ${country.value}`);
+    } else {
+        parts.push("events");
+    }
+
+    // Date range
+    if (startDateInput.value && endDateInput.value) {
+        parts.push(`from ${formatDate(startDate.value)} to ${formatDate(endDate.value)}`);
+    } else if (startDate.value) {
+        parts.push(`since ${formatDate(startDate.value)}`);
+    } else if (endDate.value) {
+        parts.push(`up to ${formatDate(endDate.value)}`);
+    }
+
+    const graphTitle = parts.join(" ");
+
     // Create the chart instance
     eventChart = new Chart(ctx, {
         type: "bar",
@@ -188,7 +217,7 @@ async function buildEventChart() {
                     title: {
                         color: "white",
                         display: true,
-                        text: "Events",
+                        text: xTitle,
                     },
                     ticks: {
                         color: "white",
@@ -204,7 +233,7 @@ async function buildEventChart() {
                     title: {
                         display: true,
                         color: "white",
-                        text: "Average Distance Traveled in Miles",
+                        text: yTitle,
                     },
                     ticks: {
                         color: "white"
@@ -227,7 +256,7 @@ async function buildEventChart() {
             plugins: {
                 title: {
                     display: true,
-                    text: "Average Distance Traveled Per Event",
+                    text: graphTitle,
                     color: "white",
                     font: {
                         size: 18,
@@ -273,20 +302,7 @@ async function buildEventChart() {
                             label: { enabled: true, content: `Avg: ${avgValue.toFixed(2)} mi`, position: 'start' }
                         }
                     }
-                },
-                subtitle: {
-                    display: true,
-                    text: `Filters Applied: Tier: ${selectedTier || "Any"}, Country: ${selectedCountry || "Any"}, State: ${selectedState || "Any"}, Start Date: ${startDate || "Any"}, End Date: ${endDate || "Any"}`,
-                    align: 'start',
-                    position: 'bottom',
-                    font: {
-                        size: 12,
-                    },
-                    padding: {
-                        top: 10,
-                    },
-                    color: "white"
-                },
+                }
             },
         },
     });
