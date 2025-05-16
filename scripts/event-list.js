@@ -1,8 +1,4 @@
 window.fetchData("./PHP/handlers/getProvince.php?country=US").then(data => {
-    buildTable(data);
-});
-
-function buildTable(data) {
     const table = document.getElementById("event-table");
     table.innerHTML = ""; // Clear existing rows
 
@@ -16,4 +12,4 @@ function buildTable(data) {
         `;
         table.appendChild(row);
     });
-}
+});
