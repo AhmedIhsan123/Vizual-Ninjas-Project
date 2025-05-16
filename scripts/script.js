@@ -179,6 +179,7 @@ async function buildEventChart() {
     const maxValue = Math.max(...averages);
     const avgValue = averages.reduce((sum, value) => sum + value, 0) / averages.length;
 
+    // Create the chart title based on selected filters
     let parts = [];
 
     // Tier
@@ -187,23 +188,24 @@ async function buildEventChart() {
     }
 
     // Location
-    if (stateDropdown.value && stateDropdown.value !== "Any") {
-        parts.push(`events In ${stateDropdown.value}`);
-    } else if (countryDropdown.value && countryDropdown.value !== "Any") {
-        parts.push(`Events In ${countryDropdown.value}`);
+    if (selectedState && selectedState !== "Any") {
+        parts.push(`Events in ${stateDropdown.options[stateDropdown.selectedIndex].text}`);
+    } else if (selectedCountry && selectedCountry !== "Any") {
+        parts.push(`Events in ${selectedCountry}`);
     } else {
         parts.push("Events");
     }
 
     // Date range
-    if (startDateInput.value && endDateInput.value) {
-        parts.push(`From ${(startDateInput.value)} To ${(endDateInput.value)}`);
-    } else if (startDateInput.value) {
-        parts.push(`Since ${(startDateInput.value)}`);
-    } else if (endDateInput.value) {
-        parts.push(`Up To ${(endDateInput.value)}`);
+    if (startDate && endDate) {
+        parts.push(`From ${(startDate)} To ${(endDate)}`);
+    } else if (startDate) {
+        parts.push(`Since ${(startDate)}`);
+    } else if (endDate) {
+        parts.push(`Up To ${(endDate)}`);
     }
 
+    // Join the parts to create the title
     const graphTitle = parts.join(" ");
 
     // Create the chart instance
