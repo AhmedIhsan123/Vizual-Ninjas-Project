@@ -5,10 +5,11 @@ window.fetchData("./PHP/events.php").then(data => {
     data.forEach(event => {
         const row = document.createElement("tr");
         row.innerHTML = `
-            <td>${event.eventName}</td>
-            <td>${event.eventDate}</td>
-            <td>${event.eventLocation}</td>
-            <td>${event.eventDescription}</td>
+            <td>${event.EVENT_ID}</td>
+            <td>${event.EVENT_NAME}</td>
+            <td>${event.DATE_EVENT_END}</td>
+            <td>${event.EVENT_COUNTRY_ID}</td>
+            <td>${event.EVENT_TIER_ID}</td>
         `;
         table.appendChild(row);
     });
