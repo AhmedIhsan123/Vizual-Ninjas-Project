@@ -231,3 +231,14 @@ tr:hover {
   background-color: #555;
   transition: background-color 0.2s ease;
 }
+
+/* Search Input */
+.search-input {
+  width: 100%;
+  max-width: 300px;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}

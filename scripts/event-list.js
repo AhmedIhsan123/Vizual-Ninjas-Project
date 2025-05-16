@@ -14,3 +14,13 @@ window.fetchData("./PHP/events.php").then(data => {
         tableBody.appendChild(row);
     });
 });
+
+document.getElementById("event-search").addEventListener("input", function () {
+    const filter = this.value.toLowerCase();
+    const rows = document.querySelectorAll("#event-table tbody tr");
+
+    rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        row.style.display = text.includes(filter) ? "" : "none";
+    });
+});
