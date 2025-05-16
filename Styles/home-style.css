@@ -243,6 +243,10 @@ tr:hover {
   border: 1px solid #ccc;
 }
 
+.main-container {
+    transition: all 0.5s ease-in-out;
+}
+
 .sidebar-container,
 .title-container,
 .filters-container,
@@ -250,5 +254,5 @@ tr:hover {
 .chart-container,
 .details-container,
 .event-list-container {
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
