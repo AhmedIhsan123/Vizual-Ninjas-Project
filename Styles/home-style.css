@@ -167,6 +167,11 @@ body {
     /* border: 1px solid #ccc; */
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
 }
+#event-chart {
+    /* Layout */
+    width: 100%;
+    height: 100%;
+}
 
 /* Details Container */
 .details-container {
