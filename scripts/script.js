@@ -183,25 +183,25 @@ async function buildEventChart() {
 
     // Tier
     if (tierDropdown.value && tierDropdown.value !== "Any") {
-        parts.push(`${tierDropdown.value} tier`);
+        parts.push(`${tierDropdown.value} Tier`);
     }
 
     // Location
     if (stateDropdown.value && stateDropdown.value !== "Any") {
-        parts.push(`events in ${stateDropdown.value}`);
+        parts.push(`events In ${stateDropdown.value}`);
     } else if (countryDropdown.value && countryDropdown.value !== "Any") {
-        parts.push(`events in ${countryDropdown.value}`);
+        parts.push(`Events In ${countryDropdown.value}`);
     } else {
-        parts.push("events");
+        parts.push("All Events");
     }
 
     // Date range
     if (startDateInput.value && endDateInput.value) {
-        parts.push(`from ${formatDate(startDateInput.value)} to ${formatDate(endDateInput.value)}`);
+        parts.push(`From ${formatDate(startDateInput.value)} To ${formatDate(endDateInput.value)}`);
     } else if (startDateInput.value) {
-        parts.push(`since ${formatDate(startDateInput.value)}`);
+        parts.push(`Since ${formatDate(startDateInput.value)}`);
     } else if (endDateInput.value) {
-        parts.push(`up to ${formatDate(endDateInput.value)}`);
+        parts.push(`Up To ${formatDate(endDateInput.value)}`);
     }
 
     const graphTitle = parts.join(" ");
