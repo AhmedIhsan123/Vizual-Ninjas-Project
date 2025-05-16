@@ -14,7 +14,8 @@ body {
     "sidebar title title map"
     "sidebar filters filters map"
     "sidebar chart chart map"
-    "sidebar table table table";
+    "sidebar chart chart table"
+    "sidebar details details table";
   height: 100vh;
   padding-top: 120px;
 }
@@ -194,14 +195,10 @@ body {
 
 /* Table Styles */
 .table-container {
-  height: 25%;
+  max-height: 100%;
   overflow-y: auto;       /* vertical scroll */
   overflow-x: auto;       /* horizontal scroll for wide tables */
   border: 1px solid #ccc; /* optional, just for clarity */
-}
-
-#event-table {
-    height: 25%;
 }
 
 table {
