@@ -126,8 +126,8 @@ async function buildEventChart() {
     const selectedState = stateDropdown.value;
     const startDate = startDateInput.value;
     const endDate = endDateInput.value;
-    const xTitle = "Event Name";
-    const yTitle = "Average Distance Traveled (miles)";
+    const xTitle = "Event Names";
+    const yTitle = "Average Distance Traveled by Members in Miles";
 
     // Construct the URL with the selected filters
     let url = `./PHP/events.php?tier=${selectedTier}&country=${selectedCountry}&state=${selectedState}&start_date=${startDate}&end_date=${endDate}`;
@@ -220,6 +220,9 @@ async function buildEventChart() {
                         color: "white",
                         display: true,
                         text: xTitle,
+                        font: {
+                            size: 20
+                        }
                     },
                     ticks: {
                         color: "white",
@@ -236,6 +239,9 @@ async function buildEventChart() {
                         display: true,
                         color: "white",
                         text: yTitle,
+                        font: {
+                            size: 20
+                        }
                     },
                     ticks: {
                         color: "white"
@@ -261,7 +267,7 @@ async function buildEventChart() {
                     text: graphTitle,
                     color: "white",
                     font: {
-                        size: 18,
+                        size: 20
                     },
                 },
                 legend: {
