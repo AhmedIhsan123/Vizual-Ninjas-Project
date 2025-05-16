@@ -200,3 +200,34 @@ body {
   overflow-x: auto;       /* horizontal scroll for wide tables */
   border: 1px solid #ccc; /* optional, just for clarity */
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background-color: #2f2f2f;
+}
+
+th, td {
+  border: 1px solid #555;
+  padding: 10px 12px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+th {
+  background-color: #444;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+tr:nth-child(even) {
+  background-color: #3a3a3a;
+}
+
+tr:hover {
+  background-color: #555;
+  transition: background-color 0.2s ease;
+}
