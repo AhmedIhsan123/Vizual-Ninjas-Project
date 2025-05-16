@@ -80,7 +80,6 @@ async function fetchData(url) {
 async function updateFilters() {
     // Fetch filters data from the server
     const filters = await fetchData('./PHP/handlers/getFilters.php');
-    console.log(filters);
 
     // No data to update
     if (!filters) return;
@@ -92,7 +91,6 @@ async function updateFilters() {
 
     // Populate tier dropdown
     filters.tiers.forEach(tier => {
-        console.log(tier);
         const option = document.createElement('option');
         option.value = tier;
         option.textContent = tier;
@@ -101,7 +99,6 @@ async function updateFilters() {
 
     // Populate country dropdown
     filters.countries.forEach(country => {
-        console.log(country);
         const option = document.createElement('option');
         option.value = country;
         option.textContent = country;
@@ -110,7 +107,6 @@ async function updateFilters() {
 
     // Populate state dropdown
     filters.states.forEach(state => {
-        console.log(state);
         const option = document.createElement('option');
         option.value = state.state_id;
         option.textContent = state.state_name;
