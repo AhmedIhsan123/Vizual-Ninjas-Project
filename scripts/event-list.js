@@ -10,6 +10,7 @@ window.fetchData("./PHP/events.php").then(data => {
             <td>${event.EVENT_ID}</td>
             <td>${event.EVENT_NAME}</td>
             <td>${event.COUNTRY_ID}</td>
+            <td>${event.EVENT_STATE_ID}</td>
             <td>${event.EVENT_TIER_ID}</td>
         `;
         tableBody.appendChild(row);
