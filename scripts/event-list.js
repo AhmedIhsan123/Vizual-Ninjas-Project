@@ -1,6 +1,6 @@
 window.fetchData("./PHP/events.php").then(data => {
     const tableBody = document.querySelector("#event-table tbody");
-    table.innerHTML = ""; // Clear existing rows
+    tableBody.innerHTML = ""; // Clear existing rows
 
     console.log(data);
 
