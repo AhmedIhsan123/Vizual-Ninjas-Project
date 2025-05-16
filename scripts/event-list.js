@@ -8,7 +8,8 @@ window.fetchData("./PHP/events.php").then(data => {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${event.EVENT_ID}</td>
-            <td>${event.EVENT_NAME}</td>>
+            <td>${event.EVENT_NAME}</td>
+            <td>${event.COUNTRY_ID}</td>
             <td>${event.EVENT_TIER_ID}</td>
         `;
         tableBody.appendChild(row);

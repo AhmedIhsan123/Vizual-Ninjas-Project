@@ -235,7 +235,6 @@ tr:hover {
 /* Search Input */
 .search-input {
   width: 100%;
-  max-width: 300px;
   padding: 8px 12px;
   margin-bottom: 12px;
   font-size: 16px;
