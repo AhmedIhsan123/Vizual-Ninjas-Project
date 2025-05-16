@@ -1,4 +1,4 @@
-window.fetchData("./PHP/handlers/getProvince.php?country=US").then(data => {
+window.fetchData("./PHP/events.php").then(data => {
     const table = document.getElementById("event-table");
     table.innerHTML = ""; // Clear existing rows
 
