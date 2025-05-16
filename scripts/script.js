@@ -197,11 +197,11 @@ async function buildEventChart() {
 
     // Date range
     if (startDateInput.value && endDateInput.value) {
-        parts.push(`From ${formatDate(startDateInput.value)} To ${formatDate(endDateInput.value)}`);
+        parts.push(`From ${(startDateInput.value)} To ${(endDateInput.value)}`);
     } else if (startDateInput.value) {
-        parts.push(`Since ${formatDate(startDateInput.value)}`);
+        parts.push(`Since ${(startDateInput.value)}`);
     } else if (endDateInput.value) {
-        parts.push(`Up To ${formatDate(endDateInput.value)}`);
+        parts.push(`Up To ${(endDateInput.value)}`);
     }
 
     const graphTitle = parts.join(" ");
