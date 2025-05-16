@@ -221,7 +221,8 @@ async function buildEventChart() {
                         display: true,
                         text: xTitle,
                         font: {
-                            size: 20
+                            size: 20,
+                            family: "Poppins, sans-serif"
                         }
                     },
                     ticks: {
@@ -240,7 +241,8 @@ async function buildEventChart() {
                         color: "white",
                         text: yTitle,
                         font: {
-                            size: 20
+                            size: 18,
+                            family: "Poppins, sans-serif"
                         }
                     },
                     ticks: {
@@ -267,7 +269,8 @@ async function buildEventChart() {
                     text: graphTitle,
                     color: "white",
                     font: {
-                        size: 20
+                        size: 20,
+                        family: "Poppins, sans-serif"
                     },
                 },
                 legend: {
