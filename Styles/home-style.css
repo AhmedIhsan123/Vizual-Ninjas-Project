@@ -242,3 +242,13 @@ tr:hover {
   border-radius: 6px;
   border: 1px solid #ccc;
 }
+
+.sidebar-container,
+.title-container,
+.filters-container,
+.map-container,
+.chart-container,
+.details-container,
+.event-list-container {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
