@@ -194,10 +194,14 @@ body {
 
 /* Table Styles */
 .table-container {
-  max-height: 25%;
+  height: 25%;
   overflow-y: auto;       /* vertical scroll */
   overflow-x: auto;       /* horizontal scroll for wide tables */
   border: 1px solid #ccc; /* optional, just for clarity */
+}
+
+#event-table {
+    height: 25%;
 }
 
 table {
