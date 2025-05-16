@@ -192,7 +192,7 @@ async function buildEventChart() {
     } else if (countryDropdown.value && countryDropdown.value !== "Any") {
         parts.push(`Events In ${countryDropdown.value}`);
     } else {
-        parts.push("All Events");
+        parts.push("Events");
     }
 
     // Date range
