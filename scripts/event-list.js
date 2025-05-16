@@ -15,7 +15,7 @@ window.fetchData("./PHP/events.php").then(data => {
             <td>${event.TOTAL_MEMBERS}</td>
             <td>${event.MEMBERS_IN_STATE}</td>
             <td>${event.MEMBERS_OUT_OF_STATE}</td>
-            <td>${event.AVG_TRAVEL_DISTANCE}</td>
+            <td>${event.AVG_TRAVEL_DISTANCE_MILES}</td>
             <td>${event.DATE_EVENT_END}</td>
         `;
         tableBody.appendChild(row);
