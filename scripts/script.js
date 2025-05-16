@@ -182,26 +182,26 @@ async function buildEventChart() {
     let parts = [];
 
     // Tier
-    if (tier && tier !== "Any") {
-        parts.push(`${tier} tier`);
+    if (tierDropdown.value && tierDropdown.value !== "Any") {
+        parts.push(`${tierDropdown.value} tier`);
     }
 
     // Location
     if (stateDropdown.value && stateDropdown.value !== "Any") {
-        parts.push(`events in ${state.value}`);
-    } else if (country.value && country.value !== "Any") {
-        parts.push(`events in ${country.value}`);
+        parts.push(`events in ${stateDropdown.value}`);
+    } else if (countryDropdown.value && countryDropdown.value !== "Any") {
+        parts.push(`events in ${countryDropdown.value}`);
     } else {
         parts.push("events");
     }
 
     // Date range
     if (startDateInput.value && endDateInput.value) {
-        parts.push(`from ${formatDate(startDate.value)} to ${formatDate(endDate.value)}`);
-    } else if (startDate.value) {
-        parts.push(`since ${formatDate(startDate.value)}`);
-    } else if (endDate.value) {
-        parts.push(`up to ${formatDate(endDate.value)}`);
+        parts.push(`from ${formatDate(startDateInput.value)} to ${formatDate(endDateInput.value)}`);
+    } else if (startDateInput.value) {
+        parts.push(`since ${formatDate(startDateInput.value)}`);
+    } else if (endDateInput.value) {
+        parts.push(`up to ${formatDate(endDateInput.value)}`);
     }
 
     const graphTitle = parts.join(" ");
