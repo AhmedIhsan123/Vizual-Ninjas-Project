@@ -1,3 +1,4 @@
+import { fetchData } from "../../utils.js";
 /* -------- GLOBAL VARIABLES START -------- */
 const tierDropdown = document.querySelector("#tier");
 const countryDropdown = document.querySelector("#country");
