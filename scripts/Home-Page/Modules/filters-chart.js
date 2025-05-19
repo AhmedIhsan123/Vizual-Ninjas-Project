@@ -156,7 +156,7 @@ export async function buildEventChart() {
     const avgValue = averages.reduce((sum, value) => sum + value, 0) / averages.length;
 
     // Set overview data
-    updateOverview(avgValue, minValue, maxValue);
+    updateOverview(minValue, maxValue, avgValue.toFixed(2));
 
     // Create the chart title based on selected filters
     let parts = [];
@@ -314,6 +314,7 @@ function updateOverview(minMiles, maxMiles, avgMiles) {
 
     overviewContainer.innerHTML = `
         <h2>Overview</h2>
+        <p>Total Events: ${eventList.length} members</p>
         <p>Average Distance Traveled: ${avgMiles} miles</p>
         <p>Most Popular Event: ${popularEvent}</p>
         <p>Maximum Distance Traveled to Event: ${maxMiles} miles</p>
