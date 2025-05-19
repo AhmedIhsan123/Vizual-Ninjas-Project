@@ -301,7 +301,7 @@ export async function buildEventChart() {
 }
 
 function updateOverview(minMiles, maxMiles, avgMiles) {
-    const overviewContainer = document.querySelector("details-content");
+    const overviewContainer = document.querySelector(".details-content");
     overviewContainer.innerHTML = ""; // Clear existing content
     let max = eventChart[0].TOTAL_MEMBERS;
     let popularEvent = "";
