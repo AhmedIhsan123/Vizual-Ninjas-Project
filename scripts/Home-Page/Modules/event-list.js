@@ -1,6 +1,6 @@
 import { fetchData } from "../../utils.js";
 
-function initList() {
+export async function initList() {
     // Fetch data from the server and populate the table
     fetchData("./PHP/events.php").then(data => {
         const tableBody = document.querySelector("#event-table tbody");
