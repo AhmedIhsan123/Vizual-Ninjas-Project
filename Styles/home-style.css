@@ -8,7 +8,7 @@ body {
 .main-container {
     /* Layout */
   display: grid;
-  grid-template-columns: 15% 2fr 1fr 30%;
+  grid-template-columns: 15% 2fr 1fr 25%;
   grid-template-rows: auto auto 1fr 1fr;
   grid-template-areas:
     "sidebar title title map"
@@ -217,7 +217,7 @@ th, td {
   border: 1px solid #1e1e2f;
   padding: 10px 12px;
   text-align: left;
-  white-space: nowrap;
+  white-space: wrap;
 }
 
 th {
