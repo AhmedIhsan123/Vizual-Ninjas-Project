@@ -32,7 +32,7 @@ body {
     grid-area: sidebar;
 
     /* Styles */
-    background-color: #555;
+    background-color: #1e1e2f;
     color: whitesmoke;
     border-right: 2px solid #ccc;
     /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); */
@@ -52,9 +52,8 @@ body {
     user-select: none;
 
     /* Styles */
-    background-color: #333;
+    background-color: #1e1e2f;
     color: whitesmoke;
-    border-bottom: 2px solid #ccc;
     /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); */
 }
 
@@ -72,7 +71,7 @@ body {
     user-select: none;
 
     /* Styles */
-    background-color: #444;
+    background-color: #1e1e2f;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
 }
 
@@ -93,7 +92,7 @@ body {
 
     /* Styles */
     border: 1px solid #ccc;
-    background-color: #222;
+    background-color: #2e2e40;
     color: whitesmoke;
     
     /* Transition */
@@ -120,7 +119,7 @@ body {
     user-select: none;
 
     /* Styles */
-    background-color: #555;
+    background-color: #1e1e2f;
     border-left: 2px solid #ccc;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
 }
@@ -135,7 +134,7 @@ body {
     user-select: none;
 
     /* Styles */
-    background-color: #555;
+    background-color: #1e1e2f;
     border-top: 2px solid #ccc;
     border-left: 2px solid #ccc;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
@@ -151,7 +150,7 @@ body {
     user-select: none;
 
     /* Styles */
-    background-color: #444;
+    background-color: #1e1e2f;
     /* box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15); */
 }
 .chart-container div {
@@ -162,7 +161,7 @@ body {
     width: 100%;
 
     /* Styles */
-    background-color: #333;
+    background-color: #2e2e40;
     border-radius: 5px;
     /* border: 1px solid #ccc; */
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
@@ -185,8 +184,8 @@ body {
     user-select: none;
 
     /* Styles */
-    background-color: #444;
-    color: black;
+    background-color: #1e1e2f;
+    color: whitesmoke;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
 }
 
@@ -196,7 +195,7 @@ body {
 
     /* Styles */
     border-radius: 5px;
-    background-color: #333;
+    background-color: #2e2e40;
 }
 
 /* Table Styles */
@@ -223,14 +222,14 @@ th, td {
 }
 
 th {
-  background-color: #444;
+  background-color: #2e2e40;
   position: sticky;
   top: 0;
   z-index: 1;
 }
 
 tr:nth-child(even) {
-  background-color: #3a3a3a;
+  background-color: #2e2e40;
 }
 
 tr:hover {
@@ -246,18 +245,6 @@ tr:hover {
   font-size: 16px;
   border-radius: 6px;
   border: 1px solid #ccc;
-}
-
-.main-container {
-    transition: all 0.5s ease-in-out;
-}
-
-.sidebar-container,
-.title-container,
-.filters-container,
-.map-container,
-.chart-container,
-.details-container,
-.event-list-container {
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  background-color: #2e2e40;
+  color: whitesmoke;
 }
