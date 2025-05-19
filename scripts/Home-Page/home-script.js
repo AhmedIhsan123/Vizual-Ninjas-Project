@@ -1,4 +1,5 @@
 import { buildEventChart, updateFilters } from "./Modules/filters-chart.js";
+import { initList } from "./Modules/event-list.js";
 
 /* -------- INITIALIZATION  -------- */
 document.addEventListener("DOMContentLoaded", async () => {
@@ -7,5 +8,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Build the initial event chart
     buildEventChart();
+
+    // Initialize the event list
+    initList();
 });
 /* -------- INITIALIZATION END  -------- */

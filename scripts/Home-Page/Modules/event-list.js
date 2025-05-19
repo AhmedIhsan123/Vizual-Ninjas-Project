@@ -1,13 +1,15 @@
 import { fetchData } from "../../utils.js";
-// Fetch data from the server and populate the table
-fetchData("./PHP/events.php").then(data => {
-    const tableBody = document.querySelector("#event-table tbody");
-    tableBody.innerHTML = ""; // Clear existing rows
 
-    // Populate the table with data
-    data.forEach(event => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
+function initList() {
+    // Fetch data from the server and populate the table
+    fetchData("./PHP/events.php").then(data => {
+        const tableBody = document.querySelector("#event-table tbody");
+        tableBody.innerHTML = ""; // Clear existing rows
+
+        // Populate the table with data
+        data.forEach(event => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
             <td>${event.EVENT_ID}</td>
             <td>${event.EVENT_NAME}</td>
             <td>${event.COUNTRY_ID}</td>
@@ -15,17 +17,18 @@ fetchData("./PHP/events.php").then(data => {
             <td>${event.EVENT_TIER_ID}</td>
             <td>${event.DATE_EVENT_END}</td>
         `;
-        tableBody.appendChild(row);
+            tableBody.appendChild(row);
+        });
     });
-});
 
-// Add event listener for search input
-document.getElementById("event-search").addEventListener("input", function () {
-    const filter = this.value.toLowerCase();
-    const rows = document.querySelectorAll("#event-table tbody tr");
+    // Add event listener for search input
+    document.getElementById("event-search").addEventListener("input", function () {
+        const filter = this.value.toLowerCase();
+        const rows = document.querySelectorAll("#event-table tbody tr");
 
-    rows.forEach(row => {
-        const text = row.innerText.toLowerCase();
-        row.style.display = text.includes(filter) ? "" : "none";
+        rows.forEach(row => {
+            const text = row.innerText.toLowerCase();
+            row.style.display = text.includes(filter) ? "" : "none";
+        });
     });
-});
+}
