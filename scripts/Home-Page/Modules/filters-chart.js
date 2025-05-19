@@ -8,6 +8,7 @@ const endDateInput = document.querySelector("#end-date");
 const applyFiltersButton = document.querySelector("#apply-filters");
 const resetFiltersButton = document.querySelector("#reset-filters");
 let eventChart = null; // Placeholder for the chart instance
+const eventList = []; // Placeholder for the event list
 /* -------- GLOBAL VARIABLES END -------- */
 
 //* -------- EVENT LISTENERS START -------- */
@@ -130,6 +131,7 @@ export async function buildEventChart() {
     // Prepare the data for the chart
     data.forEach(event => {
         chartData.labels.push(event.EVENT_NAME);
+        eventList.push(event); // Store the event data for later use
         chartData.datasets[0].data.push({
             x: event.EVENT_NAME,
             y: event.AVG_TRAVEL_DISTANCE_MILES,
@@ -138,6 +140,9 @@ export async function buildEventChart() {
         });
         chartData.datasets[0].backgroundColor = "#999";
     });
+
+    // Set overview data
+    updateOverview();
 
     // Create the chart using Chart.js
     const ctx = document.getElementById("event-chart").getContext("2d");
@@ -293,5 +298,9 @@ export async function buildEventChart() {
         },
     });
     eventChart.update();
+}
+
+function updateOverview() {
+    console.log(eventList)
 }
 /* -------- FUNCTIONS END -------- */
