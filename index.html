@@ -2,81 +2,131 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Disc Golf Stats Visualizer</title>
-  <link rel="stylesheet" href="Styles/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title -->
+    <title>Home Page</title>
+    <!-- Link the main stylesheet for the page -->
+    <link rel="stylesheet" href="Styles/style-main.css">
 
-  <!-- Chart.js v4 -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+    <!-- Link the page stylesheet -->
+    <link rel="stylesheet" href="Styles/home-style.css">
 
-  <!-- Chart.js Annotation Plugin for v4 -->
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.1.0/dist/chartjs-plugin-annotation.min.js"
-    defer></script>
-  <!-- Scripts -->
-  <script type="module" src="Scripts/script.js" defer></script>
+    <!-- Link Scripts -->
+    <script src="scripts/filters-chart.js" defer></script>
+    <script src="scripts/event-list.js" defer></script>
+
+    <!-- Link Chart.js v4 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+    <!-- Link Chart.js Annotation Plugin for v4 -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.1.0/dist/chartjs-plugin-annotation.min.js"
+        defer></script>
 </head>
 
 <body>
-  <header class="sticky-header">
-    <div class="logo">
-      <img src="Img/StatmandoLogo.png" alt="Visual Ninja Logo" class="logo-img">
-    </div>
-  </header>
-  <div class="container">
+    <main>
+        <section class="navigation-bar-container">
+            <!-- The sites logo -->
+            <img class="site-logo" src="Img/StatmandoLogo.png" alt="Logo">
 
-    <div class="center">
-      <h1>Disc Golf Event Statistics</h1>
-    </div>
+            <!-- Event viewer link -->
+            <div>
+                <a href="concept.html" target="_self" class="navigation-link"><span>Home</span></a>
+                <a href="#" target="_blank" class="navigation-link"><span>Event Viewer</span></a>
+                <a href="#" target="_blank" class="navigation-link"><span>About Us</span></a>
+            </div>
+        </section>
 
-    <!-- Data filters section -->
-    <div class="filters-wrapper">
-      <div class="center">
-        <h2>Filter Events</h2>
-      </div>
-      <section class="data-filters">
-        <!-- Tier label -->
-        <label for="tier">Tier:</label>
-        <select id="tier">
-          <option value="">Any</option>
-        </select>
+        <section class="main-container">
+            <!-- Sizebar area -->
+            <section class="sidebar-container">
+                <h2>Upcoming Events</h2>
+            </section>
 
-        <!-- Country button -->
-        <label for="country">Country:</label>
-        <select id="country">
-          <option value="">Any</option>
-        </select>
+            <!-- Title area -->
+            <section class="title-container">
+                <h1>Filter For Events</h1>
+            </section>
 
-        <!-- State button -->
-        <label for="state">State:</label>
-        <select id="state">
-          <option value="">Any</option>
-        </select>
+            <!-- Filters Area -->
+            <section class="filters-container">
+                <!-- Tier label -->
+                <label for="tier">Tier:</label>
+                <select id="tier">
+                    <option value="">Any</option>
+                </select>
 
-        <!-- Start date picker -->
-        <label for="start-date">Start Date:</label>
-        <input type="date" id="start-date">
+                <!-- Country button -->
+                <label for="country">Country:</label>
+                <select id="country">
+                    <option value="">Any</option>
+                </select>
 
-        <!-- End date picker -->
-        <label for="end-date">End Date:</label>
-        <input type="date" id="end-date">
+                <!-- State button -->
+                <label for="state">State:</label>
+                <select id="state">
+                    <option value="">Any</option>
+                </select>
 
-        <!-- Apply filters button -->
-        <button id="apply-filters">Apply Filters</button>
-        <button id="reset-filters">Reset Filters</button>
-      </section>
-    </div>
+                <!-- Start date picker -->
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date">
 
-    <!-- Data Visualization Section -->
-    <div class="visualizations">
-      <div class="center">
-        <h2>Data Visualizations</h2>
-      </div>
-      <div class="chart-container">
-        <canvas id="event-chart"></canvas>
-      </div>
-    </div>
-  </div>
+                <!-- End date picker -->
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date">
+
+                <!-- Apply filters button -->
+                <button class="button" id="apply-filters">Apply Filters</button>
+                <button class="button" id="reset-filters">Reset Filters</button>
+            </section>
+
+            <!-- Map Area -->
+            <section class="map-container">
+                <h2>Map</h2>
+            </section>
+
+            <!-- Details Area -->
+            <section class="details-container">
+                <div class="details-content">
+                    <h2>Overview</h2>
+                    <p>Average Distance Traveled: 4452 miles</p>
+                    <p>Most Popular Event: Bay City Utah</p>
+                    <p>Maximum Distance Traveled to Event: 5529 miles</p>
+                    <p>Minimum Distance Traveled by Members: 458 miles</p>
+                </div>
+            </section>
+
+            <!-- Event List Area -->
+            <section class="event-list-container">
+                <input type="text" id="event-search" placeholder="Search events..." class="search-input" />
+                <div class="table-container">
+                    <table id="event-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Country</th>
+                                <th>State</th>
+                                <th>Tier</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Chart Area -->
+            <section class="chart-container">
+                <div>
+                    <canvas id="event-chart"></canvas>
+                </div>
+            </section>
+    </main>
+
 </body>
 
 </html>
