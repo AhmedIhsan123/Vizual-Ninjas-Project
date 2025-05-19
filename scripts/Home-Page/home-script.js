@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Initialize the event list
     initList();
 
-    const map = L.map('map-container').setView([39.5, -98.35], 4);
+    const map = L.map('.map-container').setView([39.5, -98.35], 4);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
