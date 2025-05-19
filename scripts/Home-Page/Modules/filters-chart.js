@@ -316,8 +316,10 @@ function updateOverview(minMiles, maxMiles, avgMiles) {
         <h2>Overview</h2>
         <p>Total Events: ${eventList.length} members</p>
         <p>Average Distance Traveled: ${avgMiles} miles</p>
-        <p>Most Popular Event: ${popularEvent}</p>
         <p>Maximum Distance Traveled to Event: ${maxMiles} miles</p>
-        <p>Minimum Distance Traveled by Members: ${minMiles} miles</p>`
+        <p>Minimum Distance Traveled by Members: ${minMiles} miles</p>
+        <br>
+        <p>Most Popular Event: ${popularEvent}</p>`
+
 }
 /* -------- FUNCTIONS END -------- */
