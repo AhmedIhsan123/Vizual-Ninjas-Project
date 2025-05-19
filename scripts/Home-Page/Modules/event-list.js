@@ -1,9 +1,10 @@
-window.fetchData("./PHP/events.php").then(data => {
+import { fetchData } from "../../utils.js";
+// Fetch data from the server and populate the table
+fetchData("./PHP/events.php").then(data => {
     const tableBody = document.querySelector("#event-table tbody");
     tableBody.innerHTML = ""; // Clear existing rows
 
-    console.log(data);
-
+    // Populate the table with data
     data.forEach(event => {
         const row = document.createElement("tr");
         row.innerHTML = `
@@ -18,6 +19,7 @@ window.fetchData("./PHP/events.php").then(data => {
     });
 });
 
+// Add event listener for search input
 document.getElementById("event-search").addEventListener("input", function () {
     const filter = this.value.toLowerCase();
     const rows = document.querySelectorAll("#event-table tbody tr");

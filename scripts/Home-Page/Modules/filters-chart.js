@@ -9,16 +9,6 @@ const resetFiltersButton = document.querySelector("#reset-filters");
 let eventChart = null; // Placeholder for the chart instance
 /* -------- GLOBAL VARIABLES END -------- */
 
-/* -------- INITIALIZATION  -------- */
-document.addEventListener("DOMContentLoaded", async () => {
-    // Set the correct possible filters for the dropdowns
-    updateFilters();
-
-    // Build the initial event chart
-    buildEventChart();
-});
-/* -------- INITIALIZATION END  -------- */
-
 //* -------- EVENT LISTENERS START -------- */
 // Event listener for the apply filters button
 countryDropdown.addEventListener("change", async () => {
@@ -63,21 +53,8 @@ resetFiltersButton.addEventListener("click", async () => {
 //* -------- EVENT LISTENERS END -------- */
 
 /* -------- FUNCTIONS START -------- */
-// Method to fetch data through url and return the data found
-async function fetchData(url) {
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error("Network response was not ok " + response.statusText);
-        }
-        return await response.json();
-    } catch (error) {
-        return console.error("Fetch error: ", error);
-    }
-}
-
 // Method to update the filters dropdowns
-async function updateFilters() {
+export async function updateFilters() {
     // Fetch filters data from the server
     const filters = await fetchData('./PHP/handlers/getFilters.php');
 
@@ -115,7 +92,7 @@ async function updateFilters() {
 }
 
 // Method to build the event chart based on selected filters
-async function buildEventChart() {
+export async function buildEventChart() {
     // Get the selected values from the dropdowns and inputs
     const selectedTier = tierDropdown.value;
     const selectedCountry = countryDropdown.value;
