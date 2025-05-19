@@ -141,9 +141,6 @@ export async function buildEventChart() {
         chartData.datasets[0].backgroundColor = "#999";
     });
 
-    // Set overview data
-    updateOverview();
-
     // Create the chart using Chart.js
     const ctx = document.getElementById("event-chart").getContext("2d");
 
@@ -157,6 +154,9 @@ export async function buildEventChart() {
     const minValue = Math.min(...averages);
     const maxValue = Math.max(...averages);
     const avgValue = averages.reduce((sum, value) => sum + value, 0) / averages.length;
+
+    // Set overview data
+    updateOverview(avgValue, minValue, maxValue);
 
     // Create the chart title based on selected filters
     let parts = [];
@@ -300,7 +300,23 @@ export async function buildEventChart() {
     eventChart.update();
 }
 
-function updateOverview() {
-    console.log(eventList)
+function updateOverview(minMiles, maxMiles, avgMiles) {
+    const overviewContainer = document.querySelector("details-content");
+    overviewContainer.innerHTML = ""; // Clear existing content
+    let max = eventChart[0].TOTAL_MEMBERS;
+    let popularEvent = "";
+    eventList.forEach(event => {
+        if (event.TOTAL_MEMBERS > max) {
+            max = event.TOTAL_MEMBERS;
+            popularEvent = event.EVENT_NAME;
+        }
+    })
+
+    overviewContainer.innerHTML = `
+        <h2>Overview</h2>
+        <p>Average Distance Traveled: ${avgMiles} miles</p>
+        <p>Most Popular Event: ${popularEvent}</p>
+        <p>Maximum Distance Traveled to Event: ${maxMiles} miles</p>
+        <p>Minimum Distance Traveled by Members: ${minMiles} miles</p>`
 }
 /* -------- FUNCTIONS END -------- */
