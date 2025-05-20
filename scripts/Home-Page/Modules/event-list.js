@@ -16,12 +16,12 @@ export async function initList() {
             eventList.push(event); // Store the event in the list
             const row = document.createElement("tr");
             row.innerHTML = `
-            <td value="${event.EVENT_NAME}">${event.EVENT_ID}</td>
-            <td value="${event.EVENT_NAME}>${event.EVENT_NAME}</td>
-            <td value="${event.EVENT_NAME}>${event.COUNTRY_ID}</td>
-            <td value="${event.EVENT_NAME}>${event.EVENT_STATE_ID}</td>
-            <td value="${event.EVENT_NAME}>${event.EVENT_TIER_ID}</td>
-            <td value="${event.EVENT_NAME}>${event.DATE_EVENT_END}</td>
+            <td>${event.EVENT_ID}</td>
+            <td>${event.EVENT_NAME}</td>
+            <td>${event.COUNTRY_ID}</td>
+            <td>${event.EVENT_STATE_ID}</td>
+            <td>${event.EVENT_TIER_ID}</td>
+            <td>${event.DATE_EVENT_END}</td>
         `;
             tableBody.appendChild(row);
         });
@@ -42,6 +42,7 @@ export async function initList() {
     const tableRows = document.querySelectorAll("#event-table tbody tr");
     tableRows.forEach(row => {
         row.addEventListener("click", function () {
+            console.log("Clicked row:", this);
             const eventId = this.querySelector("td").innerText;
             const event = eventList.find(e => e.EVENT_ID == eventId);
             if (event) {
