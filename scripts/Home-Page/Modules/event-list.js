@@ -1,5 +1,4 @@
 import { fetchData } from "../../utils.js";
-import { goToLocation } from "../../map.js";
 
 export async function initList() {
     // List of events
