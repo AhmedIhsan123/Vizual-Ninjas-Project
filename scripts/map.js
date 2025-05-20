@@ -1,5 +1,5 @@
 import { fetchData } from "./utils.js";
-export function initMap() {
+export async function initMap() {
     // Create a map instance
     // Set the initial view to a specific location and zoom level
     const map = L.map('mapid2').setView([39.5, -98.35], 4);
