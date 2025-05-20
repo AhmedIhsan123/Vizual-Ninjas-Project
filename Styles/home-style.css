@@ -249,10 +249,15 @@ tr:hover {
 }
 
 /* Map styles */
-.map-container {
-  grid-area: map;
-  padding: 1rem;
-  margin: 0;
-  width: 100px;
-  height: 100px;
+.map-container,
+#mapid.mapid {
+    flex: 2;
+    height: 400px;
+    grid-area: map;
+    border-radius: 6px;
+    background: #222;
+    border: 2px solid #444;
+    min-width: 0;
+    overflow: hidden;
+    margin-top: 1rem;
 }
