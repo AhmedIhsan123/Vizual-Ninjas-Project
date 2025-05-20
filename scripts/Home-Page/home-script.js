@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     buildEventChart();
 
     // Initialize the event list
-    initList();
+    await initList();
 
     // Initialize the map
     initMap();
