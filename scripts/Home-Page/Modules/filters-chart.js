@@ -131,7 +131,9 @@ export async function buildEventChart() {
     }
 
     // Prepare the data for the chart
+    const events = [];
     data.forEach(event => {
+        events.push(event);
         chartData.labels.push(event.EVENT_NAME);
         chartData.datasets[0].data.push({
             x: event.EVENT_NAME,
@@ -157,7 +159,7 @@ export async function buildEventChart() {
     const avgValue = averages.reduce((sum, value) => sum + value, 0) / averages.length;
 
     // Set overview data
-    updateOverview(minValue, maxValue, avgValue.toFixed(2));
+    updateOverview(minValue, maxValue, avgValue.toFixed(2), events);
 
     // Create the chart title based on selected filters
     let parts = [];
@@ -303,12 +305,12 @@ export async function buildEventChart() {
 }
 /* -------- FUNCTIONS END -------- */
 // Method to update the overview section with calculated values
-function updateOverview(minMiles, maxMiles, avgMiles) {
+function updateOverview(minMiles, maxMiles, avgMiles, events) {
     const overviewContainer = document.querySelector(".details-content");
     overviewContainer.innerHTML = ""; // Clear existing content
-    let max = eventList[0].TOTAL_MEMBERS;
+    let max = events[0].TOTAL_MEMBERS;
     let popularEvent = "";
-    eventList.forEach(event => {
+    events.forEach(event => {
         if (event.TOTAL_MEMBERS > max) {
             max = event.TOTAL_MEMBERS;
             popularEvent = event.EVENT_NAME;
@@ -317,7 +319,7 @@ function updateOverview(minMiles, maxMiles, avgMiles) {
 
     overviewContainer.innerHTML = `
         <h2>Overview</h2>
-        <p>Total Events: ${eventList.length} members</p>
+        <p>Total Events: ${events.length} members</p>
         <p>Average Distance Traveled: ${avgMiles} miles</p>
         <p>Maximum Distance Traveled to Event: ${maxMiles} miles</p>
         <p>Minimum Distance Traveled by Members: ${minMiles} miles</p>
