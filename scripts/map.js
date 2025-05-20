@@ -40,6 +40,9 @@ export async function initMap() {
     });
 
     function goToLocation(lat, lon, zoomLevel) {
-        map.setView([lat, lon], zoomLevel);
+        map.flyTo([lat, lon], zoomLevel, {
+            animate: true,
+            duration: 1.5 // in seconds
+        });
     }
 }
