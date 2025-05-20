@@ -1,14 +1,14 @@
 import { fetchData } from "./utils.js";
 
-// Set the initial view to a specific location and zoom level
-const map = L.map('mapid2').setView([39.5, -98.35], 4);
-
-// Add a tile layer to the map (OpenStreetMap tiles)
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors',
-}).addTo(map);
-
 export async function initMap() {
+    // Set the initial view to a specific location and zoom level
+    const map = L.map('mapid2').setView([39.5, -98.35], 4);
+
+    // Add a tile layer to the map (OpenStreetMap tiles)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+    }).addTo(map);
+
     // Fetch data from the server
     fetchData("./PHP/events.php").then(data => {
         // Loop through the data and add markers to the map
@@ -22,8 +22,33 @@ export async function initMap() {
             `);
         });
     });
+
+    // Add event listener for search input
+    document.getElementById("event-search").addEventListener("input", function () {
+        const filter = this.value.toLowerCase();
+        const rows = document.querySelectorAll("#event-table tbody tr");
+
+        rows.forEach(row => {
+            const text = row.innerText.toLowerCase();
+            row.style.display = text.includes(filter) ? "" : "none";
+        });
+    });
+
+    // Add event listener for table rows
+    const tableRows = document.querySelectorAll("#event-table tbody tr");
+    tableRows.forEach(row => {
+        console.log(row)
+        row.addEventListener("click", function () {
+            console.log("Clicked row:", this);
+            const eventId = this.querySelector("td").innerText;
+            const event = eventList.find(e => e.EVENT_ID == eventId);
+            if (event) {
+                goToLocation(event.EVENT_LATITUDE, event.EVENT_LONGITUDE, 8);
+            }
+        });
+    });
 }
 
-export function goToLocation(lat, lon, zoomLevel) {
+function goToLocation(lat, lon, zoomLevel) {
     map.setView([lat, lon], zoomLevel);
 }
