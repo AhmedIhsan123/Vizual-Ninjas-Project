@@ -8,7 +8,6 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors',
 }).addTo(map);
 
-
 export async function initMap() {
     // Fetch data from the server
     fetchData("./PHP/events.php").then(data => {
