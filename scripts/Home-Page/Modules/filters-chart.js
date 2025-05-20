@@ -1,5 +1,6 @@
 // Import statements
 import { fetchData } from "../../utils.js";
+import { eventList } from "../home-script.js";
 
 /* -------- GLOBAL VARIABLES START -------- */
 const tierDropdown = document.querySelector("#tier");
@@ -132,7 +133,6 @@ export async function buildEventChart() {
     // Prepare the data for the chart
     data.forEach(event => {
         chartData.labels.push(event.EVENT_NAME);
-        eventList.push(event); // Store the event data for later use
         chartData.datasets[0].data.push({
             x: event.EVENT_NAME,
             y: event.AVG_TRAVEL_DISTANCE_MILES,
@@ -300,7 +300,8 @@ export async function buildEventChart() {
     });
     eventChart.update();
 }
-
+/* -------- FUNCTIONS END -------- */
+// Method to update the overview section with calculated values
 function updateOverview(minMiles, maxMiles, avgMiles) {
     const overviewContainer = document.querySelector(".details-content");
     overviewContainer.innerHTML = ""; // Clear existing content
@@ -321,6 +322,4 @@ function updateOverview(minMiles, maxMiles, avgMiles) {
         <p>Minimum Distance Traveled by Members: ${minMiles} miles</p>
         <br>
         <p>Most Popular Event: ${popularEvent}</p>`
-
 }
-/* -------- FUNCTIONS END -------- */
