@@ -1,10 +1,8 @@
 import { fetchData } from "../../utils.js";
 
+export let eventList = [];
+
 export async function initList() {
-    // List of events
-    let eventList = [];
-
-
     // Fetch data from the server and populate the table
     await fetchData("./PHP/events.php").then(data => {
         const tableBody = document.querySelector("#event-table tbody");
