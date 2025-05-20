@@ -16,12 +16,12 @@ export async function initList() {
             eventList.push(event); // Store the event in the list
             const row = document.createElement("tr");
             row.innerHTML = `
-            <td class="clickable" value="${event.EVENT_NAME}">${event.EVENT_ID}</td>
-            <td class="clickable" value="${event.EVENT_NAME}>${event.EVENT_NAME}</td>
-            <td class="clickable" value="${event.EVENT_NAME}>${event.COUNTRY_ID}</td>
-            <td class="clickable" value="${event.EVENT_NAME}>${event.EVENT_STATE_ID}</td>
-            <td class="clickable" value="${event.EVENT_NAME}>${event.EVENT_TIER_ID}</td>
-            <td class="clickable" value="${event.EVENT_NAME}>${event.DATE_EVENT_END}</td>
+            <td value="${event.EVENT_NAME}">${event.EVENT_ID}</td>
+            <td value="${event.EVENT_NAME}>${event.EVENT_NAME}</td>
+            <td value="${event.EVENT_NAME}>${event.COUNTRY_ID}</td>
+            <td value="${event.EVENT_NAME}>${event.EVENT_STATE_ID}</td>
+            <td value="${event.EVENT_NAME}>${event.EVENT_TIER_ID}</td>
+            <td value="${event.EVENT_NAME}>${event.DATE_EVENT_END}</td>
         `;
             tableBody.appendChild(row);
         });
@@ -39,15 +39,14 @@ export async function initList() {
     });
 
     // Add event listener for table rows
-    const tableRows = document.querySelectorAll(".clickable");
-    tableRows.addEventListener("click", function () {
-        eventList.forEach(event => {
-            if (event.EVENT_NAME == this.value) {
-                const lat = event.EVENT_LATITUDE;
-                const lon = event.EVENT_LONGITUDE;
-                const zoomLevel = 8;
-                goToLocation(lat, lon, zoomLevel);
+    const tableRows = document.querySelectorAll("#event-table tbody tr");
+    tableRows.forEach(row => {
+        row.addEventListener("click", function () {
+            const eventId = this.querySelector("td").innerText;
+            const event = eventList.find(e => e.EVENT_ID == eventId);
+            if (event) {
+                goToLocation(event.EVENT_LATITUDE, event.EVENT_LONGITUDE, 8);
             }
         });
-    })
+    });
 }
