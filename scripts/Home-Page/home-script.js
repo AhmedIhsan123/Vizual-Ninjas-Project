@@ -1,19 +1,34 @@
 import { buildEventChart, updateFilters } from "./Modules/filters-chart.js";
 import { initMap } from "../map.js";
 import { initList } from "./Modules/event-list.js";
+import { fetchData } from "../../utils.js";
+
+// Global list to store event data
+const eventList = [];
 
 /* -------- INITIALIZATION  -------- */
 document.addEventListener("DOMContentLoaded", async () => {
-    // Set the correct possible filters for the dropdowns
-    updateFilters();
+    // Fetch data from the server and populate the event list
+    await fetchData("./PHP/events.php").then(data => {
+        // Store the event data in the global list
+        eventList.push(...data);
+    })
 
-    // Build the initial event chart
-    buildEventChart();
+    console.loog("Events: ", eventList)
 
-    // Initialize the event list
-    await initList();
 
-    // Initialize the map
-    initMap();
 });
 /* -------- INITIALIZATION END  -------- */
+
+// Method to fetch data through url and return the data found
+async function fetchData(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error("Network response was not ok " + response.statusText);
+        }
+        return await response.json();
+    } catch (error) {
+        return console.error("Fetch error: ", error);
+    }
+}
