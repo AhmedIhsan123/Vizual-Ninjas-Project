@@ -41,6 +41,7 @@ export async function initList() {
     // Add event listener for table rows
     const tableRows = document.querySelectorAll("#event-table tbody tr");
     tableRows.forEach(row => {
+        console.log(row)
         row.addEventListener("click", function () {
             console.log("Clicked row:", this);
             const eventId = this.querySelector("td").innerText;
