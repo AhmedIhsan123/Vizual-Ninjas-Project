@@ -21,8 +21,9 @@ export async function initMap() {
             marker.bindPopup(`
             <strong>${event.EVENT_NAME}</strong><br>
             ${event.COUNTRY_ID}, ${event.EVENT_STATE_ID}<br>
-            Event Tier: ${event.EVENT_TIER_ID}<br>
-            End Date: ${event.DATE_EVENT_END}<br>
+            Event Tier: <strong>${event.EVENT_TIER_ID}</strong><br>
+            End Date: <strong>${event.DATE_EVENT_END}</strong><br>
+            <br>
             <em>It seems ${event.MEMBERS_OUT_OF_STATE} members came from out of state, while only ${event.MEMBERS_IN_STATE} were coming from in-state. This suggests that members are ${event.MEMBERS_OUT_OF_STATE > event.MEMBERS_IN_STATE ? "more likely" : "less likely"} to attend events in this area.</em>`);
             // Store marker by a unique key (e.g., event ID or name)
             markers[event.EVENT_NAME] = marker;
