@@ -1,9 +1,11 @@
 import { fetchData } from "./utils.js";
+
+// Set the initial view to a specific location and zoom level
+const map = L.map('mapid2').setView([39.5, -98.35], 4);
+
+
 export async function initMap() {
     // Create a map instance
-    // Set the initial view to a specific location and zoom level
-    const map = L.map('mapid2').setView([39.5, -98.35], 4);
-
     // Add a tile layer to the map (OpenStreetMap tiles)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors',
