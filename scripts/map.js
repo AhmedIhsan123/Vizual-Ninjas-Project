@@ -25,6 +25,19 @@ export async function initMap() {
             ${event.DATE_EVENT_END}`);
             // Store marker by a unique key (e.g., event ID or name)
             markers[event.EVENT_NAME] = marker;
+
+            // Add click behavior
+            marker.on('click', () => {
+                map.flyTo(latLng, 13, {
+                    animate: true,
+                    duration: 1.5
+                });
+
+                // Wait until the animation ends to open popup
+                map.once('moveend', () => {
+                    marker.openPopup();
+                });
+            });
         });
     });
 
