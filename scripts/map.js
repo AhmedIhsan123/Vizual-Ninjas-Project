@@ -34,7 +34,7 @@ export async function initMap() {
             const eventId = this.querySelector("td").innerText;
             const event = eventList.find(e => e.EVENT_ID == eventId);
             if (event) {
-                goToLocation(event.EVENT_LATITUDE, event.EVENT_LONGITUDE, 12);
+                goToLocation(event.EVENT_LATITUDE, event.EVENT_LONGITUDE, 10);
             }
         });
     });
