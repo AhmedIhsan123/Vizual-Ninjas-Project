@@ -7,10 +7,10 @@ const mockEvents = [
     { name: "Canadian Open", tier: "A-Tier", country: "Canada", state: "ON", lat: 43.6532, lng: -79.3832 }
 ];
 
-const map = L.map('mapid').setView([39.5, -98.35], 4);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors',
-}).addTo(map);
+// const map = L.map('mapid').setView([39.5, -98.35], 4);
+// L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//     attribution: '&copy; OpenStreetMap contributors',
+// }).addTo(map);
 
 function updateMap(filteredEvents) {
     map.eachLayer(layer => {
