@@ -30,9 +30,9 @@ export async function initMap() {
 
     // Add event listener for table rows
     const tableRows = document.querySelectorAll("#event-table tbody tr");
-    console.log("Table rows:", tableRows);
+
+    // Add click event to each row
     tableRows.forEach(row => {
-        console.log(row)
         row.addEventListener("click", function () {
             console.log("Clicked row:", this);
             const eventId = this.querySelector("td").innerText;
@@ -43,12 +43,13 @@ export async function initMap() {
         });
     });
 
+    // Add click event to each marker
     function goToEvent(name) {
         const marker = markers[name];
         if (!marker) return;
 
         const latLng = marker.getLatLng();
-        map.flyTo(latLng, 14, { duration: 1.5 });
+        map.flyTo(latLng, 14, { duration: 1.25 });
 
         // Wait until the map finishes moving before showing popup
         map.once('moveend', () => {
