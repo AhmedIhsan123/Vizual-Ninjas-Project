@@ -3,7 +3,7 @@ import { fetchData } from "../utils.js";
 import { buildEventChart } from "./Modules/filters-chart.js";
 
 // Global list to store event data
-const eventList = [];
+export const eventList = [];
 
 /* -------- INITIALIZATION  -------- */
 document.addEventListener("DOMContentLoaded", async () => {
