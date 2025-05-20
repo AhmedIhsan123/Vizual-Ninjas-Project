@@ -1,4 +1,4 @@
-import { fetchData } from "./utils";
+import { fetchData } from "./utils.js";
 export function initMap() {
     // Create a map instance
     // Set the initial view to a specific location and zoom level
