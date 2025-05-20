@@ -38,8 +38,8 @@ export async function initMap() {
             }
         });
     });
-}
 
-function goToLocation(lat, lon, zoomLevel) {
-    map.setView([lat, lon], zoomLevel);
+    function goToLocation(lat, lon, zoomLevel) {
+        map.setView([lat, lon], zoomLevel);
+    }
 }
