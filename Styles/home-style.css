@@ -154,6 +154,9 @@ body {
 }
 .chart-container div {
     /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 1rem;
     user-select: none;
     height: 100%;
