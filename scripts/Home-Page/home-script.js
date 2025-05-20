@@ -1,5 +1,5 @@
 // Import statements
-import { fetchData } from "../../utils.js";
+import { fetchData } from "../utils.js";
 import { buildEventChart } from "./Modules/filters-chart.js";
 
 // Global list to store event data
