@@ -131,7 +131,7 @@ export async function buildEventChart() {
     }
 
     // Prepare the data for the chart
-    const events = [];
+    const filteredEvents = [];
     data.forEach(event => {
         events.push(event);
         chartData.labels.push(event.EVENT_NAME);
@@ -159,7 +159,7 @@ export async function buildEventChart() {
     const avgValue = averages.reduce((sum, value) => sum + value, 0) / averages.length;
 
     // Set overview data
-    updateOverview(minValue, maxValue, avgValue.toFixed(2), events);
+    updateOverview(minValue, maxValue, avgValue.toFixed(2), filteredEvents);
 
     // Create the chart title based on selected filters
     let parts = [];
