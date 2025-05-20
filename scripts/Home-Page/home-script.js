@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Store the event data in the global list
         eventList.push(...data);
     })
-    console.log("Events: ", eventList);
+
     // Build the event chart
     buildEventChart();
 });

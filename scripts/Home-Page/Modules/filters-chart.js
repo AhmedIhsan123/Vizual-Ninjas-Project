@@ -298,6 +298,7 @@ export async function buildEventChart() {
             },
         },
     });
+    updateFilters();
     eventChart.update();
 }
 /* -------- FUNCTIONS END -------- */
