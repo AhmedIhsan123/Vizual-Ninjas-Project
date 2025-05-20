@@ -1,8 +1,3 @@
-import { buildEventChart, updateFilters } from "./Modules/filters-chart.js";
-import { initMap } from "../map.js";
-import { initList } from "./Modules/event-list.js";
-import { fetchData } from "../../utils.js";
-
 // Global list to store event data
 const eventList = [];
 
