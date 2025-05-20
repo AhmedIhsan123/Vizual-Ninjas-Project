@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         eventList.push(...data);
     })
 
-    console.loog("Events: ", eventList)
+    console.log("Events: ", eventList);
 
 
 });
