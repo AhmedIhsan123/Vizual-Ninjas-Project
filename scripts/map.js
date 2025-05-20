@@ -23,3 +23,7 @@ export async function initMap() {
         });
     });
 }
+
+export function goToLocation(lat, lon, zoomLevel) {
+    map.setView([lat, lon], zoomLevel);
+}
