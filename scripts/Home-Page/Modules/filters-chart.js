@@ -193,7 +193,7 @@ export async function buildEventChart() {
         type: "bar",
         data: chartData,
         options: {
-            responsive: false,
+            responsive: true,
             scales: {
                 x: {
                     title: {
