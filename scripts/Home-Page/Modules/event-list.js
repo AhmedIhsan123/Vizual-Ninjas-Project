@@ -1,7 +1,7 @@
+// Import statements
 import { fetchData } from "../../utils.js";
 
-export let eventList = [];
-
+// A export function to initialize the list table
 export async function initList() {
     // Fetch data from the server and populate the table
     await fetchData("./PHP/events.php").then(data => {
@@ -10,7 +10,6 @@ export async function initList() {
 
         // Populate the table with data
         data.forEach(event => {
-            eventList.push(event); // Store the event in the list
             const row = document.createElement("tr");
             row.innerHTML = `
             <td>${event.EVENT_ID}</td>

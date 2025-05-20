@@ -1,5 +1,6 @@
 // Import statements
 import { fetchData } from "../utils.js";
+import { initList } from "./Modules/event-list.js";
 import { buildEventChart } from "./Modules/filters-chart.js";
 
 // Global list to store event data
@@ -14,7 +15,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     })
 
     // Build the event chart
-    buildEventChart();
+    await buildEventChart();
+
+    // Build the table of events
+    await initList();
 });
 /* -------- INITIALIZATION END  -------- */
 
