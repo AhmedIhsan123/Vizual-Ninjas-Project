@@ -24,7 +24,7 @@ export async function initMap() {
             Event Tier: <strong>${event.EVENT_TIER_ID}</strong><br>
             End Date: <strong>${event.DATE_EVENT_END}</strong><br>
             <br>
-            <em>It seems ${event.MEMBERS_OUT_OF_STATE} members came from out of state, while only ${event.MEMBERS_IN_STATE} were coming from in-state. This suggests that members are ${event.MEMBERS_OUT_OF_STATE > event.MEMBERS_IN_STATE ? "more likely" : "less likely"} to attend events in this area.</em>`);
+            <em>It seems <strong>${event.MEMBERS_OUT_OF_STATE}</strong> members came from out of state, while only <strong>${event.MEMBERS_IN_STATE}</strong> were coming from in-state. This suggests that members are <strong>${event.MEMBERS_OUT_OF_STATE > event.MEMBERS_IN_STATE ? "more likely" : "less likely"}</strong> to attend events in this area.</em>`);
             // Store marker by a unique key (e.g., event ID or name)
             markers[event.EVENT_NAME] = marker;
 
