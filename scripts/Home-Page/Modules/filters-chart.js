@@ -133,7 +133,7 @@ export async function buildEventChart() {
     // Prepare the data for the chart
     const filteredEvents = [];
     data.forEach(event => {
-        events.push(event);
+        filteredEvents.push(event);
         chartData.labels.push(event.EVENT_NAME);
         chartData.datasets[0].data.push({
             x: event.EVENT_NAME,
