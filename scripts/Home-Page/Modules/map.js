@@ -7,7 +7,7 @@ export async function initMap() {
     const markers = [];
 
     // Add a tile layer to the map (OpenStreetMap tiles)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer('https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
 
