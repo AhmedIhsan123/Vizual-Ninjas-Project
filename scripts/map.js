@@ -23,19 +23,9 @@ export async function initMap() {
         });
     });
 
-    // Add event listener for search input
-    document.getElementById("event-search").addEventListener("input", function () {
-        const filter = this.value.toLowerCase();
-        const rows = document.querySelectorAll("#event-table tbody tr");
-
-        rows.forEach(row => {
-            const text = row.innerText.toLowerCase();
-            row.style.display = text.includes(filter) ? "" : "none";
-        });
-    });
-
     // Add event listener for table rows
     const tableRows = document.querySelectorAll("#event-table tbody tr");
+    console.log("Table rows:", tableRows);
     tableRows.forEach(row => {
         console.log(row)
         row.addEventListener("click", function () {
