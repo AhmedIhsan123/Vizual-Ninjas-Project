@@ -44,5 +44,9 @@ export async function initMap() {
             animate: true,
             duration: 1.5 // in seconds
         });
+
+        map.once("moveend", () => {
+            marker.openPopup();
+        })
     }
 }
