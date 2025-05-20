@@ -1,5 +1,5 @@
 import { fetchData } from "./utils.js";
-import { eventList } from "./Modules/event-list.js";
+import { eventList } from "./Home-Page/Modules/event-list.js"
 
 export async function initMap() {
     // Set the initial view to a specific location and zoom level
