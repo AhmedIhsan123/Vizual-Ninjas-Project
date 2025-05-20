@@ -13,7 +13,7 @@ export async function initMap() {
     fetchData("./PHP/events.php").then(data => {
         // Loop through the data and add markers to the map
         data.forEach(event => {
-            const marker = L.marker([event.LATITUDE, event.LONGITUDE]).addTo(map);
+            const marker = L.marker([event.EVENT_LATITUDE, event.EVENT_LONGITUDE]).addTo(map);
             marker.bindPopup(`
                 <strong>${event.EVENT_NAME}</strong><br>
                 ${event.COUNTRY_ID}, ${event.EVENT_STATE_ID}<br>

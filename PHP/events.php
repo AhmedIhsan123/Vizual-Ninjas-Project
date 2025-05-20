@@ -56,6 +56,8 @@ try {
             e.EVENT_NAME,
             e.EVENT_TIER_ID,
             e.EVENT_STATE_ID,
+            e.EVENT_LATITUDE,
+            e.EVENT_LONGITUDE,
             e.COUNTRY_ID,
             e.DATE_EVENT_END,
             COUNT(DISTINCT m.PDGA_NUMBER) AS TOTAL_MEMBERS,
