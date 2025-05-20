@@ -1,5 +1,5 @@
 // Import statements
-import { fetchData } from "../utils.js";
+import { fetchData } from "../../utils.js";
 
 /* -------- GLOBAL VARIABLES START -------- */
 const tierDropdown = document.querySelector("#tier");
