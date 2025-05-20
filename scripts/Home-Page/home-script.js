@@ -1,3 +1,7 @@
+// Import statements
+import { fetchData } from "../../utils.js";
+import { buildEventChart } from "./Modules/filters-chart.js";
+
 // Global list to store event data
 const eventList = [];
 
@@ -8,22 +12,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Store the event data in the global list
         eventList.push(...data);
     })
-
     console.log("Events: ", eventList);
-
-
+    // Build the event chart
+    buildEventChart();
 });
 /* -------- INITIALIZATION END  -------- */
-
-// Method to fetch data through url and return the data found
-async function fetchData(url) {
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error("Network response was not ok " + response.statusText);
-        }
-        return await response.json();
-    } catch (error) {
-        return console.error("Fetch error: ", error);
-    }
-}

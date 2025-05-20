@@ -1,4 +1,6 @@
+// Import statements
 import { fetchData } from "../../utils.js";
+
 /* -------- GLOBAL VARIABLES START -------- */
 const tierDropdown = document.querySelector("#tier");
 const countryDropdown = document.querySelector("#country");
@@ -8,7 +10,6 @@ const endDateInput = document.querySelector("#end-date");
 const applyFiltersButton = document.querySelector("#apply-filters");
 const resetFiltersButton = document.querySelector("#reset-filters");
 let eventChart = null; // Placeholder for the chart instance
-const eventList = []; // Placeholder for the event list
 /* -------- GLOBAL VARIABLES END -------- */
 
 //* -------- EVENT LISTENERS START -------- */
