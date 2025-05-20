@@ -250,7 +250,7 @@ tr:hover {
 
 /* Map styles */
 .map-container,
-#mapid.mapid {
+#mapid2.mapid {
     grid-area: map;
     border-radius: 6px;
     background: #222;
