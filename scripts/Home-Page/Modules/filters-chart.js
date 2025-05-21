@@ -196,7 +196,7 @@ export async function buildEventChart() {
         data: chartData,
         options: {
             responsive: true,
-            maintainAspectRatio: false,
+            maintainAspectRatio: true,
             scales: {
                 x: {
                     title: {
