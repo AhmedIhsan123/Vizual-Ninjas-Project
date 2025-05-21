@@ -65,6 +65,7 @@
     gap: 1rem;
     padding: 1rem;
     user-select: none;
+    font-size: clamp(0.35rem, 1vw, 0.75rem);
 
     /* Styles */
     background-color: #1e1e2f;
@@ -85,6 +86,7 @@
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+    font-size: clamp(0.35rem, 1vw, 0.75rem);
 
     /* Styles */
     border: 1px solid #ccc;
@@ -147,6 +149,7 @@
     /* Styles */
     background-color: #1e1e2f;
 }
+
 .chart-container div {
     /* Layout */
     display: flex;
@@ -162,6 +165,7 @@
     border-radius: 5px;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
 }
+
 #event-chart {
     /* Layout */
     width: 100%;
@@ -209,6 +213,7 @@ table {
   /* Layout */
   width: 100%;
   border-collapse: collapse;
+  font-size: clamp(0.35rem, 1vw, 1rem);
 
   /* Style */
   font-family: 'Poppins', sans-serif;
@@ -254,8 +259,8 @@ tr:hover {
   width: 100%;
   padding: 0.75rem;
   margin-bottom: 0.5rem;
-  font-size: 16px;
-  border-radius: 6px;
+  font-size: clamp(0.35rem, 1vw, 1.5rem);
+  border-radius: 5px;
 
   /* Style */
   border: 1px solid #ccc;

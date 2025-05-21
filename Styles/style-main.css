@@ -64,6 +64,7 @@
     font-family: 'Poppins', sans-serif;
     color: whitesmoke;
     padding: 10px;
+    font-size: clamp(0.35rem, 1vw, 0.75rem);
 
     /* Aesthetics */
     background-color: #2e2e40;
