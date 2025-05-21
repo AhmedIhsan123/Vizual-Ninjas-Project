@@ -437,5 +437,23 @@ tr:hover {
     border-radius: 5px;
 
   }
+}
 
+@media (max-width: 600px) {
+  .main-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "sidebar"
+    "map"
+    "table"
+    "title"
+    "filters"
+    "chart"
+    "details";
+  }
+
+  .map-container {
+    height: 100%;
+  }
 }
