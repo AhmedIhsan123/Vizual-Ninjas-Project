@@ -160,9 +160,60 @@ body {
     user-select: none;
 
     /* Styles */
-    background-color: #1e1e2f;
     border-left: 2px solid #ccc;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+}
+
+.event-list-content-container {
+  /* Layout */
+  padding: 1rem;
+  border-radius: 5px;
+
+  /* Styles */
+  background-color: #2e2e40;
+}
+
+table {
+  /* Layout */
+  width: 100%;
+  border-collapse: collapse;
+  font-size: clamp(0.75rem, 0.5vw, 1rem);
+
+  /* Style */
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+}
+
+th, td {
+  /* Layout */
+  padding: 10px 12px;
+  text-align: left;
+  white-space: wrap;
+
+  /* Style */
+  border: 1px solid #1e1e2f;
+}
+
+th {
+  /* Layout */
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  /* Style */
+  background-color: #1e1e2f;
+}
+
+tr:nth-child(even) {
+  /* Style */
+  background-color: #1e1e2f;
+}
+
+tr:hover {
+  /* Style */
+  background-color: #555;
+
+  /* Transition */
+  transition: background-color 0.2s ease;
 }
 
 /* Chart Container */
@@ -237,50 +288,6 @@ body {
   border: 1px solid #ccc; /* optional, just for clarity */
 }
 
-table {
-  /* Layout */
-  width: 100%;
-  border-collapse: collapse;
-  font-size: clamp(0.75rem, 0.5vw, 1rem);
-
-  /* Style */
-  font-family: 'Poppins', sans-serif;
-  color: #fff;
-}
-
-th, td {
-  /* Layout */
-  padding: 10px 12px;
-  text-align: left;
-  white-space: wrap;
-
-  /* Style */
-  border: 1px solid #1e1e2f;
-}
-
-th {
-  /* Layout */
-  position: sticky;
-  top: 0;
-  z-index: 1;
-
-  /* Style */
-  background-color: #2e2e40;
-}
-
-tr:nth-child(even) {
-  /* Style */
-  background-color: #2e2e40;
-}
-
-tr:hover {
-  /* Style */
-  background-color: #555;
-
-  /* Transition */
-  transition: background-color 0.2s ease;
-}
-
 /* Search Input */
 .search-input {
   /* Layout */
@@ -292,7 +299,7 @@ tr:hover {
 
   /* Style */
   border: 1px solid #ccc;
-  background-color: #2e2e40;
+  background-color: #1e1e2f;
   color: whitesmoke;
 }
 
@@ -397,6 +404,10 @@ tr:hover {
     "details details";
   }
 
+  .sidebar-container {
+    border-right: 0;
+  }
+
   .sidebar-content-container {
     display: flex;
     flex-direction: column;
@@ -417,6 +428,14 @@ tr:hover {
     align-self: center;
     justify-self: center;
     box-shadow: none;
+  }
+
+  .map-container {
+    padding: 1rem;
+    box-shadow: none;
+    border-left: 0;
+    border-radius: 5px;
+
   }
 
 }
