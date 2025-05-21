@@ -68,12 +68,12 @@ function showDropdown() {
 }
 
 // Dropdown listeners
-searchInput.addEventListener('focus', showDropdown);
-searchInput.addEventListener('input', showDropdown);
-[tierFilter, countryFilter, stateFilter].forEach(f => f.addEventListener('change', showDropdown));
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.search-wrapper')) dropdown.classList.add("hidden");
-});
+// searchInput.addEventListener('focus', showDropdown);
+// searchInput.addEventListener('input', showDropdown);
+// [tierFilter, countryFilter, stateFilter].forEach(f => f.addEventListener('change', showDropdown));
+// document.addEventListener('click', (e) => {
+//     if (!e.target.closest('.search-wrapper')) dropdown.classList.add("hidden");
+// });
 
 // Top Players
 function updateTopPlayers(players) {

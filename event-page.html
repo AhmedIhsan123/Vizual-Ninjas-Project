@@ -5,114 +5,141 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Event Statistics and Data Visualizations</title>
-    <link rel="stylesheet" href="Styles/styles.css" />
+    <link rel="stylesheet" href="Styles/event-style.css" />
+    <link rel="stylesheet" href="Styles/style-main.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 
 <body>
-    <header>
-        <h1>Event Statistics and Data Visualizations</h1>
-        <div class="search-filter">
-            <div class="search-wrapper">
-                <input type="text" id="eventSearch" placeholder="Search Events..." autocomplete="off" />
-                <div id="eventDropdown" class="dropdown hidden"></div>
+    <main class="main-container">
+        <!-- Navigation bar -->
+        <section class="navigation-bar-container">
+            <!-- The sites logo -->
+            <img class="site-logo" src="Img/StatmandoLogo.png" alt="Logo">
+
+            <!-- Event viewer link -->
+            <div>
+                <a href="./index.html" target="_parent" class="navigation-link"><span>Home</span></a>
+                <a href="./event-page.html" target="_parent" class="navigation-link"><span>Event Viewer</span></a>
+                <a href="#" target="_blank" class="navigation-link"><span>About Us</span></a>
             </div>
+        </section>
 
-            <select id="tierFilter">
-                <option value="">All Tiers</option>
-                <option value="A-Tier">A-Tier</option>
-                <option value="B-Tier">B-Tier</option>
-                <option value="C-Tier">C-Tier</option>
-            </select>
-
-            <select id="countryFilter">
-                <option value="">All Countries</option>
-                <option value="USA">USA</option>
-                <option value="Canada">Canada</option>
-            </select>
-
-            <select id="stateFilter">
-                <option value="">All States</option>
-                <option value="CO">Colorado</option>
-                <option value="CA">California</option>
-            </select>
-        </div>
-    </header>
-
-    <main>
-        <section class="stats-map-row">
-            <!-- Quick Stats -->
-            <div class="stats">
+        <section class="content-container">
+            <section class="stats-container">
                 <h2>Statistics</h2>
-                <h3 id="selectedEventName">--</h3>
-                <div class="stat-grid">
+                <p>--</p>
+                <div class="stats-card-container">
                     <div class="stat-card">
-                        <h3>Total Players</h3>
-                        <p id="totalPlayers">--</p>
+                        <p>Total Players</p>
+                        <p>--</p>
                     </div>
                     <div class="stat-card">
-                        <h3>Avg Distance</h3>
-                        <p id="avgDistance">-- km</p>
+                        <p>Avg Distance</p>
+                        <p>--</p>
                     </div>
-                </div>
-            </div>
+                    <div class="stat-card">
+                        <p><span>>1000 mi</span></p>
+                        <p>--</p>
+                    </div>
+                    <div class="stat-card">
+                        <p><span>>100 mi</span></p>
+                        <p>--</p>
+                    </div>
+                    <div class="stat-card">
+                        <p>Out Of State Players</p>
+                        <p>--</p>
+                    </div>
+                    <div class="stat-card">
+                        <p>In State Players</p>
+                        <p>--</p>
+                    </div>
+                    <div class="stat-card">
+                        <p>Max Distance</p>
+                        <p>--</p>
+                    </div>
+                    <div class="stat-card">
+                        <p>Min Distance</p>
+                        <p>--</p>
+                    </div>
+            </section>
 
             <!-- Map -->
-            <div class="map-container">
+            <section class="map-container">
+                <section class="search-filter-container">
+                    <label for="event">Choose an event:</label>
+                    <input list="events" id="event" name="event" class="event-input" placeholder="Search Events...">
+
+                    <datalist id="events">
+                        <option value="Bay City Utah">
+                        <option value="The Classic">
+                        <option value="New Champions">
+                    </datalist>
+
+                    <select id="tierFilter">
+                        <option value="">All Tiers</option>
+                        <option value="A-Tier">A-Tier</option>
+                        <option value="B-Tier">B-Tier</option>
+                        <option value="C-Tier">C-Tier</option>
+                    </select>
+
+                    <select id="countryFilter">
+                        <option value="">All Countries</option>
+                        <option value="USA">USA</option>
+                        <option value="Canada">Canada</option>
+                    </select>
+
+                    <select id="stateFilter">
+                        <option value="">All States</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CA">California</option>
+                    </select>
+                    <button class="button" id="reset-filters">Reset Filters</button>
+                </section>
+
                 <div id="mapid" class="mapid"></div>
-            </div>
+            </section>
 
             <!-- Top Players -->
-            <div class="top-players-panel">
-                <h3>Top Players</h3>
-                <ol id="topPlayersList">
-                    <li>–</li>
-                    <li>–</li>
-                    <li>–</li>
-                </ol>
-            </div>
-        </section>
+            <section class="top-players-panel">
+                <h2>Top Players</h2>
+                <p>--</p>
+                <div>
+                    <ol id="topPlayersList">
+                        <li>1 – Emily Chen</li>
+                        <li>2 – Marcus Lea</li>
+                        <li>3 – Jade Kim</li>
+                        <li>4 – Lorne Brown</li>
+                        <li>5 – James Reiss</li>
+                        <li>6 – Spark Tims</li>
+                        <li>7 – Taylor Green</li>
+                        <li>8 – Jim Kim</li>
+                        <li>9 – Allison Woods</li>
+                    </ol>
+                </div>
+            </section>
 
-        <div class="detailed-stats">
-            <!-- Collapsible Travel Section -->
-            <div class="collapsible-section">
-                <button class="collapse-toggle" onclick="toggleCollapse('travelStats')">Travel Distances ▾</button>
-                <div id="travelStats" class="collapse-content">
-                    <div class="mini-stat-grid">
-                        <div class="mini-stat-card">
-                            <h4>>1000 km</h4>
-                            <p id="over1000">--</p>
-                        </div>
-                        <div class="mini-stat-card">
-                            <h4>
-                                <100 km</h4>
-                                    <p id="under100">--</p>
-                        </div>
+            <!-- Charts -->
+            <section class="charts-section">
+                <div class="chart-container">
+                    <div class="chart-box">
+                        <h3>Top 25 Players by Travel Distance</h3>
+                        <canvas id="chartDistance"></canvas>
+                    </div>
+                    <div class="chart-box">
+                        <h3>Players per State</h3>
+                        <canvas id="chartStates"></canvas>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <section class="charts">
-            <h2>Data Visualizations</h2>
-            <div class="chart-container">
-                <div class="chart-box">
-                    <h3>Top 25 Players by Travel Distance</h3>
-                    <canvas id="chartDistance"></canvas>
-                </div>
-                <div class="chart-box">
-                    <h3>Players per State</h3>
-                    <canvas id="chartStates"></canvas>
-                </div>
-            </div>
         </section>
-
     </main>
 
     <!-- JS Libraries -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="scripts/script.js"></script>
+    <script src="scripts/script.js" defer></script>
 </body>
 
 </html>
