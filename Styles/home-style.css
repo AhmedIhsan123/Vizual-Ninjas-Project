@@ -178,7 +178,14 @@ tr:hover {
     color: whitesmoke;
 }
 
-/* Map Styles */
+
+/* Map styles */
+.map-container {
+    background-color: #2e2e40;
+    grid-area: map;
+    padding: 0;
+}
+
 #mapid2.mapid {
     overflow: hidden;
     width: 100%;
@@ -231,4 +238,58 @@ tr:hover {
 
 .event-info span {
   font-weight: bold;
+}
+@media (max-width: 768px) {
+    .main-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "title"
+            "filters"
+            "map"
+            "chart"
+            "table"
+            "details"
+            "sidebar";
+    }
+
+    .filters-container,
+    .sidebar-container,
+    .title-container,
+    .map-container,
+    .event-list-container,
+    .chart-container,
+    .details-container {
+        flex-direction: column !important;
+        align-items: stretch;
+    }
+
+    .chart-container>div {
+        height: auto;
+    }
+
+    .search-filter {
+        flex-direction: column;
+    }
+
+    .navigation-bar-container {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .navigation-bar-container img.site-logo {
+        width: 150px;
+        margin-bottom: 1rem;
+    }
+
+    .navigation-link {
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+
+    canvas {
+        max-width: 100%;
+        height: auto;
+    }
 }

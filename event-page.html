@@ -6,10 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Event Statistics and Data Visualizations</title>
     <link rel="stylesheet" href="Styles/styles.css" />
+    <link rel="stylesheet" href="Styles/style-main.css" />
+
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 
 <body>
+    <header class="main-header">
+        <div class="nav-container">
+            <img class="site-logo" src="Img/StatmandoLogo.png" alt="Statmando Logo" />
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                ☰
+            </button>
+
+            <nav class="nav-links" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="event-page.html" class="nav-link">Event Viewer</a>
+                <a href="#" class="nav-link">About Us</a>
+            </nav>
+        </div>
+    </header>
+
     <header>
         <h1>Event Statistics and Data Visualizations</h1>
         <div class="search-filter">
@@ -18,24 +36,11 @@
                 <div id="eventDropdown" class="dropdown hidden"></div>
             </div>
 
-            <select id="tierFilter">
-                <option value="">All Tiers</option>
-                <option value="A-Tier">A-Tier</option>
-                <option value="B-Tier">B-Tier</option>
-                <option value="C-Tier">C-Tier</option>
-            </select>
+            <select id="tierFilter"></select>
+            <select id="countryFilter"></select>
+            <select id="stateFilter"></select>
+            <button class="button" id="reset-filters">Reset Filters</button>
 
-            <select id="countryFilter">
-                <option value="">All Countries</option>
-                <option value="USA">USA</option>
-                <option value="Canada">Canada</option>
-            </select>
-
-            <select id="stateFilter">
-                <option value="">All States</option>
-                <option value="CO">Colorado</option>
-                <option value="CA">California</option>
-            </select>
         </div>
     </header>
 
@@ -113,6 +118,19 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="scripts/script.js"></script>
+    <script>
+        document.querySelectorAll('.nav-link').forEach(link => {
+            if (link.href === window.location.href) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+    <script>
+        document.getElementById("navToggle").addEventListener("click", () => {
+            document.getElementById("navMenu").classList.toggle("show");
+        });
+    </script>
+
 </body>
 
 </html>
