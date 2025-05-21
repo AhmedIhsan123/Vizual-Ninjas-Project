@@ -16,7 +16,7 @@ body {
         "sidebar chart chart table"
         "sidebar details details table";
     height: 100vh;
-    padding-top: 120px;
+    padding-top: 0;
 }
 
 /* General Component Styles */
