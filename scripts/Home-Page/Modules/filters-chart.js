@@ -203,9 +203,12 @@ export async function buildEventChart() {
                         color: "white",
                         display: true,
                         text: xTitle,
-                        font: {
-                            size: 20,
-                            family: "Poppins, sans-serif"
+                        font: (ctx) => {
+                            const width = ctx.chart.width;
+                            return {
+                                family: "Poppins, sans-serif",
+                                size: width < 400 ? 16 : width < 800 ? 20 : 24
+                            };
                         },
                         margin: 10
                     },
@@ -224,10 +227,13 @@ export async function buildEventChart() {
                         display: true,
                         color: "white",
                         text: yTitle,
-                        font: {
-                            size: 18,
-                            family: "Poppins, sans-serif"
-                        }
+                        font: (ctx) => {
+                            const width = ctx.chart.width;
+                            return {
+                                family: "Poppins, sans-serif",
+                                size: width < 400 ? 16 : width < 800 ? 20 : 24
+                            };
+                        },
                     },
                     ticks: {
                         color: "white"
