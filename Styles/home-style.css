@@ -4,22 +4,21 @@
 /* Main Container styles */
 .main-container {
     /* Layout */
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr 1fr;
-  grid-template-rows: auto auto 1fr 1fr;
-  grid-template-areas:
-    "sidebar title title map"
-    "sidebar filters filters map"
-    "sidebar chart chart map"
-    "sidebar chart chart table"
-    "sidebar details details table";
-  height: 100vh;
-  padding-top: 120px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+    grid-template-rows: auto auto 1fr 1fr;
+    grid-template-areas:
+      "sidebar title title map"
+      "sidebar filters filters map"
+      "sidebar chart chart map"
+      "sidebar chart chart table"
+      "sidebar details details table";
+    height: 100vh;
+    padding-top: 120px;
 }
 
 /* Sidebar Container */
 .sidebar-container {
-    /* Layout */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,8 +26,6 @@
     gap: 1rem;
     padding: 1rem;
     grid-area: sidebar;
-
-    /* Styles */
     background-color: #1e1e2f;
     color: whitesmoke;
     border-right: 2px solid #ccc;
@@ -36,26 +33,21 @@
 
 /* Title */
 .title-container {
-    /* Layout */
     display: flex;
     flex-direction: row;
     grid-area: title;
     align-items: center;
     justify-content: center;
     padding: 1rem;
-    grid-area: title;
-    font: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: clamp(1rem, 1vw, 5rem);
     user-select: none;
-
-    /* Styles */
     background-color: #1e1e2f;
     color: whitesmoke;
 }
 
 /* Filters Container */
 .filters-container {
-    /* Layout */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -66,42 +58,32 @@
     padding: 1rem;
     user-select: none;
     font-size: clamp(0.35rem, 1vw, 0.75rem);
-
-    /* Styles */
     background-color: #1e1e2f;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
 }
 
 /* Filter Labels */
 .filters-container label {
-    /* Styles */
     color: whitesmoke;
 }
 
-
-/* Select and dropdowns */
+/* Select and Dropdowns */
 .filters-container select,
 .filters-container input {
-    /* Layout */
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
     font-size: clamp(0.35rem, 1vw, 0.75rem);
-
-    /* Styles */
     border: 1px solid #ccc;
     background-color: #2e2e40;
     color: whitesmoke;
-    
-    /* Transition */
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Dropdown & Date Input Focus Effect */
+/* Focus Effect for Dropdowns & Date Inputs */
 .filters-container select:focus,
 .filters-container input[type="date"]:focus {
-    /* Styles */
-    color: whitesmoke;;
+    color: whitesmoke;
     outline: none;
     border-color: #444;
     box-shadow: 0 0 10px rgba(68, 68, 68, 0.75);
@@ -109,14 +91,11 @@
 
 /* Map Container */
 .map-container {
-    /* Layout */
     display: flex;
     flex-direction: column;
     grid-area: map;
     padding: 1rem;
     user-select: none;
-
-    /* Styles */
     background-color: #1e1e2f;
     border-left: 1px solid #ccc;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
@@ -124,14 +103,11 @@
 
 /* Event List Container */
 .event-list-container {
-    /* Layout */
     display: flex;
     flex-direction: column;
     grid-area: table;
     padding: 1rem;
     user-select: none;
-
-    /* Styles */
     background-color: #1e1e2f;
     border-left: 2px solid #ccc;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
@@ -139,19 +115,15 @@
 
 /* Chart Container */
 .chart-container {
-    /* Layout */
     display: flex;
     flex-direction: column;
     grid-area: chart;
     padding: 1rem;
     user-select: none;
-
-    /* Styles */
     background-color: #1e1e2f;
 }
 
 .chart-container div {
-    /* Layout */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -159,197 +131,226 @@
     user-select: none;
     height: 100%;
     width: 100%;
-
-    /* Styles */
     background-color: #2e2e40;
     border-radius: 5px;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
 }
 
 #event-chart {
-    /* Layout */
     width: 100%;
     height: 100%;
 }
 
 /* Details Container */
 .details-container {
-    /* Layout */
     display: flex;
     flex-direction: column;
     gap: 1rem;
     padding: 1rem;
     width: 100%;
-    grid-area: details;;
+    grid-area: details;
     user-select: none;
-
-    /* Styles */
     background-color: #1e1e2f;
     color: whitesmoke;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
 }
 
 .details-content {
-    /* Layout */
     padding: 1rem;
-
-    /* Styles */
     border-radius: 5px;
     background-color: #2e2e40;
 }
 
 /* Table Styles */
 .table-container {
-  /* Layout */
-  max-height: 100%;
-  overflow-y: auto;       /* vertical scroll */
-  overflow-x: auto;       /* horizontal scroll for wide tables */
-
-  /* Style */
-  border: 1px solid #ccc; /* optional, just for clarity */
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: auto;
+    border: 1px solid #ccc;
 }
 
 table {
-  /* Layout */
-  width: 100%;
-  border-collapse: collapse;
-  font-size: clamp(0.35rem, 1vw, 1rem);
-
-  /* Style */
-  font-family: 'Poppins', sans-serif;
-  color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: clamp(0.35rem, 1vw, 1rem);
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
 }
 
 th, td {
-  /* Layout */
-  padding: 10px 12px;
-  text-align: left;
-  white-space: wrap;
-
-  /* Style */
-  border: 1px solid #1e1e2f;
+    padding: 10px 12px;
+    text-align: left;
+    white-space: wrap;
+    border: 1px solid #1e1e2f;
 }
 
 th {
-  /* Layout */
-  position: sticky;
-  top: 0;
-  z-index: 1;
-
-  /* Style */
-  background-color: #2e2e40;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #2e2e40;
 }
 
 tr:nth-child(even) {
-  /* Style */
-  background-color: #2e2e40;
+    background-color: #2e2e40;
 }
 
 tr:hover {
-  /* Style */
-  background-color: #555;
-
-  /* Transition */
-  transition: background-color 0.2s ease;
+    background-color: #555;
+    transition: background-color 0.2s ease;
 }
 
 /* Search Input */
 .search-input {
-  /* Layout */
-  width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 0.5rem;
-  font-size: clamp(0.35rem, 1vw, 1.5rem);
-  border-radius: 5px;
-
-  /* Style */
-  border: 1px solid #ccc;
-  background-color: #2e2e40;
-  color: whitesmoke;
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    font-size: clamp(0.35rem, 1vw, 1.5rem);
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #2e2e40;
+    color: whitesmoke;
 }
 
-/* Map styles */
+/* Map Styles Overrides */
 .map-container {
-  /* Layout */
-  grid-area: map;
-  padding: 0;
-
-  /* Style */
+    grid-area: map;
+    padding: 0;
 }
+
 #mapid2.mapid {
-  /* Layout */
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
 }
 
 .leaflet-popup-content-wrapper {
-  /* Layout */
-  border-radius: 8px;
-
-  /* Style */
-  background-color: #2e2e40;
-  color: whitesmoke;
+    border-radius: 8px;
+    background-color: #2e2e40;
+    color: whitesmoke;
 }
 
 .leaflet-popup-tip {
-  /* Style */
-  background-color: #2e2e40;
+    background-color: #2e2e40;
 }
 
 /* Events Card */
 .event-card {
-  /* Layout */
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 1rem;
-  border-radius: 5px;
-
-  /* Style */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-family: 'Poppins';
-  background: #2e2e40;
-  user-select: none;
-
-  /* Transition */
-  transition: all 0.15s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+    background: #2e2e40;
+    user-select: none;
+    transition: all 0.15s ease-in-out;
 }
 
 .event-card:hover {
-  /* Style */
-  background-color: #33334b;
+    background-color: #33334b;
 }
 
 .event-card button {
-  /* Layout */
-  margin-top: 1rem;
-  justify-self: center;
+    margin-top: 1rem;
+    justify-self: center;
 }
 
 .event-title {
-  /* Layout */
-  font-size: clamp(0.35rem, 1vw, 1.5rem);
-  font-weight: bold;
-  margin-bottom: 10px;
+    font-size: clamp(0.35rem, 1vw, 1.5rem);
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .event-info {
-  /* Layout */
-  font-size: clamp(0.25rem, 1vw, 1rem);
+    font-size: clamp(0.25rem, 1vw, 1rem);
 }
 
 .event-info span {
-  /* Layout */
-  font-weight: bold;
+    font-weight: bold;
 }
 
-/* QUERIES */
-@media (max-width: 1800px) {
-  .main-container {
-    grid-template-columns: 15% 2fr 2fr 25%
-  }
-}
+/* --------------------- */
+/* RESPONSIVE BREAKPOINTS */
+/* --------------------- */
+
+/* For screens less than 1600px */
 @media (max-width: 1600px) {
+    .main-container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "sidebar title"
+            "filters filters"
+            "chart map"
+            "table table"
+            "details details";
+        padding-top: 100px; /* Adjusted for smaller screens */
+    }
+}
 
+/* For screens less than 1024px */
+@media (max-width: 1024px) {
+    .main-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "title"
+            "filters"
+            "chart"
+            "map"
+            "table"
+            "details"
+            "sidebar";
+        padding-top: 100px;
+    }
+    
+    .title-container,
+    .filters-container,
+    .chart-container,
+    .map-container,
+    .event-list-container,
+    .details-container {
+        padding: 0.5rem;
+    }
+}
+
+/* For screens less than 768px */
+@media (max-width: 768px) {
+    .main-container {
+        /* Option 1: Stack items vertically in a more intuitive order */
+        grid-template-areas:
+            "title"
+            "sidebar"
+            "filters"
+            "chart"
+            "map"
+            "table"
+            "details";
+        padding-top: 75px;
+    }
+    
+    .sidebar-container {
+        /* With smaller screens, reorient sidebar as a horizontal bar */
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0.5rem;
+    }
+    
+    .title-container,
+    .filters-container,
+    .chart-container,
+    .map-container,
+    .event-list-container,
+    .details-container {
+        padding: 0.5rem;
+    }
+    
+    table, th, td {
+        font-size: 0.8rem;
+    }
+    
+    .event-card {
+        padding: 0.5rem;
+    }
 }
