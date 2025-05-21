@@ -375,16 +375,15 @@ tr:hover {
 
   .main-container {
     height: 100%;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto ;
     grid-template-areas: 
-    "sidebar sidebar map map"
-    "sidebar sidebar map map"
-    "table table table table"
-    "title title title title"
-    "filters filters filters filters"
-    "chart chart chart chart"
-    "details details details details";
+    "sidebar map"
+    "table table"
+    "title title"
+    "filters filters"
+    "chart chart"
+    "details details";
   }
 
   .sidebar-content-container {
