@@ -395,4 +395,11 @@ tr:hover {
     border-left: none;
   }
 
+  .chart-container div, .details-container {
+    width: 80%;
+    align-self: center;
+    justify-self: center;
+    box-shadow: none;
+  }
+
 }
