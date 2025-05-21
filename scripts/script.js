@@ -1,7 +1,7 @@
 // Haversine Distance Formula
 function haversineDistance(lat1, lon1, lat2, lon2) {
     const toRad = deg => deg * Math.PI / 180;
-    const R = 3958.8; // 6371 for km
+    const R = 6371;
     const dLat = toRad(lat2 - lat1);
     const dLon = toRad(lon2 - lon1);
     const a = Math.sin(dLat / 2) ** 2 +
@@ -41,14 +41,14 @@ function getPlayersForEvent(eventName) {
         .map(r => {
             const member = members.find(m => m.PDGA_NUMBER === r.PDGA_NUMBER);
             if (!member) return null;
-            const distanceMi = haversineDistance(
+            const distanceKm = haversineDistance(
                 member.MEMBER_LAT, member.MEMBER_LON,
                 EVENT_LATITUDE, EVENT_LONGITUDE
             );
             return {
                 name: member.MEMBER_FULL_NAME,
                 state: member.MEMBER_STATE_PROV,
-                distanceMi,
+                distanceKm,
                 EVENT_PLACE: r.EVENT_PLACE
             };
         })
@@ -72,6 +72,8 @@ const stateFilter = document.getElementById("stateFilter");
 const selectedEventEl = document.getElementById("selectedEventName");
 const totalPlayersEl = document.getElementById("totalPlayers");
 const avgDistanceEl = document.getElementById("avgDistance");
+const over1000El = document.getElementById("over1000");
+const under100El = document.getElementById("under100");
 
 const map = L.map('mapid').setView([39.5, -98.35], 4);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -94,7 +96,7 @@ function updateTopPlayers(players) {
         .forEach((p, i) => {
             const li = document.createElement("li");
             const medals = ["🥇", "🥈", "🥉"];
-            li.textContent = `${medals[i] || ""} ${p.name} – ${Math.round(p.distanceMi)} mi`;
+            li.textContent = `${medals[i] || ""} ${p.name} – ${Math.round(p.distanceKm)} km`;
             topList.appendChild(li);
         });
 }
@@ -105,8 +107,8 @@ function renderCharts(topPlayers, playersByState) {
         data: {
             labels: topPlayers.map(p => p.name),
             datasets: [{
-                label: "Distance (mi)",
-                data: topPlayers.map(p => Math.round(p.distanceMi)),
+                label: "Distance (km)",
+                data: topPlayers.map(p => Math.round(p.distanceKm)),
                 backgroundColor: '#4e88ff'
             }]
         },
@@ -142,10 +144,14 @@ function renderCharts(topPlayers, playersByState) {
 
 function updateStats(players) {
     const total = players.length;
-    const avg = players.reduce((sum, p) => sum + p.distanceMi, 0) / total || 0;
+    const avg = players.reduce((sum, p) => sum + p.distanceKm, 0) / total || 0;
+    const over1000 = players.filter(p => p.distanceKm > 1000).length;
+    const under100 = players.filter(p => p.distanceKm < 100).length;
 
     totalPlayersEl.textContent = total;
-    avgDistanceEl.textContent = `${avg.toFixed(1)} mi`;
+    avgDistanceEl.textContent = `${avg.toFixed(1)} km`;
+    over1000El.textContent = over1000;
+    under100El.textContent = under100;
 }
 
 function highlightMatch(text, term) {
@@ -268,5 +274,9 @@ document.getElementById("reset-filters").addEventListener("click", () => {
     searchInput.value = "";
     populateSearchDropdown();
 });
+
+function toggleCollapse(id) {
+    document.getElementById(id).classList.toggle("collapsed");
+}
 
 loadData();
