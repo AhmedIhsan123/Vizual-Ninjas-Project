@@ -64,6 +64,27 @@
   cursor: pointer;
 }
 
+body {
+  padding-top: 70px;
+}
+
+/* Buttons */
+.button {
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  color: whitesmoke;
+  padding: 10px;
+  background-color: #2e2e40;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #444;
+}
+
 /* MOBILE NAVIGATION */
 @media (max-width: 768px) {
   .nav-toggle {
@@ -91,25 +112,4 @@
     width: 100%;
     text-align: center;
   }
-}
-
-body {
-  padding-top: 70px;
-}
-
-/* Buttons */
-.button {
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  color: whitesmoke;
-  padding: 10px;
-  background-color: #2e2e40;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s ease;
-}
-
-.button:hover {
-  background-color: #444;
 }
