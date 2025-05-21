@@ -398,9 +398,14 @@ tr:hover {
   }
 
   .sidebar-content-container {
+    display: flex;
+    flex-direction: column;
     max-height: 300px;
-    flex-direction: row;
-    flex-wrap: wrap;
+  }
+
+  #event-cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .event-list-container {
