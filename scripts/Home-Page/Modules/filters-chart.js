@@ -231,7 +231,7 @@ export async function buildEventChart() {
                             const width = ctx.chart.width;
                             return {
                                 family: "Poppins, sans-serif",
-                                size: width < 400 ? 16 : width < 800 ? 20 : 24
+                                size: width < 400 ? 10 : width < 800 ? 15 : 18
                             };
                         },
                     },
