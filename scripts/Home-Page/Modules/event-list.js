@@ -5,7 +5,7 @@ import { fetchData } from "../../utils.js";
 export async function initList() {
     // Fetch data from the server and populate the table
     await fetchData("./PHP/events.php").then(data => {
-        const tableBody = document.querySelector(".event-container-list tbody");
+        const tableBody = document.querySelector(".event-list-container tbody");
         tableBody.innerHTML = ""; // Clear existing rows
 
         // Populate the table with data
