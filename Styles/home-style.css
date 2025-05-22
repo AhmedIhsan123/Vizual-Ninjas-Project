@@ -136,6 +136,11 @@ html, body {
   background-color: #1e1e2f;
 }
 
+.chart-container div {
+  width: 100%;
+  height: 100%;
+}
+
 /* Details Container Selector */
 .details-container {
   /* Layout */
