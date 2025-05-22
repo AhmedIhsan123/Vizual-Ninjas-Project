@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Event Statistics and Data Visualizations</title>
+    <title>Event Page</title>
     <link rel="stylesheet" href="Styles/event-style.css" />
     <link rel="stylesheet" href="Styles/style-main.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
@@ -30,37 +30,37 @@
                 <h2>Statistics</h2>
                 <p>--</p>
                 <div class="stats-card-container">
-                    <div class="stat-card">
+                    <div class="total-players-card">
                         <p>Total Players</p>
-                        <p>--</p>
+                        <p id="total-players">--</p>
                     </div>
-                    <div class="stat-card">
+                    <div class="average-distance-card">
                         <p>Avg Distance</p>
-                        <p>--</p>
+                        <p id="average-distance">--</p>
                     </div>
-                    <div class="stat-card">
+                    <div class="greater-than-card">
                         <p><span>>1000 mi</span></p>
-                        <p>--</p>
+                        <p id="greater-than">--</p>
                     </div>
-                    <div class="stat-card">
+                    <div class="less-than-card">
                         <p><span>>100 mi</span></p>
-                        <p>--</p>
+                        <p id="less-than">--</p>
                     </div>
-                    <div class="stat-card">
+                    <div class="out-of-state-card">
                         <p>Out Of State Players</p>
-                        <p>--</p>
+                        <p id="out-of-state">--</p>
                     </div>
-                    <div class="stat-card">
+                    <div class="in-state-card">
                         <p>In State Players</p>
-                        <p>--</p>
+                        <p id="in-state">--</p>
                     </div>
-                    <div class="stat-card">
+                    <div class="max-card">
                         <p>Max Distance</p>
-                        <p>--</p>
+                        <p id="max">--</p>
                     </div>
-                    <div class="stat-card">
+                    <div class="min-card">
                         <p>Min Distance</p>
-                        <p>--</p>
+                        <p id="min">--</p>
                     </div>
             </section>
 
@@ -78,21 +78,14 @@
 
                     <select id="tierFilter">
                         <option value="">All Tiers</option>
-                        <option value="A-Tier">A-Tier</option>
-                        <option value="B-Tier">B-Tier</option>
-                        <option value="C-Tier">C-Tier</option>
                     </select>
 
                     <select id="countryFilter">
                         <option value="">All Countries</option>
-                        <option value="USA">USA</option>
-                        <option value="Canada">Canada</option>
                     </select>
 
                     <select id="stateFilter">
                         <option value="">All States</option>
-                        <option value="CO">Colorado</option>
-                        <option value="CA">California</option>
                     </select>
                     <button class="button" id="reset-filters">Reset Filters</button>
                 </section>
