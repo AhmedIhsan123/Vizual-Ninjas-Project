@@ -1,27 +1,58 @@
 
 /* Colors - #1e1e2f */
 
+/* Navigation Bar Container Selector */
+html, body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+
 /* ---- Main Content Container Selector ---- */
 .main-content-container {
-  /* Layout */
   display: grid;
   grid-template-columns: 1fr 5fr 2fr;
-  grid-template-rows: repeat(2, calc(50vh - 4rem));
+  grid-template-rows: 1fr 1fr; /* 2 rows: top (map), bottom (table) */
   grid-template-areas: 
-  "popular chart map"
-  "popular chart list";
-  width: 100vw; /* Full viewport width */
-  height: 100vh; /* Full viewport height */
-  padding-top: 6rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  overflow: hidden;
+    "sidebar chart map"
+    "sidebar chart list";
+  
+  width: 100vw;
+  height: calc(100vh - 100px); /* minus navbar height */
+  padding: 1rem;
   gap: 1rem;
+  box-sizing: border-box;
+
+  overflow: hide; /* Hide any accidental overflow */
 
   /* Style */
   border-radius: 5px;
   color: whitesmoke;
 }
+
+.main-content-container {
+  /* Layout */
+  display: grid;
+  grid-template-columns: 1fr 5fr 2fr;
+  grid-template-areas: 
+    "popular chart map"
+    "popular chart list";
+  width: 100vw;
+  height: calc(100vh - 100px); /* subtract navbar height */
+  margin-top: 100px; /* push it down below the navbar */
+  padding: 1rem;
+  gap: 1rem;
+  box-sizing: border-box;
+  overflow: auto;
+
+  /* Style */
+  border-radius: 5px;
+  color: whitesmoke;
+}
+
 
 
 /* ---- Sidebar Container ---- */
@@ -156,3 +187,62 @@
 }
 
 /* ---- Event List Container Selector ---- */
+.event-list-container {
+  /* Layout */
+  grid-area: list;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+/* Event List Container */
+.event-list-container {
+  /* Layout */
+  padding: 1rem;
+  user-select: none;
+}
+
+.event-list-container table {
+  /* Layout */
+  border-collapse: collapse;
+  padding: 1rem;
+  border-radius: 5px;
+  width: 100%;
+
+  /* Styles */
+  background-color: #2e2e40;
+}
+
+.event-list-container table tbody {
+  padding: 1rem;
+}
+
+.search-input {
+  margin-bottom: 0.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+th {
+  /* Layout */
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  /* Style */
+  background-color: #1e1e2f;
+}
+
+tr:nth-child(even) {
+  /* Style */
+  background-color: #1e1e2f;
+}
+
+tr:hover {
+  /* Style */
+  background-color: #555;
+
+  /* Transition */
+  transition: background-color 0.2s ease;
+}
