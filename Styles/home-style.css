@@ -13,30 +13,10 @@ html, body {
 
 /* ---- Main Content Container Selector ---- */
 .main-content-container {
-  display: grid;
-  grid-template-columns: 1fr 5fr 2fr;
-  grid-template-rows: 1fr 1fr; /* 2 rows: top (map), bottom (table) */
-  grid-template-areas: 
-    "sidebar chart map"
-    "sidebar chart list";
-  
-  width: 100vw;
-  height: calc(100vh - 100px); /* minus navbar height */
-  padding: 1rem;
-  gap: 1rem;
-  box-sizing: border-box;
-
-  overflow: hide; /* Hide any accidental overflow */
-
-  /* Style */
-  border-radius: 5px;
-  color: whitesmoke;
-}
-
-.main-content-container {
   /* Layout */
   display: grid;
   grid-template-columns: 1fr 5fr 2fr;
+  grid-template-rows: 1fr 1fr;
   grid-template-areas: 
     "popular chart map"
     "popular chart list";
@@ -174,7 +154,6 @@ html, body {
   /* Layout */
   grid-area: map;
   padding: 1rem;
-  overflow: auto;
 
   /* Style */
   border-radius: 5px;
@@ -267,6 +246,38 @@ html, body {
 }
 
 /* Media Queries */
-@media (max-width: 1700px) {
-  
+@media (max-width: 1850px) {
+  .main-content-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 50%);
+    grid-template-areas: 
+      "popular map"
+      "list list"
+      "chart chart";
+  }
+  .filters-container {
+    flex-wrap: wrap;
+  }
+  #event-cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1400px) {
+  #event-cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  #event-cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .navigation-bar-container a {
+    font-size: 15px;
+  }
 }
