@@ -268,7 +268,7 @@ html, body {
     grid-template-columns: repeat(3, 1fr);
   }
   .visual-content-container {
-    height: 100%;
+    height: 600px;
   }
 }
 
