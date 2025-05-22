@@ -22,6 +22,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.1.0/dist/chartjs-plugin-annotation.min.js"
         defer></script>
     <!-- Link Leaflet.js -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js" defer></script>
+
 </head>
 
 <body>
@@ -170,22 +172,8 @@
                 </section>
 
                 <!-- Event List Area -->
-
-
             </section>
     </main>
-
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
-        // Set the initial view to a specific location and zoom level
-        const map = L.map('mapid2').setView([39.5, -98.35], 4);
-
-        // Add a tile layer to the map (OpenStreetMap tiles)
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors',
-        }).addTo(map);
-    </script>
-
 </body>
 
 </html>
