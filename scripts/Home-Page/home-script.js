@@ -1,6 +1,6 @@
 // Import statements
 import { fetchData } from "../utils.js";
-import { initList } from "./Modules/event-list.js";
+// import { initList } from "./Modules/event-list.js";
 import { buildEventChart } from "./Modules/filters-chart.js";
 import { initMap } from "./Modules/map.js";
 
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await buildEventChart();
 
     // Build the table of events
-    await initList();
+    // await initList();
 
     // Generate the map
     initMap();
