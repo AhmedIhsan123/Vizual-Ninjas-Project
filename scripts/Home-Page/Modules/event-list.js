@@ -5,7 +5,7 @@ import { fetchData } from "../../utils.js";
 export async function initList() {
     // Fetch data from the server and populate the table
     await fetchData("./PHP/events.php").then(data => {
-        const tableBody = document.querySelector("#event-table tbody");
+        const tableBody = document.querySelector(".event-container-list tbody");
         tableBody.innerHTML = ""; // Clear existing rows
 
         // Populate the table with data
@@ -24,7 +24,7 @@ export async function initList() {
     // Add event listener for search input
     document.getElementById("event-search").addEventListener("input", function () {
         const filter = this.value.toLowerCase();
-        const rows = document.querySelectorAll("#event-table tbody tr");
+        const rows = document.querySelectorAll(".event-list-container tbody tr");
 
         rows.forEach(row => {
             const text = row.innerText.toLowerCase();
