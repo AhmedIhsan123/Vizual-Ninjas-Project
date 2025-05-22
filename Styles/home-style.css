@@ -254,7 +254,7 @@ html, body {
 @media (max-width: 1850px) {
   .main-content-container {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 50%);
+    grid-template-rows: repeat(3, 1fr);
     grid-template-areas: 
       "popular map"
       "list list"
