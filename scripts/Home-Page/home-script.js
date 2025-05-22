@@ -3,6 +3,7 @@ import { fetchData } from "../utils.js";
 import { initList } from "./Modules/event-list.js";
 import { buildEventChart } from "./Modules/filters-chart.js";
 import { initMap } from "./Modules/map.js";
+import { updateFilters } from "./Modules/filters-chart.js";
 
 // Global list to store event data
 export const eventList = [];
@@ -23,6 +24,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Generate the map
     initMap();
+
+    // Update the filters
+    updateFilters();
 });
 /* -------- INITIALIZATION END  -------- */
 
