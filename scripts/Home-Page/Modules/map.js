@@ -13,6 +13,7 @@ export async function initMap() {
 
     // Fetch data from the server
     await fetchData("./PHP/events.php").then(data => {
+        console.log(data);
         // Loop through the data and add markers to the map
         data.forEach(event => {
             const latLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
@@ -45,31 +46,31 @@ export async function initMap() {
     });
 
     // Add event listener for table rows
-    const tableRows = document.querySelectorAll("#event-table tbody tr");
+    // const tableRows = document.querySelectorAll("#event-table tbody tr");
 
-    // Add click event to each row
-    tableRows.forEach(row => {
-        row.addEventListener("click", function () {
-            console.log("Clicked row:", this);
-            const eventId = this.querySelector("td").innerText;
-            const event = eventList.find(e => e.EVENT_ID == eventId);
-            if (event) {
-                goToEvent(event.EVENT_NAME, 10);
-            }
-        });
-    });
+    // // Add click event to each row
+    // tableRows.forEach(row => {
+    //     row.addEventListener("click", function () {
+    //         console.log("Clicked row:", this);
+    //         const eventId = this.querySelector("td").innerText;
+    //         const event = eventList.find(e => e.EVENT_ID == eventId);
+    //         if (event) {
+    //             goToEvent(event.EVENT_NAME, 10);
+    //         }
+    //     });
+    // });
 
-    // Add click event to each marker
-    function goToEvent(name) {
-        const marker = markers[name];
-        if (!marker) return;
+    // // Add click event to each marker
+    // function goToEvent(name) {
+    //     const marker = markers[name];
+    //     if (!marker) return;
 
-        const latLng = marker.getLatLng();
-        map.flyTo(latLng, 14, { duration: 1.25 });
+    //     const latLng = marker.getLatLng();
+    //     map.flyTo(latLng, 14, { duration: 1.25 });
 
-        // Wait until the map finishes moving before showing popup
-        map.once('moveend', () => {
-            marker.openPopup();
-        });
-    }
+    //     // Wait until the map finishes moving before showing popup
+    //     map.once('moveend', () => {
+    //         marker.openPopup();
+    //     });
+    // }
 }
