@@ -268,7 +268,6 @@ html, body {
     grid-template-columns: repeat(3, 1fr);
   }
   .visual-content-container {
-    min-height: 100%;
     overflow: visible;
   }
 }
