@@ -33,8 +33,6 @@ html, body {
   color: whitesmoke;
 }
 
-
-
 /* ---- Sidebar Container ---- */
 .sidebar-container {
   /* Layout */
@@ -96,9 +94,14 @@ html, body {
 
   /* Style */
   background-color: #2e2e40;
+
+  /* Prevent overflow and allow internal scrolling */
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
 }
 
-/* ---- Title Container Selector */
+/* ---- Title Container Selector ---- */
 .title-container {
   /* Layout */
   text-align: center;
@@ -132,7 +135,10 @@ html, body {
   padding: 1rem;
   border-radius: 5px;
   width: 100%;
-  height: 100%;
+  flex: 1 1 0;
+  min-height: 0;
+  /* Allow to shrink/grow and not overflow */
+  overflow: auto;
 
   /* Style */
   background-color: #1e1e2f;
@@ -144,6 +150,10 @@ html, body {
   padding: 1rem;
   border-radius: 5px;
   width: 100%;
+  flex: 0 0 auto; /* Do not grow or shrink, only take up needed space */
+  min-height: 0;
+  max-height: 200px; /* Optional: limit max height */
+  overflow: auto;
 
   /* Style */
   background-color: #1e1e2f;
