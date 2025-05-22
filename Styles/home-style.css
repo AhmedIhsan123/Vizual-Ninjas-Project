@@ -268,7 +268,7 @@ html, body {
     grid-template-columns: repeat(3, 1fr);
   }
   .visual-content-container {
-    overflow: visible;
+    height: 100%;
   }
 }
 
