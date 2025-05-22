@@ -1,6 +1,5 @@
 // Import statements
 import { fetchData } from "../../utils.js";
-import { eventList } from "../home-script.js";
 
 /* -------- GLOBAL VARIABLES START -------- */
 const tierDropdown = document.querySelector("#tier");
