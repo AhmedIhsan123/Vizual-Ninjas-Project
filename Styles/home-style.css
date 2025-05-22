@@ -126,6 +126,19 @@ html, body {
   background-color: #1e1e2f;
 }
 
+/* Dropdowns */
+select, input {
+  /* Layout */
+  padding: 0.5rem;
+  cursor: pointer;
+
+  /* Style */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #2e2e40;
+  color: whitesmoke;
+}
+
 /* Chart Container Selector */
 .chart-container {
   /* Layout */
