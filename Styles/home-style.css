@@ -267,6 +267,10 @@ html, body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
+  .visual-content-container {
+    min-height: 100%;
+    overflow: visible;
+  }
 }
 
 @media (max-width: 1400px) {
