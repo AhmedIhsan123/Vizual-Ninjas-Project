@@ -135,34 +135,6 @@ export async function initEventStats() {
 
     // Update the map with the filtered events
     updateMap(filteredEvents);
-
-    /* ---- Tile Stats ---- */
-    // If there is no data
-    if (!data || data.length === 0) {
-        document.getElementById("total-players").textContent = "--";
-        document.getElementById("average-distance").textContent = "--";
-        eventList.innerHTML = "";
-        updateMap([]); // Clear the map too
-        return;
-    }
-
-    let totalPlayers = 0;
-    let totalDistance = 0;
-    let distanceCount = 0;
-
-    filteredEvents.forEach(event => {
-        if (event.MEMBER_COUNT) totalPlayers += parseInt(event.MEMBER_COUNT);
-        if (event.AVG_TRAVEL_DISTANCE_MILES) {
-            totalDistance += parseFloat(event.AVG_TRAVEL_DISTANCE_MILES);
-            distanceCount++;
-        }
-    });
-
-    const averageDistance = distanceCount > 0 ? (totalDistance / distanceCount).toFixed(2) : "--";
-
-    // Update HTML tiles
-    document.getElementById("total-players").textContent = totalPlayers;
-    document.getElementById("average-distance").textContent = averageDistance;
 }
 
 
