@@ -138,6 +138,10 @@ export async function initEventStats() {
     updateMap(filteredEvents);
 
     // Updates the stats with the filtered events
+    const exactMatch = filteredEvents.find(event =>
+        event.EVENT_NAME.toLowerCase() === searchedEvent
+    );
+
     if (exactMatch) {
         const playersData = await fetchData(`./PHP/getPlayersByEvent.php?event_id=${exactMatch.EVENT_ID}`);
         const statesData = await fetchData(`./PHP/handlers/getFilters.php`);
