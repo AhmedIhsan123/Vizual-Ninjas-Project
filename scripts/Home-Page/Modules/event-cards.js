@@ -30,6 +30,6 @@ function createCard(eventTitle, eventTierID, eventTotal, eventTravelDistance) {
 
     btnRef.classList.add("button");
     cardRef.classList.add("event-card");
-    cardRef.append(cardTitleRef, cardTierRef, cardTotalRef, cardDistanceRef);
+    cardRef.append(cardTitleRef, cardTierRef, cardTotalRef, cardDistanceRef, btnRef);
     parentRef.appendChild(cardRef);
 }
