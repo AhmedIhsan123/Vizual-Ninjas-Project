@@ -29,6 +29,12 @@ countryDropdown.addEventListener("change", async () => {
         option.textContent = state['state_name'];
         stateDropdown.appendChild(option);
     });
+
+    // Reacts to selecting an event from the search bar
+    searchEvent.addEventListener("input", () => {
+    const searchText = searchEvent.value.toLowerCase();
+    initEventStats();
+    });
 });
 
 // Auto Change/Event listener to apply filters
