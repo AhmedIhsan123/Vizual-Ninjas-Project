@@ -1,7 +1,7 @@
 /* --------------- IMPORTS --------------- */
 import { fetchData } from "../../utils.js";
 import { updateMap } from "./event-map.js";
-import { eventList } from "../../Home-Page/home-script.js";
+// import { eventList } from "../../Home-Page/home-script.js";
 
 /* --------------- GLOBAL VARIABLES --------------- */
 const resetFiltersButton = document.querySelector("#reset-filters");
