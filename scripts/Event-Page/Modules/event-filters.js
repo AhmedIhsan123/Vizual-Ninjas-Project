@@ -117,9 +117,12 @@ export async function initEventStats() {
     // Populate the event list with the filtered data
     eventList.innerHTML = ""; // Clear previous options
     filteredEvents.forEach(event => {
-        const option = document.createElement("option");
-        option.value = event.EVENT_NAME;
-        eventList.appendChild(option);
+        if(event.EVENT_NAME.toLowerCase()) {
+            const option = document.createElement("option");
+            option.value = event.EVENT_NAME;
+            eventList.appendChild(option);
+        }
+        
     });
     
     console.log(data);

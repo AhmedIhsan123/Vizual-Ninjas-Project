@@ -1,7 +1,7 @@
 /* --------------- IMPORTS --------------- */
 import { fetchData } from "../utils.js";
 import { initEventStats, updateFilters } from "./Modules/event-filters.js";
-
+import { initList } from "./Modules/event-list.js";
 
 /* -------- INITIALIZATION  -------- */
 document.addEventListener("DOMContentLoaded", async () => {
@@ -10,6 +10,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Update the filters
     await updateFilters();
+
+    // Initializes the event list
+    await initList();
 });
 
 
