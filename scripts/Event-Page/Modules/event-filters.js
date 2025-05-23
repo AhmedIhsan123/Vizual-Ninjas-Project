@@ -2,11 +2,11 @@
 import { fetchData } from "../../utils.js";
 
 /* --------------- GLOBAL VARIABLES --------------- */
-const applyFiltersButton = document.querySelector("#apply-filters");
 const resetFiltersButton = document.querySelector("#reset-filters");
 const tierDropdown = document.querySelector("#tierFilter");
 const countryDropdown = document.querySelector("#countryFilter");
 const stateDropdown = document.querySelector("#stateFilter");
+const searchEvent = document.querySelector("#event-search");
 
 /* --------------- EVENT LISTENERS --------------- */
 countryDropdown.addEventListener("change", async () => {
@@ -30,10 +30,17 @@ countryDropdown.addEventListener("change", async () => {
     });
 });
 
-// Event listener for the apply filters button
-applyFiltersButton.addEventListener("click", async () => {
+// Auto Change/Event listener to apply filters
+[tierDropdown, countryDropdown, stateDropdown].forEach(dropdown => {
+    dropdown.addEventListener("change", () => {
+        initEventStats();
+    });
+});
+
+eventSearchInput.addEventListener("input", () => {
     initEventStats();
 });
+
 
 // Event listener for the reset filters button
 resetFiltersButton.addEventListener("click", async () => {
@@ -94,12 +101,17 @@ export async function initEventStats() {
     const selectedTier = tierDropdown.value;
     const selectedCountry = countryDropdown.value;
     const selectedState = stateDropdown.value;
+    const searchedEvent = searchEvent.value.toLowerCase();
 
     // Construct the URL with the selected filters
     let url = `./PHP/events.php?tier=${selectedTier}&country=${selectedCountry}&state=${selectedState}`;
 
     // Fetch data based on the selected filters
     const data = await fetchData(url);
+
+    const filteredEvents = data.events.filter(event => {
+        event.EVENT_NAME.toLowerCase().includes(searchEvent)
+    });
 }
 
 
