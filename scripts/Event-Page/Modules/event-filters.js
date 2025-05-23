@@ -118,7 +118,7 @@ export async function initEventStats() {
         event.EVENT_NAME.toLowerCase().includes(searchedEvent)
     });
 
-    console.log(filteredData);
+    console.log(filteredEvents);
 }
 
 
