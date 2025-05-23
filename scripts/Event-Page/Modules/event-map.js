@@ -1,3 +1,4 @@
+import { fillCards } from "./event-stats";
 // Map Initialization
 const map = L.map('mapid').setView([39.5, -98.35], 4);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -18,7 +19,7 @@ export function updateMap(eventsToDisplay) {
     // If only one event is filtered, zoom to it
     if (eventsToDisplay.length === 1) {
         map.flyTo([eventsToDisplay[0].EVENT_LATITUDE, eventsToDisplay[0].EVENT_LONGITUDE], 8);
-        console.log(eventsToDisplay[0]);
+        fillCards(eventsToDisplay[0]);
     } else if (eventsToDisplay.length > 1) {
         // If multiple events, fit bounds around them
         const group = new L.featureGroup(eventsToDisplay.map(event =>
