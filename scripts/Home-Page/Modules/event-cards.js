@@ -1,6 +1,7 @@
 import { eventList } from "../home-script";
 
-function populateCards() {
+export function populateCards() {
+
 
     console.log(eventList);
 
