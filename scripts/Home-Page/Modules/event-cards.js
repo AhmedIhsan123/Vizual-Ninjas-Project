@@ -2,7 +2,7 @@ import { eventList } from "../home-script.js";
 
 export function populateCards() {
     // Get the top 10 most popular events and store them in a list
-    const sortdEvents = eventList.sort((a, b) => b.TOTAL_MEMBERS - a.TOTAL_MEMBERS).slice(0, 10);
+    const sortdEvents = eventList.sort((a, b) => b.TOTAL_MEMBERS - a.TOTAL_MEMBERS).slice(0, 6);
 
 
     // For each event, create a card
@@ -20,13 +20,12 @@ function createCard(eventTitle, eventTierID, eventTotal, eventTravelDistance) {
     const cardTotalRef = document.createElement("p");
     const cardDistanceRef = document.createElement("p");
 
-    cardTitleRef.textContent = eventTitle;
-    cardTierRef.textContent = `Tier ${eventTierID}`;
-    cardTotalRef.textContent = `Players Attending: ${eventTotal}`;
-    cardDistanceRef.textContent = `Average Travel Distance: ${eventTravelDistance}`;
+    cardTitleRef.innerHTML = `<strong>${eventTitle}</strong>`;
+    cardTierRef.innerHTML = `Tier: <strong>${eventTierID}</strong>`;
+    cardTotalRef.innerHTML = `Players Attending: <strong>${eventTotal}</strong>`;
+    cardDistanceRef.innerHTML = `Average Travel Distance: <strong>${eventTravelDistance}</strong>`;
 
     cardRef.classList.add("event-card");
     cardRef.append(cardTitleRef, cardTierRef, cardTotalRef, cardDistanceRef);
     parentRef.appendChild(cardRef);
-
 }
