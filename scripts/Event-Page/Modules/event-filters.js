@@ -56,6 +56,8 @@ resetFiltersButton.addEventListener("click", async () => {
     tierDropdown.value = "";
     countryDropdown.value = "";
     stateDropdown.value = "";
+    searchEvent.value = "";
+    eventList.innerHTML = "";
 
     // Rebuild the filters and chart
     await updateFilters();
@@ -137,17 +139,8 @@ export async function initEventStats() {
 
 
 
-
-
-
-
-
-
-
 /* --------------- ORIGINAL CODE --------------- */
-
 /*
-
 // Global data variables
 let allEvents = [];
 let allEventResults = [];
@@ -203,5 +196,4 @@ function populateFilterDropdowns() {
         stateFilter.appendChild(option);
     });
 }
-
 */
