@@ -29,13 +29,13 @@ countryDropdown.addEventListener("change", async () => {
         option.textContent = state['state_name'];
         stateDropdown.appendChild(option);
     });
+});
 
-    // Reacts to selecting an event from the search bar
+// Reacts to selecting an event from the search bar
     searchEvent.addEventListener("input", () => {
     const searchText = searchEvent.value.toLowerCase();
     initEventStats();
     });
-});
 
 // Auto Change/Event listener to apply filters
 [tierDropdown, countryDropdown, stateDropdown].forEach(dropdown => {
@@ -116,9 +116,9 @@ export async function initEventStats() {
     // Fetch data based on the selected filters
     const data = await fetchData(url);
 
-    const filteredEvents = data.filter(event => {
+    const filteredEvents = data.filter(event => 
         event.EVENT_NAME.toLowerCase().includes(searchedEvent)
-    });
+    );
 
     // Populate the event list with the filtered data
     eventList.innerHTML = ""; // Clear previous options
