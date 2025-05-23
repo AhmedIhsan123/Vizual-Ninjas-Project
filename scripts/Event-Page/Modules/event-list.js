@@ -1,4 +1,4 @@
-// Import statements
+/* --------------- IMPORTS --------------- */
 import { fetchData } from "../../utils.js";
 
 // A export function to initialize the list table
