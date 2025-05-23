@@ -19,12 +19,16 @@ function createCard(eventTitle, eventTierID, eventTotal, eventTravelDistance) {
     const cardTierRef = document.createElement("p");
     const cardTotalRef = document.createElement("p");
     const cardDistanceRef = document.createElement("p");
+    const btnRef = document.createElement("button");
 
     cardTitleRef.innerHTML = `<strong>${eventTitle}</strong>`;
     cardTierRef.innerHTML = `Tier: <strong>${eventTierID}</strong>`;
     cardTotalRef.innerHTML = `Players Attending: <strong>${eventTotal}</strong>`;
     cardDistanceRef.innerHTML = `Average Travel Distance: <strong>${eventTravelDistance}</strong>`;
+    btnRef.textContent = "View Details";
 
+
+    btnRef.classList.add("button");
     cardRef.classList.add("event-card");
     cardRef.append(cardTitleRef, cardTierRef, cardTotalRef, cardDistanceRef);
     parentRef.appendChild(cardRef);
