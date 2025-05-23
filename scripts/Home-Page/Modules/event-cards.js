@@ -25,7 +25,8 @@ function createCard(eventTitle, eventTierID, eventTotal, eventTravelDistance) {
     cardTotalRef.textContent = `Players Attending: ${eventTotal}`;
     cardDistanceRef.textContent = `Average Travel Distance: ${eventTravelDistance}`;
 
-    cardRef.appendChild(cardTitleRef, cardTierRef, cardTotalRef, cardDistanceRef);
+    cardRef.classList.add("event-card");
+    cardRef.append(cardTitleRef, cardTierRef, cardTotalRef, cardDistanceRef);
     parentRef.appendChild(cardRef);
 
 }
