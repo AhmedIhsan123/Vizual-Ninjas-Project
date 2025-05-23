@@ -37,7 +37,7 @@ countryDropdown.addEventListener("change", async () => {
     });
 });
 
-eventSearchInput.addEventListener("input", () => {
+searchEvent.addEventListener("input", () => {
     initEventStats();
 });
 
@@ -110,7 +110,7 @@ export async function initEventStats() {
     const data = await fetchData(url);
 
     const filteredEvents = data.events.filter(event => {
-        event.EVENT_NAME.toLowerCase().includes(searchEvent)
+        event.EVENT_NAME.toLowerCase().includes(searchedEvent)
     });
 }
 
