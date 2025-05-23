@@ -130,7 +130,7 @@ export async function initEventStats() {
         }
         
     });
-    
+    console.log("First event object:", data[0]);
     console.log(data);
     console.log("eventlist suggestions:", filteredEvents.map(e => e.EVENT_NAME));
 }
