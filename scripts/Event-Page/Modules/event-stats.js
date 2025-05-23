@@ -1,7 +1,7 @@
 
 
 /* --------------- ORIGINAL CODE --------------- */
-function updateStats(playersData, statesData, selectedEvent) {
+export function updateStats(playersData, statesData, selectedEvent) {
     const totalPlayers = playersData.length;
     let avgDistance = 0;
     let greaterThan1000 = 0;
@@ -48,7 +48,7 @@ function updateStats(playersData, statesData, selectedEvent) {
     document.getElementById("min").textContent = (isFinite(minDistance) && minDistance > 0) ? `${Math.round(minDistance * 0.621371).toLocaleString()} mi` : '--';
 }
 
-function updateTopPlayers(players) {
+export function updateTopPlayers(players) {
     const topList = document.getElementById("topPlayersList");
     topList.innerHTML = "";
 
