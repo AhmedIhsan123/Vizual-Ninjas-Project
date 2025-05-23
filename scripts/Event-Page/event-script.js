@@ -5,12 +5,6 @@ import { initEventStats, updateFilters } from "./Modules/event-filters.js";
 
 /* -------- INITIALIZATION  -------- */
 document.addEventListener("DOMContentLoaded", async () => {
-    // Fetch data from the server and populate the event list
-    await fetchData("./PHP/events.php").then(data => {
-        // Store the event data in the global list
-        eventList.push(...data);
-    })
-
     // Build the event stats
     await initEventStats();
 
