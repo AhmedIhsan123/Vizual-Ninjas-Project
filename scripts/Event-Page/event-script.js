@@ -1,5 +1,5 @@
 /* --------------- IMPORTS --------------- */
-import { fetchData } from "../../utils.js";
+import { fetchData } from "../utils.js";
 import { initEventStats, updateFilters } from "./Modules/event-filters.js";
 
 
