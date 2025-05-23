@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await updateFilters();
 
     // Initializes the event list
-    await initList();
+    // await initList();
 });
 
 
