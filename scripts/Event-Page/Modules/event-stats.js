@@ -1,7 +1,7 @@
 
 
 /* --------------- ORIGINAL CODE --------------- */
-export function updateStats(playersData, statesData, selectedEvent) {
+export function updateStats(playersData, selectedEvent) {
     const totalPlayers = playersData.length;
     let avgDistance = 0;
     let greaterThan1000 = 0;
