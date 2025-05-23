@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Update the filters
     updateFilters();
 
+    console.log(eventList);
+
     // Update the cards seciton
     populateCards();
 });
