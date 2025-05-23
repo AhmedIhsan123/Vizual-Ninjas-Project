@@ -4,6 +4,7 @@ import { initList } from "./Modules/event-list.js";
 import { buildEventChart } from "./Modules/filters-chart.js";
 import { initMap } from "./Modules/map.js";
 import { updateFilters } from "./Modules/filters-chart.js";
+import { populateCards } from "./Modules/event-cards.js";
 
 // Global list to store event data
 export const eventList = [];
@@ -27,6 +28,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Update the filters
     updateFilters();
+
+    // Update the cards seciton
+    populateCards();
 });
 /* -------- INITIALIZATION END  -------- */
 
