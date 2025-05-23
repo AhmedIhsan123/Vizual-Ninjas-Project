@@ -109,6 +109,11 @@ export async function initEventStats() {
     // Fetch data based on the selected filters
     const data = await fetchData(url);
 
+    if (!Array.isArray(data)) {
+        console.error("Invalid or missing data from fetchData:", data);
+        return;
+    }
+
     const filteredEvents = data.events.filter(event => {
         event.EVENT_NAME.toLowerCase().includes(searchedEvent)
     });
