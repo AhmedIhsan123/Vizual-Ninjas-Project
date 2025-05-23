@@ -120,7 +120,7 @@ export async function initEventStats() {
     });
 
     // Populate the event list with the filtered data
-    datalist.innerHTML = ""; // Clear previous options
+    eventList.innerHTML = ""; // Clear previous options
     filteredEvents.forEach(event => {
         const option = document.createElement("option");
         option.value = event.EVENT_NAME;
