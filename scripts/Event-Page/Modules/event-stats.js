@@ -6,6 +6,8 @@ export function fillCards(event) {
 }
 
 
+
+
 /* --------------- ORIGINAL CODE --------------- */
 // export function updateStats(playersData, selectedEvent) {
 //     const totalPlayers = playersData.length;
