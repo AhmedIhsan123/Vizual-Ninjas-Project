@@ -124,7 +124,7 @@ export async function initEventStats() {
     filteredEvents.forEach(event => {
         const option = document.createElement("option");
         option.value = event.EVENT_NAME;
-        datalist.appendChild(option);
+        eventList.appendChild(option);
     });
 
     console.log(filteredEvents);
