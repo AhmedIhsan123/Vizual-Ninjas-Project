@@ -7,6 +7,7 @@ const tierDropdown = document.querySelector("#tierFilter");
 const countryDropdown = document.querySelector("#countryFilter");
 const stateDropdown = document.querySelector("#stateFilter");
 const searchEvent = document.querySelector("#event-search");
+const eventList = document.querySelector("#event-list");
 
 /* --------------- EVENT LISTENERS --------------- */
 countryDropdown.addEventListener("change", async () => {
@@ -19,7 +20,7 @@ countryDropdown.addEventListener("change", async () => {
     if (!states) return;
 
     // Clear existing options in state dropdown
-    stateDropdown.innerHTML = '<option value="">Any</option>';
+    stateDropdown.innerHTML = '<option value="">All States</option>';
 
     // Populate state dropdown with new options
     states.states.forEach(state => {
@@ -116,6 +117,14 @@ export async function initEventStats() {
 
     const filteredEvents = data.filter(event => {
         event.EVENT_NAME.toLowerCase().includes(searchedEvent)
+    });
+
+    // Populate the event list with the filtered data
+    datalist.innerHTML = ""; // Clear previous options
+    filteredEvents.forEach(event => {
+        const option = document.createElement("option");
+        option.value = event.EVENT_NAME;
+        datalist.appendChild(option);
     });
 
     console.log(filteredEvents);
