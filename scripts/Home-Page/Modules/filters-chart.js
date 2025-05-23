@@ -103,7 +103,7 @@ export async function buildEventChart() {
     const startDate = startDateInput.value;
     const endDate = endDateInput.value;
     const xTitle = "Event Names";
-    const yTitle = "Average Distance Traveled by Members";
+    const yTitle = "Average Distance Traveled";
 
     // Construct the URL with the selected filters
     let url = `./PHP/events.php?tier=${selectedTier}&country=${selectedCountry}&state=${selectedState}&start_date=${startDate}&end_date=${endDate}`;
