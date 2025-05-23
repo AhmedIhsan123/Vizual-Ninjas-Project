@@ -4,7 +4,6 @@ import { fetchData } from "../../utils.js";
 /* --------------- GLOBAL VARIABLES --------------- */
 const applyFiltersButton = document.querySelector("#apply-filters");
 const resetFiltersButton = document.querySelector("#reset-filters");
-
 const tierDropdown = document.querySelector("#tierFilter");
 const countryDropdown = document.querySelector("#countryFilter");
 const stateDropdown = document.querySelector("#stateFilter");
@@ -53,6 +52,8 @@ resetFiltersButton.addEventListener("click", async () => {
 export async function updateFilters() {
     // Fetch filters data from the server
     const filters = await fetchData('./PHP/handlers/getFilters.php');
+
+    console.log(filters);
 
     // No data to update
     if (!filters) return;
