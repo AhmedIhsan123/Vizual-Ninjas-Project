@@ -13,7 +13,6 @@ export async function initMap() {
 
     // Fetch data from the server
     await fetchData("./PHP/events.php").then(data => {
-        console.log(data);
         // Loop through the data and add markers to the map
         data.forEach(event => {
             const latLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
@@ -51,7 +50,6 @@ export async function initMap() {
     // Add click event to each row
     tableRows.forEach(row => {
         row.addEventListener("click", function () {
-            console.log("Clicked row:", this);
             const eventId = this.querySelector("td").innerText;
             const event = eventList.find(e => e.EVENT_ID == eventId);
             if (event) {

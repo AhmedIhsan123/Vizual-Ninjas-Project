@@ -158,7 +158,7 @@ export async function buildEventChart() {
     const avgValue = averages.reduce((sum, value) => sum + value, 0) / averages.length;
 
     // Set overview data
-    // updateOverview(minValue, maxValue, avgValue.toFixed(2), filteredEvents);
+    updateOverview(minValue, maxValue, avgValue.toFixed(2), filteredEvents);
 
     // Create the chart title based on selected filters
     let parts = [];
