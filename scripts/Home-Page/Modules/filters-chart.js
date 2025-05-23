@@ -313,21 +313,11 @@ export async function buildEventChart() {
 function updateOverview(minMiles, maxMiles, avgMiles, events) {
     const overviewContainer = document.querySelector(".details-content");
     overviewContainer.innerHTML = ""; // Clear existing content
-    let max = events[0].TOTAL_MEMBERS;
-    let popularEvent = "";
-    events.forEach(event => {
-        if (event.TOTAL_MEMBERS > max) {
-            max = event.TOTAL_MEMBERS;
-            popularEvent = event.EVENT_NAME;
-        }
-    })
 
     overviewContainer.innerHTML = `
         <h2>Overview</h2>
         <p>Total Events: ${events.length}</p>
         <p>Average Distance Traveled: ${avgMiles} miles</p>
         <p>Maximum Distance Traveled to Event: ${maxMiles} miles</p>
-        <p>Minimum Distance Traveled by Members: ${minMiles} miles</p>
-        <br>
-        <p>Most Popular Event: ${popularEvent}</p>`
+        <p>Minimum Distance Traveled by Members: ${minMiles} miles</p>`
 }
