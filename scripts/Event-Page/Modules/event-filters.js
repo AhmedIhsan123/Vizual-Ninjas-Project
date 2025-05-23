@@ -1,7 +1,7 @@
 /* --------------- IMPORTS --------------- */
 import { fetchData } from "../../utils.js";
 import { updateMap } from "./event-map.js";
-// import { eventList } from "../../Home-Page/home-script.js";
+import { eventList } from "../../Home-Page/home-script.js";
 
 /* --------------- GLOBAL VARIABLES --------------- */
 const resetFiltersButton = document.querySelector("#reset-filters");
@@ -10,6 +10,8 @@ const countryDropdown = document.querySelector("#countryFilter");
 const stateDropdown = document.querySelector("#stateFilter");
 const searchEvent = document.querySelector("#event-search");
 const eventListRef = document.querySelector("#event-list");
+
+console.log(eventList);
 
 /* --------------- EVENT LISTENERS --------------- */
 countryDropdown.addEventListener("change", async () => {
