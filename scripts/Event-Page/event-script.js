@@ -13,6 +13,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Build the event stats
     await initEventStats();
+
+    // Update the filters
+    updateFilters();
 });
 
 
