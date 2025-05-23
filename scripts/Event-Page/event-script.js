@@ -1,6 +1,6 @@
 /* --------------- IMPORTS --------------- */
 import { fetchData } from "../../utils.js";
-import { initEventStats } from "./Modules/event-filters.js";
+import { initEventStats, updateFilters } from "./Modules/event-filters.js";
 
 
 /* -------- INITIALIZATION  -------- */
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await initEventStats();
 
     // Update the filters
-    updateFilters();
+    await updateFilters();
 });
 
 
