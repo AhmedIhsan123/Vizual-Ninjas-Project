@@ -1,6 +1,7 @@
 /* --------------- IMPORTS --------------- */
 import { fetchData } from "../../utils.js";
 import { updateMap } from "./event-map.js";
+import { updateStats, updateTopPlayers } from "./event-stats.js";
 
 /* --------------- GLOBAL VARIABLES --------------- */
 const resetFiltersButton = document.querySelector("#reset-filters");
@@ -135,6 +136,19 @@ export async function initEventStats() {
 
     // Update the map with the filtered events
     updateMap(filteredEvents);
+
+    // Updates the stats with the filtered events
+    if (exactMatch) {
+        const playersData = await fetchData(`./PHP/getPlayersByEvent.php?event_id=${exactMatch.EVENT_ID}`);
+        const statesData = await fetchData(`./PHP/handlers/getFilters.php`);
+
+        updateStats(playersData, statesData.states, exactMatch);
+        updateTopPlayers(playersData);
+    } 
+    // else {
+    //     // Optionally reset stats display
+    //     resetStatsUI();
+    // }
 }
 
 
