@@ -110,11 +110,6 @@ export async function initEventStats() {
     // Fetch data based on the selected filters
     const data = await fetchData(url);
 
-    if (!Array.isArray(data)) {
-        console.error("Invalid or missing data from fetchData:", data);
-        return;
-    }
-
     const filteredEvents = data.filter(event => {
         event.EVENT_NAME.toLowerCase().includes(searchedEvent)
     });
@@ -127,6 +122,7 @@ export async function initEventStats() {
         eventList.appendChild(option);
     });
     
+    console.log(data);
     console.log("eventlist suggestions:", filteredEvents.map(e => e.EVENT_NAME));
 }
 

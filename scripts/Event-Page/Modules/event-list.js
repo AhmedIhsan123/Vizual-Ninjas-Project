@@ -14,8 +14,6 @@ export async function initList() {
             row.innerHTML = `
             <td>${event.EVENT_ID}</td>
             <td>${event.EVENT_NAME}</td>
-            <td>${event.EVENT_TIER_ID}</td>
-            <td>${event.DATE_EVENT_END}</td>
         `;
             tableBody.appendChild(row);
         });
