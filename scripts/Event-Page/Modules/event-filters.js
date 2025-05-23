@@ -112,6 +112,8 @@ export async function initEventStats() {
     const filteredEvents = data.events.filter(event => {
         event.EVENT_NAME.toLowerCase().includes(searchedEvent)
     });
+
+    console.log(filteredData);
 }
 
 
