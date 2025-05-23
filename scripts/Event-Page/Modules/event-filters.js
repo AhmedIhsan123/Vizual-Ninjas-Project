@@ -1,6 +1,7 @@
 /* --------------- IMPORTS --------------- */
 import { fetchData } from "../../utils.js";
 import { updateMap } from "./event-map.js";
+import { eventList } from "../home-script.js";
 
 /* --------------- GLOBAL VARIABLES --------------- */
 const resetFiltersButton = document.querySelector("#reset-filters");
@@ -8,7 +9,7 @@ const tierDropdown = document.querySelector("#tierFilter");
 const countryDropdown = document.querySelector("#countryFilter");
 const stateDropdown = document.querySelector("#stateFilter");
 const searchEvent = document.querySelector("#event-search");
-const eventList = document.querySelector("#event-list");
+const eventListRef = document.querySelector("#event-list");
 
 /* --------------- EVENT LISTENERS --------------- */
 countryDropdown.addEventListener("change", async () => {
@@ -33,20 +34,16 @@ countryDropdown.addEventListener("change", async () => {
 });
 
 // Reacts to selecting an event from the search bar
-    searchEvent.addEventListener("input", () => {
+searchEvent.addEventListener("input", () => {
     const searchText = searchEvent.value.toLowerCase();
     initEventStats();
-    });
+});
 
 // Auto Change/Event listener to apply filters
 [tierDropdown, countryDropdown, stateDropdown].forEach(dropdown => {
     dropdown.addEventListener("change", () => {
         initEventStats();
     });
-});
-
-searchEvent.addEventListener("input", () => {
-    initEventStats();
 });
 
 
@@ -57,7 +54,7 @@ resetFiltersButton.addEventListener("click", async () => {
     countryDropdown.value = "";
     stateDropdown.value = "";
     searchEvent.value = "";
-    eventList.innerHTML = "";
+    eventListRef.innerHTML = "";
 
     // Rebuild the filters and chart
     await updateFilters();
@@ -119,17 +116,17 @@ export async function initEventStats() {
     // Fetch data based on the selected filters
     const data = await fetchData(url);
 
-    const filteredEvents = data.filter(event => 
+    const filteredEvents = data.filter(event =>
         event.EVENT_NAME.toLowerCase().includes(searchedEvent)
     );
 
     // Populate the event list with the filtered data
-    eventList.innerHTML = ""; // Clear previous options
+    eventListRef.innerHTML = ""; // Clear previous options
     filteredEvents.forEach(event => {
-        if(event.EVENT_NAME.toLowerCase()) {
+        if (event.EVENT_NAME.toLowerCase()) {
             const option = document.createElement("option");
             option.value = event.EVENT_NAME;
-            eventList.appendChild(option);
+            eventListRef.appendChild(option);
         }
     });
 
