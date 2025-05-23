@@ -1,3 +1,4 @@
+/* Styles/style-main.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
 
@@ -9,13 +10,44 @@
     box-sizing: border-box;
 
     /* Aesthetics */
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Applied globally here, but overridden for specific elements by Inter font later */
+}
+
+/* Ensure html and body take up full viewport height and prevent horizontal overflow */
+html,
+body {
+    height: 100%; /* Makes html and body take full viewport height */
+    overflow-x: hidden; /* Crucial: Prevents horizontal scrollbar by hiding overflow */
 }
 
 /* Body selector */
 body {
-  /* Style */
-  background-color: #1e1e2f;
+    /* Layout */
+    display: flex; /* Enables flexbox for overall page layout */
+    flex-direction: column; /* Stacks children (nav, main content) vertically */
+    min-height: 100vh; /* Ensures body is at least the viewport height */
+
+    /* Style */
+    background-color: #1e1e2f;
+    color: whitesmoke; /* Added based on previous context for default text color */
+    font-family: 'Inter', sans-serif; /* Applied as the main body font, overriding the global Poppins */
+}
+
+/* Skip link for accessibility (retained from previous versions) */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #4e88ff;
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    text-decoration: none;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
 }
 
 /* -------- NAVIGATION BAR -------- */
@@ -24,6 +56,7 @@ body {
     /* Layout */
     width: 300px;
     padding: 1rem;
+    height: auto; /* Ensure aspect ratio is maintained */
 }
 
 /* Navigation bar styles */
@@ -31,13 +64,14 @@ body {
     /* Layout */
     position: fixed;
     top: 0;
+    left: 0; /* Added to ensure it starts from the left edge */
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem 2rem;
     z-index: 999999;
     width: 100%;
-    height: 100px;
+    height: 100px; /* Explicit height */
 
     /* Aesthetics */
     background-color: #1e1e2f;
@@ -48,7 +82,7 @@ body {
 .navigation-link {
     /* Layout */
     position: relative;
-    width: 1rem;
+    /* width: 1rem; Removed, it was too small and causing issues */
     padding: 1rem 2rem;
     user-select: none;
 
@@ -56,6 +90,7 @@ body {
     color: #fff;
     text-decoration: none;
     font-size: clamp(18px, 0.8vw, 20px);
+    transition: color 0.15s ease-in-out; /* Moved from animations section for direct hover property */
 }
 .navigation-link span {
     /* Layout */
@@ -82,45 +117,34 @@ body {
     transition: background-color 0.3s ease;
 }
 
-/* Animations */
+/* Animations (retained and adjusted) */
 /* Event viewer link */
 .navigation-link:hover {
-    /* Aesthetics */
-    color: #ffcc66;
-
-    /* Transition */
-    transition: color 0.15s ease-in-out;
+    color: #ffcc66; /* Specific hover color */
 }
 .navigation-link:hover span::after {
-    /* Layout */
     width: 100%;
-
-    /* Aesthetics */
     background-color: #ffcc66;
 }
 .navigation-link span::after {
-  /* Layout */
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 2px;
-  width: 3px;
-
-  /* Aesthetics */
-  background: whitesmoke;
-
-  /* Transition */
-  transition: all 0.15s ease-in-out;
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 3px;
+    background: whitesmoke;
+    transition: all 0.15s ease-in-out;
 }
 
 /* Buttons */
 .button:hover {
-  background-color: #444;
+    background-color: #444;
 }
 
+/* Scrollbar styles (retained) */
 ::-webkit-scrollbar-track {
-  background: #2e2e40; /* Track color */
-  border-radius: 10px;
+    background: #2e2e40; /* Track color */
+    border-radius: 10px;
 }

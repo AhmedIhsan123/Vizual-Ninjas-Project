@@ -1,84 +1,101 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+/* Styles/event-style.css */
 
-* {
-    box-sizing: border-box;
-}
-/* Body styles */
-body {
+/* Main Content Container styles */
+.content-container {
     /* Layout */
-    height: 100vh;
-    overflow: show;
-    user-select: none;
-    box-sizing: border-box;
+    display: grid;
+    /* Explicitly define row heights to control the layout */
+    grid-template-rows: auto 2fr 2fr; /* Header, Main Content, Charts */
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+        "header header header header"
+        "stats map map players"
+        "chart1 chart1 chart2 chart2";
+    width: 100%; /* FIX: Changed from 100vw to 100% to prevent horizontal scrollbar with padding */
+    min-height: calc(100vh - 100px); /* Adjusted for nav height (100px from style-main.css) */
+    padding-top: 100px; /* Space for fixed nav (100px from style-main.css) */
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    gap: 1rem;
+    flex-grow: 1; /* Allows this container to fill remaining vertical space in flex parent (body) */
 
     /* Styles */
-    color: whitesmoke;
     background-color: #1e1e2f;
 }
 
-/* Main Container styles */
-.content-container {
-    /* Layout */
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-areas: 
-  "stats map map players"
-  "chart1 chart1 chart2 chart2";
-  width: 100vw;
-  height: 100vh;
-  padding-top: 135px;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-bottom: 1rem;
-  gap: 1rem;
-
-  /* Styles */
-  background-color: #1e1e2f;
+/* Header (H1) */
+.content-container h1 {
+    grid-area: header;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
 }
 
 /* Stats area */
 .stats-container {
-    /* Layout */
+    /* Layout - Use Flexbox for vertical layout within the grid cell */
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
-    align-items: center;
+    height: 100%; /* Make it fill the grid cell */
+    align-items: center; /* Center items horizontally */
     grid-area: stats;
     padding: 1rem;
+    gap: 1rem;
 
     /* Styles */
     background-color: #2e2e40;
     border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.stats-container h2,
+.stats-container p {
+    text-align: center;
+    margin-bottom: 0.5rem;
 }
 
 .stats-card-container {
-    /* Layout */
+    /* Layout - Use Grid for the cards layout */
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, 1fr);
     width: 100%;
-    height: 100%;
+    height: 100%; /* Make it fill the stats-container */
     gap: 1rem;
 }
 
+/* Corrected .stat-card to apply to individual cards */
 .stat-card {
     /* Layout */
     display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    font-size: 1rem;
-}
-
-.stat-card {
-    /* Layout */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 1rem;
     border-radius: 5px;
     text-align: center;
-    
+    font-size: 1rem;
+
     /* Styles */
     background-color: #1e1e2f;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    height: 100%; /* Make each card fill its grid cell */
+}
+
+.stat-card p:first-child {
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    color: #ccc;
+}
+
+.stat-card p:last-child {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #fff;
 }
 
 /* Search & Filters */
@@ -109,7 +126,8 @@ body {
     border: 1px solid #ccc;
     background-color: #2e2e40;
     color: whitesmoke;
-    
+    font-family: 'Inter', sans-serif;
+
     /* Transition */
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -119,72 +137,98 @@ body {
     cursor: text;
 }
 
+.search-filter-container select:focus,
+.search-filter-container input:focus,
+.search-filter-container button:focus {
+    outline: none;
+    border-color: #4e88ff;
+    box-shadow: 0 0 0 3px rgba(78, 136, 255, 0.5);
+}
+
+.search-filter-container button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4e88ff;
+    color: white;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.search-filter-container button:hover {
+    background-color: #3a6cd9;
+}
+
 /* Map area */
 .map-container {
-    /* Layout */
+    /* Layout - Use Flexbox for vertical layout */
     display: flex;
     flex-direction: column;
     grid-area: map;
     padding: 1rem;
-    gap: 2rem;
-    height: 100%;
+    gap: 1rem;
+    height: 100%; /* Make it fill the grid cell */
 
     /* Styles */
     border-radius: 5px;
     background-color: #2e2e40;
 }
 
-#mapid.mapid {
+/* Specific styling for the Leaflet map container */
+#mapid {
     /* Layout */
-    height: 100%;
-    padding: 1rem;
+    height: 100%; /* Make map fill its container */
 
     /* Styles */
     border-radius: 5px;
-    background-color: #2e2e40;
+    background-color: #2e2e40; /* Fallback */
 }
 
 /* Top Players section */
 .top-players-panel {
-    /* Layout */
+    /* Layout - Use Flexbox for vertical layout */
     display: flex;
     flex-direction: column;
     grid-area: players;
     padding: 1rem;
     align-items: center;
-    justify-content: stretch;
-    height: 100%;
+    justify-content: stretch; /* Distribute space evenly */
+    height: 100%; /* Make it fill the grid cell */
+    gap: 1rem;
 
     /* Style */
     background-color: #2e2e40;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-family: 'Poppins', sans-serif;
+}
+
+.top-players-panel h2,
+.top-players-panel p {
+    text-align: center;
+    margin-bottom: 0.5rem;
 }
 
 .top-players-panel div {
     /* Layout */
     display: flex;
-    flex-direction: row;
+    flex-direction: column; /* Stack items vertically */
     align-self: stretch;
-    padding-left: 1.5rem;
+    padding-left: 0;
     width: 100%;
+    flex-grow: 1; /* Allow this div to grow and take up available space */
+    overflow-y: auto; /* Add scroll if the list overflows */
 }
 
 #topPlayersList {
     width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.top-players,
-.top-players-panel {
-    /* Layout */
-    padding: 1rem;
-
-    /* Style */
-    background-color: #2e2e40;
-    color: #fff;
-    border-radius: 6px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-.top-players ol,
 .top-players-panel ol {
     /* Layout */
     padding-left: 0;
@@ -194,7 +238,6 @@ body {
     list-style: none;
 }
 
-.top-players li,
 .top-players-panel li {
     /* Layout */
     margin-bottom: 0.5rem;
@@ -204,24 +247,31 @@ body {
     align-items: center;
     gap: 0.5rem;
     font-size: 0.95rem;
-    
+
     /* Style */
     background: #1e1e2f;
+    font-family: 'Inter', sans-serif;
 }
 
 /* Charts */
-.charts-section {
-    /* Layout */
+.chart-box {
+    /* Layout - Use Flexbox for vertical layout */
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center the chart within the box */
+    height: 100%; /* Make it fill the grid cell */
     padding: 1rem;
-    border-radius: 5px;
-    gap: 1rem;
-
-    /* Style */
     background-color: #2e2e40;
+    border-radius: 6px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.chart-box h3 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
 }
 
 #chart1 {
@@ -232,18 +282,74 @@ body {
     grid-area: chart2;
 }
 
-.chart-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #2e2e40;
-    padding: 1rem;
-    border-radius: 6px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+/* Ensure the canvas takes up the full space of its parent */
+.chart-box canvas {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100%;
+    max-height: 100%;
 }
 
-.chart-box h3 {
-    text-align: center;
-    color: #fff;
+
+/* Basic responsiveness for smaller screens */
+@media (max-width: 1200px) {
+    .content-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* Adjusted row heights for smaller screens */
+        grid-template-rows: auto 2fr 1fr 1fr;
+        grid-template-areas:
+            "header header"
+            "map map"
+            "stats players"
+            "chart1 chart2";
+    }
+}
+
+@media (max-width: 768px) {
+    .navigation-bar-container {
+        flex-direction: column;
+        padding: 1rem;
+        height: auto;
+        gap: 0.5rem;
+    }
+
+    .navigation-bar-container div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .navigation-link {
+        margin-left: 0;
+    }
+
+    .content-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "map"
+            "stats"
+            "players"
+            "chart1"
+            "chart2";
+        /* Stack elements vertically on small screens */
+        grid-template-rows: auto auto auto auto auto auto;
+        padding-top: 150px; /* Adjust for stacked nav */
+    }
+
+    .search-filter-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-filter-container select,
+    .search-filter-container input,
+    .search-filter-container button {
+        width: 100%;
+    }
+
+    .stats-card-container {
+        grid-template-columns: 1fr;
+    }
 }
