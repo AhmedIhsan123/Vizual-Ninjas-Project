@@ -126,8 +126,8 @@ export async function initEventStats() {
         option.value = event.EVENT_NAME;
         eventList.appendChild(option);
     });
-
-    console.log(filteredEvents);
+    
+    console.log("eventlist suggestions:", filteredEvents.map(e => e.EVENT_NAME));
 }
 
 
