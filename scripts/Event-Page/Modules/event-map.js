@@ -1,4 +1,4 @@
-import { fillCards } from "./event-stats";
+import { fillCards } from "./event-stats.js";
 // Map Initialization
 const map = L.map('mapid').setView([39.5, -98.35], 4);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
