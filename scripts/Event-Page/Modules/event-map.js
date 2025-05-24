@@ -43,7 +43,9 @@ export function updateMap(eventsToDisplay) {
 export async function showMembersOnMap(eventId) {
     memberLayerGroup.clearLayers();
 
-    const members = await fetchData(`../../PHP/getMembers.php?event_id=${eventId}`);
+    let url = `./PHP/getMembers.php?event_id=${eventId}`;
+    const members = await fetchData(url);
+    
     members.forEach(member => {
         if (member.MEMBER_LAT && member.MEMBER_LON) {
             const marker = L.circleMarker([member.MEMBER_LAT, member.MEMBER_LON], {
