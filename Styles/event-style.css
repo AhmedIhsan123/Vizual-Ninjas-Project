@@ -184,6 +184,7 @@
     /* Styles */
     border-radius: 5px;
     background-color: #2e2e40; /* Fallback */
+    z-index: 9999;
 }
 
 /* Top Players section */
