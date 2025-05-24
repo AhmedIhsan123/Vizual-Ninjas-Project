@@ -1,9 +1,9 @@
-/* --------------- IMPORTS --------------- */
+/* --------------- IMPORTS --------------- /
 import { initEventStats, updateFilters } from "./Modules/event-filters.js";
 import { updateChartsAndStats } from "./event-charts.js";
 import { fetchData } from "../../utils.js";
 
-/* -------- INITIALIZATION  -------- */
+/ -------- INITIALIZATION  -------- /
 document.addEventListener("DOMContentLoaded", async () => {
     // Build the event stats
     await initEventStats();
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
-/* --------------- ORIGINAL CODE --------------- */
+/ --------------- ORIGINAL CODE --------------- */
 // // Initial Data Fetch and Render on Page Load
 // document.addEventListener('DOMContentLoaded', async () => {
 //     try {
