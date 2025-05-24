@@ -163,7 +163,6 @@ export async function initEventStats() {
     } else {
         selectedEventNameElement.textContent = 'All Events';
     }
-    updateChartsAndStats(filteredEvents); // Pass all filtered events to charts/stats
 }
 
 /**
