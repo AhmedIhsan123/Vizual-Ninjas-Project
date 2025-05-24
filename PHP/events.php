@@ -10,29 +10,29 @@ if (!isset($pdo)) {
 }
 
 try {
-    // Filters (as before)
+    // Filters
     $filters = [];
     $params = [];
 
     if (!empty($_GET['tier'])) {
         $filters[] = "e.EVENT_TIER_ID = :tier";
-        $params[':tier'] = $_GET['tier'];
+        $params[':tier'] = (int) $_GET['tier'];  // cast to int for safety
     }
 
     if (!empty($_GET['country'])) {
         $filters[] = "e.COUNTRY_ID = :country";
-        $params[':country'] = $_GET['country'];
+        $params[':country'] = (int) $_GET['country'];
     }
 
     if (!empty($_GET['state'])) {
         $filters[] = "e.EVENT_STATE_ID = :state";
-        $params[':state'] = $_GET['state'];
+        $params[':state'] = (int) $_GET['state'];
     }
 
     // WHERE clause
     $where = count($filters) > 0 ? 'WHERE ' . implode(' AND ', $filters) : '';
 
-    // Main Query (as before, but adding stats)
+    // Main Query with proper GROUP BY columns
     $sql = "SELECT 
             e.EVENT_ID,
             e.EVENT_NAME,
@@ -52,14 +52,14 @@ try {
                     SIN(RADIANS(m.MEMBER_LAT)) * SIN(RADIANS(e.EVENT_LATITUDE))
                 )
             ), 2) AS AVG_TRAVEL_DISTANCE_MILES
-
         FROM 
             EVENT_RESULT er
         JOIN MEMBER m ON er.PDGA_NUMBER = m.PDGA_NUMBER
         JOIN EVENT e ON er.EVENT_ID = e.EVENT_ID
         $where
         GROUP BY 
-            e.EVENT_ID, e.EVENT_NAME, e.EVENT_TIER_ID, e.EVENT_STATE_ID, e.COUNTRY_ID
+            e.EVENT_ID, e.EVENT_NAME, e.EVENT_TIER_ID, e.EVENT_STATE_ID, e.COUNTRY_ID,
+            e.EVENT_LATITUDE, e.EVENT_LONGITUDE, e.DATE_EVENT_END
         ORDER BY 
             e.DATE_EVENT_END DESC";
 
