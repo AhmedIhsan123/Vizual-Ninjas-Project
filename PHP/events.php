@@ -1,8 +1,6 @@
 <?php
-
+// PHP/events.php
 header('Content-Type: application/json');
-
-// Connect to the database
 require '/home/aabualha/db.php';
 
 if (!isset($pdo)) {
@@ -12,7 +10,7 @@ if (!isset($pdo)) {
 }
 
 try {
-    // Filters from GET parameters
+    // Filters (as before)
     $filters = [];
     $params = [];
 
@@ -31,26 +29,10 @@ try {
         $params[':state'] = $_GET['state'];
     }
 
-    // Compare Dates
-    // Start Date
-    if (!empty($_GET['start_date'])) {
-        $filters[] = "STR_TO_DATE(e.DATE_EVENT_END, '%c/%e/%Y') >= :start_date";
-        $params[':start_date'] = $_GET['start_date'];
-    }
-    
-    // End Date
-    if (!empty($_GET['end_date'])) {
-        $filters[] = "STR_TO_DATE(e.DATE_EVENT_END, '%c/%e/%Y') <= :end_date";
-        $params[':end_date'] = $_GET['end_date'];
-    }
+    // WHERE clause
+    $where = count($filters) > 0 ? 'WHERE ' . implode(' AND ', $filters) : '';
 
-    // Build WHERE clause
-    $where = "WHERE m.MEMBER_LAT IS NOT NULL AND m.MEMBER_LON IS NOT NULL";
-    if (!empty($filters)) {
-        $where .= " AND " . implode(" AND ", $filters);
-    }
-
-    // Final query
+    // Main Query (as before, but adding stats)
     $sql = "SELECT 
             e.EVENT_ID,
             e.EVENT_NAME,
@@ -78,16 +60,16 @@ try {
         GROUP BY 
             e.EVENT_ID, e.EVENT_NAME, e.EVENT_TIER_ID, e.EVENT_STATE_ID, e.COUNTRY_ID
         ORDER BY 
-            e.EVENT_NAME ASC
-    ";
+            e.DATE_EVENT_END DESC";
 
     $stmt = $pdo->prepare($sql);
     $stmt->execute($params);
-    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    echo json_encode($results);
+    echo json_encode($events);
 
 } catch (PDOException $e) {
     http_response_code(500);
-    echo json_encode(['error' => $e->getMessage()]);
+    echo json_encode(['error' => 'Query failed: ' . $e->getMessage()]);
 }
+?>

@@ -10,90 +10,33 @@ const stateDropdown = document.querySelector("#stateFilter");
 const searchEvent = document.querySelector("#event-search");
 const eventListRef = document.querySelector("#event-list");
 
-/* --------------- EVENT LISTENERS --------------- */
-countryDropdown.addEventListener("change", async () => {
-    // Fetch states based on the selected country
-    const selectedCountry = countryDropdown.value;
-    const url = `./PHP/handlers/getProvince.php?country=${selectedCountry}`;
-    const states = await fetchData(url);
-
-    // Clear existing options in state dropdown
-    if (!states) return;
-
-    // Clear existing options in state dropdown
-    stateDropdown.innerHTML = '<option value="">All States</option>';
-
-    // Populate state dropdown with new options
-    states.states.forEach(state => {
-        const option = document.createElement('option');
-        option.value = state['state_id'];
-        option.textContent = state['state_name'];
-        stateDropdown.appendChild(option);
-    });
-});
-
-// Reacts to selecting an event from the search bar
-searchEvent.addEventListener("input", () => {
-    const searchText = searchEvent.value.toLowerCase();
-    initEventStats();
-});
-
-// Auto Change/Event listener to apply filters
-[tierDropdown, countryDropdown, stateDropdown].forEach(dropdown => {
-    dropdown.addEventListener("change", () => {
-        initEventStats();
-    });
-});
-
-
-// Event listener for the reset filters button
-resetFiltersButton.addEventListener("click", async () => {
-    // Reset all dropdowns and inputs to default values
-    tierDropdown.value = "";
-    countryDropdown.value = "";
-    stateDropdown.value = "";
-    searchEvent.value = "";
-    eventListRef.innerHTML = "";
-
-    // Rebuild the filters and chart
-    await updateFilters();
-    initEventStats();
-});
-
 /* --------------- FUNCTIONS --------------- */
-// Method to update the filters dropdowns
-export async function updateFilters() {
-    // Fetch filters data from the server
-    const filters = await fetchData('./PHP/handlers/getFilters.php');
+async function populateFilterDropdowns() {
+    const filterData = await fetchData("./PHP/handlers/getFilters.php");
 
-    console.log(filters);
+    if (!filterData) return;  // Exit if fetch fails
 
-    // No data to update
-    if (!filters) return;
-
-    // Clear existing options in dropdowns
+    // Populate Tier Filter
     tierDropdown.innerHTML = '<option value="">All Tiers</option>';
-    countryDropdown.innerHTML = '<option value="">All Countries</option>';
-    stateDropdown.innerHTML = '<option value="">All States</option>';
-
-    // Populate tier dropdown
-    filters.tiers.forEach(tier => {
+    filterData.tiers.forEach(tier => {
         const option = document.createElement('option');
         option.value = tier;
         option.textContent = tier;
         tierDropdown.appendChild(option);
     });
 
-    // Populate country dropdown
-    filters.countries.forEach(country => {
+    // Populate Country Filter
+    countryDropdown.innerHTML = '<option value="">All Countries</option>';
+    filterData.countries.forEach(country => {
         const option = document.createElement('option');
         option.value = country;
         option.textContent = country;
         countryDropdown.appendChild(option);
     });
 
-    // Populate state dropdown
-    filters.states.forEach(state => {
+    // Populate State Filter (initially, before country selection)
+    stateDropdown.innerHTML = '<option value="">All States</option>';
+    filterData.states.forEach(state => {
         const option = document.createElement('option');
         option.value = state.state_id;
         option.textContent = state.state_name;
@@ -101,38 +44,82 @@ export async function updateFilters() {
     });
 }
 
-// Method to initialize the stats
+async function populateEventSearch() {
+    const events = await fetchData("./PHP/events.php"); // Fetch all events initially
+    if (!events) return;
+
+    eventListRef.innerHTML = ""; // Clear existing options
+    events.forEach(event => {
+        const option = document.createElement("option");
+        option.value = event.EVENT_NAME;
+        eventListRef.appendChild(option);
+    });
+}
+
 export async function initEventStats() {
-    // Get the selected values from the dropdowns and inputs
+    await populateEventSearch(); // Populate event search
+    await populateFilterDropdowns(); // Populate filters
+
     const selectedTier = tierDropdown.value;
     const selectedCountry = countryDropdown.value;
     const selectedState = stateDropdown.value;
     const searchedEvent = searchEvent.value.toLowerCase();
 
-    // Construct the URL with the selected filters
-    let url = `./PHP/events.php?tier=${selectedTier}&country=${selectedCountry}&state=${selectedState}`;
+    let url = `./PHP/events.php?tier=<span class="math-inline">\{selectedTier\}&country\=</span>{selectedCountry}&state=${selectedState}`;
 
-    // Fetch data based on the selected filters
-    const data = await fetchData(url);
+    const events = await fetchData(url);
+    if (!events) return;
 
-    const filteredEvents = data.filter(event =>
+    const filteredEvents = events.filter(event =>
         event.EVENT_NAME.toLowerCase().includes(searchedEvent)
     );
 
-    // Populate the event list with the filtered data
-    eventListRef.innerHTML = ""; // Clear previous options
-    filteredEvents.forEach(event => {
-        if (event.EVENT_NAME.toLowerCase()) {
-            const option = document.createElement("option");
-            option.value = event.EVENT_NAME;
-            eventListRef.appendChild(option);
-        }
-    });
-
-    // Update the map with the filtered events
     updateMap(filteredEvents);
+    //  updateChartsAndStats(filteredEvents); //  Need to implement this
 }
 
+export async function updateFilters() {
+    await populateFilterDropdowns();
+}
+
+/* --------------- EVENT LISTENERS --------------- */
+
+countryDropdown.addEventListener("change", async () => {
+    const selectedCountry = countryDropdown.value;
+    const url = `./PHP/handlers/getProvince.php?country=${selectedCountry}`;
+    const states = await fetchData(url);
+
+    if (!states) return;
+
+    stateDropdown.innerHTML = '<option value="">All States</option>';
+
+    states.states.forEach(state => {
+        const option = document.createElement('option');
+        option.value = state['state_id'];
+        option.textContent = state['state_name'];
+        stateDropdown.appendChild(option);
+    });
+
+    initEventStats(); // Re-fetch events when country changes
+});
+
+searchEvent.addEventListener("input", () => {
+    initEventStats();
+});
+
+[tierDropdown, countryDropdown, stateDropdown].forEach(dropdown => {
+    dropdown.addEventListener("change", () => {
+        initEventStats();
+    });
+});
+
+resetFiltersButton.addEventListener("click", () => {
+    tierDropdown.value = "";
+    countryDropdown.value = "";
+    stateDropdown.value = "";
+    searchEvent.value = "";
+    initEventStats(); // Re-fetch events after reset
+});
 
 
 /* --------------- ORIGINAL CODE --------------- */

@@ -3,10 +3,11 @@ export async function fetchData(url) {
     try {
         const response = await fetch(url);
         if (!response.ok) {
-            throw new Error("Network response was not ok " + response.statusText);
+            throw new Error(`Failed to fetch from ${url}: ${response.statusText}`);
         }
         return await response.json();
     } catch (error) {
-        return console.error("Fetch error: ", error);
+        console.error("Fetch error: ", error);
+        throw error; // Re-throw the error
     }
 }
