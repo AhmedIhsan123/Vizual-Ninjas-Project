@@ -175,15 +175,6 @@ function updateTopPlayers(players) {
     });
 }
 
-export { updateChartsAndStats };
-
-
-
-
-
-
-
-
 
 
 // /* --------------- ORIGINAL CODE --------------- */
