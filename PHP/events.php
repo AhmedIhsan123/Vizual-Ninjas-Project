@@ -16,17 +16,17 @@ try {
 
     if (!empty($_GET['tier'])) {
         $filters[] = "e.EVENT_TIER_ID = :tier";
-        $params[':tier'] = (int) $_GET['tier'];  // cast to int for safety
+        $params[':tier'] = $_GET['tier'];  // cast to int for safety
     }
 
     if (!empty($_GET['country'])) {
         $filters[] = "e.COUNTRY_ID = :country";
-        $params[':country'] = (int) $_GET['country'];
+        $params[':country'] = $_GET['country'];
     }
 
     if (!empty($_GET['state'])) {
         $filters[] = "e.EVENT_STATE_ID = :state";
-        $params[':state'] = (int) $_GET['state'];
+        $params[':state'] = $_GET['state'];
     }
 
     // WHERE clause
