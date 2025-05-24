@@ -1,6 +1,6 @@
 /* --------------- IMPORTS --------------- */
 import { fetchData } from "../../utils.js";
-import { updateMap } from "./event-map.js";
+import { updateMap, showMembersOnMap } from "./event-map.js";
 
 /* --------------- GLOBAL VARIABLES --------------- */
 const resetFiltersButton = document.querySelector("#reset-filters");
@@ -130,4 +130,10 @@ export async function initEventStats() {
 
     // Update the map with the filtered events
     updateMap(filteredEvents);
+
+    // Shows members when event is selected
+    if (filteredEvents.length === 1) {
+        const eventId = filteredEvents[0].EVENT_ID;
+        await showMembersOnMap(eventId);
+    }
 }
