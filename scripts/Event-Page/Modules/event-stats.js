@@ -20,8 +20,8 @@ export async function fillCards(event) {
     // Set the text of the stats section
     totalPlayersRef.innerHTML = `${event.TOTAL_MEMBERS} Players`;
     averageDistanceRef.innerHTML = `${event.AVG_TRAVEL_DISTANCE_MILES} mi`;
-    moreThanRef.innerHTML = `${getNumPlayers(event, true)} Players`;
-    lessThanRef.innerHTML = `${getNumPlayers(event, false)} Players`;
+    moreThanRef.innerHTML = `${getNumPlayers(members, true)} Players`;
+    lessThanRef.innerHTML = `${getNumPlayers(members, false)} Players`;
     outOfStateRef.innerHTML = `${event.MEMBERS_OUT_OF_STATE} Players`;
     inStateRef.innerHTML = `${event.MEMBERS_IN_STATE} Players`;
     maxDistanceRef.innerHTML = `${getMinMax(members, false)} mi`;
@@ -55,6 +55,7 @@ function getNumPlayers(arr, isGreater) {
     let count = 0;
 
     for (let i = 0; i < arr.length; i++) {
+
         if (isGreater) {
             if (Number(arr[i].DISTANCE_TRAVELED_MILES) > 1000) {
                 count++;
