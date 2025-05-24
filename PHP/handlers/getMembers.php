@@ -1,36 +1,39 @@
 <?php
-// PHP/getMembers.php
+
 header('Content-Type: application/json');
-require '/home/aabualha/db.php'; // Adjust the path to your db.php
+require '/home/aabualha/db.php';
 
-if (!isset($pdo)) {
-    http_response_code(500);
-    echo json_encode(['error' => 'Database not connected']);
-    exit;
-}
+// Get event ID from request (sanitize input)
+$event_id = isset($_GET['event_id']) ? intval($_GET['event_id']) : 0;
 
-try {
-    $stmt = $pdo->query("
-        SELECT 
-            PDGA_NUMBER, 
-            MEMBER_FULL_NAME, 
-            MEMBER_LAT, 
-            MEMBER_LON, 
-            MEMBER_STATE_PROV,
-            COUNTRY_ID
-        FROM MEMBER
-    ");
-    $members = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// Prepare SQL query
+$sql = "SELECT 
+            r.DIVISION_ID,
+            r.EVENT_PLACE,
+            r.EVENT_ID,
+            m.PDGA_NUMBER, 
+            m.MEMBER_FULL_NAME, 
+            m.MEMBER_CITY, 
+            m.MEMBER_STATE_PROV, 
+            m.COUNTRY_ID, 
+            m.MEMBER_POSTAL_ZIP, 
+            m.MEMBER_ADDRESS, 
+            m.MEMBER_LAT, 
+            m.MEMBER_LON, 
+            m.MEMBER_ADDRESS_FORMATTED
+        FROM EVENT_RESULT r
+        JOIN MEMBER m ON r.PDGA_NUMBER = m.PDGA_NUMBER
+        WHERE r.EVENT_ID = :event_id";
 
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $row['MEMBER_LAT'] = floatval($row['MEMBER_LAT']);
-        $row['MEMBER_LON'] = floatval($row['MEMBER_LON']);
-        $members[] = $row;
-    }
-    echo json_encode($members);
+// Prepare and execute the statement
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(':event_id', $event_id, PDO::PARAM_INT);
+$stmt->execute();
 
-} catch (PDOException $e) {
-    http_response_code(500);
-    echo json_encode(['error' => 'Query failed: ' . $e->getMessage()]);
-}
+// Fetch the results
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Output results as JSON
+header('Content-Type: application/json');
+echo json_encode($results);
 ?>
