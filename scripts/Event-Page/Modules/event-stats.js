@@ -1,7 +1,7 @@
 import { fetchData } from "../../utils.js";
 
 // event-stats.js
-const eventName = document.querySelector("#selectedEventName");
+const eventNameRef = document.querySelector("#selectedEventName");
 const totalPlayersRef = document.querySelector("#total-players");
 const averageDistanceRef = document.querySelector("#average-distance");
 const moreThanRef = document.querySelector("#more-than");
