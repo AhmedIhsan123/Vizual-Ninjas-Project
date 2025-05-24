@@ -56,11 +56,11 @@ function getNumPlayers(arr, isGreater) {
 
     for (let i = 0; i < arr.length; i++) {
         if (isGreater) {
-            if (arr[i].DISTANCE_TRAVELED_MILES > 1000) {
+            if (Number(arr[i].DISTANCE_TRAVELED_MILES) > 1000) {
                 count++;
             }
         } else {
-            if (arr[i].DISTANCE_TRAVELED_MILES < 500) {
+            if (Number(arr[i].DISTANCE_TRAVELED_MILES) < 500) {
                 count++;
             }
         }
