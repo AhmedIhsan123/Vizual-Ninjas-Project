@@ -43,7 +43,7 @@ export function updateMap(eventsToDisplay) {
 export async function showMembersOnMap(eventId) {
     memberLayerGroup.clearLayers();
 
-    let url = `./PHP/getMembers.php?event_id=${eventId}`;
+    let url = `../../PHP/getMembers.php?event_id=${eventId}`;
     const members = await fetchData(url);
     
     members.forEach(member => {
