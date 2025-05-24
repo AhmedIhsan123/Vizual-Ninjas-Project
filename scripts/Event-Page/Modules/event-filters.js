@@ -4,10 +4,11 @@ import { updateMap } from "./event-map.js";
 
 /* --------------- GLOBAL VARIABLES --------------- */
 const resetFiltersButton = document.querySelector("#reset-filters");
-
+const tierDropdown = document.querySelector("#tierFilter");
+const countryDropdown = document.querySelector("#countryFilter");
+const stateDropdown = document.querySelector("#stateFilter");
 const searchEvent = document.querySelector("#event-search");
 const eventListRef = document.querySelector("#event-list");
-
 
 /* --------------- EVENT LISTENERS --------------- */
 countryDropdown.addEventListener("change", async () => {
