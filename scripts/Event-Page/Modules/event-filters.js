@@ -3,7 +3,6 @@
 /* --------------- IMPORTS --------------- */
 import { fetchData } from "../../utils.js";
 import { updateMap } from "./event-map.js";
-import { updateChartsAndStats } from "./event-charts.js";
 
 /* --------------- GLOBAL VARIABLES --------------- */
 const applyFiltersEventButton = document.querySelector("#apply-filters-event"); // NEW BUTTON REFERENCE
