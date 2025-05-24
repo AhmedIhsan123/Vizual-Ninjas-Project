@@ -8,14 +8,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Build the event stats
     await initEventStats();
 
-    // Update the filters
-    await updateFilters();
+    // // Update the filters
+    // await updateFilters();
 
-    // Initial call to update charts and stats (you might want to refine this based on when you want this data)
-    const events = await fetchData("./PHP/events.php"); // Fetch all events initially
-    if (events && events.length > 0) {
-        await updateChartsAndStats(events);
-    }
+    // // Initial call to update charts and stats (you might want to refine this based on when you want this data)
+    // const events = await fetchData("./PHP/events.php"); // Fetch all events initially
+    // if (events && events.length > 0) {
+    //     await updateChartsAndStats(events);
+    // }
 });
 
 

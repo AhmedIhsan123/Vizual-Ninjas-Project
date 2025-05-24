@@ -52,6 +52,7 @@ try {
                     SIN(RADIANS(m.MEMBER_LAT)) * SIN(RADIANS(e.EVENT_LATITUDE))
                 )
             ), 2) AS AVG_TRAVEL_DISTANCE_MILES
+            
         FROM 
             EVENT_RESULT er
         JOIN MEMBER m ON er.PDGA_NUMBER = m.PDGA_NUMBER
