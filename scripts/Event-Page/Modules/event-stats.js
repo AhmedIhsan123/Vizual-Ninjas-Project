@@ -10,10 +10,10 @@ const maxRef = document.querySelector("#max");
 const minRef = document.querySelector("#min");
 
 export function fillCards(event) {
-    totalPlayersRef.innerHTML = `${event.TOTAL_PLAYERS} Players`;
+    totalPlayersRef.innerHTML = `${event.TOTAL_MEMBERS} Players`;
     averageDistanceRef.innerHTML = `${event.AVG_TRAVEL_DISTANCE_MILES} Miles`;
-    outOfStateRef.innerHTML = `${event.OUT_OF_STATE} Out of State`;
-    inStateRef.innerHTML = `${event.IN_STATE} In State`;
+    outOfStateRef.innerHTML = `${event.MEMBERS_OUT_OF_STATE} Out of State`;
+    inStateRef.innerHTML = `${event.MEMBERS_IN_STATE} In State`;
     maxRef.innerHTML = `${Math.max(...event(obj => obj.AVG_TRAVEL_DISTANCE_MILES))} Miles`;
     minRef.innerHTML = `${Math.min(...event(obj => obj.AVG_TRAVEL_DISTANCE_MILES))} Miles`;
 }
