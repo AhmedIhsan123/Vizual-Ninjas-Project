@@ -1,5 +1,5 @@
 import { fillCards } from "./event-stats.js";
-
+import { fetchData } from "../../utils.js";
 
 // Map Initialization
 const map = L.map('mapid').setView([39.5, -98.35], 4);
