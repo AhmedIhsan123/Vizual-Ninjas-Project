@@ -119,6 +119,8 @@ export async function initEventStats() {
         event.EVENT_NAME.toLowerCase().includes(searchedEvent)
     );
 
+    console.log("Filtered Events:", filteredEvents);
+
     // Populate the event list with the filtered data
     eventListRef.innerHTML = ""; // Clear previous options
     filteredEvents.forEach(event => {
