@@ -119,47 +119,6 @@ function renderCharts(topPlayers, playersByState) {
     });
 }
 
-function updateStats(playersData, selectedEvent) {
-    if (!selectedEvent) return;
-
-    const totalPlayers = playersData.length;
-    let avgDistance = 0;
-    let greaterThan1000 = 0;
-    let greaterThan100 = 0;
-    let maxDistance = 0;
-    let minDistance = Infinity;
-    let outOfStatePlayers = 0;
-    let inStatePlayers = 0;
-
-    if (totalPlayers > 0) {
-        let totalDistance = 0;
-        playersData.forEach(p => {
-            totalDistance += p.distanceKm;
-            if (p.distanceKm > 1609.34) greaterThan1000++;
-            if (p.distanceKm > 160.934) greaterThan100++;
-            if (p.distanceKm > maxDistance) maxDistance = p.distanceKm;
-            if (p.distanceKm < minDistance) minDistance = p.distanceKm;
-
-            if (p.state !== selectedEvent.EVENT_STATE_ID) {
-                outOfStatePlayers++;
-            } else {
-                inStatePlayers++;
-            }
-        });
-        avgDistance = totalDistance / totalPlayers;
-    }
-
-    document.getElementById("total-players").textContent = totalPlayers.toLocaleString();
-    document.getElementById("average-distance").textContent = isNaN(avgDistance) ? '--' : `${Math.round(avgDistance * 0.621371)} mi`;
-    document.getElementById("greater-than").textContent = greaterThan1000.toLocaleString();
-    document.getElementById("less-than").textContent = greaterThan100.toLocaleString();
-    document.getElementById("out-of-state").textContent = outOfStatePlayers.toLocaleString();
-    document.getElementById("in-state").textContent = inStatePlayers.toLocaleString();
-    document.getElementById("max").textContent = (isFinite(maxDistance) && maxDistance > 0) ? `${Math.round(maxDistance * 0.621371).toLocaleString()} mi` : '--';
-    document.getElementById("min").textContent = (isFinite(minDistance) && minDistance > 0) ? `${Math.round(minDistance * 0.621371).toLocaleString()} mi` : '--';
-
-}
-
 function updateTopPlayers(players) {
     const topList = document.getElementById("topPlayersList");
     if (!topList) return;
