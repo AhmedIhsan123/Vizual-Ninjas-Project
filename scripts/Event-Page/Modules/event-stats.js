@@ -39,10 +39,10 @@ function getMinMax(arr, isMin) {
         if (isMin) {
             if (arr[i].DISTANCE_TRAVELED_MILES < tracker) {
                 tracker = arr[i].DISTANCE_TRAVELED_MILES;
-            } else {
-                if (arr[i].DISTANCE_TRAVELED_MILES > tracker) {
-                    tracker = arr[i].DISTANCE_TRAVELED_MILES;
-                }
+            }
+        } else {
+            if (arr[i].DISTANCE_TRAVELED_MILES > tracker) {
+                tracker = arr[i].DISTANCE_TRAVELED_MILES;
             }
         }
     }
