@@ -32,4 +32,3 @@ try {
     http_response_code(500);
     echo json_encode(['error' => 'Query failed', 'details' => $e->getMessage()]);
 }
-?>
