@@ -1,13 +1,14 @@
 import { fillCards } from "./event-stats.js";
 
-let memberLayerGroup = L.layerGroup().addTo(map); // Member markers
-let eventLayerGroup = L.layerGroup().addTo(map);  // Event marker
 
 // Map Initialization
 const map = L.map('mapid').setView([39.5, -98.35], 4);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
+
+let memberLayerGroup = L.layerGroup().addTo(map); // Member markers
+let eventLayerGroup = L.layerGroup().addTo(map);  // Event marker
 
 export function updateMap(eventsToDisplay) {
     eventLayerGroup.clearLayers();
