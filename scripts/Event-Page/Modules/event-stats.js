@@ -17,27 +17,36 @@ export async function fillCards(event) {
     const returnedList = await fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`);
     members = returnedList;
 
-
-    countPlayersInRange(500, true, members);
-
     // Set the text of the stats section
     totalPlayersRef.innerHTML = `${event.TOTAL_MEMBERS} Players`;
-    averageDistanceRef.innerHTML = `${event.AVG_TRAVEL_DISTANCE_MILES} Miles`;
+    averageDistanceRef.innerHTML = `${event.AVG_TRAVEL_DISTANCE_MILES} mi`;
     outOfStateRef.innerHTML = `${event.MEMBERS_OUT_OF_STATE} Players`;
     inStateRef.innerHTML = `${event.MEMBERS_IN_STATE} Players`;
+    maxDistanceRef = `${getMinMax(members, false)} mi`;
+    minDistanceRef = `${getMinMax(members, true)} mi`;
 
 
 
 
 }
 
-
-function countPlayersInRange(range, isGreater, arr) {
-    // Track the count of players
-    let count = 0;
+// Function to help get the min or max travel distance of a list of players
+function getMinMax(arr, isMin) {
+    // Track
+    let tracker = 0;
 
     for (let i = 0; i < arr.length; i++) {
-        console.log(arr[i]);
+        if (isMin) {
+            if (arr[i].DISTANCE_TRAVELED_MILES < tracker) {
+                tracker = arr[i].DISTANCE_TRAVELED_MILES;
+            } else {
+                if (arr[i].DISTANCE_TRAVELED_MILES > tracker) {
+                    tracker = arr[i].DISTANCE_TRAVELED_MILES;
+                }
+            }
+        }
     }
 
+    // Return tracker
+    return tracker;
 }
