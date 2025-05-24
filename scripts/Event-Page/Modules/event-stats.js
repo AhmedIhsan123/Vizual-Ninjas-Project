@@ -36,7 +36,7 @@ function countPlayersInRange(range, isGreater, arr) {
     // Track the count of players
     let count = 0;
 
-    arr.array.forEach(element => {
+    arr.forEach(element => {
         console.log(element);
     });
 
