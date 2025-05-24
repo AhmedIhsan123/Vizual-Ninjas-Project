@@ -107,14 +107,14 @@ export function updateStats(playersData, selectedEvent) {
 //     const topList = document.getElementById("topPlayersList");
 //     topList.innerHTML = "";
 
-//     const medals = ["🥇", "🥈", "🥉"];
+//     const medals = ["ðŸ¥‡", "ðŸ¥ˆ", "ðŸ¥‰"];
 
 //     // Changed to slice(0, 3) to show only top 3
 //     players
 //         .slice(0, 3)
 //         .forEach((p, i) => {
 //             const li = document.createElement("li");
-//             const icon = medals[i] || `${i + 1} –`;
+//             const icon = medals[i] || `${i + 1} â€“`;
 //             li.textContent = `${icon} ${p.name}`;
 //             topList.appendChild(li);
 //         });

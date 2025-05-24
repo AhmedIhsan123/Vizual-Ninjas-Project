@@ -21,6 +21,12 @@ try {
         FROM MEMBER
     ");
     $members = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $row['MEMBER_LAT'] = floatval($row['MEMBER_LAT']);
+        $row['MEMBER_LON'] = floatval($row['MEMBER_LON']);
+        $members[] = $row;
+    }
     echo json_encode($members);
 
 } catch (PDOException $e) {

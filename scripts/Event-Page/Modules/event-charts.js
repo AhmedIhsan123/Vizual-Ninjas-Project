@@ -166,7 +166,7 @@ function updateTopPlayers(players) {
 
     topList.innerHTML = "";
 
-    const medals = ["🥇", "🥈", "🥉"];
+    const medals = ["ðŸ¥‡", "ðŸ¥ˆ", "ðŸ¥‰"];
 
     players.slice(0, 3).forEach((p, i) => {
         const li = document.createElement("li");
