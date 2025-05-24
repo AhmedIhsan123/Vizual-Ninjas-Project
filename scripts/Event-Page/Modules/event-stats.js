@@ -18,6 +18,7 @@ export async function fillCards(event) {
     members = returnedList;
 
 
+    countPlayersInRange(500, true, members);
 
     // Set the text of the stats section
     totalPlayersRef.innerHTML = `${event.TOTAL_MEMBERS} Players`;
@@ -27,5 +28,16 @@ export async function fillCards(event) {
 
 
 
+
+}
+
+
+function countPlayersInRange(range, isGreater, arr) {
+    // Track the count of players
+    let count = 0;
+
+    arr.array.forEach(element => {
+        console.log(element);
+    });
 
 }
