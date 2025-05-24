@@ -33,7 +33,7 @@ export async function fillCards(event) {
 // Function to help get the min or max travel distance of a list of players
 function getMinMax(arr, isMin) {
     // Track
-    let tracker = 0;
+    let tracker = arr[0].DISTANCE_TRAVELED_MILES;
 
     for (let i = 0; i < arr.length; i++) {
         if (isMin) {
