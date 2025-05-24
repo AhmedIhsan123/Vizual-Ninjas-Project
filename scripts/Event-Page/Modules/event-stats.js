@@ -6,8 +6,8 @@ const greaterThanRef = document.querySelector("#greater-than");
 const lessThanRef = document.querySelector("#less-than");
 const outOfStateRef = document.querySelector("#out-of-state");
 const inStateRef = document.querySelector("#in-state");
-const maxRef = document.querySelector("#max");
-const minRef = document.querySelector("#min");
+const maxRef = document.querySelector("#max-dist");
+const minRef = document.querySelector("#min-dist");
 
 export function fillCards(event) {
     totalPlayersRef.innerHTML = `${event.TOTAL_MEMBERS} Players`;
