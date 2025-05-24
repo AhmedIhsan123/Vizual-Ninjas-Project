@@ -16,7 +16,7 @@ function haversineDistance(lat1, lon1, lat2, lon2) {
     return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
-async function updateChartsAndStats(events) {
+export async function updateChartsAndStats(events) {
     const allMembers = await fetchData("./PHP/handlers/getMembers.php"); // You'll need to create this PHP file
     const allEventResults = await fetchData("./PHP/handlers/getEventResults.php"); // And this one
 
