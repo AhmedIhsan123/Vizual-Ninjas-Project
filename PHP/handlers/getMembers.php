@@ -32,17 +32,20 @@ if ($event_id > 0) {
     $stmt->bindParam(':event_id', $event_id, PDO::PARAM_INT);
 } else {
     $sql = "SELECT 
-                PDGA_NUMBER, 
-                MEMBER_FULL_NAME, 
-                MEMBER_CITY, 
-                MEMBER_STATE_PROV, 
-                COUNTRY_ID, 
-                MEMBER_POSTAL_ZIP, 
-                MEMBER_ADDRESS, 
-                MEMBER_LAT, 
-                MEMBER_LON, 
-                MEMBER_ADDRESS_FORMATTED
-            FROM MEMBER";
+                m.PDGA_NUMBER, 
+                m.MEMBER_FULL_NAME, 
+                m.MEMBER_CITY, 
+                m.MEMBER_STATE_PROV, 
+                m.COUNTRY_ID, 
+                m.MEMBER_POSTAL_ZIP, 
+                m.MEMBER_ADDRESS, 
+                m.MEMBER_LAT, 
+                m.MEMBER_LON, 
+                m.MEMBER_ADDRESS_FORMATTED,
+                e.EVENT_LATITUDE,
+                e.EVENT_LONGITUDE
+            FROM MEMBER m
+            CROSS JOIN EVENT e"; // Get all events for distance calculation
     
     $stmt = $pdo->prepare($sql);
 }
@@ -66,7 +69,7 @@ function haversineDistance($lat1, $lon1, $lat2, $lon2) {
 
     $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
 
-    return $earthRadius * $c;
+    return round($earthRadius * $c, 2); // Round to 2 decimal places
 }
 
 // Calculate the distance traveled for each result
