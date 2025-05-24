@@ -22,8 +22,8 @@ export async function fillCards(event) {
     averageDistanceRef.innerHTML = `${event.AVG_TRAVEL_DISTANCE_MILES} mi`;
     outOfStateRef.innerHTML = `${event.MEMBERS_OUT_OF_STATE} Players`;
     inStateRef.innerHTML = `${event.MEMBERS_IN_STATE} Players`;
-    maxDistanceRef = `${getMinMax(members, false)} mi`;
-    minDistanceRef = `${getMinMax(members, true)} mi`;
+    maxDistanceRef.innerHTML = `${getMinMax(members, false)} mi`;
+    minDistanceRef.innerHTML = `${getMinMax(members, true)} mi`;
 
 
 
