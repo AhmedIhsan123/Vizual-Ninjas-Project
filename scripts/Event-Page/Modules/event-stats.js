@@ -14,8 +14,6 @@ export function fillCards(event) {
     averageDistanceRef.innerHTML = `${event.AVG_TRAVEL_DISTANCE_MILES} Miles`;
     outOfStateRef.innerHTML = `${event.MEMBERS_OUT_OF_STATE} Out of State`;
     inStateRef.innerHTML = `${event.MEMBERS_IN_STATE} In State`;
-
-    const distances = event.map(obj => obj.AVG_TRAVEL_DISTANCE_MILES);
-    maxRef.innerHTML = `${Math.max(...distances)} Miles`;
-    minRef.innerHTML = `${Math.min(...distances)} Miles`;
+    maxRef.innerHTML = `${Math.max(...event.MEMBERS.map(m => m.AVG_TRAVEL_DISTANCE_MILES))} Miles`;
+    minRef.innerHTML = `${Math.min(...event.MEMBERS.map(m => m.AVG_TRAVEL_DISTANCE_MILES))} Miles`;
 }
