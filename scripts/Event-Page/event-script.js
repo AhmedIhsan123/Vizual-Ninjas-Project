@@ -1,6 +1,7 @@
 /* --------------- IMPORTS --------------- */
 import { initEventStats, updateFilters } from "./Modules/event-filters.js";
 import { updateChartsAndStats } from "./Modules/event-charts.js";
+import { fetchData } from "../../utils.js";
 
 /* -------- INITIALIZATION  -------- */
 document.addEventListener("DOMContentLoaded", async () => {
