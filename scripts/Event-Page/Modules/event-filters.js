@@ -122,11 +122,9 @@ export async function initEventStats() {
     // Populate the event list with the filtered data
     eventListRef.innerHTML = ""; // Clear previous options
     filteredEvents.forEach(event => {
-        if (event.EVENT_NAME.toLowerCase()) {
-            const option = document.createElement("option");
-            option.value = event.EVENT_NAME;
-            eventListRef.appendChild(option);
-        }
+        const option = document.createElement("option");
+        option.value = event.EVENT_NAME;
+        eventListRef.appendChild(option);
     });
 
     // Update the map with the filtered events
