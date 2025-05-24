@@ -1,3 +1,5 @@
+//test
+
 /* --------------- IMPORTS --------------- */
 import { fetchData } from "../../utils.js";
 import { updateMap } from "./event-map.js";
