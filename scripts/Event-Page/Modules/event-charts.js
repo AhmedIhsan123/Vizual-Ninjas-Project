@@ -42,7 +42,6 @@ async function updateChartsAndStats(events) {
                 state: member.MEMBER_STATE_PROV,
                 country: member.COUNTRY_ID
             });
-
             playersByState[member.MEMBER_STATE_PROV] = (playersByState[member.MEMBER_STATE_PROV] || 0) + 1;
         }
     });
@@ -50,133 +49,10 @@ async function updateChartsAndStats(events) {
     // Sort players by event place to get top players
     const topPlayers = currentEventPlayers.sort((a, b) => a.EVENT_PLACE - b.EVENT_PLACE);
 
-    updateStats(currentEventPlayers, events[0]); // Assuming stats are for the first event
+    updateStats(currentEventPlayers, events.length > 0 ? events[0] : null);
     updateTopPlayers(topPlayers);
     renderCharts(topPlayers, playersByState);
 }
-
-function renderCharts(topPlayers, playersByState) {
-    if (chartDistanceInstance) {
-        chartDistanceInstance.destroy();
-    }
-    if (chartStatesInstance) {
-        chartStatesInstance.destroy();
-    }
-
-    const chartDistanceCtx = document.getElementById("chartDistance")?.getContext("2d");
-    const chartStatesCtx = document.getElementById("chartStates")?.getContext("2d");
-
-    if (!chartDistanceCtx || !chartStatesCtx) return;
-
-    chartDistanceInstance = new Chart(chartDistanceCtx, {
-        type: 'bar',
-        data: {
-            labels: topPlayers.slice(0, 25).map(p => p.name),
-            datasets: [{
-                label: "Distance (mi)",
-                data: topPlayers.slice(0, 25).map(p => Math.round(p.distanceKm * 0.621371)),
-                backgroundColor: '#4e88ff'
-            }]
-        },
-        options: {
-            indexAxis: 'y',
-            responsive: true,
-            plugins: {
-                legend: { labels: { color: '#fff' } },
-                tooltip: { callbacks: { label: (context) => `${context.dataset.label}: ${context.raw.toLocaleString()} mi` } }
-            },
-            scales: {
-                x: {
-                    ticks: { color: '#fff' },
-                    title: { text: "Distance (mi)", display: true, color: '#fff' },
-                    grid: { color: 'rgba(255, 255, 255, 0.1)' }
-                },
-                y: {
-                    ticks: { color: '#fff' },
-                    grid: { color: 'rgba(255, 255, 255, 0.1)' }
-                }
-            }
-        }
-    });
-
-    chartStatesInstance = new Chart(chartStatesCtx, {
-        type: 'pie',
-        data: {
-            labels: Object.keys(playersByState),
-            datasets: [{
-                label: "Players",
-                data: Object.values(playersByState),
-                backgroundColor: ['#ff6b6b', '#ffa07a', '#ffefd5', '#b0e0e6', '#6495ed', '#cba3ff'] // Example colors
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: { position: 'top', labels: { color: '#fff' } },
-                title: { display: true, text: 'Players by State', color: '#fff' }
-            }
-        }
-    });
-}
-
-function updateStats(playersData, selectedEvent) {
-    if (!selectedEvent) return;
-
-    const totalPlayers = playersData.length;
-    let avgDistance = 0;
-    let greaterThan1000 = 0;
-    let greaterThan100 = 0;
-    let maxDistance = 0;
-    let minDistance = Infinity;
-    let outOfStatePlayers = 0;
-    let inStatePlayers = 0;
-
-    if (totalPlayers > 0) {
-        let totalDistance = 0;
-        playersData.forEach(p => {
-            totalDistance += p.distanceKm;
-            if (p.distanceKm > 1609.34) greaterThan1000++;
-            if (p.distanceKm > 160.934) greaterThan100++;
-            if (p.distanceKm > maxDistance) maxDistance = p.distanceKm;
-            if (p.distanceKm < minDistance) minDistance = p.distanceKm;
-
-            if (p.state !== selectedEvent.EVENT_STATE_ID) {
-                outOfStatePlayers++;
-            } else {
-                inStatePlayers++;
-            }
-        });
-        avgDistance = totalDistance / totalPlayers;
-    }
-
-    document.getElementById("total-players").textContent = totalPlayers.toLocaleString();
-    document.getElementById("average-distance").textContent = isNaN(avgDistance) ? '--' : `${Math.round(avgDistance * 0.621371)} mi`;
-    document.getElementById("greater-than").textContent = greaterThan1000.toLocaleString();
-    document.getElementById("less-than").textContent = greaterThan100.toLocaleString();
-    document.getElementById("out-of-state").textContent = outOfStatePlayers.toLocaleString();
-    document.getElementById("in-state").textContent = inStatePlayers.toLocaleString();
-    document.getElementById("max").textContent = (isFinite(maxDistance) && maxDistance > 0) ? `${Math.round(maxDistance * 0.621371).toLocaleString()} mi` : '--';
-    document.getElementById("min").textContent = (isFinite(minDistance) && minDistance > 0) ? `${Math.round(minDistance * 0.621371).toLocaleString()} mi` : '--';
-
-}
-
-function updateTopPlayers(players) {
-    const topList = document.getElementById("topPlayersList");
-    if (!topList) return;
-
-    topList.innerHTML = "";
-
-    const medals = ["🥇", "🥈", "🥉"];
-
-    players.slice(0, 3).forEach((p, i) => {
-        const li = document.createElement("li");
-        li.textContent = `${medals[i] || ""} ${p.name} (Place: ${p.EVENT_PLACE})`;
-        topList.appendChild(li);
-    });
-}
-
-export { updateChartsAndStats };
-
 
 
 
