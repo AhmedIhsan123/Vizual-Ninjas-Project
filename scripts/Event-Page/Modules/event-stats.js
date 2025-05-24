@@ -13,11 +13,13 @@ const minDistanceRef = document.querySelector("min-dist");
 let members = [];
 
 export async function fillCards(event) {
+    // Get the members at the selected event
     const returnedList = await fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`);
     members = returnedList;
 
-    console.log(members);
 
+
+    // Set the text of the stats section
     totalPlayersRef.innerHTML = `${event.TOTAL_MEMBERS} Players`;
     averageDistanceRef.innerHTML = `${event.AVG_TRAVEL_DISTANCE_MILES} Miles`;
     outOfStateRef.innerHTML = `${event.MEMBERS_OUT_OF_STATE} Players`;
