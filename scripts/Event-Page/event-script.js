@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await updateFilters();
 
     // Initial call to update charts and stats (you might want to refine this based on when you want this data)
-    const events = await fetchData("./PHP/events.php"); // Fetch all events initially
+    const events = await fetchData("../../PHP/events.php"); // Fetch all events initially
     if (events && events.length > 0) {
         await updateChartsAndStats(events);
     }
