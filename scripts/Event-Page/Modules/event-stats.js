@@ -1,6 +1,7 @@
 import { fetchData } from "../../utils.js";
 
 // event-stats.js
+const eventName = document.querySelector("#selectedEventName");
 const totalPlayersRef = document.querySelector("#total-players");
 const averageDistanceRef = document.querySelector("#average-distance");
 const moreThanRef = document.querySelector("#more-than");
@@ -16,6 +17,9 @@ export async function fillCards(event) {
     // Get the members at the selected event
     const returnedList = await fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`);
     members = returnedList;
+
+    // Sets the text of the event name
+    eventNameRef.innerHTML = `${event.EVENT_NAME}`;
 
     // Set the text of the stats section
     totalPlayersRef.innerHTML = `${event.TOTAL_MEMBERS} Players`;

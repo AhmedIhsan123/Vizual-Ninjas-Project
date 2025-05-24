@@ -115,8 +115,7 @@ export async function initEventStats() {
     const data = await fetchData(url);
 
     const filteredEvents = data.filter(event =>
-        event.EVENT_NAME &&
-        (!searchedEvent || event.EVENT_NAME.toLowerCase().includes(searchedEvent))
+        event.EVENT_NAME.toLowerCase().includes(searchedEvent)
     );
 
     console.log("Filtered Events:", filteredEvents);
