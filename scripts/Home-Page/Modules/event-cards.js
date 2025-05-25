@@ -7,19 +7,19 @@ export function populateCards() {
 
     // For each event, create a card
     sortdEvents.forEach(event => {
-        createCard(event.EVENT_NAME, event.EVENT_TIER_ID, event.TOTAL_MEMBERS, event.AVG_TRAVEL_DISTANCE_MILES);
+        createCard(event.EVENT_NAME, event.EVENT_TIER_ID, event.TOTAL_MEMBERS, event.AVG_TRAVEL_DISTANCE_MILES, event.EVENT_ID);
     });
 }
 
 // Helper function to create a card
-function createCard(eventTitle, eventTierID, eventTotal, eventTravelDistance) {
+function createCard(eventTitle, eventTierID, eventTotal, eventTravelDistance, eventID) {
     const parentRef = document.getElementById("event-cards-container");
     const cardRef = document.createElement("div");
     const cardTitleRef = document.createElement("p");
     const cardTierRef = document.createElement("p");
     const cardTotalRef = document.createElement("p");
     const cardDistanceRef = document.createElement("p");
-    const btnRef = document.createElement("button");
+    const btnRef = document.createElement("a");
 
     cardTitleRef.innerHTML = `<strong>${eventTitle}</strong>`;
     cardTierRef.innerHTML = `Tier: <strong>${eventTierID}</strong>`;
@@ -29,7 +29,14 @@ function createCard(eventTitle, eventTierID, eventTotal, eventTravelDistance) {
 
 
     btnRef.classList.add("button");
+    btnRef.value = eventID;
     cardRef.classList.add("event-card");
     cardRef.append(cardTitleRef, cardTierRef, cardTotalRef, cardDistanceRef, btnRef);
     parentRef.appendChild(cardRef);
+
+
+    // Add event listner for each button to direct to the event-viewer page
+    btnRef.addEventListener("click", function () {
+
+    })
 }
