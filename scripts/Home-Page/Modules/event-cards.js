@@ -38,6 +38,6 @@ function createCard(eventTitle, eventTierID, eventTotal, eventTravelDistance, ev
     parentRef.appendChild(cardRef);
     btnRef.addEventListener("click", function () {
         window.location.href = "https://aabualhawa.greenriverdev.com/SDEV280/Statmando-Project/event-page.html";
-        goToEvent(event);
+        goToEvent(event.EVENT_NAME);
     })
 }

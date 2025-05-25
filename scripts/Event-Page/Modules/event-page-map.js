@@ -43,10 +43,10 @@ export function initMap() {
             });
         });
     });
+}
 
-    // Add click event to each marker
-    function goToEvent(name) {
-        const match = eventList.find(event => event.EVENT_NAME == name);
-        fillCards(match);
-    }
+// Add click event to each marker
+export function goToEvent(name) {
+    const match = eventList.find(event => event.EVENT_NAME == name);
+    fillCards(match);
 }
