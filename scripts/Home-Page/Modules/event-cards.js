@@ -23,7 +23,7 @@ function createCard(eventTitle, eventTierID, eventTotal, eventTravelDistance, ev
     const cardTierRef = document.createElement("p");
     const cardTotalRef = document.createElement("p");
     const cardDistanceRef = document.createElement("p");
-    const btnRef = document.createElement("button");
+    const btnRef = document.createElement("a");
 
     // Set the inner html of each card element
     cardTitleRef.innerHTML = `<strong>${eventTitle}</strong>`;
@@ -35,7 +35,9 @@ function createCard(eventTitle, eventTierID, eventTotal, eventTravelDistance, ev
     // Add class, or listners, or anything needed to the references
     btnRef.classList.add("button");
     btnRef.value = eventID;
+    btnRef.href = `event-page.html?name=${eventTitle}`;
     cardRef.classList.add("event-card");
     cardRef.append(cardTitleRef, cardTierRef, cardTotalRef, cardDistanceRef, btnRef);
     parentRef.appendChild(cardRef);
+
 }
