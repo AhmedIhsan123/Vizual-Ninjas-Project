@@ -1,4 +1,4 @@
-import { eventList } from "../../script.jss";
+import { eventList } from "../../script.js";
 // Local Variables
 // Set the initial view to a specific location and zoom level
 const map = L.map('mapid').setView([45.5, -98.35], 4);
