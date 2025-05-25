@@ -118,8 +118,8 @@ export async function drawMemberPins(event) {
         memberMarkers[member.PDGA_NUMBER] = marker;
 
         // Draw line
-        drawLine([latLng, [event.EVENT_LATITUDE, event.EVENT_LONGITUDE]]);
         console.log([latLng, [event.EVENT_LATITUDE, event.EVENT_LONGITUDE]]);
+        drawLine([latLng, [event.EVENT_LATITUDE, event.EVENT_LONGITUDE]]);
     });
 }
 
