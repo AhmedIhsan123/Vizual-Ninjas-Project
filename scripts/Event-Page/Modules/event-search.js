@@ -1,4 +1,4 @@
-import { eventList, playerList } from "../../script";
+import { eventList, playerList } from "../../script.js";
 import { goToEvent } from "./event-page-map.js";
 import { fillCards } from "./event-stats.js";
 
