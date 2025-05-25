@@ -56,10 +56,13 @@ export async function drawMembers(event) {
     // Fetch all the members coming to event
     const members = await fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`);
     const eventLatLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
-    var myIcon = L.AwesomeMarkers.icon({
-        icon: 'user',      // icon name
-        markerColor: 'red',
-        prefix: 'fas'         // 'fa' for Font Awesome 4, or 'fas' for Font Awesome 5+
+    const redIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+        shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
     });
 
     if (currentDrawnLines.length > 0) {
@@ -76,7 +79,7 @@ export async function drawMembers(event) {
 
     members.forEach(member => {
         const latLng = [member.MEMBER_LAT, member.MEMBER_LON];
-        const marker = L.marker(latLng, { icon: myIcon }).addTo(map);
+        const marker = L.marker(latLng, { icon: redIcon }).addTo(map);
 
         // Store marker by a unique key (e.g., event ID or name)
         memberMarkers.push(marker);
