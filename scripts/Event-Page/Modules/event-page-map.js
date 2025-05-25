@@ -7,6 +7,16 @@ const map = L.map('mapid').setView([45.5, -98.35], 4);
 const eventMarkers = [];
 const memberMarkers = [];
 const currentDrawnLines = [];
+const eventSvgIcon = `
+  <div class="lucide-marker">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+      viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 11c0 4.418 7 11 7 11s7-6.582 7-11a7 7 0 1 0-14 0Z"/>
+      <circle cx="12" cy="11" r="3"/>
+    </svg>
+  </div>
+`;
 
 // Initialize the map
 export function initMap() {
@@ -18,7 +28,13 @@ export function initMap() {
     // Loop through the data and add markers to the map
     eventList.forEach(event => {
         const latLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
-        const marker = L.marker(latLng).addTo(map);
+        const eventIcon = L.divIcon({
+            html: eventSvgIcon,
+            className: "",
+            iconSize: [30, 30],
+            iconAnchor: [15, 30]
+        });
+        const marker = L.marker(latLng, { icon: eventIcon }).addTo(map);
         marker.bindPopup(`
             <strong>${event.EVENT_NAME}</strong><br>
             ${event.COUNTRY_ID}, ${event.EVENT_STATE_ID}<br>
@@ -48,13 +64,6 @@ export function initMap() {
 // Add click event to each marker
 export function goToEvent(event) {
     const marker = eventMarkers[event.EVENT_NAME];
-
-    for (const name in eventMarkers) {
-        if (name !== event.EVENT_NAME) {
-            map.removeLayer(eventMarkers[name]);
-        }
-    }
-
     marker.openPopup();
     drawMembers(event);
 }
