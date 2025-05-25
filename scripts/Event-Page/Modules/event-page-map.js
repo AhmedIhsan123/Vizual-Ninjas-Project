@@ -57,7 +57,7 @@ export async function drawMembers(event) {
     const members = await fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`);
     const eventLatLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
     const redIcon = new L.Icon({
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
         shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
         iconSize: [25, 41],
         iconAnchor: [12, 41],
