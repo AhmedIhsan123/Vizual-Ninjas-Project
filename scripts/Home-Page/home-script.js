@@ -4,24 +4,17 @@ import { initMap } from "./Modules/map.js";
 import { updateFilters } from "./Modules/filters-chart.js";
 import { populateCards } from "./Modules/event-cards.js";
 
-console.log(22);
+// Build the event chart
+await buildEventChart();
 
-/* -------- INITIALIZATION  -------- */
-document.addEventListener("DOMContentLoaded", async () => {
-    // Build the event chart
-    await buildEventChart();
-    console.log(33);
+// Build the table of events
+await initList();
 
-    // Build the table of events
-    await initList();
+// Generate the map
+initMap();
 
-    // Generate the map
-    initMap();
+// Update the filters
+updateFilters();
 
-    // Update the filters
-    updateFilters();
-
-    // Update the cards seciton
-    populateCards();
-});
-/* -------- INITIALIZATION END  -------- */
+// Update the cards seciton
+populateCards();
