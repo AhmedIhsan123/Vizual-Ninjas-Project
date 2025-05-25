@@ -51,7 +51,7 @@ export async function drawEventPins() {
         // Add onclick events to marker
         marker.on("click", async () => {
             // Draw member pins
-            await drawMemberPins(event.EVENT_ID);
+            await drawMemberPins(event);
 
             // Fly to the pin once clicked
             map.flyTo(marker.getLatLng(), 8, {
