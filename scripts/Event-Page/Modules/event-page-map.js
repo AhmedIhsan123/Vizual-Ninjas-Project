@@ -52,6 +52,13 @@ export function initMap() {
 export function goToEvent(event) {
     const latLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
     const marker = eventMarkers[event.EVENT_NAME];
+
+    if (eventMarkers.length > 1) {
+        eventMarkers.forEach(marker => {
+            console.log(marker);
+        })
+    }
+
     map.flyTo(latLng, 13, {
         animate: true,
         duration: 1.5
@@ -87,7 +94,6 @@ export async function drawMembers(event) {
 
         // Store marker by a unique key (e.g., event ID or name)
         memberMarkers.push(marker);
-        console.log(memberMarkers)
 
         const line = L.polyline(
             [latLng, eventLatLng],
