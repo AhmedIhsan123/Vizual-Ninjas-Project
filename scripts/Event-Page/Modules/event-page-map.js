@@ -126,7 +126,7 @@ export async function drawMemberPins(event) {
 
 function drawLine(latlngs) {
     // Remove all the current lines
-    currentDrawnLines = undefined;
+    currentDrawnLines = [];
 
     // Store a line in a constant
     const animatedLine = L.polyline(latlngs, {
