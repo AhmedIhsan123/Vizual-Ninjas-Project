@@ -37,6 +37,6 @@ function createCard(eventTitle, eventTierID, eventTotal, eventTravelDistance, ev
 
     // Add event listner for each button to direct to the event-viewer page
     btnRef.addEventListener("click", function () {
-        window.location.open("../../../event-page.html");
+        window.location.href = "../../../event-page.html";
     })
 }
