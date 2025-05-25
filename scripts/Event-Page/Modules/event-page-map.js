@@ -69,6 +69,12 @@ export async function drawMembers(event) {
         shadowSize: [41, 41]
     });
 
+    for (const name in eventMarkers) {
+        if (name != event.EVENT_NAME) {
+            map.removeLayer(eventMarkers[name]);
+        }
+    }
+
     if (currentDrawnLines.length > 0) {
         currentDrawnLines.forEach(line => {
             map.removeLayer(line);
