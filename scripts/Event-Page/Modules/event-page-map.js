@@ -121,7 +121,6 @@ export async function drawMemberPins(eventID) {
 
 function drawLine(latlngs) {
     // Store a line in a constant
-    const dashedLine
 }
 
 // Method to hide all member pins
