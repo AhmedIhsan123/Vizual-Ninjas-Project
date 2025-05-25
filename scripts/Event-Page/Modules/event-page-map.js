@@ -5,7 +5,7 @@ const map = L.map('mapid').setView([45.5, -98.35], 4);
 const markers = [];
 
 // Initialize the map
-function initMap() {
+export function initMap() {
     // Add a tile layer to the map (OpenStreetMap tiles)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors',
