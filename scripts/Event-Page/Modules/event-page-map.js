@@ -124,7 +124,7 @@ export async function drawMemberPins(event) {
 
 function drawLine(latlngs) {
     // Store a line in a constant
-    const animatedLine = L.polyline.antPath(latlngs, {
+    const animatedLine = L.polyline.AntPath(latlngs, {
         "delay": 400,
         "dashArray": [10, 20],
         "weight": 5,
