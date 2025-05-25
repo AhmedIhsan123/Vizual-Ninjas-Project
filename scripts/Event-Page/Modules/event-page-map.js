@@ -118,8 +118,15 @@ export async function drawMemberPins(event) {
         memberMarkers[member.PDGA_NUMBER] = marker;
 
         // Draw line
-        console.log([latLng, [event.EVENT_LATITUDE, event.EVENT_LONGITUDE]]);
         drawLine([latLng, [event.EVENT_LATITUDE, event.EVENT_LONGITUDE]]);
+    });
+
+    // Make the camera fit to pins
+    const bounds = L.latLngBounds(Object.values(memberMarkers).map(m => m.getLatLng()));
+    map.flyToBounds(bounds, {
+        padding: [50, 50],
+        maxZoom: 16,
+        duration: 1.0
     });
 }
 
