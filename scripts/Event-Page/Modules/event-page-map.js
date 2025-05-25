@@ -119,6 +119,11 @@ export async function drawMemberPins(eventID) {
     });
 }
 
+function drawLine(latlngs) {
+    // Store a line in a constant
+    const dashedLine
+}
+
 // Method to hide all member pins
 export function hideAllMemberPins() {
     // Traverse the list of member markers
