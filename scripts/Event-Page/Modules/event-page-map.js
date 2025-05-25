@@ -24,14 +24,6 @@ export async function initMap() {
 
     // Call a function that draws all event pins
     await drawEventPins();
-
-    // Make the camera fit to maps
-    const bounds = L.latLngBounds(Object.values(eventMarkers).map(m => m.getLatLng()));
-    map.flyToBounds(bounds, {
-        padding: [50, 50],
-        maxZoom: 16
-    });
-
     console.log("Pins added!");
 }
 
@@ -76,7 +68,13 @@ export async function drawEventPins() {
             // Redraw all the events
             drawEventPins();
         });
+    });
 
+    // Make the camera fit to pins
+    const bounds = L.latLngBounds(Object.values(eventMarkers).map(m => m.getLatLng()));
+    map.flyToBounds(bounds, {
+        padding: [50, 50],
+        maxZoom: 16
     });
 }
 
