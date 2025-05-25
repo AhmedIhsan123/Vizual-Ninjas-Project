@@ -51,7 +51,7 @@ export function initMap() {
             });
             memberMarkers.forEach(marker => {
                 map.removeLayer(marker);
-            })
+            });
         });
 
     });
@@ -59,6 +59,15 @@ export function initMap() {
 
 // Add click event to each marker
 export async function goToEvent(event) {
+    for (const name in eventMarkers) {
+        eventMarkers[name].addTo(map);
+    }
+    currentDrawnLines.forEach(line => {
+        map.removeLayer(line);
+    });
+    memberMarkers.forEach(marker => {
+        map.removeLayer(marker);
+    });
     const marker = eventMarkers[event.EVENT_NAME];
     marker.openPopup();
     await drawMembers(event);
