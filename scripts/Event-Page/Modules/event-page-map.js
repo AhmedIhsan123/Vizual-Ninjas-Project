@@ -6,6 +6,7 @@ import { fillCards } from "./event-stats.js";
 const map = L.map('mapid').setView([45.5, -98.35], 4);
 const eventMarkers = [];
 const memberMarkers = [];
+const currentDrawnLines = [];
 
 // Initialize the map
 export function initMap() {
@@ -68,9 +69,16 @@ export async function drawMembers(event) {
     const members = await fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`);
     const eventLatLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
 
+    if (currentDrawnLines.length > 0) {
+        currentDrawnLines.forEach(line => {
+            map.removeLayer(line);
+        });
+    }
+
     members.forEach(member => {
         const latLng = [member.MEMBER_LAT, member.MEMBER_LON];
         const marker = L.marker(latLng).addTo(map);
+
         // Store marker by a unique key (e.g., event ID or name)
         memberMarkers[member.MEMBER_FULL_NAME] = marker;
         console.log(memberMarkers)
@@ -79,5 +87,6 @@ export async function drawMembers(event) {
             [latLng, eventLatLng],
             { color: "red", weight: 2, dashArray: "5, 5" }
         ).addTo(map);
+        currentDrawnLines.push(line);
     })
 }
