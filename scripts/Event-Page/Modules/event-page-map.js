@@ -51,6 +51,7 @@ export function goToEvent(event) {
     const marker = eventMarkers[event.EVENT_NAME];
 
     console.log(eventMarkers.length);
+    console.log(eventMarkers);
     if (eventMarkers.length > 1) {
         eventMarkers.forEach(marker => {
             console.log(marker);
