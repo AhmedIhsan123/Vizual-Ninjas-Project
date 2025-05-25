@@ -1,7 +1,4 @@
 import { eventList, playerList } from "../../script.js";
-import { goToEvent } from "./event-page-map.js";
-import { fillCards } from "./event-stats.js";
-import { drawMembers } from "./event-page-map.js";
 
 // Local variables
 const searchRef = document.querySelector("#event-search");

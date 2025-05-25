@@ -1,7 +1,4 @@
 import { initMap } from "./Modules/event-page-map.js";
-import { fillCards } from "./Modules/event-stats.js";
-import { eventList, playerList } from "../script.js";
-import { goToEvent } from "./Modules/event-page-map.js";
 import { initSearch } from "./Modules/event-search.js";
 
 const params = new URLSearchParams(window.location.search);
