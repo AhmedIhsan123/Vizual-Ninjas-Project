@@ -44,8 +44,14 @@ export function initMap() {
 // Add click event to each marker
 export function goToEvent(event) {
     const latLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
+    const marker = markers[event.EVENT_NAME];
     map.flyTo(latLng, 13, {
         animate: true,
         duration: 1.5
+    });
+
+    // Wait until the animation ends to open popup
+    map.once('moveend', () => {
+        marker.openPopup();
     });
 }
