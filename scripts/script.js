@@ -5,5 +5,5 @@ export const eventList = await fetchData("./PHP/events.php");
 export const playersList = await fetchData("./PHP/handlers/getMembers.php");
 
 // Fetch all events and players
-console.log("Events: " + eventList);
-console.log("Players: " + playersList);
+console.log("Events: " + eventList[0]);
+console.log("Players: " + playersList[0]);
