@@ -66,6 +66,7 @@ export function goToEvent(event) {
 export async function drawMembers(event) {
     // Fetch all the members coming to event
     const members = await fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`);
+    const eventLatLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
 
     members.forEach(member => {
         const latLng = [member.MEMBER_LAT, member.MEMBER_LON];
@@ -73,5 +74,10 @@ export async function drawMembers(event) {
         // Store marker by a unique key (e.g., event ID or name)
         memberMarkers[member.MEMBER_FULL_NAME] = marker;
         console.log(memberMarkers)
+
+        const line = L.polyline(
+            [latLng, eventLatLng],
+            { color: "red", weight: 2, dashArray: "5, 5" }
+        ).addTo(map);
     })
 }
