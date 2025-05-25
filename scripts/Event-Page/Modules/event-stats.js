@@ -29,8 +29,7 @@ export async function fillCards(event) {
     inStateRef.innerHTML = `${event.MEMBERS_IN_STATE} Players`;
     maxDistanceRef.innerHTML = `${getMinMax(members, false)} mi`;
     minDistanceRef.innerHTML = `${getMinMax(members, true)} mi`;
-    selectedEventNameRef.textContent = event.EVENT_ID;
-    console.log(selectedEventNameRef.textContent);
+    selectedEventNameRef.textContent = event.EVENT_NAME;
 }
 
 // Function to help get the min or max travel distance of a list of players
