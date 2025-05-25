@@ -15,6 +15,9 @@ export function initSearch() {
 
 searchRef.addEventListener("change", function () {
     // Update page
-    fillCards(eventList.find(event => event.EVENT_NAME == searchRef.value));
-    goToEvent(eventList.find(event => event.EVENT_NAME == searchRef.value));
+    const match = eventList.find(event => event.EVENT_NAME == searchRef.value);
+    if (match) {
+        fillCards(match);
+        goToEvent(match);
+    }
 });
