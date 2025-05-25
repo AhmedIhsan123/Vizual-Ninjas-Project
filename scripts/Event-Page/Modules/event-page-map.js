@@ -7,6 +7,14 @@ const map = L.map('mapid').setView([45.5, -98.35], 4);
 const eventMarkers = [];
 const memberMarkers = [];
 const currentDrawnLines = [];
+const redIcon = new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+    shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+});
 
 // Initialize the map
 export function initMap() {
@@ -60,33 +68,31 @@ export async function drawMembers(event) {
     // Fetch all the members coming to event
     const members = await fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`);
     const eventLatLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
-    const redIcon = new L.Icon({
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
-        shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-    });
 
+    // Remove all other event pins
     for (const name in eventMarkers) {
         if (name != event.EVENT_NAME) {
             map.removeLayer(eventMarkers[name]);
         }
     }
 
+    // Remove all drawn lines
     if (currentDrawnLines.length > 0) {
+        console.log("Lines Cleared");
         currentDrawnLines.forEach(line => {
             map.removeLayer(line);
         });
     }
 
+    // Remove all member pins
     if (memberMarkers.length > 0) {
+        console.log("Members Cleared");
         memberMarkers.forEach(marker => {
             map.removeLayer(marker);
         })
     }
 
+    // Add members
     members.forEach(member => {
         const latLng = [member.MEMBER_LAT, member.MEMBER_LON];
         const marker = L.marker(latLng, { icon: redIcon }).addTo(map);

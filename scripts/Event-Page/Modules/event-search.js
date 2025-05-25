@@ -14,7 +14,7 @@ export function initSearch() {
     });
 }
 
-searchRef.addEventListener("input", function () {
+searchRef.addEventListener("change", function () {
 
     if (searchRef.value !== "") {
         // Update page
