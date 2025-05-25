@@ -7,14 +7,9 @@ const map = L.map('mapid').setView([45.5, -98.35], 4);
 const eventMarkers = [];
 const memberMarkers = [];
 const currentDrawnLines = [];
-const eventSvgIcon = `
+const playerSvgIcon = `
   <div class="lucide-marker">
-    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-      viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round">
-      <path d="M5 11c0 4.418 7 11 7 11s7-6.582 7-11a7 7 0 1 0-14 0Z"/>
-      <circle cx="12" cy="11" r="3"/>
-    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-icon lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
   </div>
 `;
 
@@ -28,13 +23,7 @@ export function initMap() {
     // Loop through the data and add markers to the map
     eventList.forEach(event => {
         const latLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
-        const eventIcon = L.divIcon({
-            html: eventSvgIcon,
-            className: "",
-            iconSize: [30, 30],
-            iconAnchor: [15, 30]
-        });
-        const marker = L.marker(latLng, { icon: eventIcon }).addTo(map);
+        const marker = L.marker(latLng).addTo(map);
         marker.bindPopup(`
             <strong>${event.EVENT_NAME}</strong><br>
             ${event.COUNTRY_ID}, ${event.EVENT_STATE_ID}<br>
@@ -72,6 +61,12 @@ export async function drawMembers(event) {
     // Fetch all the members coming to event
     const members = await fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`);
     const eventLatLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
+    const memberIcon = L.divIcon({
+        html: playerSvgIcon,
+        className: "",
+        iconSize: [30, 30],
+        iconAnchor: [15, 30]
+    });
 
     if (currentDrawnLines.length > 0) {
         currentDrawnLines.forEach(line => {
@@ -87,7 +82,7 @@ export async function drawMembers(event) {
 
     members.forEach(member => {
         const latLng = [member.MEMBER_LAT, member.MEMBER_LON];
-        const marker = L.marker(latLng).addTo(map);
+        const marker = L.marker(latLng, { icon: memberIcon }).addTo(map);
 
         // Store marker by a unique key (e.g., event ID or name)
         memberMarkers.push(marker);
