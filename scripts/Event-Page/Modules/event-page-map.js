@@ -45,13 +45,19 @@ export async function drawEventPins() {
         // Store the marker in an associative array (Key - eventID)
         eventMarkers[event.EVENT_ID] = marker;
 
+        // Bind a popup to the marker
+        marker.bindPop(`<strong>${event.EVENT_NAME}</strong>`);
+
         // Add onclick events to marker
         marker.on("click", () => {
             // Fly to the pin once clicked
-            map.flyTo(marker.getLatLng(), 14, {
+            map.flyTo(marker.getLatLng(), 8, {
                 animate: true,
                 duration: 1.0
             });
+
+            // Show a popup with the events name
+            marker.openPopup();
 
             // Call a function that hides all other event pins
             hideAllEventPins(event.EVENT_ID);
