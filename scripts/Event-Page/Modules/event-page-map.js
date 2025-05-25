@@ -74,7 +74,8 @@ export async function drawEventPins() {
     const bounds = L.latLngBounds(Object.values(eventMarkers).map(m => m.getLatLng()));
     map.flyToBounds(bounds, {
         padding: [50, 50],
-        maxZoom: 16
+        maxZoom: 16,
+        duration: 1.0
     });
 }
 
