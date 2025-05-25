@@ -1,19 +1,12 @@
-// Import statements
-import { fetchData } from "../utils.js";
 import { initList } from "./Modules/event-list.js";
 import { buildEventChart } from "./Modules/filters-chart.js";
 import { initMap } from "./Modules/map.js";
 import { updateFilters } from "./Modules/filters-chart.js";
 import { populateCards } from "./Modules/event-cards.js";
+import { eventList, playerList } from "../script.js";
 
 /* -------- INITIALIZATION  -------- */
 document.addEventListener("DOMContentLoaded", async () => {
-    // Fetch data from the server and populate the event list
-    await fetchData("./PHP/events.php").then(data => {
-        // Store the event data in the global list
-        eventList.push(...data);
-    })
-
     // Build the event chart
     await buildEventChart();
 

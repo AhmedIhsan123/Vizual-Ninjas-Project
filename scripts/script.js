@@ -2,8 +2,4 @@ import { fetchData } from "./utils.js";
 
 // Global program variables
 export const eventList = await fetchData("./PHP/events.php");
-export const playersList = await fetchData("./PHP/handlers/getMembers.php");
-
-// Fetch all events and players
-console.log("Events: " + eventList[0].EVENT_ID);
-console.log("Players: " + playersList[0].PDGA_NUMBER);
+export const playerList = await fetchData("./PHP/handlers/getMembers.php");
