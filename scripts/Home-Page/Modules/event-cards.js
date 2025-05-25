@@ -1,5 +1,4 @@
 import { eventList } from "../../script.js";
-import { goToEvent } from "../../Event-Page/Modules/event-page-map.js";
 
 export let name = "";
 

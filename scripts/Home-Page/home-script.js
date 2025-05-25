@@ -11,7 +11,7 @@ await buildEventChart();
 await initList();
 
 // Generate the map
-initMap();
+// initMap();
 
 // Update the filters
 updateFilters();
