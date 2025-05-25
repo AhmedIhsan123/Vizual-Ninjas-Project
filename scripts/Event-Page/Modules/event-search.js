@@ -14,6 +14,7 @@ export function initSearch() {
 }
 
 searchRef.addEventListener("change", function () {
+    console.log(searchRef.textContent);
     // Update page
     fillCards(eventList.find(event => event.EVENT_NAME == searchRef.textContent));
     goToEvent(eventList.find(event => event.EVENT_NAME == searchRef.textContent));
