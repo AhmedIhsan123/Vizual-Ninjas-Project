@@ -1,9 +1,11 @@
 import { eventList } from "../../script.js";
+import { fetchData } from "../../utils.js";
 import { fillCards } from "./event-stats.js";
 // Local Variables
 // Set the initial view to a specific location and zoom level
 const map = L.map('mapid').setView([45.5, -98.35], 4);
-const markers = [];
+const eventMarkers = [];
+const memberMarkers = [];
 
 // Initialize the map
 export function initMap() {
@@ -25,7 +27,7 @@ export function initMap() {
             <br>
             <em>It seems <strong>${event.MEMBERS_OUT_OF_STATE}</strong> members came from out of state, while only <strong>${event.MEMBERS_IN_STATE}</strong> were coming from in-state. This suggests that members are <strong>${event.MEMBERS_OUT_OF_STATE > event.MEMBERS_IN_STATE ? "more likely" : "less likely"}</strong> to attend events in this area.</em>`);
         // Store marker by a unique key (e.g., event ID or name)
-        markers[event.EVENT_NAME] = marker;
+        eventMarkers[event.EVENT_NAME] = marker;
 
         // Add click behavior
         marker.on('click', () => {
@@ -34,6 +36,7 @@ export function initMap() {
                 duration: 1.5
             });
             fillCards(eventList.find(events => events.EVENT_NAME == event.EVENT_NAME));
+            drawMembers(event);
 
 
             // Wait until the animation ends to open popup
@@ -47,7 +50,7 @@ export function initMap() {
 // Add click event to each marker
 export function goToEvent(event) {
     const latLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
-    const marker = markers[event.EVENT_NAME];
+    const marker = eventMarkers[event.EVENT_NAME];
     map.flyTo(latLng, 13, {
         animate: true,
         duration: 1.5
@@ -56,5 +59,18 @@ export function goToEvent(event) {
     // Wait until the animation ends to open popup
     map.once('moveend', () => {
         marker.openPopup();
+        drawMembers(event);
     });
+}
+
+export async function drawMembers(event) {
+    // Fetch all the members coming to event
+    const members = await fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`);
+
+    members.forEach(member => {
+        const latLng = [member.MEMBER_LAT, member.MEMBER_LON];
+        const marker = L.marker(latLng).addTo(map);
+        // Store marker by a unique key (e.g., event ID or name)
+        memberMarkers[member.MEMBER_FULL_NAME] = marker;
+    })
 }
