@@ -118,8 +118,7 @@ export async function drawMemberPins(event) {
     // Make the camera fit to pins
     const bounds = L.latLngBounds(Object.values(memberMarkers).map(m => m.getLatLng()));
     map.flyToBounds(bounds, {
-        padding: [25, 25],
-        maxZoom: 13,
+        maxZoom: 9,
         duration: 1.0
     });
 }
