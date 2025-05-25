@@ -58,10 +58,10 @@ export function initMap() {
 }
 
 // Add click event to each marker
-export function goToEvent(event) {
+export async function goToEvent(event) {
     const marker = eventMarkers[event.EVENT_NAME];
     marker.openPopup();
-    drawMembers(event);
+    await drawMembers(event);
 }
 
 export async function drawMembers(event) {

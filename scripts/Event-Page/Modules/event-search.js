@@ -14,14 +14,13 @@ export function initSearch() {
     });
 }
 
-searchRef.addEventListener("change", function () {
-
+searchRef.addEventListener("change", async () => {
     if (searchRef.value !== "") {
         // Update page
         const match = eventList.find(event => event.EVENT_NAME == searchRef.value);
         if (match) {
             fillCards(match);
-            goToEvent(match);
+            await goToEvent(match);
         }
     }
 });
