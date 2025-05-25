@@ -47,7 +47,6 @@ export function initMap() {
 
 // Add click event to each marker
 export function goToEvent(event) {
-    const latLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
     const marker = eventMarkers[event.EVENT_NAME];
 
     for (const name in eventMarkers) {
@@ -56,16 +55,8 @@ export function goToEvent(event) {
         }
     }
 
-    map.flyTo(latLng, 13, {
-        animate: true,
-        duration: 1.5
-    });
-
-    // Wait until the animation ends to open popup
-    map.once('moveend', () => {
-        marker.openPopup();
-        drawMembers(event);
-    });
+    marker.openPopup();
+    drawMembers(event);
 }
 
 export async function drawMembers(event) {
