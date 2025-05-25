@@ -8,9 +8,33 @@ const optionsRef = document.querySelector("#event-list");
 
 // Set datalist
 export function initSearch() {
-    console.log(22);
-    eventList.forEach(event => {
-        console.log(event)
-        optionsRef.innerHTML += `<option value="${event.EVENT_NAME}">`;
+    searchRef.addEventListener("input", function () {
+        const input = searchRef.value.toLowerCase();
+        optionsRef.innerHTML = "";
+
+        if (input.length == 0) return;
+
+        let events = [];
+        eventList.forEach(event => {
+            events.push(event.EVENT_NAME);
+        });
+
+        const matches = events.filter(event => event.toLowerCase().includes(input)).slice(0, 5);
+
+        matches.forEach(match => {
+            const li = document.createElement("li");
+            li.textContent = match;
+            li.addEventListener("click", () => {
+                searchBar.value = match;
+                suggestionsList.innerHTML = "";
+            });
+            suggestionsList.appendChild(li);
+        });
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!searchRef.contains(e.target) && !optionsRef.contains(e.target)) {
+            suggestionsList.innerHTML = "";
+        }
     });
 }
