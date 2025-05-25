@@ -24,7 +24,8 @@ export async function initMap() {
             Average Distance Traveled to Event: <strong>${event.AVG_TRAVEL_DISTANCE_MILES} miles</strong><br>
             <br>
             <em>It seems <strong>${event.MEMBERS_OUT_OF_STATE}</strong> members came from out of state, while only <strong>${event.MEMBERS_IN_STATE}</strong> were coming from in-state. This suggests that members are <strong>${event.MEMBERS_OUT_OF_STATE > event.MEMBERS_IN_STATE ? "more likely" : "less likely"}</strong> to attend events in this area.</em>
-            <a href="https://aabualhawa.greenriverdev.com/SDEV280/Statmando-Project/event-page.html?name=${event.EVENT_NAME}" class="button">View Details</a>`);
+            <br>
+            <a href="https://aabualhawa.greenriverdev.com/SDEV280/Statmando-Project/event-page.html?name=${event.EVENT_NAME}">View Details</a>`);
         // Store marker by a unique key (e.g., event ID or name)
         markers[event.EVENT_NAME] = marker;
 
