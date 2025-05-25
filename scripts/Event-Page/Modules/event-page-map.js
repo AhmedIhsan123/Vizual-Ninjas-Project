@@ -38,16 +38,9 @@ export function initMap() {
                     map.removeLayer(eventMarkers[name]);
                 }
             }
-            console.log("Click");
             goToEvent(event);
             fillCards(eventList.find(events => events.EVENT_NAME == event.EVENT_NAME));
             drawMembers(event);
-
-
-            // Wait until the animation ends to open popup
-            map.once('moveend', () => {
-                marker.openPopup();
-            });
         });
 
         marker.on('popupclose', function (e) {
