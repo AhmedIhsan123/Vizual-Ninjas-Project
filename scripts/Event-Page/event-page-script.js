@@ -9,4 +9,4 @@ const eventName = params.get("name");
 initMap();
 
 // Update page
-// fillCards(eventList.find(event => event.EVENT_NAME == eventName));
+fillCards(eventList.find(event => event.EVENT_NAME == eventName));
