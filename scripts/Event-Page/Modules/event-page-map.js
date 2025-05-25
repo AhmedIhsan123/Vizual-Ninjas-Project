@@ -109,7 +109,7 @@ export async function drawMemberPins(eventID) {
         const latLng = [member.MEMBER_LAT, member.MEMBER_LON];
 
         // Add the pin to the map
-        const marker = L.marker(latLng).addTo(map);
+        const marker = L.marker(latLng, { icon: redIcon }).addTo(map);
 
         // Store the marker in an associative array (Key - PDGAID)
         memberMarkers[member.PDGA_NUMBER] = marker;
