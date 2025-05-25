@@ -19,7 +19,7 @@ function createCard(eventTitle, eventTierID, eventTotal, eventTravelDistance, ev
     const cardTierRef = document.createElement("p");
     const cardTotalRef = document.createElement("p");
     const cardDistanceRef = document.createElement("p");
-    const btnRef = document.createElement("a");
+    const btnRef = document.createElement("button");
 
     cardTitleRef.innerHTML = `<strong>${eventTitle}</strong>`;
     cardTierRef.innerHTML = `Tier: <strong>${eventTierID}</strong>`;
@@ -37,6 +37,6 @@ function createCard(eventTitle, eventTierID, eventTotal, eventTravelDistance, ev
 
     // Add event listner for each button to direct to the event-viewer page
     btnRef.addEventListener("click", function () {
-
+        window.location.open("../../../event-page.html");
     })
 }
