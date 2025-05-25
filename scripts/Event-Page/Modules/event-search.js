@@ -13,14 +13,3 @@ export function initSearch() {
         optionsRef.innerHTML += `<option value="${event.EVENT_NAME}">`;
     });
 }
-
-searchRef.addEventListener("change", async () => {
-    if (searchRef.value !== "") {
-        // Update page
-        const match = eventList.find(event => event.EVENT_NAME == searchRef.value);
-        if (match) {
-            fillCards(match);
-            await goToEvent(match);
-        }
-    }
-});

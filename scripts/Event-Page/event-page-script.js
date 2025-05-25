@@ -8,14 +8,7 @@ const params = new URLSearchParams(window.location.search);
 const eventName = params.get("name");
 
 // Init the map
-initMap();
-
-// Update page
-const match = eventList.find(event => event.EVENT_NAME == eventName);
-if (match) {
-    fillCards(match);
-    goToEvent(match);
-} else { console.log(match) }
+await initMap();
 
 // Init the search bar
 initSearch();
