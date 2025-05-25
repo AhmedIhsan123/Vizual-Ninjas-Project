@@ -6,9 +6,6 @@ import { initMap } from "./Modules/map.js";
 import { updateFilters } from "./Modules/filters-chart.js";
 import { populateCards } from "./Modules/event-cards.js";
 
-// Global list to store event data
-export const eventList = [];
-
 /* -------- INITIALIZATION  -------- */
 document.addEventListener("DOMContentLoaded", async () => {
     // Fetch data from the server and populate the event list
@@ -33,4 +30,3 @@ document.addEventListener("DOMContentLoaded", async () => {
     populateCards();
 });
 /* -------- INITIALIZATION END  -------- */
-
