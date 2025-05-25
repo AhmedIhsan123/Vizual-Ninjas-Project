@@ -19,6 +19,7 @@ export function initMap() {
     eventList.forEach(event => {
         const latLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
         const marker = L.marker(latLng).addTo(map);
+        marker.bindPopup(`<strong>${event.EVENT_NAME}</strong><br>`);
         // Store marker by a unique key (e.g., event ID or name)
         eventMarkers[event.EVENT_NAME] = marker;
 
@@ -50,6 +51,8 @@ export function initMap() {
 
 // Add click event to each marker
 export function goToEvent(event) {
+    const marker = eventMarkers[event.EVENT_NAME];
+    marker.openPopup();
     drawMembers(event);
 }
 
