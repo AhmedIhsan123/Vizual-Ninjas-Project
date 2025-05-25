@@ -30,8 +30,8 @@ export async function initMap() {
 // A function that draws all the event pins
 export async function drawEventPins() {
     // Clear all pins from markers list
-    for (const pin in eventMarkers) {
-        map.removeLayer(eventMarkers[pin]);
+    for (const eventid in eventMarkers) {
+        map.removeLayer(eventMarkers[eventid]);
     }
 
     // Add pins to list
@@ -49,7 +49,10 @@ export async function drawEventPins() {
         marker.bindPopup(`<strong>${event.EVENT_NAME}</strong>`);
 
         // Add onclick events to marker
-        marker.on("click", () => {
+        marker.on("click", async () => {
+            // Draw member pins
+            await drawMemberPins(event.EVENT_ID);
+
             // Fly to the pin once clicked
             map.flyTo(marker.getLatLng(), 8, {
                 animate: true,
@@ -88,4 +91,27 @@ export function hideAllEventPins(eventIdToIgnore) {
             map.removeLayer(eventMarkers[id]);
         }
     }
+}
+
+// A function that draws all the members pins that went to a cetain event
+export async function drawMemberPins(eventID) {
+    // Fetch all the members attending the evnt
+    const members = await fetchData(`./PHP/handlers/getMembers.php?event_id=${eventID}`);
+
+    // Clear all pins from markers list
+    for (const pdgaid in memberMarkers) {
+        map.removeLayer(memberMarkers[pdgaid]);
+    }
+
+    // For each member coming to the event
+    members.forEach(member => {
+        // Store coordinates in a constant
+        const latLng = [member.MEMBER_LAT, member.MEMBER_LON];
+
+        // Add the pin to the map
+        const marker = L.marker(latLng).addTo(map);
+
+        // Store the marker in an associative array (Key - PDGAID)
+        memberMarkers[member.PDGA_NUMBER] = marker;
+    });
 }
