@@ -3,7 +3,8 @@ import { buildEventChart } from "./Modules/filters-chart.js";
 import { initMap } from "./Modules/map.js";
 import { updateFilters } from "./Modules/filters-chart.js";
 import { populateCards } from "./Modules/event-cards.js";
-import { eventList, playerList } from "../script.js";
+
+console.log(22);
 
 /* -------- INITIALIZATION  -------- */
 document.addEventListener("DOMContentLoaded", async () => {
