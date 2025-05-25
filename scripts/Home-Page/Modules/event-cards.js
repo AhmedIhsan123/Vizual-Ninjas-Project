@@ -1,4 +1,5 @@
 import { eventList } from "../home-script.js";
+import { updateMap } from "../../Event-Page/Modules/event-map.js";
 
 export function populateCards() {
     // Get the top 10 most popular events and store them in a list
@@ -7,12 +8,12 @@ export function populateCards() {
 
     // For each event, create a card
     sortdEvents.forEach(event => {
-        createCard(event.EVENT_NAME, event.EVENT_TIER_ID, event.TOTAL_MEMBERS, event.AVG_TRAVEL_DISTANCE_MILES, event.EVENT_ID);
+        createCard(event.EVENT_NAME, event.EVENT_TIER_ID, event.TOTAL_MEMBERS, event.AVG_TRAVEL_DISTANCE_MILES, event.EVENT_ID, event);
     });
 }
 
 // Helper function to create a card
-function createCard(eventTitle, eventTierID, eventTotal, eventTravelDistance, eventID) {
+function createCard(eventTitle, eventTierID, eventTotal, eventTravelDistance, eventID, event) {
     const parentRef = document.getElementById("event-cards-container");
     const cardRef = document.createElement("div");
     const cardTitleRef = document.createElement("p");
@@ -38,5 +39,6 @@ function createCard(eventTitle, eventTierID, eventTotal, eventTravelDistance, ev
     // Add event listner for each button to direct to the event-viewer page
     btnRef.addEventListener("click", function () {
         window.location.href = "https://aabualhawa.greenriverdev.com/SDEV280/Statmando-Project/event-page.html";
+        updateMap(event);
     })
 }
