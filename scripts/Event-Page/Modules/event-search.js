@@ -34,7 +34,7 @@ export function initSearch() {
 
     document.addEventListener("click", (e) => {
         if (!searchRef.contains(e.target) && !optionsRef.contains(e.target)) {
-            suggestionsList.innerHTML = "";
+            optionsRef.innerHTML = "";
         }
     });
 }
