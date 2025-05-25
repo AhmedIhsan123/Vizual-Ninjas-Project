@@ -63,7 +63,7 @@ export async function drawEventPins() {
             marker.openPopup();
 
             // Call a function that hides all other event pins
-            hideAllEventPins(event);
+            hideAllEventPins(event.EVENT_ID);
         });
 
         // Add an event listner for when the popup is closed
