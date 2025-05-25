@@ -130,6 +130,9 @@ function drawLine(latlngs) {
         weight: 5,
         color: "red",
     }).addTo(map);
+
+    // Add to array of lines
+    currentDrawnLines.push(animatedLine);
 }
 
 // Method to hide all member pins
@@ -139,4 +142,9 @@ export function hideAllMemberPins() {
         // Remove all pins
         map.removeLayer(memberMarkers[pdgaid]);
     }
+
+    // Remove all the current lines
+    currentDrawnLines.forEach(line => {
+        map.removeLayer(line);
+    });
 }
