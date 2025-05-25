@@ -86,7 +86,7 @@ export async function drawMembers(event) {
         const marker = L.marker(latLng).addTo(map);
 
         // Store marker by a unique key (e.g., event ID or name)
-        memberMarkers[member.MEMBER_FULL_NAME] = marker;
+        memberMarkers.push(marker);
         console.log(memberMarkers)
 
         const line = L.polyline(
