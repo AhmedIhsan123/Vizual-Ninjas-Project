@@ -53,12 +53,6 @@ export async function drawEventPins() {
             // Draw member pins
             await drawMemberPins(event);
 
-            // Fly to the pin once clicked
-            // map.flyTo(marker.getLatLng(), 8, {
-            //     animate: true,
-            //     duration: 1.0
-            // });
-
             // Show a popup with the events name
             marker.openPopup();
 
@@ -124,8 +118,8 @@ export async function drawMemberPins(event) {
     // Make the camera fit to pins
     const bounds = L.latLngBounds(Object.values(memberMarkers).map(m => m.getLatLng()));
     map.flyToBounds(bounds, {
-        padding: [50, 50],
-        maxZoom: 16,
+        padding: [25, 25],
+        maxZoom: 13,
         duration: 1.0
     });
 }
