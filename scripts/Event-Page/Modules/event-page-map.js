@@ -54,10 +54,10 @@ export async function drawEventPins() {
             await drawMemberPins(event);
 
             // Fly to the pin once clicked
-            map.flyTo(marker.getLatLng(), 8, {
-                animate: true,
-                duration: 1.0
-            });
+            // map.flyTo(marker.getLatLng(), 8, {
+            //     animate: true,
+            //     duration: 1.0
+            // });
 
             // Show a popup with the events name
             marker.openPopup();
