@@ -1,4 +1,3 @@
-// Import statements
 import { fetchData } from "../../utils.js";
 
 /* -------- GLOBAL VARIABLES START -------- */
