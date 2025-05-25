@@ -13,8 +13,8 @@ initMap();
 // Update page
 const match = eventList.find(event => event.EVENT_NAME == eventName);
 if (match) {
-    fillCards(eventList.find(event => event.EVENT_NAME == eventName));
-    goToEvent(eventList.find(event => event.EVENT_NAME == eventName));
+    fillCards(match);
+    goToEvent(match);
 } else { console.log(match) }
 
 // Init the search bar
