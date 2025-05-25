@@ -25,10 +25,10 @@ export function initSearch() {
             const li = document.createElement("li");
             li.textContent = match;
             li.addEventListener("click", () => {
-                searchBar.value = match;
-                suggestionsList.innerHTML = "";
+                searchRef.value = match;
+                optionsRef.innerHTML = "";
             });
-            suggestionsList.appendChild(li);
+            optionsRef.appendChild(li);
         });
     });
 
