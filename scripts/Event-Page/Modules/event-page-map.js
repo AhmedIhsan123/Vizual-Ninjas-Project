@@ -7,11 +7,6 @@ const map = L.map('mapid').setView([45.5, -98.35], 4);
 const eventMarkers = [];
 const memberMarkers = [];
 const currentDrawnLines = [];
-const playerSvgIcon = `
-  <div class="lucide-marker">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-icon lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-  </div>
-`;
 
 // Initialize the map
 export function initMap() {
@@ -61,11 +56,10 @@ export async function drawMembers(event) {
     // Fetch all the members coming to event
     const members = await fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`);
     const eventLatLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
-    const memberIcon = L.divIcon({
-        html: playerSvgIcon,
-        className: "",
-        iconSize: [30, 30],
-        iconAnchor: [15, 30]
+    var icon = L.AwesomeMarkers.icon({
+        icon: 'user',      // icon name
+        markerColor: 'red',
+        prefix: 'fas'         // 'fa' for Font Awesome 4, or 'fas' for Font Awesome 5+
     });
 
     if (currentDrawnLines.length > 0) {
@@ -82,7 +76,7 @@ export async function drawMembers(event) {
 
     members.forEach(member => {
         const latLng = [member.MEMBER_LAT, member.MEMBER_LON];
-        const marker = L.marker(latLng, { icon: memberIcon }).addTo(map);
+        const marker = L.marker(latLng, { icon: icon }).addTo(map);
 
         // Store marker by a unique key (e.g., event ID or name)
         memberMarkers.push(marker);
