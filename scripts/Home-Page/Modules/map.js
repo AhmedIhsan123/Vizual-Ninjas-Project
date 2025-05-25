@@ -61,9 +61,6 @@ export async function initMap() {
         const latLng = marker.getLatLng();
         map.flyTo(latLng, 14, { duration: 1.25 });
 
-        const match = eventList.find(event => event.EVENT_NAME == name);
-
-
         // Wait until the map finishes moving before showing popup
         map.once('moveend', () => {
             marker.openPopup();

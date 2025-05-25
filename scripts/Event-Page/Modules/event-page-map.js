@@ -34,6 +34,9 @@ export function initMap() {
                 duration: 1.5
             });
 
+            // Go to the event
+            goToEvent(event.EVENT_NAME);
+
             // Wait until the animation ends to open popup
             map.once('moveend', () => {
                 marker.openPopup();
@@ -43,18 +46,7 @@ export function initMap() {
 
     // Add click event to each marker
     function goToEvent(name) {
-        const marker = markers[name];
-        if (!marker) return;
-
-        const latLng = marker.getLatLng();
-        map.flyTo(latLng, 14, { duration: 1.25 });
-
         const match = eventList.find(event => event.EVENT_NAME == name);
         fillCards(match);
-
-        // Wait until the map finishes moving before showing popup
-        map.once('moveend', () => {
-            marker.openPopup();
-        });
     }
 }
