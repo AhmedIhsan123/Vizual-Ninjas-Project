@@ -1,4 +1,5 @@
 import { eventList } from "../../script.js";
+import { goToEvent } from "../../Event-Page/Modules/event-page-map.js";
 
 // Function to populate the cards on the page
 export function populateCards() {
@@ -35,4 +36,8 @@ function createCard(eventTitle, eventTierID, eventTotal, eventTravelDistance, ev
     cardRef.classList.add("event-card");
     cardRef.append(cardTitleRef, cardTierRef, cardTotalRef, cardDistanceRef, btnRef);
     parentRef.appendChild(cardRef);
+    btnRef.addEventListener("click", function () {
+        window.location.href = "https://aabualhawa.greenriverdev.com/SDEV280/Statmando-Project/event-page.html";
+        goToEvent(event);
+    })
 }
