@@ -12,3 +12,9 @@ export function initSearch() {
         optionsRef.innerHTML += `<option value="${event.EVENT_NAME}">`;
     });
 }
+
+searchRef.addEventListener("change", function () {
+    // Update page
+    fillCards(eventList.find(event => event.EVENT_NAME == searchRef.textContent));
+    goToEvent(eventList.find(event => event.EVENT_NAME == searchRef.textContent));
+});
