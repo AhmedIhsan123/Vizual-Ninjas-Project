@@ -64,6 +64,9 @@ export async function drawEventPins() {
 
             // Call a function that hides all other event pins
             hideAllEventPins(event.EVENT_ID);
+
+            // Remove all the member pins
+            hideAllMemberPins();
         });
 
         // Add an event listner for when the popup is closed
@@ -114,4 +117,13 @@ export async function drawMemberPins(eventID) {
         // Store the marker in an associative array (Key - PDGAID)
         memberMarkers[member.PDGA_NUMBER] = marker;
     });
+}
+
+// Method to hide all member pins
+export function hideAllMemberPins() {
+    // Traverse the list of member markers
+    for (const pdgaid in memberMarkers) {
+        // Remove all pins
+        map.removeLayer(memberMarkers[pdgaid]);
+    }
 }
