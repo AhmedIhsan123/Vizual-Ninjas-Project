@@ -56,7 +56,7 @@ export async function drawMembers(event) {
     // Fetch all the members coming to event
     const members = await fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`);
     const eventLatLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
-    var icon = L.AwesomeMarkers.icon({
+    var myIcon = L.AwesomeMarkers.icon({
         icon: 'user',      // icon name
         markerColor: 'red',
         prefix: 'fas'         // 'fa' for Font Awesome 4, or 'fas' for Font Awesome 5+
@@ -76,7 +76,7 @@ export async function drawMembers(event) {
 
     members.forEach(member => {
         const latLng = [member.MEMBER_LAT, member.MEMBER_LON];
-        const marker = L.marker(latLng, { icon: icon }).addTo(map);
+        const marker = L.marker(latLng, { icon: myIcon }).addTo(map);
 
         // Store marker by a unique key (e.g., event ID or name)
         memberMarkers.push(marker);
