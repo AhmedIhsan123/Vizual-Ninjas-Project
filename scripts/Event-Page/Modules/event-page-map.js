@@ -1,10 +1,11 @@
-import { eventList } from "../../script.js";
+import { eventList } from "../../script";
+// Local Variables
+// Set the initial view to a specific location and zoom level
+const map = L.map('mapid').setView([45.5, -98.35], 4);
+const markers = [];
 
-export async function initMap() {
-    // Set the initial view to a specific location and zoom level
-    const map = L.map('mapid2').setView([45.5, -98.35], 4);
-    const markers = [];
-
+// Initialize the map
+function initMap() {
     // Add a tile layer to the map (OpenStreetMap tiles)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors',
@@ -36,20 +37,6 @@ export async function initMap() {
             map.once('moveend', () => {
                 marker.openPopup();
             });
-        });
-    });
-
-    // Add event listener for table rows
-    const tableRows = document.querySelectorAll(".event-list-container tbody tr");
-
-    // Add click event to each row
-    tableRows.forEach(row => {
-        row.addEventListener("click", function () {
-            const eventId = this.querySelector("td").innerText;
-            const event = eventList.find(e => e.EVENT_ID == eventId);
-            if (event) {
-                goToEvent(event.EVENT_NAME, 10);
-            }
         });
     });
 
