@@ -37,12 +37,35 @@ export async function drawEventPins() {
     // Add pins to list
     eventList.forEach(event => {
         // Store coordinates in a constant
-        const latLong = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
+        const latLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
 
         // Add the pin to the map
-        const marker = L.marker(latLong).addTo(map);
+        const marker = L.marker(latLng).addTo(map);
 
         // Store the marker in an associative array (Key - eventID)
         eventMarkers[event.EVENT_ID] = marker;
-    })
+
+        // Add onclick events to marker
+        marker.on("click", () => {
+            // Fly to the pin once clicked
+            map.flyTo(marker.getLatLng(), 14, {
+                animate: true,
+                duration: 1.0
+            });
+
+            // Call a function that hides all other event pins
+            hideAllEventPins(event.EVENT_ID);
+        });
+    });
+}
+
+// A method that removes all the event pins expect the one to ignore
+export function hideAllEventPins(eventIdToIgnore) {
+    // Traverse the list of event markers
+    for (const id in eventMarkers) {
+        // Remove all pins that are not the selected event
+        if (id != eventIdToIgnore) {
+            map.removeLayer(eventMarkers[id]);
+        }
+    }
 }
