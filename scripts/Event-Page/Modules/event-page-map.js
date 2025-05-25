@@ -1,4 +1,5 @@
 import { eventList } from "../../script.js";
+import { fillCards } from "./event-stats.js";
 // Local Variables
 // Set the initial view to a specific location and zoom level
 const map = L.map('mapid').setView([45.5, -98.35], 4);
@@ -47,6 +48,9 @@ export function initMap() {
 
         const latLng = marker.getLatLng();
         map.flyTo(latLng, 14, { duration: 1.25 });
+
+        const match = eventList.find(event => event.EVENT_NAME == name);
+        fillCards(match);
 
         // Wait until the map finishes moving before showing popup
         map.once('moveend', () => {
