@@ -11,8 +11,11 @@ const eventName = params.get("name");
 initMap();
 
 // Update page
-fillCards(eventList.find(event => event.EVENT_NAME == eventName));
-goToEvent(eventList.find(event => event.EVENT_NAME == eventName));
+const match = eventList.find(event => event.EVENT_NAME == eventName);
+if (match) {
+    fillCards(eventList.find(event => event.EVENT_NAME == eventName));
+    goToEvent(eventList.find(event => event.EVENT_NAME == eventName));
+} else { console.log(match) }
 
 // Init the search bar
 initSearch();
