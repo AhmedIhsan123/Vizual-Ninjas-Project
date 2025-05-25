@@ -126,6 +126,9 @@ export async function drawMemberPins(event) {
 
 function drawLine(latlngs) {
     // Remove all the current lines
+    currentDrawnLines.forEach(line => {
+        map.removeLayer(line);
+    });
     currentDrawnLines = [];
 
     // Store a line in a constant
