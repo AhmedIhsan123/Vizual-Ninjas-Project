@@ -32,6 +32,13 @@ export function initMap() {
 
         // Add click behavior
         marker.on('click', () => {
+
+            for (const name in eventMarkers) {
+                if (name != event.EVENT_NAME) {
+                    map.removeLayer(eventMarkers[name]);
+                }
+            }
+
             goToEvent(event);
             fillCards(eventList.find(events => events.EVENT_NAME == event.EVENT_NAME));
             drawMembers(event);
@@ -42,6 +49,13 @@ export function initMap() {
                 marker.openPopup();
             });
         });
+
+        marker.on('popupclose', function (e) {
+            for (const name in eventMarkers) {
+                eventMarkers[name].addTo(map);
+            }
+        });
+
     });
 }
 
