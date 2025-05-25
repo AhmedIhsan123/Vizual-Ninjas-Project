@@ -4,9 +4,9 @@ import { fillCards } from "./event-stats.js";
 // Local Variables
 // Set the initial view to a specific location and zoom level
 const map = L.map('mapid').setView([45.5, -98.35], 4);
-let eventMarkers = [];
-let memberMarkers = [];
-let currentDrawnLines = [];
+const eventMarkers = [];
+const memberMarkers = [];
+const currentDrawnLines = [];
 
 // Initialize the map
 export function initMap() {
