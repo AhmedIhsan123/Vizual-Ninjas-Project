@@ -10,6 +10,7 @@ console.log(22);
 document.addEventListener("DOMContentLoaded", async () => {
     // Build the event chart
     await buildEventChart();
+    console.log(33);
 
     // Build the table of events
     await initList();
