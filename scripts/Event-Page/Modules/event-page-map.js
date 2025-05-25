@@ -50,12 +50,10 @@ export function goToEvent(event) {
     const latLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
     const marker = eventMarkers[event.EVENT_NAME];
 
-    console.log(eventMarkers.length);
-    console.log(eventMarkers);
-    if (eventMarkers.length > 1) {
-        eventMarkers.forEach(marker => {
-            console.log(marker);
-        })
+    for (const name in eventMarkers) {
+        if (name !== event.EVENT_NAME) {
+            map.removeLayer(eventMarkers[name]);
+        }
     }
 
     map.flyTo(latLng, 13, {
