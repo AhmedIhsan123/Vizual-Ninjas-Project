@@ -55,6 +55,12 @@ export function initMap() {
                 eventMarkers[name].addTo(map);
                 drawMembers(event);
             }
+            currentDrawnLines.forEach(line => {
+                map.removeLayer(line);
+            });
+            memberMarkers.forEach(marker => {
+                map.removeLayer(marker);
+            })
         });
 
     });
