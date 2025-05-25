@@ -63,7 +63,7 @@ export async function drawEventPins() {
             marker.openPopup();
 
             // Call a function that hides all other event pins
-            hideAllEventPins(event.EVENT_ID);
+            hideAllEventPins(event);
         });
 
         // Add an event listner for when the popup is closed
@@ -97,9 +97,9 @@ export function hideAllEventPins(eventIdToIgnore) {
 }
 
 // A function that draws all the members pins that went to a cetain event
-export async function drawMemberPins(eventID) {
+export async function drawMemberPins(event) {
     // Fetch all the members attending the evnt
-    const members = await fetchData(`./PHP/handlers/getMembers.php?event_id=${eventID}`);
+    const members = await fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`);
 
     // Clear all pins from markers list
     for (const pdgaid in memberMarkers) {
@@ -116,11 +116,24 @@ export async function drawMemberPins(eventID) {
 
         // Store the marker in an associative array (Key - PDGAID)
         memberMarkers[member.PDGA_NUMBER] = marker;
+
+        // Draw line
+        drawLine([latLng, [event.EVENT_LATITUDE, event.EVENT_LONGITUDE]]);
     });
 }
 
 function drawLine(latlngs) {
     // Store a line in a constant
+    const animatedLine = L.polyline.antPath(latlngs, {
+        "delay": 400,
+        "dashArray": [10, 20],
+        "weight": 5,
+        "color": "#0000FF",
+        "pulseColor": "#FFFFFF",
+        "paused": false,
+        "reverse": false,
+        "hardwareAccelerated": true
+    }).addTo(map);
 }
 
 // Method to hide all member pins
