@@ -125,12 +125,6 @@ export async function drawMemberPins(event) {
 }
 
 function drawLine(latlngs) {
-    // Remove all the current lines
-    currentDrawnLines.forEach(line => {
-        map.removeLayer(line);
-    });
-    currentDrawnLines = [];
-
     // Store a line in a constant
     const animatedLine = L.polyline(latlngs, {
         dashArray: '10, 20',
@@ -154,4 +148,5 @@ export function hideAllMemberPins() {
     currentDrawnLines.forEach(line => {
         map.removeLayer(line);
     });
+    currentDrawnLines = [];
 }
