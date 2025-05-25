@@ -1,5 +1,4 @@
-import { fetchData } from "../../utils.js";
-import { eventList } from "../home-script.js";
+import { eventList } from "../../script.js";
 
 export async function initMap() {
     // Set the initial view to a specific location and zoom level
@@ -11,14 +10,11 @@ export async function initMap() {
         attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
 
-    // Fetch data from the server
-    await fetchData("./PHP/events.php").then(data => {
-        // Loop through the data and add markers to the map
-        data.forEach(event => {
-            const latLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
-
-            const marker = L.marker(latLng).addTo(map);
-            marker.bindPopup(`
+    // Loop through the data and add markers to the map
+    eventList.forEach(event => {
+        const latLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
+        const marker = L.marker(latLng).addTo(map);
+        marker.bindPopup(`
             <strong>${event.EVENT_NAME}</strong><br>
             ${event.COUNTRY_ID}, ${event.EVENT_STATE_ID}<br>
             Event Tier: <strong>${event.EVENT_TIER_ID}</strong><br>
@@ -26,20 +22,19 @@ export async function initMap() {
             Average Distance Traveled to Event: <strong>${event.AVG_TRAVEL_DISTANCE_MILES} miles</strong><br>
             <br>
             <em>It seems <strong>${event.MEMBERS_OUT_OF_STATE}</strong> members came from out of state, while only <strong>${event.MEMBERS_IN_STATE}</strong> were coming from in-state. This suggests that members are <strong>${event.MEMBERS_OUT_OF_STATE > event.MEMBERS_IN_STATE ? "more likely" : "less likely"}</strong> to attend events in this area.</em>`);
-            // Store marker by a unique key (e.g., event ID or name)
-            markers[event.EVENT_NAME] = marker;
+        // Store marker by a unique key (e.g., event ID or name)
+        markers[event.EVENT_NAME] = marker;
 
-            // Add click behavior
-            marker.on('click', () => {
-                map.flyTo(latLng, 13, {
-                    animate: true,
-                    duration: 1.5
-                });
+        // Add click behavior
+        marker.on('click', () => {
+            map.flyTo(latLng, 13, {
+                animate: true,
+                duration: 1.5
+            });
 
-                // Wait until the animation ends to open popup
-                map.once('moveend', () => {
-                    marker.openPopup();
-                });
+            // Wait until the animation ends to open popup
+            map.once('moveend', () => {
+                marker.openPopup();
             });
         });
     });

@@ -1,10 +1,9 @@
-import { eventList } from "../home-script.js";
-import { updateMap } from "../../Event-Page/Modules/event-map.js";
+import { eventList } from "../../script.js";
 
+// Function to populate the cards on the page
 export function populateCards() {
     // Get the top 10 most popular events and store them in a list
     const sortdEvents = eventList.sort((a, b) => b.TOTAL_MEMBERS - a.TOTAL_MEMBERS).slice(0, 6);
-
 
     // For each event, create a card
     sortdEvents.forEach(event => {
@@ -14,6 +13,7 @@ export function populateCards() {
 
 // Helper function to create a card
 function createCard(eventTitle, eventTierID, eventTotal, eventTravelDistance, eventID, event) {
+    // Get reference to card elements
     const parentRef = document.getElementById("event-cards-container");
     const cardRef = document.createElement("div");
     const cardTitleRef = document.createElement("p");
@@ -22,20 +22,17 @@ function createCard(eventTitle, eventTierID, eventTotal, eventTravelDistance, ev
     const cardDistanceRef = document.createElement("p");
     const btnRef = document.createElement("button");
 
+    // Set the inner html of each card element
     cardTitleRef.innerHTML = `<strong>${eventTitle}</strong>`;
     cardTierRef.innerHTML = `Tier: <strong>${eventTierID}</strong>`;
     cardTotalRef.innerHTML = `Players Attending: <strong>${eventTotal}</strong>`;
     cardDistanceRef.innerHTML = `Average Travel Distance: <strong>${eventTravelDistance}</strong>`;
     btnRef.textContent = "View Details";
 
-
+    // Add class, or listners, or anything needed to the references
     btnRef.classList.add("button");
     btnRef.value = eventID;
     cardRef.classList.add("event-card");
     cardRef.append(cardTitleRef, cardTierRef, cardTotalRef, cardDistanceRef, btnRef);
     parentRef.appendChild(cardRef);
-
-
-    // Add event listner for each button to direct to the event-viewer page
-
 }
