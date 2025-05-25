@@ -53,6 +53,7 @@ export function initMap() {
         marker.on('popupclose', function (e) {
             for (const name in eventMarkers) {
                 eventMarkers[name].addTo(map);
+                drawMembers(event);
             }
         });
 
