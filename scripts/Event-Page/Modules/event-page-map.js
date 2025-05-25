@@ -44,6 +44,7 @@ export function initMap() {
 // Add click event to each marker
 export function goToEvent(name) {
     const match = eventList.find(event => event.EVENT_NAME == name);
+    console.log(match);
     const latLng = [match.EVENT_LATITUDE, match.EVENT_LONGITUDE];
     map.flyTo(latLng, 13, {
         animate: true,
