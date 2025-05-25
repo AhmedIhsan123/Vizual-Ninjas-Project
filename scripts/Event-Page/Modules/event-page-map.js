@@ -46,7 +46,7 @@ export async function drawEventPins() {
         eventMarkers[event.EVENT_ID] = marker;
 
         // Bind a popup to the marker
-        marker.bindPop(`<strong>${event.EVENT_NAME}</strong>`);
+        marker.bindPopup(`<strong>${event.EVENT_NAME}</strong>`);
 
         // Add onclick events to marker
         marker.on("click", () => {
