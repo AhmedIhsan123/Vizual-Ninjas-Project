@@ -32,10 +32,7 @@ export function initMap() {
 
         // Add click behavior
         marker.on('click', () => {
-            map.flyTo(latLng, 13, {
-                animate: true,
-                duration: 1.5
-            });
+            goToEvent(event);
             fillCards(eventList.find(events => events.EVENT_NAME == event.EVENT_NAME));
             drawMembers(event);
 
