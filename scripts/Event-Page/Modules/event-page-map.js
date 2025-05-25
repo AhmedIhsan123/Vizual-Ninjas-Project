@@ -119,6 +119,7 @@ export async function drawMemberPins(event) {
 
         // Draw line
         drawLine([latLng, [event.EVENT_LATITUDE, event.EVENT_LONGITUDE]]);
+        console.log([latLng, [event.EVENT_LATITUDE, event.EVENT_LONGITUDE]]);
     });
 }
 
