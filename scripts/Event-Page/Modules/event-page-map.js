@@ -124,15 +124,10 @@ export async function drawMemberPins(event) {
 
 function drawLine(latlngs) {
     // Store a line in a constant
-    const animatedLine = L.polyline.AntPath(latlngs, {
-        "delay": 400,
-        "dashArray": [10, 20],
-        "weight": 5,
-        "color": "#0000FF",
-        "pulseColor": "#FFFFFF",
-        "paused": false,
-        "reverse": false,
-        "hardwareAccelerated": true
+    const animatedLine = L.polyline(latlngs, {
+        dashArray: '10, 20',
+        weight: 5,
+        color: "red",
     }).addTo(map);
 }
 
