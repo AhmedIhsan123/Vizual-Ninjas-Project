@@ -75,6 +75,12 @@ export async function drawMembers(event) {
         });
     }
 
+    if (memberMarkers.length > 0) {
+        memberMarkers.forEach(marker => {
+            map.removeLayer(marker);
+        })
+    }
+
     members.forEach(member => {
         const latLng = [member.MEMBER_LAT, member.MEMBER_LON];
         const marker = L.marker(latLng).addTo(map);
