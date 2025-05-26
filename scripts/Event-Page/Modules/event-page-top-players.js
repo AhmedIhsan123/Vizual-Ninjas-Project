@@ -1,7 +1,7 @@
 import { currentMembers } from "./event-page-map.js";
 
 // Local variables
-const parentDivRef = document.getElementById("#top-players");
+const parentDivRef = document.getElementById("top-players");
 
 export function updateTopPlayers() {
     // Get all the distinct divisons
