@@ -7,10 +7,10 @@ const params = new URLSearchParams(window.location.search);
 const eventID = params.get("id");
 
 // Init the map
+console.log(699);
 await initMap();
 
 if (eventID) {
-    console.log(699);
     const event = eventList.find(event => event.EVENT_ID == eventID);
     if (event) {
         // Hide all other event pins
