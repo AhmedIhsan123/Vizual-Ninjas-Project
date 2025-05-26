@@ -59,6 +59,14 @@ async function drawEventPins() {
             // Show all the event pins
             showAllEventPins(event);
 
+            // Make the camera fit to pins
+            const bounds = L.latLngBounds(Object.values(eventMarkers).map(m => m.getLatLng()));
+            map.flyToBounds(bounds, {
+                padding: [25, 25],
+                maxZoom: 14,
+                duration: 1.0
+            });
+
             // Hide member pins
             hideAllMemberPins();
         });
