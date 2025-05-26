@@ -1,4 +1,4 @@
-import { currentMembers } from "./event-page-map";
+import { currentMembers } from "./event-page-map.js";
 
 const uniqueDivisions = ["OPEN", "AM1", "AM2", "AM3"];
 const openReference = document.getElementById("OPEN-top-players");
