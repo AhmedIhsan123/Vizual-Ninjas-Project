@@ -6,5 +6,34 @@ const parentDivRef = document.getElementById("#top-players");
 export function updateTopPlayers() {
     // Get all the distinct divisons
     const division = [...new Set(currentMembers.map(member => member.DIVISION_ID))];
-    console.log("Divisions: ", division);
+
+    // For each divison, create a div
+    division.forEach(div => {
+        // Get the members in this division
+        const membersInDivision = currentMembers.filter(member => member.DIVISION_ID === div);
+
+        // Sort the members by score
+        membersInDivision.sort((a, b) => b.SCORE - a.SCORE);
+
+        // Create a div for the division
+        const divisionDiv = document.createElement("div");
+        divisionDiv.className = "division";
+        divisionDiv.innerHTML = `<h3>Division ${div}</h3>`;
+
+        // Create a list for the top players
+        const topPlayersList = document.createElement("ul");
+
+        // Add the top 5 players to the list
+        membersInDivision.slice(0, 3).forEach(member => {
+            const playerItem = document.createElement("li");
+            playerItem.textContent = `${member.NAME} - ${member.SCORE}`;
+            topPlayersList.appendChild(playerItem);
+        });
+
+        // Append the list to the division div
+        divisionDiv.appendChild(topPlayersList);
+
+        // Append the division div to the parent div
+        parentDivRef.appendChild(divisionDiv);
+    });
 }
