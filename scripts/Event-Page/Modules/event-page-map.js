@@ -89,6 +89,7 @@ export function hideAllEventPins(eventIdToIgnore) {
         if (id != eventIdToIgnore) {
             console.log("Hidden: " + eventMarkers[id], id);
             map.removeLayer(eventMarkers[id]);
+            delete eventMarkers[id];
         }
     }
 }
