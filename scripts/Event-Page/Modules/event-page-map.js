@@ -44,16 +44,29 @@ function createEventMarkers() {
 
         // Store the marker in an array of markers
         eventMarkers[currentEvent.EVENT_ID] = eventMarker;
+
+        // Add on click event
+        eventMarker.on("click", function () {
+            selectEvent(currentEvent);
+        })
     });
 }
 
 function selectEvent(event) {
-
+    hideAllEventsExcept(event);
 }
 
 function addAllEventMarkers() {
     // For each marker in the event markers array
     for (const id in eventMarkers) {
         eventMarkers[id].addTo(map);
+    }
+}
+
+function hideAllEventsExcept(event) {
+    for (const id in eventMarkers) {
+        if (event.EVENT_ID != id) {
+            map.removeLayer(eventMarkers[id]);
+        }
     }
 }
