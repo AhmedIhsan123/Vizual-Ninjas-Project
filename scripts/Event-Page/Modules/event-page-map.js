@@ -38,6 +38,18 @@ function addAllEventPins() {
 
         // Store the marker in an associative 
         eventMarkers[event.EVENT_ID] = marker;
+
+        // Clicking on a pin
+        marker.on("click", function () {
+            hideAllEventsExcept(event);
+        })
     });
 }
 
+function hideAllEventsExcept(event) {
+    for (const id in eventMarkers) {
+        if (id != event.EVENT_ID) {
+            map.removeLayer(eventMarkers[id]);
+        }
+    }
+}
