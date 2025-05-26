@@ -11,7 +11,6 @@ export function updateTopPlayers() {
     division.forEach(div => {
         // Get the members in this division
         const membersInDivision = currentMembers.filter(member => member.DIVISION_ID === div);
-        console.log(membersInDivision);
 
         // Sort the members by score
         membersInDivision.sort((a, b) => a.EVENT_PLACE - b.EVENT_PLACE);
