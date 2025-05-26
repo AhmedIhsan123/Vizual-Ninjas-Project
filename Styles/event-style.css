@@ -244,6 +244,10 @@
     border-radius: 5px;
 }
 
+.divsion h3 {
+    margin-bottom: 10px;
+}
+
 .top-players-panel ol {
     /* Layout */
     padding-left: 0;
