@@ -104,7 +104,7 @@ function showAllEventPins(e) {
     });
 }
 
-async function drawMemberPins(event) {
+export async function drawMemberPins(event) {
     // Fetch all the members attending the evnt
     const members = await fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`);
 
@@ -133,7 +133,7 @@ async function drawMemberPins(event) {
 }
 
 // A function that hides all the member pins/lines and deletes them
-function hideAllMemberPins() {
+export function hideAllMemberPins() {
     // Delete all the pins
     for (const pdgaid in memberMarkers) {
         map.removeLayer(memberMarkers[pdgaid]);
