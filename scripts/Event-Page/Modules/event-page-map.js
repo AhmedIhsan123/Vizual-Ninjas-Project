@@ -44,6 +44,13 @@ export function addEventMarkers() {
             hideAllEventsExcept(event);
             await plotMemberPins(event); // Show the members attending event
             fillCards(event);
+            // Make the camera fit to pins
+            const bounds = L.latLngBounds(Object.values(memberMarkers).map(m => m.getLatLng()));
+            map.flyToBounds(bounds, {
+                padding: [50, 50],
+                maxZoom: 16,
+                duration: 1.0
+            });
         });
 
         // Add event listner for popup closed
@@ -51,6 +58,13 @@ export function addEventMarkers() {
             showAllEvents(event);
             hideMemberPins();
             hideMemberLines();
+            // Make the camera fit to pins
+            const bounds = L.latLngBounds(Object.values(eventMarkers).map(m => m.getLatLng()));
+            map.flyToBounds(bounds, {
+                padding: [50, 50],
+                maxZoom: 16,
+                duration: 1.0
+            });
         });
 
         // Add marker to list of markers
