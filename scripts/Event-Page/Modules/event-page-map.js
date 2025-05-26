@@ -3,8 +3,8 @@ import { fetchData } from "../../utils.js";
 import { fillCards } from "./event-stats.js";
 // Local Variables
 const map = L.map('mapid').setView([45.5, -98.35], 4);
-const eventMarkers = [];
-const memberMarkers = [];
+let eventMarkers = [];
+let memberMarkers = [];
 let drawnLines = [];
 const redIcon = new L.Icon({
     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
@@ -79,7 +79,6 @@ async function drawEventPins() {
 
 // A method that hides all event pins with an exception
 export function hideAllEventPins(e) {
-    console.log(eventMarkers);
     // Traverse all events
     eventList.forEach(event => {
         // Remove all pins expect for the selected event
@@ -140,8 +139,6 @@ export async function drawMemberPins(event) {
         // Draw line
         drawLine([latLng, [event.EVENT_LATITUDE, event.EVENT_LONGITUDE]]);
     });
-
-    console.log(memberMarkers.length);
 
     // Make the camera fit to pins
     const bounds = L.latLngBounds(Object.values(memberMarkers).map(m => m.getLatLng()));

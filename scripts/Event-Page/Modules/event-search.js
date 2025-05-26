@@ -17,6 +17,7 @@ searchRef.addEventListener("change", function () {
         const event = eventList.find(event => event.EVENT_NAME == searchRef.value);
         if (event) {
             // Hide all other event pins
+            console.log(event);
             hideAllEventPins(event);
 
             // Draw all the member pins
