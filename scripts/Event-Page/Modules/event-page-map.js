@@ -105,13 +105,34 @@ async function drawMemberPins(event) {
         memberMarkers[member.PDGA_NUMBER] = marker;
 
         // Draw line
-        // drawLine([latLng, [event.EVENT_LATITUDE, event.EVENT_LONGITUDE]]);
+        drawLine([latLng, [event.EVENT_LATITUDE, event.EVENT_LONGITUDE]]);
     });
 }
 
+// A function that hides all the member pins/lines and deletes them
 function hideAllMemberPins() {
+    // Delete all the pins
     for (const pdgaid in memberMarkers) {
         map.removeLayer(memberMarkers[pdgaid]);
         delete memberMarkers[pdgaid];
     }
+
+    // Delete and clear all the drawn lines
+    drawnLines.forEach(line => {
+        map.removeLayer(line);
+    })
+    drawnLines = [];
+}
+
+// A function that draws a line between two coordinates
+function drawLine(latlngs) {
+    // Store a line in a constant
+    const animatedLine = L.polyline(latlngs, {
+        dashArray: '10, 20',
+        weight: 5,
+        color: "red",
+    }).addTo(map);
+
+    // Add to array of lines
+    drawnLines.push(animatedLine);
 }
