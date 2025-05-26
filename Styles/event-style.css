@@ -272,7 +272,17 @@
 }
 
 /* Charts */
+.chart-box {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    grid-area: chart1; /* Adjusted to fit the grid layout */
+    padding: 1rem;
 
+    /* Styles */
+    background-color: #2e2e40;
+    border-radius: 5px;
+}
 
 
 /* Basic responsiveness for smaller screens */
