@@ -112,7 +112,7 @@ async function drawMemberPins(event) {
     const bounds = L.latLngBounds(Object.values(memberMarkers).map(m => m.getLatLng()));
     map.flyToBounds(bounds, {
         padding: [20, 20],
-        maxZoom: 15,
+        maxZoom: 18,
         duration: 1.0
     });
 }
