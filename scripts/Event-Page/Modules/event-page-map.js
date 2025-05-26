@@ -50,6 +50,7 @@ export function addEventMarkers() {
             showAllEvents(event);
             hideMemberPins();
             hideMemberLines();
+            fillCards(event);
         });
 
         // Add marker to list of markers
