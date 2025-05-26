@@ -14,7 +14,7 @@ export function buildTChart() {
     tchart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: currentMembers.map(member => member.MEMBER_NAME),
+            labels: currentMembers.map(member => member.MEMBER_FULL_NAME),
             datasets: [{
                 label: 'Distance to Event',
                 data: currentMembers.map(member => member.DISTANCE_TRAVELED_MILES),
