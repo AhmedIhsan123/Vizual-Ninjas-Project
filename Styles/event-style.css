@@ -285,7 +285,7 @@
 }
 
 .chart-container {
-
+    max-height: 100%;
 }
 
 #chart1 {
