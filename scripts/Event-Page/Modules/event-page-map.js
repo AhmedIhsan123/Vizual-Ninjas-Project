@@ -129,7 +129,7 @@ export function drawLine(coordinate) {
         color: 'red',
         weight: 4,
         opacity: 0.8,
-        dashArray: '2, 2', // dash-dot style
+        dashArray: '2, 5', // dash-dot style
         dashOffset: '5'
     });
 
