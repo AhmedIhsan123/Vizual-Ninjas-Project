@@ -8,14 +8,17 @@ const eventID = params.get("id");
 
 // Init the map
 await initMap();
-const event = eventList.find(event => event.EVENT_ID == eventID);
-if (event) {
-    // Hide all other event pins
-    hideAllEventPins(event);
 
-    // Draw all the member pins
-    drawMemberPins(event);
+if (eventID) {
+    const event = eventList.find(event => event.EVENT_ID == eventID);
+    if (event) {
+        // Hide all other event pins
+        hideAllEventPins(event);
+
+        // Draw all the member pins
+        drawMemberPins(event);
+    }
+
 }
-
 // Init the search bar
 initSearch();
