@@ -9,7 +9,7 @@ export function buildTChart() {
     }
     // Sort members by distance traveled (ascending) and take top 25
     const topMembers = [...currentMembers]
-        .sort((a, b) => a.DISTANCE_TRAVELED_MILES - b.DISTANCE_TRAVELED_MILES)
+        .sort((a, b) => b.DISTANCE_TRAVELED_MILES - a.DISTANCE_TRAVELED_MILES)
         .slice(0, 25);
 
     // Update the chart title with the event player count
@@ -33,6 +33,7 @@ export function buildTChart() {
         },
         options: {
             responsive: true,
+            maintaineAspectRatio: false,
             plugins: {
                 legend: {
                     labels: {
