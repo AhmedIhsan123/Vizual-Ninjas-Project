@@ -31,7 +31,7 @@ if ($event_id > 0) {
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':event_id', $event_id, PDO::PARAM_INT);
 } else {
-    $sql = "SELECT 
+    $sql = "SELECT DISTINCT 
                 m.PDGA_NUMBER, 
                 m.MEMBER_FULL_NAME, 
                 m.MEMBER_CITY, 
@@ -41,12 +41,8 @@ if ($event_id > 0) {
                 m.MEMBER_ADDRESS, 
                 m.MEMBER_LAT, 
                 m.MEMBER_LON, 
-                m.MEMBER_ADDRESS_FORMATTED,
-                e.EVENT_LATITUDE,
-                e.EVENT_LONGITUDE
-            FROM MEMBER m
-            CROSS JOIN EVENT e"; // Get all events for distance calculation
-    
+                m.MEMBER_ADDRESS_FORMATTED
+            FROM MEMBER m";
     $stmt = $pdo->prepare($sql);
 }
 
