@@ -15,11 +15,12 @@ export function initSearch() {
 searchRef.addEventListener("change", function () {
     if (searchRef.value != "") {
         const event = eventList.find(event => event.EVENT_NAME == searchRef.value);
+        if (event) {
+            // Hide all other event pins
+            hideAllEventPins(event);
 
-        // Hide all other event pins
-        hideAllEventPins(event);
-
-        // Draw all the member pins
-        drawMemberPins(event);
+            // Draw all the member pins
+            drawMemberPins(event);
+        }
     }
 })
