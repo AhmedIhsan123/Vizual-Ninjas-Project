@@ -272,41 +272,7 @@
 }
 
 /* Charts */
-.chart-box {
-    /* Layout - Use Flexbox for vertical layout */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Center the chart within the box */
-    height: 100%; /* Make it fill the grid cell */
-    padding: 1rem;
-    background-color: #2e2e40;
-    border-radius: 6px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-}
 
-.chart-box h3 {
-    text-align: center;
-    color: #fff;
-    margin-bottom: 1rem;
-    font-family: 'Poppins', sans-serif;
-}
-
-#chart1 {
-    grid-area: chart1;
-}
-
-#chart2 {
-    grid-area: chart2;
-}
-
-/* Ensure the canvas takes up the full space of its parent */
-.chart-box canvas {
-    width: 100% !important;
-    height: 100% !important;
-    max-width: 100%;
-    max-height: 100%;
-}
 
 
 /* Basic responsiveness for smaller screens */
