@@ -1,5 +1,6 @@
 import { currentMembers } from "./event-page-map.js";
 const chartRef = document.querySelector("#chartDistance");
+let tchart = null;
 
 export function tchart() {
     // If the chart already exists, destroy it
@@ -8,13 +9,13 @@ export function tchart() {
     }
 
     // Create a new chart instance
-    chartRef.chart = new Chart(chartRef, {
+    tchart = new Chart(chartRef, {
         type: 'bar',
         data: {
             labels: currentMembers.map(member => member.MEMBER_NAME),
             datasets: [{
                 label: 'Distance to Event',
-                data: currentMembers.map(member => member.DISTANCE_TO_EVENT),
+                data: currentMembers.map(member => member.DISTANCE_TRAVELED_MILES),
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 fill: true,
@@ -29,4 +30,6 @@ export function tchart() {
             }
         }
     });
+
+    tchart.update();
 }
