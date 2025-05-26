@@ -1,4 +1,4 @@
-import { currentMembers } from "./event-page-map";
+import { currentMembers } from "./event-page-map.js";
 const chartRef = document.querySelector("#chartDistance");
 
 export function tchart() {
