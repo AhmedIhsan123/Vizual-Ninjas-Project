@@ -1,6 +1,6 @@
 import { eventList } from "../../script.js";
 import { fetchData } from "../../utils.js";
-import { fillCards } from "./event-stats.js";
+// Removed unused import of fillCards from "./event-stats.js"
 
 // Initialize Leaflet map centered on the US
 const map = L.map('mapid').setView([45.5, -98.35], 4);
@@ -62,8 +62,9 @@ function createEventMarkers() {
         });
 
         // Focus on this event when marker is clicked
-        eventMarker.on("click", function () {
+        eventMarker.on("click", async () => {
             selectEvent(currentEvent);
+            await showAttendingMembers(currentEvent);
         });
     });
 }
@@ -107,4 +108,60 @@ function showAllEventsExcept(event) {
             eventMarkers[id].addTo(map);
         }
     }
+}
+
+async function showAttendingMembers(event) {
+    // Fetch all the members attending the evnt
+    const members = await fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`);
+
+    // For each member coming to the event
+    members.forEach(member => {
+        // Store coordinates in a constant
+        const latLng = [member.MEMBER_LAT, member.MEMBER_LON];
+
+        // Add the pin to the map
+        const marker = L.marker(latLng, { icon: redIcon }).addTo(map);
+
+        // Store the marker in an associative array (Key - PDGAID)
+        memberMarkers[member.PDGA_NUMBER] = marker;
+
+        // Bind the popup
+        marker.bindPopup(`<strong>${member.MEMBER_FULL_NAME}</strong><br>`);
+
+        // Add mouse over event listener to open popup
+        marker.on("mouseover", function () {
+            marker.openPopup();
+        });
+
+        // Add mouse out event listener to close popup
+        marker.on("mouseout", function () {
+            marker.closePopup();
+        });
+
+        // Draw line
+        drawLine([latLng, [event.EVENT_LATITUDE, event.EVENT_LONGITUDE]]);
+    });
+
+    console.log(memberMarkers.length);
+
+    // Make the camera fit to pins
+    const bounds = L.latLngBounds(Object.values(memberMarkers).map(m => m.getLatLng()));
+    map.flyToBounds(bounds, {
+        padding: [50, 50],
+        maxZoom: 20,
+        duration: 1.0
+    });
+}
+
+// A function that draws a line between two coordinates
+function drawLine(latlngs) {
+    // Store a line in a constant
+    const animatedLine = L.polyline(latlngs, {
+        dashArray: '10, 20',
+        weight: 5,
+        color: "red",
+    }).addTo(map);
+
+    // Add to array of lines
+    drawnLines.push(animatedLine);
 }
