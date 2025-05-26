@@ -124,8 +124,7 @@ export async function drawMemberPins(event) {
 
         // Bind the popup
         marker.bindPopup(`
-            <strong>${member.MEMBER_FULL_NAME}</strong>
-            From: <strong>${member.MEMBER_CITY}, ${member.MEMBER_STATE_PROV}</strong>
+            <strong>${member.MEMBER_FULL_NAME}</strong><br>
             Travel Distance: <strong>${member.DISTANCE_TRAVELED_MILES} mi</strong>`);
 
         // Add mouse over event listner
