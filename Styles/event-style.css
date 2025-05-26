@@ -284,6 +284,11 @@
     border-radius: 5px;
 }
 
+.chart-container {
+    width: clamp(300px, 100%, 600px); /* Responsive width */
+    height: 300px; /* Fixed height for charts */
+}
+
 #chart1 {
     grid-area: chart1; /* Ensure it fits the grid layout */
 }
@@ -291,7 +296,6 @@
 #chart2 {
     grid-area: chart2; /* Ensure it fits the grid layout */
 }
-
 
 /* Basic responsiveness for smaller screens */
 @media (max-width: 1200px) {
