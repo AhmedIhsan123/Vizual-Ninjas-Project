@@ -10,3 +10,4 @@ export function initSearch() {
         optionsRef.innerHTML += `<option value="${event.EVENT_NAME}">`;
     });
 }
+

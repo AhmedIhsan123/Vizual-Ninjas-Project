@@ -16,9 +16,20 @@ const redIcon = new L.Icon({
 });
 
 // Initialize the map
-export async function initMap() {
+export function initMap() {
     // Add a tile layer to the map (OpenStreetMap tiles)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
+
+    storeEventPins();
+    console.log(eventMarkers);
+}
+
+export function storeEventPins() {
+    eventList.forEach(event => {
+        const latlon = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
+        const marker = L.marker(latlon);
+        eventMarkers[event.EVENT_ID] = marker;
+    });
 }
