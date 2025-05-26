@@ -34,7 +34,7 @@ function createCard(eventTitle, eventTierID, eventTotal, eventTravelDistance, ev
     // Add class, or listners, or anything needed to the references
     btnRef.classList.add("button");
     btnRef.value = eventID;
-    btnRef.href = `event-page.html?name=${eventTitle}`;
+    btnRef.href = `event-page.html?id=${eventID}`;
     cardRef.classList.add("event-card");
     cardRef.append(cardTitleRef, cardTierRef, cardTotalRef, cardDistanceRef, btnRef);
     parentRef.appendChild(cardRef);
