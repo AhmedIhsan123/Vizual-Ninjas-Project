@@ -123,7 +123,10 @@ export async function drawMemberPins(event) {
         memberMarkers[member.PDGA_NUMBER] = marker;
 
         // Bind the popup
-        marker.bindPopup(`<strong>${member.MEMBER_FULL_NAME}</strong><br><p>Coming From: ${member.MEMBER_CITY}, ${member.MEMBER_STATE_PROV}</p>`);
+        marker.bindPopup(`
+            <strong>${member.MEMBER_FULL_NAME}</strong>
+            <p>From: <strong>${member.MEMBER_CITY}, ${member.MEMBER_STATE_PROV}</strong></p>
+            <p>Travel Distance: <strong>${member.DISTANCE_TRAVELED_MILES} mi</strong></p>`);
 
         // Add mouse over event listner
         marker.on("mouseover", function (e) {
