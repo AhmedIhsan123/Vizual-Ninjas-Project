@@ -48,6 +48,7 @@ export function addEventMarkers() {
         // Add event listner for popup closed
         marker.on("popupclose", function () {
             showAllEvents(event);
+            hideMemberPins();
         });
 
         // Add marker to list of markers
@@ -98,6 +99,28 @@ export async function plotMemberPins(event) {
         map.addLayer(marker);
         memberMarkers[member.PDGA_NUMBER] = marker;
     });
+}
+
+export function hideMemberPins() {
+    // For every pin in the array
+    for (const id in memberMarkers) {
+        // Remove the member pins
+        map.removeLayer(memberMarkers[id]);
+    }
+
+    // Reset the array
+    memberMarkers = [];
+}
+
+export function hideMemberLines() {
+    // For every line in the lines array
+    currentDrawnLines.forEach(line => {
+        map.removeLayer(line);
+    });
+
+    // Reset the array
+    currentDrawnLines = [];
+
 }
 
 export function drawLine(coordinate) {
