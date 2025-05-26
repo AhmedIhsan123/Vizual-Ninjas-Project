@@ -4,12 +4,14 @@ let tchart = null;
 
 export function tchart() {
     // If the chart already exists, destroy it
-    if (chartRef.chart) {
-        chartRef.chart.destroy();
+    if (tchart) {
+        tchart.destroy();
     }
+    // Create the chart using Chart.js
+    const ctx = document.getElementById("chartDistance").getContext("2d");
 
     // Create a new chart instance
-    tchart = new Chart(chartRef, {
+    tchart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: currentMembers.map(member => member.MEMBER_NAME),
