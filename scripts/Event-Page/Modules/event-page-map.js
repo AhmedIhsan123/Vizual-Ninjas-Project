@@ -31,7 +31,7 @@ export function storeEventPins() {
         const latLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
 
         // Add the pin to the map
-        const marker = L.marker(latLng).addTo(map);
+        const marker = L.marker(latLng);
 
         // Store the marker in an associative array (Key - eventID)
         eventMarkers[event.EVENT_ID] = marker;
@@ -49,6 +49,7 @@ export function storeEventPins() {
     });
 }
 
-export function displayPin() {
-
+export function displayPin(eventID) {
+    // Add the pin to the map
+    eventMarkers[eventID].addTo(map);
 }
