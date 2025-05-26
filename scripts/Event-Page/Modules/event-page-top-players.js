@@ -7,6 +7,9 @@ export function updateTopPlayers() {
     // Get all the distinct divisons
     const division = [...new Set(currentMembers.map(member => member.DIVISION_ID))];
 
+    // Clear the parent div
+    parentDivRef.innerHTML = "";
+
     // For each divison, create a div
     division.forEach(div => {
         // Get the members in this division
