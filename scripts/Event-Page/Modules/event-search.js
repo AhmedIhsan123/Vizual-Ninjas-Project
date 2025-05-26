@@ -1,4 +1,5 @@
 import { eventList, playerList } from "../../script.js";
+import { hideAllEventsExcept, showAllEventsExcept } from "./event-page-map.js";
 
 // Local variables
 const searchRef = document.querySelector("#event-search");
@@ -10,4 +11,11 @@ export function initSearch() {
         optionsRef.innerHTML += `<option value="${event.EVENT_NAME}">`;
     });
 }
+
+searchRef.addEventListener("change", function () {
+    if (searchRef.value != "") {
+        const event = eventList.find(event => event.EVENT_NAME == searchRef.value);
+        hideAllEventsExcept(event);
+    }
+})
 

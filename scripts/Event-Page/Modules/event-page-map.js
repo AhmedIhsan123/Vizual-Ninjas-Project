@@ -54,7 +54,7 @@ function addAllEventPins() {
     });
 }
 
-function hideAllEventsExcept(event) {
+export function hideAllEventsExcept(event) {
     for (const id in eventMarkers) {
         if (id != event.EVENT_ID) {
             map.removeLayer(eventMarkers[id]);
@@ -62,7 +62,7 @@ function hideAllEventsExcept(event) {
     }
 }
 
-function showAllEventsExcept(event) {
+export function showAllEventsExcept(event) {
     for (const id in eventMarkers) {
         if (id != event.EVENT_ID) {
             eventMarkers[id].addTo(map);
