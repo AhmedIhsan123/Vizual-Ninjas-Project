@@ -81,7 +81,7 @@ async function drawEventPins() {
 }
 
 // A method that hides all event pins with an exception
-function hideAllEventPins(e) {
+export function hideAllEventPins(e) {
     // Traverse all events
     eventList.forEach(event => {
         // Remove all pins expect for the selected event
@@ -133,7 +133,7 @@ export async function drawMemberPins(event) {
 }
 
 // A function that hides all the member pins/lines and deletes them
-export function hideAllMemberPins() {
+function hideAllMemberPins() {
     // Delete all the pins
     for (const pdgaid in memberMarkers) {
         map.removeLayer(memberMarkers[pdgaid]);
