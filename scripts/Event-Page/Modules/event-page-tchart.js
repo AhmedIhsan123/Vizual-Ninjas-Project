@@ -7,9 +7,9 @@ export function buildTChart() {
     if (tchart) {
         tchart.destroy();
     }
-    // Sort members by distance traveled (descending) and take top 25
+    // Sort members by distance traveled (ascending) and take top 25
     const topMembers = [...currentMembers]
-        .sort((a, b) => b.DISTANCE_TRAVELED_MILES - a.DISTANCE_TRAVELED_MILES)
+        .sort((a, b) => a.DISTANCE_TRAVELED_MILES - b.DISTANCE_TRAVELED_MILES)
         .slice(0, 25);
 
     // Create the chart using Chart.js
