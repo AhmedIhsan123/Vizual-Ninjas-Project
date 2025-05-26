@@ -30,9 +30,33 @@ export function buildTChart() {
         },
         options: {
             responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#fff'
+                    }
+                },
+                title: {
+                    color: '#fff'
+                },
+                tooltip: {
+                    bodyColor: '#fff',
+                    titleColor: '#fff'
+                }
+            },
             scales: {
+                x: {
+                    ticks: {
+                        color: '#fff',
+                        maxRotation: 90,
+                        minRotation: 90
+                    }
+                },
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#fff'
+                    }
                 }
             }
         }
