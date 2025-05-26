@@ -3,9 +3,9 @@ import { fetchData } from "../../utils.js";
 import { fillCards } from "./event-stats.js";
 // Local Variables
 const map = L.map('mapid').setView([45.5, -98.35], 4);
-let eventMarkers = [];
-let memberMarkers = [];
-let drawnLines = [];
+export let eventMarkers = [];
+export let memberMarkers = [];
+export let drawnLines = [];
 const redIcon = new L.Icon({
     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
     shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
@@ -89,7 +89,7 @@ export function hideAllEventPins(e) {
     });
 
     // Open the popup for the selected event
-    // eventMarkers[e.EVENT_ID].openPopup();
+    eventMarkers[e.EVENT_ID].openPopup();
 
     // Update the stats
     fillCards(e);
