@@ -1,6 +1,6 @@
 import { eventList } from "../../script.js";
 import { fetchData } from "../../utils.js";
-// Removed unused import of fillCards from "./event-stats.js"
+import { fillCards } from "./event-stats.js";
 
 // Initialize Leaflet map centered on the US
 const map = L.map('mapid').setView([45.5, -98.35], 4);
@@ -137,31 +137,5 @@ async function showAttendingMembers(event) {
         marker.on("mouseout", function () {
             marker.closePopup();
         });
-
-        // Draw line
-        drawLine([latLng, [event.EVENT_LATITUDE, event.EVENT_LONGITUDE]]);
     });
-
-    console.log(memberMarkers.length);
-
-    // Make the camera fit to pins
-    const bounds = L.latLngBounds(Object.values(memberMarkers).map(m => m.getLatLng()));
-    map.flyToBounds(bounds, {
-        padding: [50, 50],
-        maxZoom: 20,
-        duration: 1.0
-    });
-}
-
-// A function that draws a line between two coordinates
-function drawLine(latlngs) {
-    // Store a line in a constant
-    const animatedLine = L.polyline(latlngs, {
-        dashArray: '10, 20',
-        weight: 5,
-        color: "red",
-    }).addTo(map);
-
-    // Add to array of lines
-    drawnLines.push(animatedLine);
 }
