@@ -90,6 +90,9 @@ export function hideAllEventPins(e) {
 
     // Open the popup for the selected event
     eventMarkers[e.EVENT_ID].openPopup();
+
+    // Update the stats
+    fillCards(e);
 }
 
 // A method that shows all event pins with an exception
