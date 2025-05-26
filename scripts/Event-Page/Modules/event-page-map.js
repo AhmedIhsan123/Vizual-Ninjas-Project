@@ -122,6 +122,19 @@ export async function drawMemberPins(event) {
         // Store the marker in an associative array (Key - PDGAID)
         memberMarkers[member.PDGA_NUMBER] = marker;
 
+        // Bind the popup
+        marker.bindPopup(`<strong>${member.MEMBER_FULL_NAME}</strong><br><br><p>Coming From: ${member.MEMBER_CITY}, ${member.MEMBER_STATE_PROV}</p>`);
+
+        // Add mouse over event listner
+        marker.on("mouseover", function (e) {
+            marker.openPopup();
+        })
+
+        // Add mouse out event listner
+        marker.on("mouseout", function (e) {
+            marker.closePopup();
+        })
+
         // Draw line
         drawLine([latLng, [event.EVENT_LATITUDE, event.EVENT_LONGITUDE]]);
     });
