@@ -41,6 +41,11 @@ export function storeEventPins() {
 
         // Add onclick events to marker
         marker.on("click", async () => {
+            for (const eventid in eventMarkers) {
+                if (eventid != event.EVENT_ID) {
+                    deletePin(eventid);
+                }
+            }
         });
 
         // Add an event listner for when the popup is closed
@@ -57,5 +62,10 @@ export function storeEventPins() {
 export function displayPin(eventID) {
     // Add the pin to the map
     eventMarkers[eventID].addTo(map);
-    // eventMarkers[eventID].openPopup();
+}
+
+export function deletePin(eventID) {
+    // Remove the pin from the map and delete
+    map.removeLayer(eventMarkers[eventID]);
+    delete eventMarkers[eventID];
 }
