@@ -7,19 +7,20 @@ const am2Reference = document.getElementById("AM2-top-players");
 const am3Reference = document.getElementById("AM3-top-players");
 
 
-getTopPlayersByDivision(currentMembers, "OPEN").forEach(player => {
-    openReference.innerHTML += `<li>${player.PLAYER_NAME} - ${player.EVENT_PLACE}</li>`;
-});
-getTopPlayersByDivision(currentMembers, "AM1").forEach(player => {
-    am1Reference.innerHTML += `<li>${player.PLAYER_NAME} - ${player.EVENT_PLACE}</li>`;
-});
-getTopPlayersByDivision(currentMembers, "AM2").forEach(player => {
-    am2Reference.innerHTML += `<li>${player.PLAYER_NAME} - ${player.EVENT_PLACE}</li>`;
-});
-getTopPlayersByDivision(currentMembers, "AM3").forEach(player => {
-    am3Reference.innerHTML += `<li>${player.PLAYER_NAME} - ${player.EVENT_PLACE}</li>`;
-});
-
+export function updateTopPlayers() {
+    getTopPlayersByDivision(currentMembers, "OPEN").forEach(player => {
+        openReference.innerHTML += `<li>${player.PLAYER_NAME} - ${player.EVENT_PLACE}</li>`;
+    });
+    getTopPlayersByDivision(currentMembers, "AM1").forEach(player => {
+        am1Reference.innerHTML += `<li>${player.PLAYER_NAME} - ${player.EVENT_PLACE}</li>`;
+    });
+    getTopPlayersByDivision(currentMembers, "AM2").forEach(player => {
+        am2Reference.innerHTML += `<li>${player.PLAYER_NAME} - ${player.EVENT_PLACE}</li>`;
+    });
+    getTopPlayersByDivision(currentMembers, "AM3").forEach(player => {
+        am3Reference.innerHTML += `<li>${player.PLAYER_NAME} - ${player.EVENT_PLACE}</li>`;
+    });
+}
 
 function getTopPlayersByDivision(players, division) {
     return players
