@@ -51,9 +51,6 @@ async function drawEventPins() {
 
         // Add onclick events to marker
         marker.on("click", async () => {
-            // Show a popup with the events name
-            marker.openPopup();
-
             // Hide all other event pins
             hideAllEventPins(event);
 
@@ -90,6 +87,9 @@ export function hideAllEventPins(e) {
             map.removeLayer(eventMarkers[event.EVENT_ID]);
         }
     });
+
+    // Open the popup for the selected event
+    eventMarkers[e.EVENT_ID].openPopup();
 }
 
 // A method that shows all event pins with an exception
