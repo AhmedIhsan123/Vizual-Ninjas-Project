@@ -1,5 +1,5 @@
 import { eventList, playerList } from "../../script.js";
-import { hideAllEventsExcept, showAllEventsExcept, eventMarkers } from "./event-page-map.js";
+import { hideAllEventsExcept, showAllEventsExcept, eventMarkers, map } from "./event-page-map.js";
 
 // Local variables
 const searchRef = document.querySelector("#event-search");

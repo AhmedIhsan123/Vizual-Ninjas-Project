@@ -2,7 +2,7 @@ import { eventList } from "../../script.js";
 import { fetchData } from "../../utils.js";
 import { fillCards } from "./event-stats.js";
 // Local Variables
-const map = L.map('mapid').setView([45.5, -98.35], 4);
+export const map = L.map('mapid').setView([45.5, -98.35], 4);
 export let eventMarkers = [];
 export let memberMarkers = [];
 export let drawnLines = [];
