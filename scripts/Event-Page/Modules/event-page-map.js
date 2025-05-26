@@ -57,5 +57,5 @@ export function storeEventPins() {
 export function displayPin(eventID) {
     // Add the pin to the map
     eventMarkers[eventID].addTo(map);
-    eventMarkers[eventID].openPopup();
+    // eventMarkers[eventID].openPopup();
 }
