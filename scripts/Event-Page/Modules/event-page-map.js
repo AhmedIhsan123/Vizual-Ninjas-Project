@@ -137,11 +137,11 @@ export async function drawMemberPins(event) {
             marker.closePopup();
         })
 
-        console.log(memberMarkers.length);
-
         // Draw line
         drawLine([latLng, [event.EVENT_LATITUDE, event.EVENT_LONGITUDE]]);
     });
+
+    console.log(memberMarkers.length);
 
     // Make the camera fit to pins
     const bounds = L.latLngBounds(Object.values(memberMarkers).map(m => m.getLatLng()));
