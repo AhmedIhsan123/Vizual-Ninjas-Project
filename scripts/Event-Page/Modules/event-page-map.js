@@ -98,7 +98,7 @@ export function hideAllEventPins(e) {
 }
 
 // A method that shows all event pins with an exception
-function showAllEventPins(e) {
+export function showAllEventPins(e) {
     // Traverse all the events
     eventList.forEach(event => {
         // Check if the current event doesn't equal selected event
