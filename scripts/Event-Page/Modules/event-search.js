@@ -1,4 +1,5 @@
 import { eventList, playerList } from "../../script.js";
+import { hideAllEventPins, drawMemberPins } from "./event-page-map.js";
 
 // Local variables
 const searchRef = document.querySelector("#event-search");
