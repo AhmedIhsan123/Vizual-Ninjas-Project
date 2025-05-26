@@ -17,7 +17,7 @@ const redIcon = new L.Icon({
 });
 
 // Initialize the map
-export function initMap() {
+export async function initMap() {
     // Add a tile layer to the map (OpenStreetMap tiles)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors',
