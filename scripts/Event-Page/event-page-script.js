@@ -9,9 +9,5 @@ const eventID = params.get("id");
 // Init the map
 await initMap();
 
-if (eventID) {
-    displayPin(eventID);
-}
-
 // Init the search bar
 initSearch();
