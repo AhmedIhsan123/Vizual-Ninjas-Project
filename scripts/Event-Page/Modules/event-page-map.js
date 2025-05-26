@@ -1,16 +1,12 @@
 import { eventList } from "../../script.js";
 import { fetchData } from "../../utils.js";
 import { fillCards } from "./event-stats.js";
-
-// Initialize Leaflet map centered on the US
+// Local Variables
+// Set the initial view to a specific location and zoom level
 const map = L.map('mapid').setView([45.5, -98.35], 4);
-
-// Arrays to store event and member markers
 const eventMarkers = [];
 const memberMarkers = [];
-let drawnLines = [];
-
-// Custom red marker icon for events
+const currentDrawnLines = [];
 const redIcon = new L.Icon({
     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
     shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
@@ -20,122 +16,102 @@ const redIcon = new L.Icon({
     shadowSize: [41, 41]
 });
 
-/**
- * Initializes the map and adds event markers.
- * @param {boolean} startSelect - Whether to select a specific event on load.
- * @param {object} event - The event to select if startSelect is true.
- */
-export async function initMap(startSelect, event) {
-    // Add OpenStreetMap tile layer
+// Initialize the map
+export function initMap() {
+    // Add a tile layer to the map (OpenStreetMap tiles)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
 
-    // Create markers for all events
-    createEventMarkers();
+    // Loop through the data and add markers to the map
+    eventList.forEach(event => {
+        const latLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
+        const marker = L.marker(latLng).addTo(map);
+        marker.bindPopup(`<strong>${event.EVENT_NAME}</strong><br>`);
+        // Store marker by a unique key (e.g., event ID or name)
+        eventMarkers[event.EVENT_NAME] = marker;
 
-    // Show all markers or select a specific event
-    if (startSelect) {
-        selectEvent(event);
-    } else {
-        addAllEventMarkers();
-    }
-}
-
-/**
- * Creates markers for each event and sets up their popups and click handlers.
- */
-function createEventMarkers() {
-    eventList.forEach(currentEvent => {
-        const coordinates = [currentEvent.EVENT_LATITUDE, currentEvent.EVENT_LONGITUDE];
-        const eventMarker = L.marker(coordinates);
-
-        // Store marker by event ID
-        eventMarkers[currentEvent.EVENT_ID] = eventMarker;
-
-        // Bind popup with event name
-        eventMarker.bindPopup(`<strong>${currentEvent.EVENT_NAME}</strong>`);
-
-        // Show all other events when popup closes
-        eventMarker.on("popupclose", function () {
-            showAllEventsExcept(currentEvent);
+        // Add click behavior
+        marker.on('click', () => {
+            for (const name in eventMarkers) {
+                if (name != event.EVENT_NAME) {
+                    map.removeLayer(eventMarkers[name]);
+                }
+            }
+            goToEvent(event);
+            fillCards(eventList.find(events => events.EVENT_NAME == event.EVENT_NAME));
         });
 
-        // Focus on this event when marker is clicked
-        eventMarker.on("click", async () => {
-            selectEvent(currentEvent);
-            await showAttendingMembers(currentEvent);
+        marker.on('popupclose', function (e) {
+            for (const name in eventMarkers) {
+                eventMarkers[name].addTo(map);
+            }
+            currentDrawnLines.forEach(line => {
+                map.removeLayer(line);
+            });
+            memberMarkers.forEach(marker => {
+                map.removeLayer(marker);
+            })
         });
     });
 }
 
-/**
- * Selects a specific event by hiding all other event markers.
- * @param {object} event - The event to select.
- */
-function selectEvent(event) {
-    hideAllEventsExcept(event);
-}
-
-/**
- * Adds all event markers to the map.
- */
-function addAllEventMarkers() {
-    for (const id in eventMarkers) {
-        eventMarkers[id].addTo(map);
+// Add click event to each marker
+export async function goToEvent(event) {
+    for (const name in eventMarkers) {
+        eventMarkers[name].addTo(map);
     }
+    currentDrawnLines.forEach(line => {
+        map.removeLayer(line);
+    });
+    memberMarkers.forEach(marker => {
+        map.removeLayer(marker);
+    });
+    const marker = eventMarkers[event.EVENT_NAME];
+    marker.openPopup();
+    await drawMembers(event);
 }
 
-/**
- * Hides all event markers except the specified event.
- * @param {object} event - The event to keep visible.
- */
-function hideAllEventsExcept(event) {
-    for (const id in eventMarkers) {
-        if (event.EVENT_ID != id) {
-            map.removeLayer(eventMarkers[id]);
-        }
-    }
-}
-
-/**
- * Shows all event markers except the specified event.
- * @param {object} event - The event to keep hidden.
- */
-function showAllEventsExcept(event) {
-    for (const id in eventMarkers) {
-        if (event.EVENT_ID != id) {
-            eventMarkers[id].addTo(map);
-        }
-    }
-}
-
-async function showAttendingMembers(event) {
-    // Fetch all the members attending the evnt
+export async function drawMembers(event) {
+    // Fetch all the members coming to event
     const members = await fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`);
+    const eventLatLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
 
-    // For each member coming to the event
+    // Remove all other event pins
+    for (const name in eventMarkers) {
+        if (name != event.EVENT_NAME) {
+            map.removeLayer(eventMarkers[name]);
+        }
+    }
+
+    // Remove all drawn lines
+    if (currentDrawnLines.length > 0) {
+        console.log("Lines Cleared");
+        currentDrawnLines.forEach(line => {
+            map.removeLayer(line);
+        });
+    }
+
+    // Remove all member pins
+    if (memberMarkers.length > 0) {
+        console.log("Members Cleared");
+        memberMarkers.forEach(marker => {
+            map.removeLayer(marker);
+        })
+    }
+
+    // Add members
     members.forEach(member => {
-        // Store coordinates in a constant
         const latLng = [member.MEMBER_LAT, member.MEMBER_LON];
-
-        // Add the pin to the map
         const marker = L.marker(latLng, { icon: redIcon }).addTo(map);
 
-        // Store the marker in an associative array (Key - PDGAID)
-        memberMarkers[member.PDGA_NUMBER] = marker;
+        // Store marker by a unique key (e.g., event ID or name)
+        memberMarkers.push(marker);
 
-        // Bind the popup
-        marker.bindPopup(`<strong>${member.MEMBER_FULL_NAME}</strong><br>`);
-
-        // Add mouse over event listener to open popup
-        marker.on("mouseover", function () {
-            marker.openPopup();
-        });
-
-        // Add mouse out event listener to close popup
-        marker.on("mouseout", function () {
-            marker.closePopup();
-        });
-    });
+        const line = L.polyline(
+            [latLng, eventLatLng],
+            { color: "red", weight: 2, dashArray: "5, 5" }
+        ).addTo(map);
+        currentDrawnLines.push(line);
+    })
 }
