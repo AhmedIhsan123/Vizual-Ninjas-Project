@@ -2,7 +2,7 @@ import { currentMembers } from "./event-page-map.js";
 const chartRef = document.querySelector("#chartDistance");
 let tchart = null;
 
-export function tchart() {
+export function buildTChart() {
     // If the chart already exists, destroy it
     if (tchart) {
         tchart.destroy();
