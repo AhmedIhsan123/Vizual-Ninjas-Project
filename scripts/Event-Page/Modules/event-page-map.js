@@ -32,6 +32,7 @@ export async function drawEventPins() {
     // Clear all pins from markers list
     for (const eventid in eventMarkers) {
         map.removeLayer(eventMarkers[eventid]);
+        eventMarkers[eventid];
     }
 
     // Add pins to list
