@@ -22,6 +22,8 @@ export function updateTopPlayers() {
     });
 }
 
+console.log(getTopPlayersByDivision(currentMembers, "OPEN"));
+
 function getTopPlayersByDivision(players, division) {
     return players
         .filter(player => player.DIVISION === division)
