@@ -39,6 +39,8 @@ function addAllEventPins() {
         // Store the marker in an associative 
         eventMarkers[event.EVENT_ID] = marker;
 
+        marker.bindPopup(event.EVENT_NAME);
+
         // Clicking on a pin
         marker.on("click", function () {
             hideAllEventsExcept(event);
