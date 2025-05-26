@@ -25,7 +25,7 @@ export function updateTopPlayers() {
         const topPlayersList = document.createElement("ul");
 
         // Add the top 5 players to the list
-        membersInDivision.slice(0, 2).forEach(member => {
+        membersInDivision.slice(0, 1).forEach(member => {
             const playerItem = document.createElement("li");
             playerItem.textContent = `${member.NAME} - ${member.EVENT_PLACE}`;
             topPlayersList.appendChild(playerItem);
