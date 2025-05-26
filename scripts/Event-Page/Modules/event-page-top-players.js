@@ -13,7 +13,7 @@ export function updateTopPlayers() {
         const membersInDivision = currentMembers.filter(member => member.DIVISION_ID === div);
 
         // Sort the members by score
-        membersInDivision.sort((a, b) => b.SCORE - a.SCORE);
+        membersInDivision.sort((a, b) => b.EVENT_PLACE - a.EVENT_PLACE);
 
         // Create a div for the division
         const divisionDiv = document.createElement("div");
@@ -26,7 +26,7 @@ export function updateTopPlayers() {
         // Add the top 5 players to the list
         membersInDivision.slice(0, 3).forEach(member => {
             const playerItem = document.createElement("li");
-            playerItem.textContent = `${member.NAME} - ${member.SCORE}`;
+            playerItem.textContent = `${member.NAME} - ${member.EVENT_PLACE}`;
             topPlayersList.appendChild(playerItem);
         });
 
