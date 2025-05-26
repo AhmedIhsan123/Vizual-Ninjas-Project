@@ -79,6 +79,7 @@ async function drawEventPins() {
 
 // A method that hides all event pins with an exception
 export function hideAllEventPins(e) {
+    console.log(eventMarkers);
     // Traverse all events
     eventList.forEach(event => {
         // Remove all pins expect for the selected event
