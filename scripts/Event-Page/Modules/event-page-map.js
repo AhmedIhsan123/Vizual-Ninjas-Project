@@ -21,7 +21,4 @@ export async function initMap() {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
-
-    // Call a function that draws all event pins
-    await drawEventPins();
 }
