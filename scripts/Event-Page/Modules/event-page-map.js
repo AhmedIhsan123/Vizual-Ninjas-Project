@@ -107,6 +107,14 @@ async function drawMemberPins(event) {
         // Draw line
         drawLine([latLng, [event.EVENT_LATITUDE, event.EVENT_LONGITUDE]]);
     });
+
+    // Make the camera fit to pins
+    const bounds = L.latLngBounds(Object.values(memberMarkers).map(m => m.getLatLng()));
+    map.flyToBounds(bounds, {
+        padding: [5, 5],
+        maxZoom: 10,
+        duration: 1.0
+    });
 }
 
 // A function that hides all the member pins/lines and deletes them
