@@ -87,7 +87,7 @@ export function hideAllEventPins(eventIdToIgnore) {
     for (const id in eventMarkers) {
         // Remove all pins that are not the selected event
         if (id != eventIdToIgnore) {
-            console.log("Hidden: " + eventMarkers[id]);
+            console.log("Hidden: " + eventMarkers[id], id);
             map.removeLayer(eventMarkers[id]);
         }
     }
