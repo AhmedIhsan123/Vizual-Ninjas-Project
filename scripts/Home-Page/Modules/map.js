@@ -25,7 +25,7 @@ export async function initMap() {
             <br>
             <em>It seems <strong>${event.MEMBERS_OUT_OF_STATE}</strong> members came from out of state, while only <strong>${event.MEMBERS_IN_STATE}</strong> were coming from in-state. This suggests that members are <strong>${event.MEMBERS_OUT_OF_STATE > event.MEMBERS_IN_STATE ? "more likely" : "less likely"}</strong> to attend events in this area.</em>
             <br>
-            <a href="https://aabualhawa.greenriverdev.com/SDEV280/Statmando-Project/event-page.html?event_id=${event.EVENT_ID}">View Details</a>`);
+            <a href="https://aabualhawa.greenriverdev.com/SDEV280/Statmando-Project/event-page.html?id=${event.EVENT_ID}">View Details</a>`);
         // Store marker by a unique key (e.g., event ID or name)
         markers[event.EVENT_NAME] = marker;
 
