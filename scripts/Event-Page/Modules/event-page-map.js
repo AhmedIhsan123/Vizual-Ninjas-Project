@@ -82,6 +82,7 @@ export async function drawEventPins() {
 
 // A method that removes all the event pins expect the one to ignore
 export function hideAllEventPins(eventIdToIgnore) {
+    console.log(eventMarkers);
     // Traverse the list of event markers
     for (const id in eventMarkers) {
         // Remove all pins that are not the selected event
