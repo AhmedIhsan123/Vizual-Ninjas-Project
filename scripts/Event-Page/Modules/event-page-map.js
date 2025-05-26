@@ -43,6 +43,7 @@ export function addEventMarkers() {
         marker.on("popupopen", async () => {
             hideAllEventsExcept(event);
             await plotMemberPins(event); // Show the members attending event
+            fillCards(event);
         });
 
         // Add event listner for popup closed
@@ -50,7 +51,6 @@ export function addEventMarkers() {
             showAllEvents(event);
             hideMemberPins();
             hideMemberLines();
-            fillCards(event);
         });
 
         // Add marker to list of markers
