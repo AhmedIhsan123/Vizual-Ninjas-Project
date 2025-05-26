@@ -57,6 +57,11 @@ export function storeEventPins() {
             }
         });
     });
+    for (const eventid in eventMarkers) {
+        if (eventid != event.EVENT_ID) {
+            displayPin(eventid);
+        }
+    }
 }
 
 export function displayPin(eventID) {
