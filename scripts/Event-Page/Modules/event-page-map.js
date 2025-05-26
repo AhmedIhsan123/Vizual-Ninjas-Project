@@ -2,11 +2,15 @@ import { eventList } from "../../script.js";
 import { fetchData } from "../../utils.js";
 import { fillCards } from "./event-stats.js";
 
-// Local Variables
+// Initialize Leaflet map centered on the US
 const map = L.map('mapid').setView([45.5, -98.35], 4);
+
+// Arrays to store event and member markers
 const eventMarkers = [];
 const memberMarkers = [];
 let drawnLines = [];
+
+// Custom red marker icon for events
 const redIcon = new L.Icon({
     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
     shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
@@ -16,16 +20,21 @@ const redIcon = new L.Icon({
     shadowSize: [41, 41]
 });
 
-// Initialize the map
+/**
+ * Initializes the map and adds event markers.
+ * @param {boolean} startSelect - Whether to select a specific event on load.
+ * @param {object} event - The event to select if startSelect is true.
+ */
 export async function initMap(startSelect, event) {
-    // Add a tile layer to the map (OpenStreetMap tiles)
+    // Add OpenStreetMap tile layer
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
 
-    // Create markers for all the events
+    // Create markers for all events
     createEventMarkers();
 
+    // Show all markers or select a specific event
     if (startSelect) {
         selectEvent(event);
     } else {
@@ -33,44 +42,53 @@ export async function initMap(startSelect, event) {
     }
 }
 
+/**
+ * Creates markers for each event and sets up their popups and click handlers.
+ */
 function createEventMarkers() {
-    // For every event
     eventList.forEach(currentEvent => {
-        // Store the cooridnates of the current event
         const coordinates = [currentEvent.EVENT_LATITUDE, currentEvent.EVENT_LONGITUDE];
-
-        // Store the marker in a constant
         const eventMarker = L.marker(coordinates);
 
-        // Store the marker in an array of markers
+        // Store marker by event ID
         eventMarkers[currentEvent.EVENT_ID] = eventMarker;
 
-        // Bind a popup
+        // Bind popup with event name
         eventMarker.bindPopup(`<strong>${currentEvent.EVENT_NAME}</strong>`);
 
-        // Closing the popup listner
+        // Show all other events when popup closes
         eventMarker.on("popupclose", function () {
             showAllEventsExcept(currentEvent);
         });
 
-        // Add on click event
+        // Focus on this event when marker is clicked
         eventMarker.on("click", function () {
             selectEvent(currentEvent);
         });
     });
 }
 
+/**
+ * Selects a specific event by hiding all other event markers.
+ * @param {object} event - The event to select.
+ */
 function selectEvent(event) {
     hideAllEventsExcept(event);
 }
 
+/**
+ * Adds all event markers to the map.
+ */
 function addAllEventMarkers() {
-    // For each marker in the event markers array
     for (const id in eventMarkers) {
         eventMarkers[id].addTo(map);
     }
 }
 
+/**
+ * Hides all event markers except the specified event.
+ * @param {object} event - The event to keep visible.
+ */
 function hideAllEventsExcept(event) {
     for (const id in eventMarkers) {
         if (event.EVENT_ID != id) {
@@ -79,6 +97,10 @@ function hideAllEventsExcept(event) {
     }
 }
 
+/**
+ * Shows all event markers except the specified event.
+ * @param {object} event - The event to keep hidden.
+ */
 function showAllEventsExcept(event) {
     for (const id in eventMarkers) {
         if (event.EVENT_ID != id) {
