@@ -48,10 +48,15 @@ function createEventMarkers() {
         // Bind a popup
         eventMarker.bindPopup(`<strong>${currentEvent.EVENT_NAME}</strong>`);
 
+        // Closing the popup listner
+        eventMarker.on("popupclose", function () {
+            showAllEventsExcept(currentEvent);
+        });
+
         // Add on click event
         eventMarker.on("click", function () {
             selectEvent(currentEvent);
-        })
+        });
     });
 }
 
@@ -70,6 +75,14 @@ function hideAllEventsExcept(event) {
     for (const id in eventMarkers) {
         if (event.EVENT_ID != id) {
             map.removeLayer(eventMarkers[id]);
+        }
+    }
+}
+
+function showAllEventsExcept(event) {
+    for (const id in eventMarkers) {
+        if (event.EVENT_ID != id) {
+            eventMarkers[id].addTo(map);
         }
     }
 }
