@@ -1,5 +1,5 @@
 import { currentMembers } from "./event-page-map.js";
-const chartRef = document.querySelector("#chartDistance");
+const chartTitle = document.querySelector("#chart1 h3");
 let tchart = null;
 
 export function buildTChart() {
@@ -11,6 +11,9 @@ export function buildTChart() {
     const topMembers = [...currentMembers]
         .sort((a, b) => a.DISTANCE_TRAVELED_MILES - b.DISTANCE_TRAVELED_MILES)
         .slice(0, 25);
+
+    // Update the chart title with the event player count
+    chartTitle.textContent = `Top ${topMembers.length} Players by Distance Traveled`;
 
     // Create the chart using Chart.js
     const ctx = document.getElementById("chartDistance").getContext("2d");
