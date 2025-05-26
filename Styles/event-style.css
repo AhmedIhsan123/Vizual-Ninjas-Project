@@ -325,7 +325,7 @@
 }
 
 @media (max-width: 768px) {
-    .navigation-bar-container {
+    /* .navigation-bar-container {
         flex-direction: column;
         padding: 1rem;
         height: auto;
@@ -341,7 +341,7 @@
 
     .navigation-link {
         margin-left: 0;
-    }
+    } */
 
     .content-container {
         grid-template-columns: 1fr;
