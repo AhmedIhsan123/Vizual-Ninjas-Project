@@ -49,15 +49,23 @@ async function drawEventPins() {
 
             // Hide all other event pins
             hideAllEventPins(event);
+
+            // Draw all the member pins
+            await drawMemberPins(event);
         });
 
         // Add an event listner for when the popup is closed
         marker.on('popupclose', function (e) {
+            // Show all the event pins
             showAllEventPins(event);
+
+            // Hide member pins
+            hideAllMemberPins();
         });
     });
 }
 
+// A method that hides all event pins with an exception
 function hideAllEventPins(e) {
     // Traverse all events
     eventList.forEach(event => {
@@ -69,6 +77,7 @@ function hideAllEventPins(e) {
     });
 }
 
+// A method that shows all event pins with an exception
 function showAllEventPins(e) {
     // Traverse all the events
     eventList.forEach(event => {
@@ -78,4 +87,31 @@ function showAllEventPins(e) {
             eventMarkers[event.EVENT_ID].addTo(map);
         }
     });
+}
+
+async function drawMemberPins(event) {
+    // Fetch all the members attending the evnt
+    const members = await fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`);
+
+    // For each member coming to the event
+    members.forEach(member => {
+        // Store coordinates in a constant
+        const latLng = [member.MEMBER_LAT, member.MEMBER_LON];
+
+        // Add the pin to the map
+        const marker = L.marker(latLng, { icon: redIcon }).addTo(map);
+
+        // Store the marker in an associative array (Key - PDGAID)
+        memberMarkers[member.PDGA_NUMBER] = marker;
+
+        // Draw line
+        // drawLine([latLng, [event.EVENT_LATITUDE, event.EVENT_LONGITUDE]]);
+    });
+}
+
+function hideAllMemberPins() {
+    for (const pdgaid in memberMarkers) {
+        map.removeLayer(memberMarkers[pdgaid]);
+        delete memberMarkers[pdgaid];
+    }
 }
