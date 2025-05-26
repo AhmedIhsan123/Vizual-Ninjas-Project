@@ -2,6 +2,7 @@ import { eventList } from "../../script.js";
 import { fetchData } from "../../utils.js";
 import { fillCards } from "./event-stats.js";
 import { updateTopPlayers } from "./event-page-top-players.js";
+import { tchart } from "./event-page-tchart.js";
 // Local Variables
 // Set the initial view to a specific location and zoom level
 const map = L.map('mapid').setView([45.5, -98.35], 4);
@@ -61,6 +62,7 @@ export function addEventMarkers() {
             showAllEvents(event);
             hideMemberPins();
             hideMemberLines();
+            tchart(); // Build the tchart for the event
             // Make the camera fit to pins
             const bounds = L.latLngBounds(Object.values(eventMarkers).map(m => m.getLatLng()));
             map.flyToBounds(bounds, {
