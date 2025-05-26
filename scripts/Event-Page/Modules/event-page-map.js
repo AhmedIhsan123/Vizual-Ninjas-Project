@@ -5,6 +5,7 @@ import { fillCards } from "./event-stats.js";
 // Set the initial view to a specific location and zoom level
 const map = L.map('mapid').setView([45.5, -98.35], 4);
 export const eventMarkers = [];
+export let currentMembers = [];
 let memberMarkers = [];
 let currentDrawnLines = [];
 const redIcon = new L.Icon({
@@ -114,6 +115,7 @@ export async function plotMemberPins(event) {
         // Add the pin to the map and store the marker
         map.addLayer(marker);
         memberMarkers[member.PDGA_NUMBER] = marker;
+        currentMembers.push(member);
     });
 }
 
@@ -126,6 +128,7 @@ export function hideMemberPins() {
 
     // Reset the array
     memberMarkers = [];
+    currentMembers = [];
 }
 
 export function hideMemberLines() {
