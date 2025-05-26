@@ -31,9 +31,9 @@ export function updateTopPlayers() {
         });
 
         // Append the list to the division div
-        divisionDiv.appendChild(topPlayersList);
+        divisionDiv.append(topPlayersList);
 
         // Append the division div to the parent div
-        parentDivRef.appendChild(divisionDiv);
+        parentDivRef.append(divisionDiv);
     });
 }
