@@ -40,9 +40,9 @@ export function addEventMarkers() {
         marker.bindPopup(`<strong>${event.EVENT_NAME}</strong>`);
 
         // Add event listner for popup opened
-        marker.on("popupopen", function () {
+        marker.on("popupopen", async () => {
             hideAllEventsExcept(event);
-            plotMemberPins(event); // Show the members attending event
+            await plotMemberPins(event); // Show the members attending event
         });
 
         // Add event listner for popup closed
@@ -121,7 +121,6 @@ export function hideMemberLines() {
 
     // Reset the array
     currentDrawnLines = [];
-
 }
 
 export function drawLine(coordinate) {
