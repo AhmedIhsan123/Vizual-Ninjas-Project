@@ -22,3 +22,22 @@ export async function initMap() {
         attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
 }
+
+addAllEventPins();
+
+// Add all the event pins on the map
+function addAllEventPins() {
+    // For every event add a pin
+    eventList.forEach(event => {
+        // Store the event cooridnate in a constant
+        const eventCoordinate = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
+
+        // Store the marker in a constant
+        const marker = L.marker(eventCoordinate);
+        marker.addTo(map);
+
+        // Store the marker in an associative 
+        eventMarkers[event.EVENT_ID] = marker;
+    });
+}
+
