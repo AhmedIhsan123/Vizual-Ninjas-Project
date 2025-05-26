@@ -137,6 +137,8 @@ export async function drawMemberPins(event) {
             marker.closePopup();
         })
 
+        console.log(memberMarkers.length);
+
         // Draw line
         drawLine([latLng, [event.EVENT_LATITUDE, event.EVENT_LONGITUDE]]);
     });

@@ -16,8 +16,6 @@ searchRef.addEventListener("change", function () {
     if (searchRef.value != "") {
         const event = eventList.find(event => event.EVENT_NAME == searchRef.value);
         if (event) {
-
-            showAllEventPins(event);
             // Hide all other event pins
             hideAllEventPins(event);
 
