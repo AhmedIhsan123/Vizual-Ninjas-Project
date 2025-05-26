@@ -16,20 +16,39 @@ const redIcon = new L.Icon({
 });
 
 // Initialize the map
-export function initMap() {
+export async function initMap() {
     // Add a tile layer to the map (OpenStreetMap tiles)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
 
     storeEventPins();
-    console.log(eventMarkers);
 }
 
 export function storeEventPins() {
     eventList.forEach(event => {
-        const latlon = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
-        const marker = L.marker(latlon);
+        // Store coordinates in a constant
+        const latLng = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
+
+        // Add the pin to the map
+        const marker = L.marker(latLng).addTo(map);
+
+        // Store the marker in an associative array (Key - eventID)
         eventMarkers[event.EVENT_ID] = marker;
+
+        // Bind a popup to the marker
+        marker.bindPopup(`<strong>${event.EVENT_NAME}</strong>`);
+
+        // Add onclick events to marker
+        marker.on("click", async () => {
+        });
+
+        // Add an event listner for when the popup is closed
+        marker.on('popupclose', function () {
+        });
     });
+}
+
+export function displayPin() {
+
 }

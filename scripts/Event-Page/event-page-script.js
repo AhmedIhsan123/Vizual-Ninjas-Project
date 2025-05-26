@@ -6,7 +6,11 @@ const params = new URLSearchParams(window.location.search);
 const eventID = params.get("id");
 
 // Init the map
-initMap();
+await initMap();
+
+if (eventID) {
+
+}
 
 // Init the search bar
 initSearch();
