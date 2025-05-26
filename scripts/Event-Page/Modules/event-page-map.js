@@ -1,11 +1,11 @@
 import { eventList } from "../../script.js";
 import { fetchData } from "../../utils.js";
 import { fillCards } from "./event-stats.js";
-export let currentMembers = [];
 import { updateTopPlayers } from "./event-page-top-players.js";
 // Local Variables
 // Set the initial view to a specific location and zoom level
 const map = L.map('mapid').setView([45.5, -98.35], 4);
+export let currentMembers = [];
 export const eventMarkers = [];
 let memberMarkers = [];
 let currentDrawnLines = [];

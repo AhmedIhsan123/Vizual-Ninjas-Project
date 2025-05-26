@@ -20,9 +20,8 @@ export function updateTopPlayers() {
     getTopPlayersByDivision(currentMembers, "AM3").forEach(player => {
         am3Reference.innerHTML += `<li>${player.PLAYER_NAME} - ${player.EVENT_PLACE}</li>`;
     });
+    console.log(getTopPlayersByDivision(currentMembers, "OPEN"));
 }
-
-console.log(getTopPlayersByDivision(currentMembers, "OPEN"));
 
 function getTopPlayersByDivision(players, division) {
     return players
