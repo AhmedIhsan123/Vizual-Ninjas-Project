@@ -7,6 +7,11 @@ export function buildTChart() {
     if (tchart) {
         tchart.destroy();
     }
+    // Sort members by distance traveled (descending) and take top 25
+    const topMembers = [...currentMembers]
+        .sort((a, b) => b.DISTANCE_TRAVELED_MILES - a.DISTANCE_TRAVELED_MILES)
+        .slice(0, 25);
+
     // Create the chart using Chart.js
     const ctx = document.getElementById("chartDistance").getContext("2d");
 
@@ -14,10 +19,10 @@ export function buildTChart() {
     tchart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: currentMembers.map(member => member.MEMBER_FULL_NAME),
+            labels: topMembers.map(member => member.MEMBER_FULL_NAME),
             datasets: [{
                 label: 'Distance to Event',
-                data: currentMembers.map(member => member.DISTANCE_TRAVELED_MILES),
+                data: topMembers.map(member => member.DISTANCE_TRAVELED_MILES),
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 fill: true,
