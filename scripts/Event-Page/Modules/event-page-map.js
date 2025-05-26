@@ -47,7 +47,7 @@ async function drawEventPins() {
         eventMarkers[event.EVENT_ID] = marker;
 
         // Bind a popup to the marker
-        marker.bindPopup(`<strong>${event.EVENT_NAME}</strong>`);
+        marker.bindPopup(`<strong>${event.EVENT_NAME}</strong>`, { autoClose: false });
 
         // Add onclick events to marker
         marker.on("click", async () => {
@@ -123,7 +123,7 @@ export async function drawMemberPins(event) {
         memberMarkers[member.PDGA_NUMBER] = marker;
 
         // Bind the popup
-        marker.bindPopup(`<strong>${member.MEMBER_FULL_NAME}</strong><br><br><p>Coming From: ${member.MEMBER_CITY}, ${member.MEMBER_STATE_PROV}</p>`);
+        marker.bindPopup(`<strong>${member.MEMBER_FULL_NAME}</strong><br><p>Coming From: ${member.MEMBER_CITY}, ${member.MEMBER_STATE_PROV}</p>`);
 
         // Add mouse over event listner
         marker.on("mouseover", function (e) {
