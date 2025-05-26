@@ -49,6 +49,7 @@ export function addEventMarkers() {
         marker.on("popupclose", function () {
             showAllEvents(event);
             hideMemberPins();
+            hideMemberLines();
         });
 
         // Add marker to list of markers
@@ -126,10 +127,13 @@ export function hideMemberLines() {
 export function drawLine(coordinate) {
     // Store line drawn
     const line = L.polyline(coordinate, {
-        color: "purple",
+        color: 'purple',
         weight: 4,
-        opacity: 0.7,
-        smoothFactor: 1
+        opacity: 0.8,
+        dashArray: '8, 4, 2, 4', // dash-dot style
+        lineCap: 'round',
+        lineJoin: 'bevel',
+        dashOffset: '5'
     });
 
     // Add the line to the list of lines
