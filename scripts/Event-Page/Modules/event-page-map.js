@@ -45,6 +45,9 @@ function createEventMarkers() {
         // Store the marker in an array of markers
         eventMarkers[currentEvent.EVENT_ID] = eventMarker;
 
+        // Bind a popup
+        eventMarker.bindPopup(`<strong>${currentEvent.EVENT_NAME}</strong>`);
+
         // Add on click event
         eventMarker.on("click", function () {
             selectEvent(currentEvent);
