@@ -84,7 +84,6 @@ export function hideAllEventPins(e) {
         // Remove all pins expect for the selected event
         if (event != e) {
             // Remove all the pins by their event ID
-            console.log(event.EVENT_ID, eventMarkers[event.EVENT_ID]);
             map.removeLayer(eventMarkers[event.EVENT_ID]);
         }
     });
