@@ -216,7 +216,8 @@
     /* Layout */
     display: flex;
     flex-direction: column; /* Stack items vertically */
-    align-self: stretch;
+    align-self: start;
+    justify-content: stretch;
     padding-left: 0;
     width: 100%;
     flex-grow: 1; /* Allow this div to grow and take up available space */
@@ -236,7 +237,7 @@
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center items horizontally */
     width: 100%;
-    padding: 0.5rem;
+    padding: 1rem;
 
     /* Style */
     background-color: #1e1e2f;
