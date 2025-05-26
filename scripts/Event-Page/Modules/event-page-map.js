@@ -42,6 +42,7 @@ export function addEventMarkers() {
         // Add event listner for popup opened
         marker.on("popupopen", function () {
             hideAllEventsExcept(event);
+            plotMemberPins(event); // Show the members attending event
         });
 
         // Add event listner for popup closed
@@ -55,6 +56,7 @@ export function addEventMarkers() {
     });
 }
 
+// This method removes all the pins except the one selected
 export function hideAllEventsExcept(event) {
     // For every marker in the markers list
     for (const id in eventMarkers) {
@@ -66,6 +68,7 @@ export function hideAllEventsExcept(event) {
     }
 }
 
+// This method shows all the pins except the one selected because its already showing
 export function showAllEvents(event) {
     // For every marker in the markers list
     for (const id in eventMarkers) {
@@ -75,4 +78,38 @@ export function showAllEvents(event) {
             map.addLayer(eventMarkers[id]);
         }
     }
+}
+
+export async function plotMemberPins(event) {
+    // Fetch the list of members attending the event
+    const members = await fetchData(`./PHP/handlers/getMembers.php?id=${event.EVENT_ID}`);
+
+    members.forEach(member => {
+        // Store the members coordinate
+        const coordinate = [member.MEMBER_LAT, member.MEMBER_LON];
+
+        // Store the member pin
+        const marker = L.marker(coordinate, { icon: redIcon });
+
+        // Draw a line from member to event
+        drawLine([[event.EVENT_LATITUDE, event.EVENT_LONGITUDE], [member.MEMBER_LAT, member.MEMBER_LON]]);
+
+        // Add the pin to the map and store the marker
+        map.addLayer(marker);
+        memberMarkers[member.PDGA_NUMBER] = marker;
+    });
+}
+
+export function drawLine(coordinate) {
+    // Store line drawn
+    const line = L.polyline(coordinate, {
+        color: "purple",
+        weight: 4,
+        opacity: 0.7,
+        smoothFactor: 1
+    });
+
+    // Add the line to the list of lines
+    map.addLayer(line);
+    currentDrawnLines.push(line);
 }
