@@ -126,12 +126,10 @@ export function hideMemberLines() {
 export function drawLine(coordinate) {
     // Store line drawn
     const line = L.polyline(coordinate, {
-        color: 'purple',
+        color: 'red',
         weight: 4,
         opacity: 0.8,
-        dashArray: '8, 4, 2, 4', // dash-dot style
-        lineCap: 'round',
-        lineJoin: 'bevel',
+        dashArray: '2, 2', // dash-dot style
         dashOffset: '5'
     });
 
