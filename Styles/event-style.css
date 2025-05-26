@@ -5,7 +5,7 @@
     /* Layout */
     display: grid;
     /* Explicitly define row heights to control the layout */
-    grid-template-rows: auto 2fr 2fr; /* Header, Main Content, Charts */
+    grid-template-rows: auto 2fr 600px; /* Header, Main Content, Charts */
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
         "header header header header"
@@ -285,8 +285,7 @@
 }
 
 .chart-container {
-    width: clamp(300px, 100%, 600px); /* Responsive width */
-    height: 300px; /* Fixed height for charts */
+
 }
 
 #chart1 {
