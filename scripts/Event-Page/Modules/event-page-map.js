@@ -59,17 +59,17 @@ async function drawEventPins() {
         });
 
         // Add an event listner for when the popup is closed
-        marker.on('popupclose', function (e) {
+        marker.on('popupclose', function () {
             // Show all the event pins
             showAllEventPins(event);
 
             // Make the camera fit to pins
-            const bounds = L.latLngBounds(Object.values(eventMarkers).map(m => m.getLatLng()));
-            map.flyToBounds(bounds, {
-                padding: [25, 25],
-                maxZoom: 14,
-                duration: 1.0
-            });
+            // const bounds = L.latLngBounds(Object.values(eventMarkers).map(m => m.getLatLng()));
+            // map.flyToBounds(bounds, {
+            //     padding: [25, 25],
+            //     maxZoom: 14,
+            //     duration: 1.0
+            // });
 
             // Hide member pins
             hideAllMemberPins();

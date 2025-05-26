@@ -1,5 +1,5 @@
 import { eventList, playerList } from "../../script.js";
-import { hideAllEventPins, drawMemberPins } from "./event-page-map.js";
+import { hideAllEventPins, drawMemberPins, showAllEventPins } from "./event-page-map.js";
 
 // Local variables
 const searchRef = document.querySelector("#event-search");
@@ -16,6 +16,8 @@ searchRef.addEventListener("change", function () {
     if (searchRef.value != "") {
         const event = eventList.find(event => event.EVENT_NAME == searchRef.value);
         if (event) {
+
+            showAllEventPins(event);
             // Hide all other event pins
             hideAllEventPins(event);
 
