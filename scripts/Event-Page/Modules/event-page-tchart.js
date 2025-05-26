@@ -33,7 +33,7 @@ export function buildTChart() {
         },
         options: {
             responsive: true,
-            maintaineAspectRatio: false,
+            maintaineAspectRatio: true,
             plugins: {
                 legend: {
                     labels: {
