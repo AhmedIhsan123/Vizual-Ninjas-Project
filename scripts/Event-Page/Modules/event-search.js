@@ -10,3 +10,15 @@ export function initSearch() {
         optionsRef.innerHTML += `<option value="${event.EVENT_NAME}">`;
     });
 }
+
+searchRef.addEventListener("change", function () {
+    if (searchRef.value != "") {
+        const event = eventList.find(event => event.EVENT_NAME == searchRef.value);
+
+        // Hide all other event pins
+        hideAllEventPins(event);
+
+        // Draw all the member pins
+        drawMemberPins(event);
+    }
+})
