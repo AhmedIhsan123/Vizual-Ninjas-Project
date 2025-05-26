@@ -39,11 +39,17 @@ function addAllEventPins() {
         // Store the marker in an associative 
         eventMarkers[event.EVENT_ID] = marker;
 
+        // Binding a popup to each event pin
         marker.bindPopup(event.EVENT_NAME);
 
         // Clicking on a pin
         marker.on("click", function () {
             hideAllEventsExcept(event);
+        })
+
+        // Closing the popup
+        marker.on("popupclose", function () {
+            showAllEventsExcept(event);
         })
     });
 }
@@ -52,6 +58,14 @@ function hideAllEventsExcept(event) {
     for (const id in eventMarkers) {
         if (id != event.EVENT_ID) {
             map.removeLayer(eventMarkers[id]);
+        }
+    }
+}
+
+function showAllEventsExcept(event) {
+    for (const id in eventMarkers) {
+        if (id != event.EVENT_ID) {
+            eventMarkers[id].addTo(map);
         }
     }
 }
