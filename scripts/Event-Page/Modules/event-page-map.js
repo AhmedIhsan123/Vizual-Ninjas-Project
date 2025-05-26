@@ -84,7 +84,7 @@ export function showAllEvents(event) {
 
 export async function plotMemberPins(event) {
     // Fetch the list of members attending the event
-    const members = await fetchData(`./PHP/handlers/getMembers.php?id=${event.EVENT_ID}`);
+    const members = await fetchData(`./PHP/handlers/getMembers.php?event_id=${event.EVENT_ID}`);
 
     members.forEach(member => {
         // Store the members coordinate
