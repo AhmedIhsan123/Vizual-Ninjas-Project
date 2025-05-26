@@ -212,7 +212,7 @@
     margin-bottom: 0.5rem;
 }
 
-.top-players-panel div {
+#top-players {
     /* Layout */
     display: flex;
     flex-direction: column; /* Stack items vertically */
@@ -228,6 +228,19 @@
     list-style: none;
     padding: 0;
     margin: 0;
+}
+
+.divsion {
+    /* Layout */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    width: 100%;
+    padding: 0.5rem;
+
+    /* Style */
+    background-color: #1e1e2f;
+    border-radius: 5px;
 }
 
 .top-players-panel ol {
