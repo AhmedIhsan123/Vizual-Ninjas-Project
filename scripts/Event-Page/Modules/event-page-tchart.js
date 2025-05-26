@@ -1,6 +1,7 @@
 import { currentMembers } from "./event-page-map.js";
 const chartTitle = document.querySelector("#chart1 h3");
 let tchart = null;
+let stateChart = null;
 
 export function buildTChart() {
     // If the chart already exists, destroy it
@@ -9,7 +10,7 @@ export function buildTChart() {
     }
     // Sort members by distance traveled (ascending) and take top 25
     const topMembers = [...currentMembers]
-        .sort((a, b) => a.DISTANCE_TRAVELED_MILES - b.DISTANCE_TRAVELED_MILES)
+        .sort((a, b) => b.DISTANCE_TRAVELED_MILES - a.DISTANCE_TRAVELED_MILES)
         .slice(0, 25);
 
     // Update the chart title with the event player count
@@ -33,6 +34,7 @@ export function buildTChart() {
         },
         options: {
             responsive: true,
+            maintaineAspectRatio: true,
             plugins: {
                 legend: {
                     labels: {
@@ -66,4 +68,53 @@ export function buildTChart() {
     });
 
     tchart.update();
+
+    // --- Pie chart for states ---
+    if (stateChart) {
+        stateChart.destroy();
+    }
+
+    // Count members per state
+    const stateCounts = {};
+    currentMembers.forEach(member => {
+        const state = member.MEMBER_STATE_PROV || "Unknown";
+        stateCounts[state] = (stateCounts[state] || 0) + 1;
+    });
+
+    const stateLabels = Object.keys(stateCounts);
+    const stateData = Object.values(stateCounts);
+
+    // Generate colors for each state
+    const colors = stateLabels.map((_, i) =>
+        `hsl(${(i * 360 / stateLabels.length)}, 70%, 60%)`
+    );
+
+    const stateCtx = document.getElementById("chartStates").getContext("2d");
+    stateChart = new Chart(stateCtx, {
+        type: 'pie',
+        data: {
+            labels: stateLabels,
+            datasets: [{
+                label: 'Players by State',
+                data: stateData,
+                backgroundColor: colors,
+                borderColor: '#222',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#fff'
+                    }
+                },
+                tooltip: {
+                    bodyColor: '#fff',
+                    titleColor: '#fff'
+                }
+            }
+        }
+    });
 }
