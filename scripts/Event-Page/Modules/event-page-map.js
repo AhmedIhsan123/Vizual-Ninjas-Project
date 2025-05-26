@@ -31,7 +31,7 @@ export function initMap() {
 export function addEventMarkers() {
     eventList.forEach(event => {
         // Store the events coordinates
-        const coordinate = [event.EVENT_LATITIUDE, event.EVENT_LONGITUDE];
+        const coordinate = [event.EVENT_LATITUDE, event.EVENT_LONGITUDE];
 
         // Store the marker instance
         const marker = L.marker(coordinate);
