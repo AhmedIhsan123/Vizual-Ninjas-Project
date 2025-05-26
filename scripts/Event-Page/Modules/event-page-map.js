@@ -45,6 +45,11 @@ export function storeEventPins() {
 
         // Add an event listner for when the popup is closed
         marker.on('popupclose', function () {
+            for (const eventid in eventMarkers) {
+                if (eventid != event.EVENT_ID) {
+                    displayPin(eventid);
+                }
+            }
         });
     });
 }
