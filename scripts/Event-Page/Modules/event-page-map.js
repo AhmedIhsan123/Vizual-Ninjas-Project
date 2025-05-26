@@ -46,11 +46,36 @@ async function drawEventPins() {
         marker.on("click", async () => {
             // Show a popup with the events name
             marker.openPopup();
+
+            // Hide all other event pins
+            hideAllEventPins(event);
         });
 
         // Add an event listner for when the popup is closed
         marker.on('popupclose', function (e) {
-            console.log("Closed!");
+            showAllEventPins(event);
         });
+    });
+}
+
+function hideAllEventPins(e) {
+    // Traverse all events
+    eventList.forEach(event => {
+        // Remove all pins expect for the selected event
+        if (event != e) {
+            // Remove all the pins by their event ID
+            map.removeLayer(eventMarkers[event.EVENT_ID]);
+        }
+    });
+}
+
+function showAllEventPins(e) {
+    // Traverse all the events
+    eventList.forEach(event => {
+        // Check if the current event doesn't equal selected event
+        if (event != e) {
+            // Add all events except already showing event
+            eventMarkers[event.EVENT_ID].addTo(map);
+        }
     });
 }
