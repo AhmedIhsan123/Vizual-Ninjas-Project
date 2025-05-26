@@ -40,7 +40,6 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%; /* Make it fill the grid cell */
     align-items: center; /* Center items horizontally */
     grid-area: stats;
     padding: 1rem;
