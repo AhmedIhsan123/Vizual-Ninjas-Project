@@ -16,7 +16,7 @@ try {
 
     if (!empty($_GET['tier'])) {
         $filters[] = "e.EVENT_TIER_ID = :tier";
-        $params[':tier'] = $_GET['tier'];  // cast to int for safety
+        $params[':tier'] = $_GET['tier'];
     }
 
     if (!empty($_GET['country'])) {
@@ -29,10 +29,21 @@ try {
         $params[':state'] = $_GET['state'];
     }
 
+    // Filter by start and end date
+    if (!empty($_GET['start_date'])) {
+        $filters[] = "e.DATE_EVENT_END >= :start_date";
+        $params[':start_date'] = $_GET['start_date'];
+    }
+
+    if (!empty($_GET['end_date'])) {
+        $filters[] = "e.DATE_EVENT_END <= :end_date";
+        $params[':end_date'] = $_GET['end_date'];
+    }
+
     // WHERE clause
     $where = count($filters) > 0 ? 'WHERE ' . implode(' AND ', $filters) : '';
 
-    // Main Query with proper GROUP BY columns
+    // Main Query
     $sql = "SELECT 
             e.EVENT_ID,
             e.EVENT_NAME,
