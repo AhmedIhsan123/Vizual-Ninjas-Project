@@ -112,7 +112,13 @@ export function buildTChart() {
                 },
                 tooltip: {
                     bodyColor: '#fff',
-                    titleColor: '#fff'
+                    titleColor: '#fff',
+                    callbacks: {
+                        label: function (context) {
+                            // context.parsed is the value for this slice (number of players)
+                            return `Players: ${context.parsed}`;
+                        }
+                    }
                 }
             }
         }
