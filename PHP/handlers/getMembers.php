@@ -20,7 +20,6 @@ if ($event_id > 0) {
                 m.MEMBER_ADDRESS, 
                 m.MEMBER_LAT, 
                 m.MEMBER_LON, 
-                m.MEMBER_ADDRESS_FORMATTED,
                 e.EVENT_LATITUDE,
                 e.EVENT_LONGITUDE
             FROM EVENT_RESULT r
@@ -40,8 +39,7 @@ if ($event_id > 0) {
                 m.MEMBER_POSTAL_ZIP, 
                 m.MEMBER_ADDRESS, 
                 m.MEMBER_LAT, 
-                m.MEMBER_LON, 
-                m.MEMBER_ADDRESS_FORMATTED
+                m.MEMBER_LON
             FROM MEMBER m";
     $stmt = $pdo->prepare($sql);
 }
