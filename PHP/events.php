@@ -29,14 +29,16 @@ try {
         $params[':state'] = $_GET['state'];
     }
 
-    // Filter by start and end date
+    // Compare Dates
+    // Start Date
     if (!empty($_GET['start_date'])) {
-        $filters[] = "e.DATE_EVENT_END >= :start_date";
+        $filters[] = "STR_TO_DATE(e.DATE_EVENT_END, '%c/%e/%Y') >= :start_date";
         $params[':start_date'] = $_GET['start_date'];
     }
-
+    
+    // End Date
     if (!empty($_GET['end_date'])) {
-        $filters[] = "e.DATE_EVENT_END <= :end_date";
+        $filters[] = "STR_TO_DATE(e.DATE_EVENT_END, '%c/%e/%Y') <= :end_date";
         $params[':end_date'] = $_GET['end_date'];
     }
 
