@@ -19,16 +19,78 @@
 </head>
 
 <body>
+    <!-- Header -->
     <header class="header-container">
         <img class="statmando-logo" src="./Img/StatmandoLogo.png">
         <nav class="navbar-container">
             <ul class="navbar-content">
-                <li><a>Home</a></li>
-                <li><a>Event Viewer</a></li>
-                <li><a>About Us</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="event-page.html">Event Viewer</a></li>
+                <li><a href="#">About Us</a></li>
             </ul>
         </nav>
     </header>
+    <!-- Header -->
+
+    <!-- Main -->
+    <main class="main-container primary-container">
+        <!-- Filters Area -->
+        <section class="filters-container">
+            <h2>Filter For Events</h2>
+            <div class="filters-content">
+                <!-- Tier label -->
+                <label for="tier">Tier:</label>
+                <select class="select-filter" id="tier">
+                    <option value="">Any</option>
+                </select>
+
+                <!-- Country button -->
+                <label for="country">Country:</label>
+                <select class="select-filter" id="country">
+                    <option value="">Any</option>
+                </select>
+
+                <!-- State button -->
+                <label for="state">State:</label>
+                <select class="select-filter" id="state">
+                    <option value="">Any</option>
+                </select>
+
+                <!-- Start date picker -->
+                <label for="start-date">Start Date:</label>
+                <input class="select-filter" type="date" id="start-date">
+
+                <!-- End date picker -->
+                <label for="end-date">End Date:</label>
+                <input class="select-filter" type="date" id="end-date">
+
+                <!-- Apply filters button -->
+                <button class="button select-filter" id="apply-filters">Apply Filters</button>
+                <button class="button select-filter" id="reset-filters">Reset Filters</button>
+            </div>
+        </section>
+
+        <!-- Chart Visualization Area -->
+        <seciton class="visualization-container">
+            <div class="visualization-content">
+                <canvas id="event-chart"></canvas>
+            </div>
+        </seciton>
+
+        <!-- Overview Area -->
+        <section class="overview-container">
+            <div class="overview-content">
+                <!-- FOR TESTING PURPOSES, REMOVE IN FINAL PRODUCT -->
+                <h2>Overview</h2>
+                <p>Total Events: <strong>6</strong></p>
+                <p>Average Distance Traveled: <strong>332 miles</strong></p>
+                <p>Maximum Average Distance Traveled to Event: <strong>450 miles</strong></p>
+                <p>Minimum Average Distance Traveled to Event: <strong>62.52 miles</strong></p>
+                <!-- FOR TESTING PURPOSES, REMOVE IN FINAL PRODUCT -->
+            </div>
+        </section>
+    </main>
+    <!-- Main -->
 </body>
 
 </html>

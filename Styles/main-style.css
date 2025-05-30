@@ -34,6 +34,19 @@ body {
     font-family: 'Inter', sans-serif; /* Applied as the main body font, overriding the global Poppins */
 }
 
+/* Primary containers */
+.primary-container {
+    /* Styles */
+    background-color: #2e2e40; /* Light bluish-gray background color */
+}
+
+/* Secondary containers */
+.secondary-container {
+    /* Styles */
+    background-color: #1e1e2f; /* Dark bluish-gray background color */
+}
+
+
 /******* HEADER SECTION *******/
 .header-container {
     /* Layout */
@@ -53,8 +66,30 @@ body {
     /* Layout */
     max-width: 20%;
     height: auto;
+}
+.navbar-content {
+    /* Layout */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: row; /* Arrange items horizontally */
+    justify-content: space-between; /* Spread items evenly with space between */
+    gap: 2rem; /* Gap of 2rem between flex items */
+    margin-right: 5rem; /* Right margin spacing */
 
+    /* Styles */
+    list-style: none; /* Remove default list bullets */
+}
+.navbar-content li a {
+    /* Styles */
+    color: whitesmoke; /* Light off-white text color */
+    font-size: clamp(1rem, 1vw, 1.25rem); /* Responsive font size between 1rem and 1.25rem */
+    text-decoration: none; /* Remove underline from links */
+    list-style: none; /* Ensure no list marker on links */
 
+    /* Transition */
+    transition: color 0.15s ease-in-out;
+}
+.navbar-content li a:hover {
     /* Style */
+    color: rgb(255, 203, 61); /* Highlight the hovered link */
 }
 /******* HEADER SECTION *******/

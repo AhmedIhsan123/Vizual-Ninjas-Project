@@ -1,15 +1,85 @@
 /* Body selector */
 body {
     /* Layout */
-    grid-template-columns: 0.75fr 2fr 1.5fr;
-    grid-template-rows: 10% 45% 45%;
+    display: grid; /* Enable CSS grid layout */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+    grid-template-columns: 0.5fr 2fr 1.5fr; /* Column widths as flexible fractions */
+    grid-template-rows: auto 45% 45%; /* Row heights: auto for header, then 45% each */
     grid-template-areas: 
-    "header header header"
-    "sidebar main map"
-    "sidebar main table";
+        "header header header" /* Header spans all three columns */
+        "sidebar main map"     /* Sidebar, main content, and map in row 2 */
+        "sidebar main table";  /* Sidebar spans two rows, with main and table */
+
+    overflow: show; /* Allow overflow content (note: ‘show’ is not standard; consider ‘visible’ or ‘auto’) */
+    gap: 1rem; /* Gap between grid cells */
+    padding-bottom: 1rem; /* Space at the bottom of the body */
 }
 
-/* Header selector */
-.header-container {
-    
+/******* MAIN SECTION *******/
+.main-container {
+    /* Layout */
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Stack children vertically */
+    height: 100%; /* Full height of parent */
+    width: 100%; /* Full width of parent */
+    min-width: 0; /* Prevent overflow on shrinking */
+    min-height: 0; /* Prevent overflow on shrinking */
+    grid-area: main; /* Assign to the 'main' grid area */
+    gap: 1rem; /* Gap between flex items */
+
+    /* Spacing */
+    padding: 1rem; /* Padding inside the container */
 }
+.filters-container {
+    /* Layout */
+    text-align: center;
+
+    /* Styles */
+    padding: 1rem; /* Padding inside the container */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #1e1e2f; /* Dark bluish background color */
+}
+.filters-content {
+    /* Layout */
+    display: flex; /* Use flexbox layout */
+    flex-direction: row; /* Arrange items horizontally */
+    flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
+    justify-content: space-evenly; /* Evenly distribute items with equal space around */
+    align-items: stretch; /* Vertically center items */
+    text-justify: auto;
+
+    /* Styles */
+    padding: 1rem; /* Padding inside the container */
+    font-size: clamp(10px, 1vw, 15px); /* Responsive font size between 10px and 15px */
+}
+.filters-content .select-filter {
+    /* Styles */
+    color: whitesmoke; /* Light off-white text color */
+    padding: 0.5rem; /* Padding inside the filter */
+    background-color: #2e2e40; /* Dark bluish-gray background color */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+}
+.filters-content label {
+    /* Layout */
+    align-self: center; /* Vertically center label within flex container */
+}
+.visualization-container {
+    /* Layout */
+    height: 100%; /* Take full height of parent container */
+
+    /* Styles */
+    background-color: #1e1e2f; /* Dark bluish background color */
+    border-radius: 5px; /* Rounded corners */
+}
+.overview-container {
+    /* Layout */
+    height: 20%; /* Take 20% height of parent container */
+
+    /* Styles */
+    padding: 1rem; /* Padding inside the overview */
+    background-color: #1e1e2f; /* Dark bluish background color */
+    border-radius: 5px; /* Rounded corners */
+}
+/******* HEADER SECTION *******/
