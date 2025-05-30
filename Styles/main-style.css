@@ -1,0 +1,60 @@
+/* Styles/style-main.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+/* Global reset */
+* {
+    /* Layout */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+
+    /* Aesthetics */
+    font-family: 'Poppins', sans-serif; /* Applied globally here, but overridden for specific elements by Inter font later */
+}
+
+/* Ensure html and body take up full viewport height and prevent horizontal overflow */
+html,
+body {
+    height: 100dvh; /* Makes html and body take full viewport height */
+    width: 100dvw;
+    margin: 0;
+}
+
+/* Body selector */
+body {
+    /* Layout */
+    display: grid;
+    min-height: 100dvh; /* Ensures body is at least the viewport height */
+
+    /* Style */
+    background-color: #1e1e2f;
+    color: whitesmoke; /* Added based on previous context for default text color */
+    font-family: 'Inter', sans-serif; /* Applied as the main body font, overriding the global Poppins */
+}
+
+/******* HEADER SECTION *******/
+.header-container {
+    /* Layout */
+    display: flex; /*  */
+    flex-direction: row; /* The direction items flex */
+    justify-content: space-between; /* Make sure the content is spread */
+    align-items: center; /* Vertically center header content */
+    grid-area: header; /* Grid area of the container */
+    width: 100vw; /* Takees up all the width of the screen */
+    width: 100dvw; /* Prefer if supported */
+    padding: 1rem; /* Some padding between the border and the content */
+
+    /* Styles */
+    box-shadow: 0 0 10px black; /* Adds a subtle shadow below the header for depth */
+}
+.statmando-logo {
+    /* Layout */
+    max-width: 20%;
+    height: auto;
+
+
+    /* Style */
+}
+/******* HEADER SECTION *******/

@@ -1,0 +1,15 @@
+/* Body selector */
+body {
+    /* Layout */
+    grid-template-columns: 0.75fr 2fr 1.5fr;
+    grid-template-rows: 10% 45% 45%;
+    grid-template-areas: 
+    "header header header"
+    "sidebar main map"
+    "sidebar main table";
+}
+
+/* Header selector */
+.header-container {
+    
+}
