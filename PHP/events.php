@@ -74,7 +74,7 @@ try {
             e.EVENT_ID, e.EVENT_NAME, e.EVENT_TIER_ID, e.EVENT_STATE_ID, e.COUNTRY_ID,
             e.EVENT_LATITUDE, e.EVENT_LONGITUDE, e.DATE_EVENT_END
         ORDER BY 
-            e.DATE_EVENT_END DESC";
+            AVG_TRAVEL_DISTANCE_MILES DESC, e.DATE_EVENT_END DESC";
 
     $stmt = $pdo->prepare($sql);
     $stmt->execute($params);
