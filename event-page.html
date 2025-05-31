@@ -7,7 +7,7 @@
     <title>Event Page</title>
 
     <!-- Style Sheets -->
-    <link rel="stylesheet" href="Styles/style-main.css" />
+    <link rel="stylesheet" href="Styles/main-style.css" />
     <link rel="stylesheet" href="Styles/event-style.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet"
@@ -25,7 +25,21 @@
 </head>
 
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <section class="main-container">
+        <!-- Header -->
+        <header class="header-container">
+            <img class="statmando-logo" src="./Img/StatmandoLogo.png">
+            <nav class="navbar-container">
+                <ul class="navbar-content">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="event-page.html">Event Viewer</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- Header -->
+    </section>
+    <!-- <a href="#main-content" class="skip-link">Skip to main content</a>
     <main id="main-content" class="main-container">
         <section class="navigation-bar-container">
             <img class="site-logo" src="Img/StatmandoLogo.png" alt="Logo">
@@ -41,80 +55,81 @@
                 <a href="./event-page.html" target="_parent" class="navigation-link"><span>Event Viewer</span></a>
                 <a href="./about-us.html" target="_blank" rel="noopener noreferrer" class="navigation-link"><span>About Us</span></a>
             </div>
+        </section> -->
+
+
+    <section class="content-container">
+        <h1>Event Statistics Dashboard</h1>
+
+        <section class="stats-container">
+            <h2><span id="selectedEventName">Event</span> Statistics</h2>
+            <p>Overview of player metrics and reach.</p>
+            <div class="stats-card-container">
+                <div class="total-players-card stat-card" role="status" aria-live="polite">
+                    <p>Total Players</p>
+                    <p id="total-players">--</p>
+                </div>
+                <div class="average-distance-card stat-card" role="status" aria-live="polite">
+                    <p>Avg Distance</p>
+                    <p id="average-distance">--</p>
+                </div>
+                <div class="greater-than-card stat-card" role="status" aria-live="polite">
+                    <p><span>>1000 mi</span></p>
+                    <p id="more-than">--</p>
+                </div>
+                <div class="less-than-card stat-card" role="status" aria-live="polite">
+                    <p><span>&lt;500 mi</span></p>
+                    <p id="less-than">--</p>
+                </div>
+                <div class="out-of-state-card stat-card" role="status" aria-live="polite">
+                    <p>Out Of State Players</p>
+                    <p id="out-of-state">--</p>
+                </div>
+                <div class="in-state-card stat-card" role="status" aria-live="polite">
+                    <p>In State Players</p>
+                    <p id="in-state">--</p>
+                </div>
+                <div class="max-card stat-card" role="status" aria-live="polite">
+                    <p>Max Distance</p>
+                    <p id="max-dist">--</p>
+                </div>
+                <div class="min-card stat-card" role="status" aria-live="polite">
+                    <p>Min Distance</p>
+                    <p id="min-dist">--</p>
+                </div>
+            </div>
         </section>
 
-        <section class="content-container">
-            <h1>Event Statistics Dashboard</h1>
-
-            <section class="stats-container">
-                <h2><span id="selectedEventName">Event</span> Statistics</h2>
-                <p>Overview of player metrics and reach.</p>
-                <div class="stats-card-container">
-                    <div class="total-players-card stat-card" role="status" aria-live="polite">
-                        <p>Total Players</p>
-                        <p id="total-players">--</p>
-                    </div>
-                    <div class="average-distance-card stat-card" role="status" aria-live="polite">
-                        <p>Avg Distance</p>
-                        <p id="average-distance">--</p>
-                    </div>
-                    <div class="greater-than-card stat-card" role="status" aria-live="polite">
-                        <p><span>>1000 mi</span></p>
-                        <p id="more-than">--</p>
-                    </div>
-                    <div class="less-than-card stat-card" role="status" aria-live="polite">
-                        <p><span>&lt;500 mi</span></p>
-                        <p id="less-than">--</p>
-                    </div>
-                    <div class="out-of-state-card stat-card" role="status" aria-live="polite">
-                        <p>Out Of State Players</p>
-                        <p id="out-of-state">--</p>
-                    </div>
-                    <div class="in-state-card stat-card" role="status" aria-live="polite">
-                        <p>In State Players</p>
-                        <p id="in-state">--</p>
-                    </div>
-                    <div class="max-card stat-card" role="status" aria-live="polite">
-                        <p>Max Distance</p>
-                        <p id="max-dist">--</p>
-                    </div>
-                    <div class="min-card stat-card" role="status" aria-live="polite">
-                        <p>Min Distance</p>
-                        <p id="min-dist">--</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="map-container">
-                <!-- <section class="search-filter-container">
+        <section class="map-container">
+            <!-- <section class="search-filter-container">
                     <input list="event-list" id="event-search" name="event-search" class="event-input"
                         placeholder="Search Events..." autocomplete="off">
                     <datalist id="event-list"></datalist>
                 </section> -->
 
-                <div id="mapid" class="mapid"></div>
-            </section>
-
-            <section class="top-players-panel">
-                <h2>Top Players</h2>
-                <p>Current event's top performers.</p>
-                <div id="top-players">
-                </div>
-            </section>
-
-            <section id="chart1" class="chart-box">
-                <h3>Top 25 Players by Travel Distance</h3>
-                <div class="chart-container">
-                    <canvas id="chartDistance"></canvas>
-                </div>
-            </section>
-            <section id="chart2" class="chart-box">
-                <h3>Players per State</h3>
-                <div class="chart-container">
-                    <canvas id="chartStates"></canvas>
-                </div>
-            </section>
+            <div id="mapid" class="mapid"></div>
         </section>
+
+        <section class="top-players-panel">
+            <h2>Top Players</h2>
+            <p>Current event's top performers.</p>
+            <div id="top-players">
+            </div>
+        </section>
+
+        <section id="chart1" class="chart-box">
+            <h3>Top 25 Players by Travel Distance</h3>
+            <div class="chart-container">
+                <canvas id="chartDistance"></canvas>
+            </div>
+        </section>
+        <section id="chart2" class="chart-box">
+            <h3>Players per State</h3>
+            <div class="chart-container">
+                <canvas id="chartStates"></canvas>
+            </div>
+        </section>
+    </section>
     </main>
 </body>
 
