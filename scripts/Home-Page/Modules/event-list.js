@@ -3,7 +3,7 @@ import { eventList } from "../../script.js";
 // A export function to initialize the list table
 export async function initList() {
     // Reference the table we are trying to fill
-    const tableBody = document.querySelector(".event-list-container tbody");
+    const tableBody = document.querySelector(".table-content tbody");
     tableBody.innerHTML = ""; // Clear existing rows
 
     // Populate the table with data
@@ -21,7 +21,7 @@ export async function initList() {
     // Add event listener for search input
     document.getElementById("event-search").addEventListener("input", function () {
         const filter = this.value.toLowerCase();
-        const rows = document.querySelectorAll(".event-list-container tbody tr");
+        const rows = document.querySelectorAll(".table-content tbody tr");
 
         rows.forEach(row => {
             const text = row.innerText.toLowerCase();

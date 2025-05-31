@@ -6,7 +6,7 @@ const countryDropdown = document.querySelector("#country");
 const stateDropdown = document.querySelector("#state");
 const startDateInput = document.querySelector("#start-date");
 const endDateInput = document.querySelector("#end-date");
-const applyFiltersButton = document.querySelector("#apply-filters");
+// const applyFiltersButton = document.querySelector("#apply-filters");
 const resetFiltersButton = document.querySelector("#reset-filters");
 let eventChart = null; // Placeholder for the chart instance
 /* -------- GLOBAL VARIABLES END -------- */
@@ -310,7 +310,7 @@ export async function buildEventChart() {
 /* -------- FUNCTIONS END -------- */
 // Method to update the overview section with calculated values
 function updateOverview(minMiles, maxMiles, avgMiles, events) {
-    const overviewContainer = document.querySelector(".details-content");
+    const overviewContainer = document.querySelector(".overview-content");
     overviewContainer.innerHTML = ""; // Clear existing content
 
     overviewContainer.innerHTML = `

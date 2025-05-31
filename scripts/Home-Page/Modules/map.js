@@ -4,13 +4,11 @@ export async function initMap() {
     // Set the initial view to a specific location and zoom level
     const map = L.map('mapid2').setView([45.5, -98.35], 4);
     const markers = [];
-    console.log(11);
+    
     // Add a tile layer to the map (OpenStreetMap tiles)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
-
-    console.log(22);
 
     // Loop through the data and add markers to the map
     eventList.forEach(event => {
@@ -44,7 +42,7 @@ export async function initMap() {
     });
 
     // Add event listener for table rows
-    const tableRows = document.querySelectorAll(".event-list-container tbody tr");
+    const tableRows = document.querySelectorAll(".table-content tbody tr");
 
     // Add click event to each row
     tableRows.forEach(row => {

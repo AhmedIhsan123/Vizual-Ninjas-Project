@@ -16,7 +16,7 @@ export function populateCards() {
 // Helper function to create a card
 function createCard(eventTitle, eventTierID, eventTotal, eventTravelDistance, eventID, event) {
     // Get reference to card elements
-    const parentRef = document.getElementById("event-cards-container");
+    const parentRef = document.getElementsByClassName("sidebar-content");
     const cardRef = document.createElement("div");
     const cardTitleRef = document.createElement("p");
     const cardTierRef = document.createElement("p");
