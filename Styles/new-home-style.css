@@ -4,7 +4,7 @@ body {
     display: grid; /* Enable CSS grid layout */
     height: 100vh; /* Full viewport height */
     margin: 0; /* Remove default margin */
-    grid-template-columns: 0.5fr 2fr 1.5fr; /* Column widths as flexible fractions */
+    grid-template-columns: 0.5fr 2fr 1fr; /* Column widths as flexible fractions */
     grid-template-rows: auto 45% 45%; /* Row heights: auto for header, then 45% each */
     grid-template-areas: 
         "header header header" /* Header spans all three columns */
@@ -72,6 +72,11 @@ body {
     /* Styles */
     background-color: #1e1e2f; /* Dark bluish background color */
     border-radius: 5px; /* Rounded corners */
+}
+.visualization-content {
+    /* Layout */
+    height: 100%; /* Fill available height */
+    padding: 1rem; /* Padding inside the container */
 }
 .overview-container {
     /* Layout */
