@@ -183,7 +183,7 @@ select, input {
   background-color: #2e2e40;
 }
 
-#mapid2 {
+#mapid {
   z-index: 9999;
   height: 100%;
   width: 100%;
