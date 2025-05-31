@@ -34,10 +34,10 @@ countryDropdown.addEventListener("change", async () => {
     });
 });
 
-// Event listener for the apply filters button
-applyFiltersButton.addEventListener("click", async () => {
-    buildEventChart();
-});
+// // Event listener for the apply filters button
+// applyFiltersButton.addEventListener("click", async () => {
+//     buildEventChart();
+// });
 
 // Event listener for the reset filters button
 resetFiltersButton.addEventListener("click", async () => {
