@@ -2,7 +2,7 @@ import { eventList } from "../../script.js";
 
 export async function initMap() {
     // Set the initial view to a specific location and zoom level
-    const map = L.map('mapid').setView([45.5, -98.35], 4);
+    const map = L.map('events-map').setView([45.5, -98.35], 4);
     const markers = [];
 
     // Add a tile layer to the map (OpenStreetMap tiles)
