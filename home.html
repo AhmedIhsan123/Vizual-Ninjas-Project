@@ -32,41 +32,118 @@
     </header>
     <!-- Header -->
 
+    <!-- Aside -->
+    <aside class="sidebar-container">
+        <h2>Popular Events</h2>
+        <div class="sidebar-content">
+            <!-- FOR TESTING PURPOSES, REMOVE IN FINAL PRODUCT -->
+            <div class="event-card">
+                <p>Bay City Utah</p>
+                <p>Tier: <strong>A</strong></p>
+                <p>Players Attending <strong>44</strong></p>
+                <p>Average Travel Distance: <strong>443.98 miles</strong></p>
+                <a class="button">View Details</a>
+            </div>
+
+            <div class="event-card">
+                <p>Salem Oregon</p>
+                <p>Tier: <strong>B</strong></p>
+                <p>Players Attending <strong>29</strong></p>
+                <p>Average Travel Distance: <strong>301.12 miles</strong></p>
+                <a class="button">View Details</a>
+            </div>
+
+            <div class="event-card">
+                <p>Flagstaff Arizona</p>
+                <p>Tier: <strong>S</strong></p>
+                <p>Players Attending <strong>61</strong></p>
+                <p>Average Travel Distance: <strong>517.43 miles</strong></p>
+                <a class="button">View Details</a>
+            </div>
+
+            <div class="event-card">
+                <p>Boulder Colorado</p>
+                <p>Tier: <strong>A</strong></p>
+                <p>Players Attending <strong>50</strong></p>
+                <p>Average Travel Distance: <strong>390.77 miles</strong></p>
+                <a class="button">View Details</a>
+            </div>
+
+            <div class="event-card">
+                <p>Spokane Washington</p>
+                <p>Tier: <strong>C</strong></p>
+                <p>Players Attending <strong>22</strong></p>
+                <p>Average Travel Distance: <strong>273.61 miles</strong></p>
+                <a class="button">View Details</a>
+            </div>
+
+            <div class="event-card">
+                <p>Grand Rapids Michigan</p>
+                <p>Tier: <strong>B</strong></p>
+                <p>Players Attending <strong>36</strong></p>
+                <p>Average Travel Distance: <strong>334.28 miles</strong></p>
+                <a class="button">View Details</a>
+            </div>
+
+            <div class="event-card">
+                <p>Boise Idaho</p>
+                <p>Tier: <strong>A</strong></p>
+                <p>Players Attending <strong>47</strong></p>
+                <p>Average Travel Distance: <strong>409.84 miles</strong></p>
+                <a class="button">View Details</a>
+            </div>
+
+            <div class="event-card">
+                <p>Santa Fe New Mexico</p>
+                <p>Tier: <strong>S</strong></p>
+                <p>Players Attending <strong>58</strong></p>
+                <p>Average Travel Distance: <strong>490.62 miles</strong></p>
+                <a class="button">View Details</a>
+            </div>
+            <!-- FOR TESTING PURPOSES, REMOVE IN FINAL PRODUCT -->
+        </div>
+    </aside>
+
     <!-- Main -->
     <main class="main-container primary-container">
         <!-- Filters Area -->
         <section class="filters-container">
-            <h2>Filter For Events</h2>
             <div class="filters-content">
                 <!-- Tier label -->
-                <label for="tier">Tier:</label>
-                <select class="select-filter" id="tier">
-                    <option value="">Any</option>
-                </select>
-
+                <div>
+                    <label for="tier">Tier</label>
+                    <select class="select-filter" id="tier">
+                        <option value="">Any</option>
+                    </select>
+                </div>
                 <!-- Country button -->
-                <label for="country">Country:</label>
-                <select class="select-filter" id="country">
-                    <option value="">Any</option>
-                </select>
-
+                <div>
+                    <label for="country">Country</label>
+                    <select class="select-filter" id="country">
+                        <option value="">Any</option>
+                    </select>
+                </div>
                 <!-- State button -->
-                <label for="state">State:</label>
-                <select class="select-filter" id="state">
-                    <option value="">Any</option>
-                </select>
-
+                <div>
+                    <label for="state">State</label>
+                    <select class="select-filter" id="state">
+                        <option value="">Any</option>
+                    </select>
+                </div>
                 <!-- Start date picker -->
-                <label for="start-date">Start Date:</label>
-                <input class="select-filter" type="date" id="start-date">
-
+                <div>
+                    <label for="start-date">Start Date</label>
+                    <input class="select-filter" type="date" id="start-date">
+                </div>
                 <!-- End date picker -->
-                <label for="end-date">End Date:</label>
-                <input class="select-filter" type="date" id="end-date">
-
-                <!-- Apply filters button -->
-                <button class="button select-filter" id="apply-filters">Apply Filters</button>
-                <button class="button select-filter" id="reset-filters">Reset Filters</button>
+                <div>
+                    <label for="end-date">End Date</label>
+                    <input class="select-filter" type="date" id="end-date">
+                </div>
+                <div>
+                    <!-- Filters button -->
+                    <button class="button select-filter" id="reset-filters">Reset Filters</button>
+                </div>
             </div>
         </section>
 
@@ -92,18 +169,108 @@
     </main>
     <!-- Main -->
 
+    <!-- Map -->
+    <section class="map-container">
+        <div class="map-content">
+            <div id="events-map" class="mapid"></div>
+        </div>
+    </section>
+    <!-- Map -->
+
+    <!-- Table Area -->
+    <section class="table-container">
+        <input type="text" id="event-search" placeholder="Search events..." class="search-input" />
+        <div class="table-content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Tier</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- FOR TESTING PURPOSES, REMOVE IN FINAL PRODUCT -->
+                    <tr>
+                        <td>48291</td>
+                        <td>Fairview AZ</td>
+                        <td>B</td>
+                        <td>2025-07-22</td>
+                    </tr>
+                    <tr>
+                        <td>72918</td>
+                        <td>Redwood CA</td>
+                        <td>A</td>
+                        <td>2025-08-19</td>
+                    </tr>
+                    <tr>
+                        <td>61734</td>
+                        <td>Springfield TX</td>
+                        <td>C</td>
+                        <td>2025-09-12</td>
+                    </tr>
+                    <tr>
+                        <td>58302</td>
+                        <td>Midvale UT</td>
+                        <td>A</td>
+                        <td>2025-10-03</td>
+                    </tr>
+                    <tr>
+                        <td>44826</td>
+                        <td>Riverside FL</td>
+                        <td>B</td>
+                        <td>2025-11-17</td>
+                    </tr>
+                    <tr>
+                        <td>75183</td>
+                        <td>Oakdale NV</td>
+                        <td>C</td>
+                        <td>2026-01-05</td>
+                    </tr>
+                    <tr>
+                        <td>39284</td>
+                        <td>Portland CO</td>
+                        <td>B</td>
+                        <td>2025-06-14</td>
+                    </tr>
+                    <tr>
+                        <td>81429</td>
+                        <td>Ashland WA</td>
+                        <td>A</td>
+                        <td>2025-12-22</td>
+                    </tr>
+                    <tr>
+                        <td>60317</td>
+                        <td>Bay City NY</td>
+                        <td>C</td>
+                        <td>2025-07-09</td>
+                    </tr>
+                    <tr>
+                        <td>54718</td>
+                        <td>Lincoln IL</td>
+                        <td>B</td>
+                        <td>2025-08-01</td>
+                    </tr>
+                    <!-- FOR TESTING PURPOSES, REMOVE IN FINAL PRODUCT -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <!-- Table Area -->
+
     <!-- FOR TESTING, REMOVE IN FINAL PRODUCT -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         // Set the initial view to a specific location and zoom level
-        /*
-        const map = L.map('mapid2').setView([45.5, -98.35], 4);
+
+        const map = L.map('events-map').setView([45.5, -98.35], 4);
         const markers = [];
         console.log(11);
         // Add a tile layer to the map (OpenStreetMap tiles)
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap contributors',
-        }).addTo(map);*/
+        }).addTo(map);
 
 
         const ctx = document.getElementById("event-chart").getContext("2d");
