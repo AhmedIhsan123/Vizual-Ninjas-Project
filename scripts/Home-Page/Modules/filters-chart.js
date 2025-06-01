@@ -1,5 +1,5 @@
 import { fetchData } from "../../utils.js";
-import { goToEvent } from "./map.js";
+import { focusOnEvent } from "./map.js";
 
 /* -------- GLOBAL VARIABLES START -------- */
 const tierDropdown = document.querySelector("#tier");
