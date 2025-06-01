@@ -247,9 +247,10 @@ export async function buildEventChart() {
                 const datasetIndex = chartElement.datasetIndex;
                 const dataIndex = chartElement.index;
                 const label = eventChart.data.labels[dataIndex];
+                const id = events.EVENT_ID;
                 const value = eventChart.data.datasets[datasetIndex].data[dataIndex];
 
-                alert(`Clicked on ${label} with value ${value}`);
+                alert(`Clicked on ${label} with value ${id}`);
             },
             plugins: {
                 title: {
