@@ -137,7 +137,8 @@ export async function buildEventChart() {
             x: event.EVENT_NAME,
             y: event.AVG_TRAVEL_DISTANCE_MILES,
             osCount: event.MEMBERS_OUT_OF_STATE,
-            isCount: event.MEMBERS_IN_STATE
+            isCount: event.MEMBERS_IN_STATE,
+            id: event.EVENT_ID
         });
         chartData.datasets[0].backgroundColor = "#999";
     });
@@ -247,8 +248,7 @@ export async function buildEventChart() {
                 const datasetIndex = chartElement.datasetIndex;
                 const dataIndex = chartElement.index;
                 const label = eventChart.data.labels[dataIndex];
-                const id = events.EVENT_ID;
-                const value = eventChart.data.datasets[datasetIndex].data[dataIndex];
+                const id = eventChart.data.datasets[datasetIndex].data[id];
 
                 alert(`Clicked on ${label} with value ${id}`);
             },
