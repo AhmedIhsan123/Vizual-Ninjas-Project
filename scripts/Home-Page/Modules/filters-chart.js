@@ -1,4 +1,5 @@
 import { fetchData } from "../../utils.js";
+import { goToEvent } from "./map.js";
 
 /* -------- GLOBAL VARIABLES START -------- */
 const tierDropdown = document.querySelector("#tier");
@@ -249,12 +250,10 @@ export async function buildEventChart() {
                 const chartElement = elements[0];
                 const datasetIndex = chartElement.datasetIndex;
                 const dataIndex = chartElement.index;
-
                 const dataPoint = eventChart.data.datasets[datasetIndex].data[dataIndex];
-                const label = dataPoint.x;  // or eventChart.data.labels[dataIndex]
                 const eventId = dataPoint.id;
 
-                alert(`Clicked on ${label} with ID ${eventId}`);
+                focusOnEvent(eventId);
             },
             plugins: {
                 title: {
