@@ -17,8 +17,8 @@
 /* Ensure html and body take up full viewport height and prevent horizontal overflow */
 html,
 body {
-    height: 100dvh; /* Makes html and body take full viewport height */
-    width: 100dvw;
+    height: 100%;
+    width: 100%;
     margin: 0;
 }
 
@@ -55,8 +55,8 @@ body {
     justify-content: space-between; /* Make sure the content is spread */
     align-items: center; /* Vertically center header content */
     grid-area: header; /* Grid area of the container */
-    width: 100vw; /* Takees up all the width of the screen */
-    width: 100dvw; /* Prefer if supported */
+    width: 100%; /* Takees up all the width of the screen */
+    /* width: 100dvw; Prefer if supported */
     padding: 1rem; /* Some padding between the border and the content */
 
     /* Styles */
