@@ -12,8 +12,7 @@
         "stats map map players"
         "chart1 chart1 chart2 chart2";
     width: 100%; /* FIX: Changed from 100vw to 100% to prevent horizontal scrollbar with padding */
-    min-height: calc(100vh - 100px); /* Adjusted for nav height (100px from style-main.css) */
-    padding-top: 100px; /* Space for fixed nav (100px from style-main.css) */
+    margin-top: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
     padding-bottom: 1rem;

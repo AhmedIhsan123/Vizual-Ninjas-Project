@@ -119,7 +119,24 @@ body {
     /* Styles */
     background-color: #1e1e2f; /* Dark bluish background color */
     border-radius: 5px; /* Rounded corners */
+
+        flex: 1 1 auto; /* Let it grow but not force overflow */
+    min-height: 0;  /* Needed in nested flex containers */
 }
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.visualization-container {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+
 .visualization-content {
     /* Layout */
     height: 100%; /* Fill available height */
@@ -127,7 +144,7 @@ body {
 }
 .overview-container {
     /* Layout */
-    height: 20%; /* Take 20% height of parent container */
+    height: auto; /* Take 20% height of parent container */
 
     /* Styles */
     padding: 1rem; /* Padding inside the overview */
@@ -135,6 +152,8 @@ body {
     border-radius: 5px; /* Rounded corners */
     font-size: clamp(5px, 1vw, 15px); /* Responsive font size between 5px and 15px */
 }
+
+
 /******* MAIN SECTION *******/
 
 /******* MAP SECTION *******/
