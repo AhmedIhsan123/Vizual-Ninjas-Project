@@ -160,7 +160,8 @@ body {
 .map-container {
     /* Layout */
     grid-area: map; /* Assign to grid area named 'map' */
-    padding: 2rem; /* Inner spacing */
+    padding: 1rem 1rem 2rem 1rem;
+
     margin-right: 1rem;
 
     /* Styles */
@@ -281,7 +282,7 @@ body {
     text-align: center;
     font-size: 1.2rem;
     font-weight: 600;
-    margin-top: -1.2rem;
+    margin-top: -0.7rem;
     margin-bottom: 5px;
 }
 
