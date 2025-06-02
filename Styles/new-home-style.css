@@ -160,8 +160,7 @@ body {
 .map-container {
     /* Layout */
     grid-area: map; /* Assign to grid area named 'map' */
-    padding: 1rem 1rem 2rem 1rem;
-
+    padding: 1rem;
     margin-right: 1rem;
 
     /* Styles */
@@ -174,16 +173,17 @@ body {
     overflow: hidden;
 }
 .map-content {
-    /* Layout */
-    height: 100%; /* Full height of parent */
-    width: 100%; /* Full width of parent */
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+    /* overflow: hidden; */
 }
 #events-map {
     /* Layout */
     z-index: 9999; /* Ensure it's on top */
-    height: 100%; /* Override to fill container */
-    width: 100%; /* Override to fill container */
+  flex: 1 1 auto; /* Take up the rest of the height */
+  width: 100%;
 }
 /******* MAP SECTION *******/
 
@@ -279,10 +279,11 @@ body {
 }
 
 .map-label {
+      flex: 0 0 auto; /* Don't grow, don't shrink */
     text-align: center;
     font-size: 1.2rem;
+    margin-top: -0.5rem;
     font-weight: 600;
-    margin-top: -0.7rem;
     margin-bottom: 5px;
 }
 

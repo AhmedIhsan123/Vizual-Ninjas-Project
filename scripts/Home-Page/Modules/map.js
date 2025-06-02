@@ -68,6 +68,6 @@ export function focusOnEvent(eventId) {
 export function updateMapLabel(event) {
     const labelElement = document.getElementById('map-event-label');
     if (labelElement) {
-        labelElement.innerHTML = `You're viewing <strong>${event.EVENT_NAME}</strong>`;
+        labelElement.innerHTML = `You're viewing ${event.EVENT_NAME}`;
     }
 }
