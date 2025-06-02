@@ -43,13 +43,13 @@ export async function initMap() {
     tableRows.forEach(row => {
         row.addEventListener("click", function () {
             const eventId = this.querySelector("td").innerText;
-            focusOnEvent(eventId);
+            focusOnEvent(eventId, event.EVENT_NAME);
         });
     });
 }
 
 // Export this so chart can use it
-export function focusOnEvent(eventId) {
+export function focusOnEvent(eventId, eventName) {
     const event = eventList.find(e => e.EVENT_ID == eventId);
     if (!event) return;
 
@@ -60,5 +60,13 @@ export function focusOnEvent(eventId) {
     map.flyTo(latLng, 14, { duration: 1.25 });
     map.once('moveend', () => {
         marker.openPopup();
+        updateMapLabel(eventName);
     });
+}
+
+export function updateMapLabel(eventName) {
+    const labelElement = document.getElementById('map-event-label');
+    if (labelElement) {
+        labelElement.innerHTML = `You're viewing <strong>${eventName}</strong>`;
+    }
 }
