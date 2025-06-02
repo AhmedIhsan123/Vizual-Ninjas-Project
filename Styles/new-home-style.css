@@ -141,23 +141,29 @@ body {
 .map-container {
     /* Layout */
     grid-area: map; /* Assign to grid area named 'map' */
-    padding: 1rem; /* Inner spacing */
+    padding: 2rem; /* Inner spacing */
     margin-right: 1rem;
 
     /* Styles */
     border-radius: 5px; /* Rounded corners */
     background-color: #2e2e40; /* Dark background */
+
+        /* Add this to control height */
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
 }
 .map-content {
     /* Layout */
     height: 100%; /* Full height of parent */
     width: 100%; /* Full width of parent */
+    overflow: hidden;
 }
 #events-map {
     /* Layout */
     z-index: 9999; /* Ensure it's on top */
-    height: 100% !important; /* Override to fill container */
-    width: 100% !important; /* Override to fill container */
+    height: 100%; /* Override to fill container */
+    width: 100%; /* Override to fill container */
 }
 /******* MAP SECTION *******/
 
@@ -251,4 +257,13 @@ body {
     background-color: #555; /* Hover effect */
     transition: background-color 0.2s ease; /* Smooth transition */
 }
+
+.map-label {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: -1.2rem;
+    margin-bottom: 5px;
+}
+
 /******* TABLE SECTION *******/

@@ -171,6 +171,7 @@
 
     <!-- Map -->
     <section class="map-container">
+        <div class="map-label" id="map-event-label">You're viewing <strong>EVENT_NAME</strong></div>
         <div class="map-content">
             <div id="events-map" class="mapid"></div>
         </div>
@@ -260,17 +261,17 @@
     <!-- Table Area -->
 
     <!-- FOR TESTING, REMOVE IN FINAL PRODUCT -->
-    <!-- <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> -->
-    <!-- <script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
         // Set the initial view to a specific location and zoom level
 
-        // const map = L.map('events-map').setView([45.5, -98.35], 4);
-        // const markers = [];
-        // console.log(11);
-        // // Add a tile layer to the map (OpenStreetMap tiles)
-        // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        //     attribution: '&copy; OpenStreetMap contributors',
-        // }).addTo(map);
+        const map = L.map('events-map').setView([45.5, -98.35], 4);
+        const markers = [];
+        console.log(11);
+        // Add a tile layer to the map (OpenStreetMap tiles)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors',
+        }).addTo(map);
 
 
         const ctx = document.getElementById("event-chart").getContext("2d");
@@ -336,7 +337,7 @@
                 }
             }
         });
-    </script> -->
+    </script>
     <!-- FOR TESTING PURPOSES, REMOVE IN FINAL PRODUCT -->
 </body>
 
