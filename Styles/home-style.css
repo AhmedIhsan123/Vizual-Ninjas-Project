@@ -281,7 +281,7 @@ h2#map-event-label {
     padding: 0.5rem;
     text-decoration: none;
     display: inline-block; /* So margin applies */
-    margin-top: 1rem; /* Add spacing if needed */
+    margin-top: 0.5rem; /* Add spacing if needed */
 }
 
 /******* MEDIA QUERIES (1600px) *******/
