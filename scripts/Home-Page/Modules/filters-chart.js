@@ -257,6 +257,8 @@ export async function buildEventChart() {
                 const eventId = dataPoint.id;
 
                 focusOnEvent(eventId);
+                // Set overview data
+                updateOverview(minValue, maxValue, avgValue.toFixed(2), filteredEvents);
             },
             plugins: {
                 title: {
