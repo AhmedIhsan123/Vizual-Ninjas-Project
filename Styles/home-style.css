@@ -1,62 +1,47 @@
+/* Body selector */
+body {
+    /* Layout */
+    display: grid; /* Enable CSS grid layout */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+    grid-template-columns: 0.5fr 2fr 1fr; /* Column widths as flexible fractions */
+    grid-template-rows: auto 1fr 1fr; /* Use fr units for flexible row heights */
+    grid-template-areas: 
+        "header header header" /* Header spans all three columns */
+        "sidebar main map"     /* Sidebar, main content, and map in row 2 */
+        "sidebar main table";  /* Sidebar spans two rows, with main and table */
 
-/* Colors - #1e1e2f */
-
-/* Navigation Bar Container Selector */
-html, body {
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+    overflow: hidden; /* Hide overflow to prevent unwanted scrollbars */
+    gap: 1rem; /* Gap between grid cells */
+    padding-bottom: 1rem; /* Space at the bottom of the body */
 }
 
-
-
-/* ---- Main Content Container Selector ---- */
-.main-content-container {
-  /* Layout */
-  display: grid;
-  grid-template-columns: 1fr 5fr 2fr;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas: 
-    "popular chart map"
-    "popular chart list";
-  width: 100vw;
-  height: calc(100vh - 100px); /* subtract navbar height */
-  margin-top: 100px; /* push it down below the navbar */
-  padding: 1rem;
-  gap: 1rem;
-  box-sizing: border-box;
-  overflow: auto;
-
-  /* Style */
-  border-radius: 5px;
-  color: whitesmoke;
-}
-
-/* ---- Sidebar Container ---- */
+/******* SIDEBAR SECTION *******/
 .sidebar-container {
   /* Layout */
-  grid-area: popular;
-  height: 100%;
+  display: flex; /* Use flexbox layout */
+  flex-direction: column; /* Arrange items vertically */
+  grid-area: sidebar; /* Assign to 'sidebar' grid area */
+  margin-left: 1rem; /* Space to the left of the container */
+  padding: 1rem; /* Inner spacing */
+  gap: 1rem; /* Space between child elements */
+  text-align: center; /* Center text horizontally */
 
   /* Style */
-  background-color: #2e2e40;
+  background-color: #2e2e40; /* Dark background colour */
+  border-radius: 5px; /* Slightly rounded corners */
 }
-
-/* Sidebar Content Container Selector */
-.sidebar-content-container {
+.sidebar-content {
   /* Layout */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: start;
-  text-align: left;
-  gap: 1rem;
-  padding: 1rem;
-  height: 100%;
+  display: flex; /* Use flexbox layout */
+  flex-direction: column; /* Arrange items vertically */
+  align-items: stretch; /* Center items horizontally */
+  justify-content: start; /* Align items to the top */
+  text-align: left; /* Align text to the left */
+  gap: 1rem; /* Space between items */
+  overflow: auto; /* Enable scrolling if content overflows */
+  flex: 1 1 auto; /* Allow to grow and shrink as needed */
 }
-
-/* Sidebar Card Selector */
 .event-card {
   /* Layout */
   display: flex;
@@ -71,236 +56,271 @@ html, body {
   border-radius: 5px;
   background-color: #1e1e2f;
 }
+/******* SIDEBAR SECTION *******/
 
-.event-card button {
-  align-self: center;
+/******* MAIN SECTION *******/
+.main-container {
+    /* Layout */
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Stack children vertically */
+    height: auto; /* Full height of parent */
+    width: 100%; /* Full width of parent */
+    grid-area: main; /* Assign to the 'main' grid area */
+    gap: 1rem; /* Gap between flex items */
+    min-height: 0; /* Allow shrinking inside grid */
+    overflow: auto; /* Allows for auto scrollbar */
+    
+    /* Spacing */
+    padding: 1rem; /* Padding inside the container */
+    border-radius: 5px; /* Rounded corners */
+
 }
-
-/* Sidebar Event Card Selecer */
-#event-cards-container {
-  /* Layout */
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  overflow: auto;
-}
-
-/* ---- Visual Content Container Selector ---- */
-.visual-content-container {
-  /* Layout */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: stretch;
-  height: 100%;
-  grid-area: chart;
-  padding: 1rem;
-  gap: 1rem;
-  overflow: auto;
-  min-height: 0;
-
-  /* Style */
-  background-color: #2e2e40;
-}
-
-/* ---- Title Container Selector */
-.title-container {
-  /* Layout */
-  text-align: center;
-  width: 100%;
-  padding: 1rem;
-  font-size: clamp(1rem, 1vw, 2.5rem);
-  border-radius: 5px;
-
-  /* Style */
-  background-color: #1e1e2f;
-}
-
-/* Filter Container Selector */
 .filters-container {
-  /* Layout */
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  border-radius: 5px;
-  width: 100%;
+    /* Layout */
+    text-align: center;
 
-  /* Style */
-  background-color: #1e1e2f;
+    /* Styles */
+    padding: 1rem; /* Padding inside the container */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #1e1e2f; /* Dark bluish background color */
 }
+.filters-content {
+    /* Layout */
+    display: flex; /* Use flexbox layout */
+    flex-direction: row; /* Arrange items horizontally */
+    flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
+    justify-content: start; /* Align items to the start */
+    align-items: flex-end; /* Align items to the bottom */
+    gap: 1rem; /* Gap between items */
 
-/* Dropdowns */
-select, input {
-  /* Layout */
-  padding: 0.5rem;
-  cursor: pointer;
-
-  /* Style */
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: #2e2e40;
-  color: whitesmoke;
+    /* Styles */
+    font-size: clamp(10px, 1vw, 15px); /* Responsive font size between 10px and 15px */
 }
-
-/* Chart Container Selector */
-.chart-container {
-  /* Layout */
-  padding: 1rem;
-  border-radius: 5px;
-  width: 100%;
-  height: 100%;
-
-  /* Style */
-  background-color: #1e1e2f;
+.filters-content div {
+    /* Layout */
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Stack child elements vertically */
 }
-
-.chart-container div {
-  width: 100%;
-  height: 100%;
+.filters-container .select-filter {
+    /* Styles */
+    color: whitesmoke; /* Light off-white text color */
+    padding: 0.5rem; /* Padding inside the filter */
+    background-color: #2e2e40; /* Dark bluish-gray background color */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: clamp(10px, 1vw, 12px); /* Responsive font size between 10px and 12px */
 }
-
-/* Details Container Selector */
-.details-container {
-  /* Layout */
-  padding: 1rem;
-  border-radius: 5px;
-  width: 100%;
-
-  /* Style */
-  background-color: #1e1e2f;
+.filters-content label {
+    /* Layout */
+    align-self: center; /* Vertically center label within flex container */
 }
+.visualization-container {
+    /* Layout */
+    height: 100%; /* Take full height of parent container */
 
-/* ---- Map Container Selector ---- */
+    /* Styles */
+    background-color: #1e1e2f; /* Dark bluish background color */
+    border-radius: 5px; /* Rounded corners */
+}
+.visualization-content {
+    /* Layout */
+    height: 100%; /* Fill available height */
+    padding: 1rem; /* Padding inside the container */
+}
+.overview-container {
+    /* Layout */
+    height: auto; /* Take 20% height of parent container */
+
+    /* Styles */
+    padding: 1rem; /* Padding inside the overview */
+    background-color: #1e1e2f; /* Dark bluish background color */
+    border-radius: 5px; /* Rounded corners */
+    font-size: clamp(5px, 1vw, 15px); /* Responsive font size between 5px and 15px */
+}
+/******* MAIN SECTION *******/
 .map-container {
-  /* Layout */
-  grid-area: map;
-  padding: 1rem;
+    /* Layout */
+    grid-area: map; /* Assign to grid area named 'map' */
+    padding: 1rem;
+    margin-right: 1rem;
 
-  /* Style */
-  border-radius: 5px;
-  background-color: #2e2e40;
+    /* Styles */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #2e2e40; /* Dark background */
+
+    /* Add this to control height */
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    min-height: 0; /* Allow shrinking inside grid */
 }
-
-#mapid {
-  z-index: 9999;
-  height: 100%;
-  width: 100%;
-}
-
-/* ---- Event List Container Selector ---- */
-.event-list-container {
-  grid-area: list;
+.map-content {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
-  width: 100%;
   height: 100%;
-  max-height: 100%;
-  background-color: #2e2e40;
-  border-radius: 5px;
-  overflow: hidden;
-  user-select: none;
-}
-
-.event-list-container .search-input {
-  margin-bottom: 0.5rem;
   width: 100%;
-  padding: 0.5rem;
-  box-sizing: border-box;
-  cursor: text;
+    /* overflow: hidden; */
 }
+#events-map {
+    /* Layout */
+    z-index: 9999; /* Ensure it's on top */
+    flex: 1 1 auto; /* Take up the rest of the height */
+    width: 100%;
+}
+/******* MAP SECTION *******/
+.table-container {
+    /* Layout */
+    grid-area: table; /* Assign to grid area named 'table' */
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Stack children vertically */
+    padding: 1rem; /* Inner spacing */
+    margin-right: 1rem; /* Right margin */
+    height: 100%; /* Fill parent height */
+    max-height: 100%; /* Prevent overflow */
+    min-height: 0; /* Allow shrinking inside grid */
 
-.event-list-container table {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  border-collapse: collapse;
-  background-color: #252538;
-  border-radius: 5px;
-  table-layout: fixed;
-  overflow: hidden;
+    /* Styles */
+    background-color: #2e2e40; /* Dark background */
+    border-radius: 5px; /* Rounded corners */
+    user-select: none; /* Prevent text selection */
 }
+.table-container .search-input {
+    /* Layout */
+    width: 100%; /* Full width */
+    padding: 0.5rem; /* Inner spacing */
+    margin-bottom: 0.5rem; /* Space below */
+    box-sizing: border-box; /* Include padding in width */
 
-.event-list-container thead {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
+    /* Styles */
+    cursor: text; /* Text input cursor */
 }
+.table-content {
+    /* Layout */
+    overflow: auto; /* Scrollable when overflowing */
 
-.event-list-container tbody {
-  display: block;
-  width: 100%;
-  height: 100%;
-  overflow-y: auto;
+    /* Styles */
+    /* (Add additional container styling if needed) */
 }
+.table-content table {
+    /* Layout */
+    display: flex; /* Flex layout for custom scroll behavior */
+    flex-direction: column; /* Stack rows vertically */
+    flex: 1 1 auto; /* Grow and shrink as needed */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    table-layout: fixed; /* Equal column widths */
+    border-collapse: collapse; /* Merge borders */
+    overflow: hidden; /* Hide overflow content */
 
-.event-list-container th,
-.event-list-container td {
-  width: 25%; /* Adjust based on column count */
-  box-sizing: border-box;
-  word-break: break-word;
-  padding: 0.5rem;
-  text-align: left;
-  vertical-align: middle;
+    /* Styles */
+    background-color: #252538; /* Dark table background */
+    border-radius: 5px; /* Rounded corners */
 }
+.table-content thead {
+    /* Layout */
+    display: table; /* Maintain table behavior */
+    width: 100%; /* Full width */
+    table-layout: fixed; /* Consistent column sizing */
+}
+.table-content tbody {
+    /* Layout */
+    display: block; /* Allow vertical scrolling */
+    width: 100%; /* Full width */
+    height: 100%; /* Take up remaining space */
+    overflow-y: auto; /* Enable vertical scroll */
+}
+.table-content th,
+.table-content td {
+    /* Layout */
+    width: 25%; /* Set width per column */
+    padding: 0.5rem; /* Cell padding */
+    box-sizing: border-box; /* Include padding in width */
+    word-break: break-word; /* Prevent overflow text */
+    text-align: left; /* Align text left */
+    vertical-align: middle; /* Vertically center text */
+}
+.table-content th {
+    /* Styles */
+    background-color: #1e1e2f; /* Darker header background */
+}
+.table-content tr {
+    /* Layout */
+    display: table; /* Maintain row layout */
+    width: 100%; /* Full width */
+    table-layout: fixed; /* Equal column widths */
+}
+.table-content tr:nth-child(even) {
+    /* Styles */
+    background-color: #1e1e2f; /* Alternate row shading */
+}
+.table-content tr:hover {
+    /* Styles */
+    background-color: #555; /* Hover effect */
+    transition: background-color 0.2s ease; /* Smooth transition */
+}
+/******* TABLE SECTION *******/
 
-.event-list-container th {
-  background-color: #1e1e2f;
-  text-align: left;
-  vertical-align: middle;
+/******* MEDIA QUERIES (1600px) *******/
+@media (max-width: 1600px) {
+    body {
+        /* Layout */
+        grid-template-columns: repeat(2, 1fr); /* Two equal-width columns using flexible fractions */
+        grid-template-rows: auto 400px 350px 1000px; /* Define specific row heights */
+        grid-template-areas: 
+            "header header"  /* Header spans both columns */
+            "sidebar map"    /* Sidebar on the left, map on the right */
+            "table table"    /* Table spans both columns */
+            "main main";     /* Main spans both columns */
+        overflow: auto; /* Enable scrolling if content exceeds viewport */
+        height: auto; /* Allow height to adjust based on content */
+    }
+    .sidebar-content {
+        /* Layout */
+        display: grid; /* Use grid layout */
+        grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+        max-height: 100%; /* Limit height to 100% of parent */
+        overflow: auto; /* Scroll if content overflows */
+    }
+    .main-container, .table-container {
+        /* Layout */
+        height: 100%; /* Full height of parent */
+        margin-left: 1rem; /* Space to the left */
+        margin-right: 1rem; /* Space to the right */
+    }
+    .main-container {
+        /* Layout */
+        width: auto; /* Width adjusts to content */
+        margin-bottom: 1rem; /* Space below the container */
+    }
 }
+/******* MEDIA QUERIES (1600px) *******/
 
-.event-list-container tr {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
+/******* MEDIA QUERIES (1000px) *******/
+@media (max-width: 1000px) {
+    body {
+        /* Layout */
+        grid-template-columns: 1fr; /* Single column layout using flexible fraction */
+        grid-template-rows: auto 400px 400px 350px 1000px; /* Define specific row heights */
+        grid-template-areas: 
+            "header"   /* Header spans full width */
+            "sidebar"  /* Sidebar section */
+            "map"      /* Map section */
+            "table"    /* Table section */
+            "main";    /* Main content section */
+        overflow: auto; /* Enable scrolling if content exceeds viewport */
+        height: auto; /* Allow body height to expand based on content */
+    }
+    .map-container {
+        /* Layout */
+        margin-left: 1rem; /* Space to the left of the map */
+    }
+    .sidebar-container {
+        /* Layout */
+        margin-right: 1rem; /* Space to the right of the sidebar */
+    }
+    .overview-container {
+        /* Style */
+        font-size: 12px; /* Set small font size */
+    }
 }
-
-.event-list-container tr:nth-child(even) {
-  background-color: #1e1e2f;
-}
-
-.event-list-container tr:hover {
-  background-color: #555;
-  transition: background-color 0.2s ease;
-}
-
-/* Media Queries */
-@media (max-width: 1850px) {
-  .main-content-container {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 50%);
-    grid-template-areas: 
-      "popular map"
-      "list list"
-      "chart chart";
-  }
-  .filters-container {
-    flex-wrap: wrap;
-  }
-  #event-cards-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .visual-content-container {
-    height: 100vh;
-  }
-}
-
-@media (max-width: 1400px) {
-  #event-cards-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 900px) {
-  #event-cards-container {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-}
+/******* MEDIA QUERIES (1000px) *******/
