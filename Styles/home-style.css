@@ -160,6 +160,7 @@ body {
   flex-direction: column;
   height: 100%;
   width: 100%;
+  text-align: center;
     /* overflow: hidden; */
 }
 #events-map {
