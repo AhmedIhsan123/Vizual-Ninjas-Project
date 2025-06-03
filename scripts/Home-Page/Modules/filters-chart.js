@@ -257,7 +257,6 @@ export async function buildEventChart() {
                 const eventId = dataPoint.id;
 
                 focusOnEvent(eventId);
-                buildEventChart();
             },
             plugins: {
                 title: {
