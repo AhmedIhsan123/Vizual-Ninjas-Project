@@ -36,9 +36,12 @@ countryDropdown.addEventListener("change", async () => {
 });
 
 // // Event listener for the apply filters button
-// applyFiltersButton.addEventListener("click", async () => {
-//     buildEventChart();
-// });
+const listOfFilters = [tierDropdown, countryDropdown, stateDropdown, startDateInput, endDateInput];
+listOfFilters.forEach(filter => {
+    filter.addEventListener("change", function () {
+        buildEventChart();
+    }) 
+})
 
 // Event listener for the reset filters button
 resetFiltersButton.addEventListener("click", async () => {
