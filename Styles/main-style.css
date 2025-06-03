@@ -93,3 +93,14 @@ body {
     color: rgb(255, 203, 61); /* Highlight the hovered link */
 }
 /******* HEADER SECTION *******/
+
+/******* BUTTONS *******/
+.button {
+    /* Style */
+    color: whitesmoke; /* Light text color */
+    font-size: clamp(10px, 1vw, 12px); /* Responsive font size between 10px and 12px */
+    background-color: #1e1e2f; /* Dark background color */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Slightly rounded corners */
+    padding: 1rem; /* Inner spacing around the text */
+}

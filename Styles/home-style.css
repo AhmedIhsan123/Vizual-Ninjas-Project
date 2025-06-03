@@ -109,6 +109,7 @@ body {
     border: 1px solid #ccc; /* Light gray border */
     border-radius: 5px; /* Rounded corners */
     font-size: clamp(10px, 1vw, 12px); /* Responsive font size between 10px and 12px */
+    cursor: pointer; /* Make sure clicker shows on the filter */
 }
 .filters-content label {
     /* Layout */
@@ -248,6 +249,7 @@ body {
     display: table; /* Maintain row layout */
     width: 100%; /* Full width */
     table-layout: fixed; /* Equal column widths */
+    cursor: pointer; /* Make sure clicker shows on the row */
 }
 .table-content tr:nth-child(even) {
     /* Styles */
