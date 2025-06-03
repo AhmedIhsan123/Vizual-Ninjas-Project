@@ -156,10 +156,10 @@ export async function buildEventChart() {
     }
 
     // Variables to track annotation information
-    let averages = chartData.datasets[0].data.map(point => point.y);
-    let minValue = Math.min(...averages);
-    let maxValue = Math.max(...averages);
-    let avgValue = averages.reduce((sum, value) => sum + value, 0) / averages.length;
+    const averages = chartData.datasets[0].data.map(point => point.y);
+    const minValue = Math.min(...averages);
+    const maxValue = Math.max(...averages);
+    const avgValue = averages.reduce((sum, value) => sum + value, 0) / averages.length;
 
     // Set overview data
     updateOverview(minValue, maxValue, avgValue.toFixed(2), filteredEvents);
@@ -256,11 +256,8 @@ export async function buildEventChart() {
                 const dataPoint = eventChart.data.datasets[datasetIndex].data[dataIndex];
                 const eventId = dataPoint.id;
 
-                console.log(minValue);
                 focusOnEvent(eventId);
                 buildEventChart();
-                // Set overview data
-                updateOverview(minValue, maxValue, avgValue.toFixed(2), filteredEvents);
             },
             plugins: {
                 title: {
