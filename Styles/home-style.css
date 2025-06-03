@@ -267,11 +267,10 @@ h2#map-event-label {
     margin-bottom: 16px;
 }
 
-.leaflet-popup-content-wrapper {
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
     background-color: #1e1e2f;
     color: whitesmoke;
 }
-
 
 /******* MEDIA QUERIES (1600px) *******/
 @media (max-width: 1600px) {
