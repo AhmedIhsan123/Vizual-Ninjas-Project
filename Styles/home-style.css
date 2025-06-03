@@ -330,3 +330,11 @@ h2#map-event-label {
     }
 }
 /******* MEDIA QUERIES (1000px) *******/
+
+/******* MEDIA QUERIES (700px) *******/
+@media (max-width: 700px) {
+    .sidebar-content {
+        grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+    }
+}
+/******* MEDIA QUERIES (700px) *******/
