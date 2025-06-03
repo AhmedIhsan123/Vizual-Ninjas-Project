@@ -257,6 +257,7 @@ export async function buildEventChart() {
                 const eventId = dataPoint.id;
 
                 focusOnEvent(eventId);
+                buildEventChart();
                 // Set overview data
                 updateOverview(minValue, maxValue, avgValue.toFixed(2), filteredEvents);
             },
