@@ -267,7 +267,7 @@ h2#map-event-label {
     margin-bottom: 16px;
 }
 
-.leaflet-popup-content {
+.leaflet-popup-content-wrapper {
     background-color: #1e1e2f;
     color: whitesmoke;
 }
