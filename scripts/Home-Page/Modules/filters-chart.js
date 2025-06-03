@@ -325,7 +325,6 @@ function updateOverview(minMiles, maxMiles, avgMiles, events) {
 
     overviewContainer.innerHTML = `
         <h2>Overview</h2>
-        <p>Total Events: <strong>${events.length}</strong></p>
         <p>Average Distance Traveled: <strong>${avgMiles} miles</strong></p>
         <p>Maximum Average Distance Traveled to Event: <strong>${maxMiles} miles</strong></p>
         <p>Minimum Average Distance Traveled to Event: <strong>${minMiles} miles</strong></p>`
