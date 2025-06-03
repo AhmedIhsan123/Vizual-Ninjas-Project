@@ -261,6 +261,9 @@ body {
     background-color: #555; /* Hover effect */
     transition: background-color 0.2s ease; /* Smooth transition */
 }
+h2#map-event-label {
+    margin-bottom: 16px;
+}
 /******* TABLE SECTION *******/
 
 /******* MEDIA QUERIES (1600px) *******/
