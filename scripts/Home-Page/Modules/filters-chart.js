@@ -8,6 +8,7 @@ const stateDropdown = document.querySelector("#state");
 const startDateInput = document.querySelector("#start-date");
 const endDateInput = document.querySelector("#end-date");
 const maxPlayersInput = document.querySelector("#max-players");
+const minPlayersInput = document.querySelector("#min-players");
 // const applyFiltersButton = document.querySelector("#apply-filters");
 const resetFiltersButton = document.querySelector("#reset-filters");
 let eventChart = null; // Placeholder for the chart instance
@@ -44,8 +45,13 @@ listOfFilters.forEach(filter => {
     }) 
 })
 
-// Allow Enter key to apply the max player filter
+// Allow Enter key to apply the min/max player filter
 maxPlayersInput.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+        buildEventChart();
+    }
+});
+minPlayersInput.addEventListener("keydown", function (e) {
     if (e.key === "Enter") {
         buildEventChart();
     }
@@ -60,6 +66,7 @@ resetFiltersButton.addEventListener("click", async () => {
     startDateInput.value = "";
     endDateInput.value = "";
     maxPlayersInput.value = "";
+    minPlayersInput.value = "";
 
     // Rebuild the filters and chart
     await updateFilters();
@@ -115,6 +122,7 @@ export async function buildEventChart() {
     const startDate = startDateInput.value;
     const endDate = endDateInput.value;
     const maxPlayers = maxPlayersInput.value;
+    const minPlayers = minPlayersInput.value;
     const xTitle = "Event Names";
     const yTitle = "Average Distance Traveled";
 
@@ -148,7 +156,7 @@ export async function buildEventChart() {
         const totalPlayers = event.TOTAL_MEMBERS;
 
         // If there are no max players set, or if the total players is less than or equal to the max players, include the event
-        if(!maxPlayers || totalPlayers <= maxPlayers) {
+        if(!maxPlayers || totalPlayers <= maxPlayers || minPlayers <= totalPlayers) {
             filteredEvents.push(event);
             chartData.labels.push(event.EVENT_NAME);
             chartData.datasets[0].data.push({
