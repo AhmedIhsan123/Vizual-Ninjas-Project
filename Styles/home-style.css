@@ -261,10 +261,28 @@ body {
     background-color: #555; /* Hover effect */
     transition: background-color 0.2s ease; /* Smooth transition */
 }
+/******* TABLE SECTION *******/
+
 h2#map-event-label {
     margin-bottom: 16px;
 }
-/******* TABLE SECTION *******/
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    background-color: #1e1e2f;
+    color: whitesmoke;
+}
+
+.leaflet-popup-content a.button {
+    color: whitesmoke !important;
+    background-color: #2e2e40;
+    font-size: clamp(10px, 1vw, 12px);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0.5rem;
+    text-decoration: none;
+    display: inline-block; /* So margin applies */
+    margin-top: 0.5rem; /* Add spacing if needed */
+}
 
 /******* MEDIA QUERIES (1600px) *******/
 @media (max-width: 1600px) {
