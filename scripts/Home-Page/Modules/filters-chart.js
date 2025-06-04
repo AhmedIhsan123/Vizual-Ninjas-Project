@@ -46,15 +46,11 @@ listOfFilters.forEach(filter => {
 })
 
 // Allow Enter key to apply the min/max player filter
-maxPlayersInput.addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-        buildEventChart();
-    }
+maxPlayersInput.addEventListener("input", function () {
+    buildEventChart();
 });
-minPlayersInput.addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-        buildEventChart();
-    }
+minPlayersInput.addEventListener("input", function () {
+    buildEventChart();
 });
 
 // Event listener for the reset filters button
