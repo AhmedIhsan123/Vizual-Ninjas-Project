@@ -122,7 +122,7 @@ export async function buildEventChart() {
     const yTitle = "Average Distance Traveled"; // Defines the y-axis title for the chart.
 
     // Construct the URL with the selected filters
-    let url = `./PHP/events.php?tier=<span class="math-inline">\{selectedTier\}&country\=</span>{selectedCountry}&state=<span class="math-inline">\{selectedState\}&start\_date\=</span>{startDate}&end_date=${endDate}`; // Constructs a URL to fetch event data based on selected filters.
+    let url = `./PHP/events.php?tier=${selectedTier}&country=${selectedCountry}&state=${selectedState}&start_date=${startDate}&end_date=${endDate}`;
 
     // Fetch data based on the selected filters
     const data = await fetchData(url); // Fetches event data from the constructed URL.
