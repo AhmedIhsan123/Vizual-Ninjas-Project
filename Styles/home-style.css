@@ -284,6 +284,7 @@ h2#map-event-label {
     margin-top: 0.5rem; /* Add spacing if needed */
 }
 
+
 /******* MEDIA QUERIES (1600px) *******/
 @media (max-width: 1600px) {
     body {

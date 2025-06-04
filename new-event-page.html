@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Page</title>
+
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="Styles/main-style.css" />
+    <link rel="stylesheet" href="Styles/new-event-style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.awesome-markers/2.0.5/leaflet.awesome-markers.css" />
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.4.0"></script>
+    <!-- <script src="https://unpkg.com/leaflet/dist/leaflet.js" defer></script> -->
+    <script type="module" src="scripts/script.js" defer></script>
+    <script type="module" src="scripts/Event-Page/event-page-script.js" defer></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header-container">
+        <img class="statmando-logo" src="./Img/StatmandoLogo.png">
+        <nav class="navbar-container">
+            <ul class="navbar-content">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="event-page.html">Event Viewer</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Header -->
+
+    <!-- Stats Aside -->
+    <aside class="stats-container">
+        <h2><span id="selected-event-name">Event</span> Statistics</h2>
+        <p>Overview of player metrics and reach.</p>
+        <div class="stats-content">
+            <div class="stat-card" id="total-players-card">
+                <p class="card-title">Total Players</p>
+                <p id="total-players-text" class="card-text">16 Players</p>
+            </div>
+            <div class="stat-card" id="average-distance-card">
+                <p class="card-title">Average Distance</p>
+                <p id="average-distance-text" class="card-text">1528.25 mi</p>
+            </div>
+            <div class="stat-card" id="over-1000-miles-card">
+                <p class="card-title">&gt;1000 Mile</p>
+                <p id="over-1000-miles-text" class="card-text">13 Players</p>
+            </div>
+            <div class="stat-card" id="under-500-miles-card">
+                <p class="card-title">&lt;500 Mile</p>
+                <p id="under-500-miles-text" class="card-text">10 Players</p>
+            </div>
+            <div class="stat-card" id="out-of-state-card">
+                <p class="card-title">Out of State Players</p>
+                <p id="out-of-state-text" class="card-text">13 Players</p>
+            </div>
+            <div class="stat-card" id="in-state-card">
+                <p class="card-title">In State Players</p>
+                <p id="in-state-text" class="card-text">10 Players</p>
+            </div>
+            <div class="stat-card" id="max-distance-card">
+                <p class="card-title">Max Distance (miles)</p>
+                <p id="max-distance-text" class="card-text">4320.15 mi</p>
+            </div>
+            <div class="stat-card" id="min-distance-card">
+                <p class="card-title">Min Distance (miles)</p>
+                <p id="min-distance-text" class="card-text">5.20 mi</p>
+            </div>
+        </div>
+    </aside>
+    <!-- Stats Aside -->
+
+    <!-- Map -->
+    <section class="map-container">
+        <div class="map-content">
+            <h2 class="map-label" id="map-event-label"></h2>
+            <div id="players-map" class="mapid"></div>
+        </div>
+    </section>
+    <!-- Map -->
+
+    <!-- Top Players Aside -->
+    <aside class="top-players-container">
+        <h2>Top Players</h2>
+        <p>Current Event's Top Performers</p>
+        <div class="top-players-content">
+            <div class="division">
+                <h3>Division OPEN</h3>
+                <ul>
+                    <li>Jaxon Wrench - 1</li>
+                    <li>Russell Harford - 2</li>
+                    <li>Bob Ogden - 3</li>
+                </ul>
+            </div>
+            <div class="division">
+                <h3>Division OPEN</h3>
+                <ul>
+                    <li>Jaxon Wrench - 1</li>
+                    <li>Russell Harford - 2</li>
+                    <li>Bob Ogden - 3</li>
+                </ul>
+            </div>
+            <div class="division">
+                <h3>Division OPEN</h3>
+                <ul>
+                    <li>Jaxon Wrench - 1</li>
+                    <li>Russell Harford - 2</li>
+                    <li>Bob Ogden - 3</li>
+                </ul>
+            </div>
+            <div class="division">
+                <h3>Division OPEN</h3>
+                <ul>
+                    <li>Jaxon Wrench - 1</li>
+                    <li>Russell Harford - 2</li>
+                    <li>Bob Ogden - 3</li>
+                </ul>
+            </div>                                    
+        </div>
+    </aside>
+
+    <!-- FOR TESTING, REMOVE IN FINAL PRODUCT -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Set the initial view to a specific location and zoom level
+
+        const map = L.map('players-map').setView([45.5, -98.35], 4);
+        const markers = [];
+        console.log(11);
+        // Add a tile layer to the map (OpenStreetMap tiles)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors',
+        }).addTo(map);
+    </script>
+    <!-- FOR TESTING PURPOSES, REMOVE IN FINAL PRODUCT -->
+</body>
+
+</html>

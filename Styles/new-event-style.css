@@ -1,0 +1,183 @@
+/* Body selector */
+body {
+  /* Layout */
+  display: grid; /* Use CSS Grid layout */
+  grid-template-columns: repeat(4, 1fr); /* Four columns with flexible widths */
+  grid-template-rows: auto 45% 45%; /* Header height auto, then two flexible rows */
+  grid-template-areas: 
+    "header header header header" /* Header spans all four columns */
+    "card-stats map map top-players" /* Stats, map spans two columns, players on right */
+    "top-25-chart top-25-chart per-state-chart per-state-chart"; /* Two charts each spanning two columns */
+  gap: 1rem; /* Space between grid cells */
+  padding-bottom: 1rem; /* Space at the bottom of the layout */
+
+  /* Style */
+  /* (No visual styling specified here) */
+}
+
+/******* CARD STATS SECTION *******/
+.stats-container {
+  /* Layout */
+  display: flex; /* Use flexbox layout */
+  flex-direction: column; /* Arrange children vertically */
+  align-items: stretch; /* Stretch items to fill container width */
+  min-height: 100%; /* Ensure container fills its grid area */
+  padding: 1rem; /* Inner spacing */
+  text-align: center; /* Center-align text */
+  margin-left: 1rem; /* Space to the left */
+  gap: 1rem; /* Space between child elements */
+  overflow: auto;
+  /* Style */
+  background-color: #2e2e40; /* Dark background color */
+  border-radius: 5px; /* Slightly rounded corners */
+}
+.stats-content {
+  /* Layout */
+  display: grid; /* Use CSS Grid layout */
+  grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+  grid-template-rows: repeat(4, 1fr); /* Four equal-height rows */
+  gap: 1rem; /* Gap between grid cells */
+  flex: 1 1 auto; /* Allow to grow and shrink as needed */
+
+  /* Style */
+  /* (No visual styles applied here) */
+}
+.stat-card {
+  /* Layout */
+  display: flex; /* Use flexbox layout */
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center-align items horizontally */
+  text-align: center; /* Center-align text */
+  padding: 1rem; /* Inner spacing */
+
+  /* Style */
+  background-color: #1e1e2f; /* Slightly darker background */
+  border-radius: 5px; /* Rounded corners */
+}
+.card-title {
+  /* Style */
+  font-style: italic; /* Italic font */
+  color: #ccc; /* Light gray text */
+  font-size: clamp(10px, 1vw, 15px); /* Responsive font sizing */
+}
+.card-text {
+  /* Style */
+  color: whitesmoke; /* Bright text color */
+  font-weight: bold; /* Bold text */
+  font-size: clamp(15px, 1vw, 30px); /* Responsive font sizing */
+}
+/******* CARD STATS SECTION *******/
+
+/******* MAIN SECTION *******/
+.map-container {
+    /* Layout */
+    grid-area: map; /* Assign to grid area named 'map' */
+    padding: 1rem;
+
+    /* Styles */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #2e2e40; /* Dark background */
+
+    /* Add this to control height */
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    min-height: 0; /* Allow shrinking inside grid */
+}
+.map-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+    /* overflow: hidden; */
+}
+#players-map {
+    /* Layout */
+    z-index: 9999; /* Ensure it's on top */
+    flex: 1 1 auto; /* Take up the rest of the height */
+    width: 100%;
+    border-radius: 5px;
+}
+/******* MAP SECTION *******/
+
+/******* TOP PLAYERS SECTION *******/
+.top-players-container {
+  /* Layout */
+  display: flex; /* Use flexbox for vertical layout */
+  flex-direction: column; /* Stack children vertically */
+  grid-area: top-players; /* Assign to 'top-players' grid area */
+  padding: 1rem; /* Inner spacing */
+  align-items: center; /* Center-align children horizontally */
+  justify-content: stretch; /* Stretch children to fill vertical space */
+  margin-right: 1rem; /* Space to the right */
+
+  /* Style */
+  background-color: #2e2e40; /* Dark background */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  font-family: 'Poppins', sans-serif; /* Use Poppins font */
+}
+.top-players-container h2,
+.top-players-container p {
+  /* Layout */
+  text-align: center; /* Center text */
+  margin-bottom: 0.5rem; /* Space below each element */
+}
+.top-players-content {
+  /* Layout */
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack children vertically */
+  align-self: start; /* Align to the start of container */
+  justify-content: stretch; /* Stretch children */
+  padding-left: 0; /* Remove default padding */
+  width: 100%; /* Full width */
+  overflow: auto; /* Scroll vertically when overflowing */
+  flex: 1 1 auto; /* Allow to grow and shrink as needed */
+
+
+  /* Style */
+  /* (No visual styles specified) */
+}
+.divsion {
+  /* Layout */
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center horizontally */
+  width: 100%; /* Full width */
+  padding: 1rem; /* Inner spacing */
+
+  /* Style */
+  background-color: #1e1e2f; /* Darker background */
+  border-radius: 5px; /* Rounded corners */
+}
+.division h3 {
+  /* Layout */
+  margin-bottom: 10px; /* Space below heading */
+
+  /* Style */
+  /* (No visual styles specified) */
+}
+.top-players-container ol {
+  /* Layout */
+  padding-left: 0; /* Remove default left padding */
+  margin: 0; /* Remove margin */
+
+  /* Style */
+  list-style: none; /* Remove default list styling */
+}
+.top-players-container li {
+  /* Layout */
+  margin-bottom: 0.5rem; /* Space below each item */
+  padding: 0.5rem 0.75rem; /* Inner spacing */
+  border-radius: 5px; /* Rounded corners */
+  display: flex; /* Use flexbox */
+  align-items: center; /* Align children vertically */
+  gap: 0.5rem; /* Space between children */
+  font-size: 0.95rem; /* Font size */
+
+  /* Style */
+  background: #1e1e2f; /* Darker background */
+  font-family: 'Inter', sans-serif; /* Use Inter font */
+}
+/******* TOP PLAYERS SECTION *******/
