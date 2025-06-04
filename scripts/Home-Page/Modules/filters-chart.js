@@ -36,13 +36,20 @@ countryDropdown.addEventListener("change", async () => {
     });
 });
 
-// // Event listener for the apply filters button
+// Event listener for the apply filters button
 const listOfFilters = [tierDropdown, countryDropdown, stateDropdown, startDateInput, endDateInput];
 listOfFilters.forEach(filter => {
     filter.addEventListener("change", function () {
         buildEventChart();
     }) 
 })
+
+// Allow Enter key to apply the max player filter
+maxPlayersInput.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+        buildEventChart();
+    }
+});
 
 // Event listener for the reset filters button
 resetFiltersButton.addEventListener("click", async () => {
@@ -139,9 +146,9 @@ export async function buildEventChart() {
     const filteredEvents = [];
     data.forEach(event => {
         const totalPlayers = event.TOTAL_MEMBERS;
-        const maxPlayersValue = parseInt(maxPlayers);
 
-        if(!maxPlayers || totalPlayers <= maxPlayersValue) {
+        // If there are no max players set, or if the total players is less than or equal to the max players, include the event
+        if(!maxPlayers || totalPlayers <= maxPlayers) {
             filteredEvents.push(event);
             chartData.labels.push(event.EVENT_NAME);
             chartData.datasets[0].data.push({
