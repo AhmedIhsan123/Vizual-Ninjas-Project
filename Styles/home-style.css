@@ -89,7 +89,7 @@ body {
     display: flex; /* Use flexbox layout */
     flex-direction: row; /* Arrange items horizontally */
     flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
-    justify-content: start; /* Align items to the start */
+    justify-content: center; /* Align items to the center */
     align-items: flex-end; /* Align items to the bottom */
     gap: 1rem; /* Gap between items */
 
