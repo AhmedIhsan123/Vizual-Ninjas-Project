@@ -7,6 +7,7 @@ const countryDropdown = document.querySelector("#country");
 const stateDropdown = document.querySelector("#state");
 const startDateInput = document.querySelector("#start-date");
 const endDateInput = document.querySelector("#end-date");
+const maxPlayersInput = document.querySelector("#max-players");
 // const applyFiltersButton = document.querySelector("#apply-filters");
 const resetFiltersButton = document.querySelector("#reset-filters");
 let eventChart = null; // Placeholder for the chart instance
@@ -51,6 +52,7 @@ resetFiltersButton.addEventListener("click", async () => {
     stateDropdown.value = "";
     startDateInput.value = "";
     endDateInput.value = "";
+    maxPlayersInput.value = "";
 
     // Rebuild the filters and chart
     await updateFilters();
@@ -105,6 +107,7 @@ export async function buildEventChart() {
     const selectedState = stateDropdown.value;
     const startDate = startDateInput.value;
     const endDate = endDateInput.value;
+    const maxPlayers = maxPlayersInput.value;
     const xTitle = "Event Names";
     const yTitle = "Average Distance Traveled";
 
@@ -135,16 +138,21 @@ export async function buildEventChart() {
     // Prepare the data for the chart
     const filteredEvents = [];
     data.forEach(event => {
-        filteredEvents.push(event);
-        chartData.labels.push(event.EVENT_NAME);
-        chartData.datasets[0].data.push({
-            x: event.EVENT_NAME,
-            y: event.AVG_TRAVEL_DISTANCE_MILES,
-            osCount: event.MEMBERS_OUT_OF_STATE,
-            isCount: event.MEMBERS_IN_STATE,
-            id: event.EVENT_ID
-        });
-        chartData.datasets[0].backgroundColor = "#999";
+        const totalPlayers = event.TOTAL_MEMBERS;
+        const maxPlayersValue = parseInt(maxPlayers);
+
+        if(!maxPlayers || totalPlayers <= maxPlayersValue) {
+            filteredEvents.push(event);
+            chartData.labels.push(event.EVENT_NAME);
+            chartData.datasets[0].data.push({
+                x: event.EVENT_NAME,
+                y: event.AVG_TRAVEL_DISTANCE_MILES,
+                osCount: event.MEMBERS_OUT_OF_STATE,
+                isCount: event.MEMBERS_IN_STATE,
+                id: event.EVENT_ID
+            });
+            chartData.datasets[0].backgroundColor = "#999";
+        }
     });
 
     // Create the chart using Chart.js
