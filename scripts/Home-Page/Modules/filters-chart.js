@@ -156,7 +156,7 @@ export async function buildEventChart() {
         const totalPlayers = event.TOTAL_MEMBERS;
 
         // If there are no max players set, or if the total players is less than or equal to the max players, include the event
-        if(!maxPlayers || totalPlayers <= maxPlayers || minPlayers <= totalPlayers) {
+        if((!maxPlayers || totalPlayers <= maxPlayers) && (!minPlayers || minPlayers <= totalPlayers)) {
             filteredEvents.push(event);
             chartData.labels.push(event.EVENT_NAME);
             chartData.datasets[0].data.push({
