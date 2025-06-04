@@ -5,10 +5,10 @@
 /* Global reset */
 * {
     /* Layout */
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    user-select: none;
+    margin: 0;                     /* Removes default outer spacing */
+    padding: 0;                    /* Removes default inner spacing */
+    box-sizing: border-box;        /* Includes padding and border in the element's total width and height */
+    user-select: none;             /* Prevents text selection */
 
     /* Aesthetics */
     font-family: 'Poppins', sans-serif; /* Applied globally here, but overridden for specific elements by Inter font later */
@@ -17,91 +17,94 @@
 /* Ensure html and body take up full viewport height and prevent horizontal overflow */
 html,
 body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
+    height: 100%;                  /* Sets height to 100% of the viewport height */
+    width: 100%;                   /* Sets width to 100% of the viewport width */
+    margin: 0;                     /* Removes default margin */
 }
 
 /* Body selector */
 body {
     /* Layout */
-    display: grid;
-    min-height: 100dvh; /* Ensures body is at least the viewport height */
+    display: grid;                 /* Enables CSS grid layout */
+    min-height: 100dvh;            /* Ensures body is at least the viewport height */
 
     /* Style */
-    background-color: #1e1e2f;
-    color: whitesmoke; /* Added based on previous context for default text color */
-    font-family: 'Inter', sans-serif; /* Applied as the main body font, overriding the global Poppins */
+    background-color: #1e1e2f;      /* Sets the background color to a dark blue-grey */
+    color: whitesmoke;              /* Sets the default text color to whitesmoke */
+    font-family: 'Inter', sans-serif; /* Applies Inter font as the main body font, overriding the global Poppins */
 }
 
 /* Primary containers */
 .primary-container {
     /* Styles */
-    background-color: #2e2e40; /* Light bluish-gray background color */
+    background-color: #2e2e40;     /* Sets background color to a light bluish-gray */
 }
 
 /* Secondary containers */
 .secondary-container {
     /* Styles */
-    background-color: #1e1e2f; /* Dark bluish-gray background color */
+    background-color: #1e1e2f;     /* Sets background color to a dark bluish-gray */
 }
-
 
 /******* HEADER SECTION *******/
 .header-container {
     /* Layout */
-    display: flex; /*  */
-    flex-direction: row; /* The direction items flex */
-    justify-content: space-between; /* Make sure the content is spread */
-    align-items: center; /* Vertically center header content */
-    grid-area: header; /* Grid area of the container */
-    width: 100%; /* Takees up all the width of the screen */
-    /* width: 100dvw; Prefer if supported */
-    padding: 1rem; /* Some padding between the border and the content */
+    display: flex;                  /* Uses flexbox layout */
+    flex-direction: row;            /* Arranges flex items in a row */
+    justify-content: space-between; /* Distributes space evenly between and around content items */
+    align-items: center;            /* Vertically centers header content within the container */
+    grid-area: header;              /* Assigns the container to the 'header' grid area */
+    width: 100%;                    /* Makes the container take up 100% of its parent's width */
+    padding: 1rem;                  /* Adds 1rem of space inside the container on all sides */
 
     /* Styles */
-    box-shadow: 0 0 10px black; /* Adds a subtle shadow below the header for depth */
+    box-shadow: 0 0 10px black;   /* Adds a subtle shadow below the header for depth */
 }
+
 .statmando-logo {
     /* Layout */
-    max-width: 20%;
-    height: auto;
+    max-width: 20%;                /* Sets the maximum width of the logo to 20% of its parent */
+    height: auto;                  /* Allows the height to adjust automatically to maintain aspect ratio */
 }
+
 .navbar-content {
     /* Layout */
-    display: flex; /* Use flexbox for layout */
-    flex-direction: row; /* Arrange items horizontally */
-    justify-content: space-between; /* Spread items evenly with space between */
-    gap: 2rem; /* Gap of 2rem between flex items */
-    margin-right: 5rem; /* Right margin spacing */
+    display: flex;                  /* Uses flexbox for layout */
+    flex-direction: row;            /* Arranges items horizontally */
+    justify-content: space-between; /* Spreads items evenly with space between them */
+    gap: 2rem;                      /* Adds 2rem of space between flex items */
+    margin-right: 5rem;             /* Adds 5rem of space to the right of the navigation bar */
 
     /* Styles */
-    list-style: none; /* Remove default list bullets */
+    list-style: none;               /* Removes default list bullets */
 }
+
 .navbar-content li a {
     /* Styles */
-    color: whitesmoke; /* Light off-white text color */
-    font-size: clamp(1rem, 1vw, 1.25rem); /* Responsive font size between 1rem and 1.25rem */
-    text-decoration: none; /* Remove underline from links */
-    list-style: none; /* Ensure no list marker on links */
+    color: whitesmoke;             /* Sets the text color to light off-white */
+    font-size: clamp(1rem, 1vw, 1.25rem); /* Sets a responsive font size between 1rem and 1.25rem */
+    text-decoration: none;         /* Removes the underline from links */
+    list-style: none;              /* Ensures no list marker appears on links */
 
     /* Transition */
-    transition: color 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out; /* Smooth transition for color changes */
 }
+
 .navbar-content li a:hover {
     /* Style */
-    color: rgb(255, 203, 61); /* Highlight the hovered link */
+    color: rgb(255, 203, 61);      /* Changes the link color to a highlight yellow on hover */
 }
 /******* HEADER SECTION *******/
 
 /******* BUTTONS *******/
 .button {
     /* Style */
-    color: whitesmoke; /* Light text color */
-    font-size: clamp(10px, 1vw, 12px); /* Responsive font size between 10px and 12px */
-    background-color: #2e2e40; /* Dark background color */
-    border: 1px solid #ccc; /* Light gray border */
-    border-radius: 5px; /* Slightly rounded corners */
-    padding: 0.5rem; /* Inner spacing around the text */
-    text-decoration: none; /* Remove underline from links/buttons */
+    color: whitesmoke;               /* Sets the text color to light off-white */
+    font-size: clamp(10px, 1vw, 12px); /* Sets a responsive font size between 10px and 12px */
+    background-color: #2e2e40;       /* Sets the background color to a dark blue-grey */
+    border: 1px solid #ccc;          /* Adds a 1px solid light gray border */
+    border-radius: 5px;                /* Rounds the corners of the button */
+    padding: 0.5rem;                   /* Adds 0.5rem of inner spacing around the text */
+    text-decoration: none;             /* Removes underlines from links/buttons */
 }
+/******* BUTTONS *******/
