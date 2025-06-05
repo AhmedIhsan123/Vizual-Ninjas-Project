@@ -124,6 +124,23 @@
             </div>                                    
         </div>
     </aside>
+    <!-- Top Players Aside -->
+
+    <!-- Chart One Section -->    
+    <section class="chart-one-container">
+        <div class="chart-one-content">
+            <canvas id="top-25-chart-id"></canvas>
+        </div>
+    </section>
+    <!-- Chart One Seciton -->  
+
+    <!-- Chart Two Section -->    
+    <section class="chart-two-container">
+        <div class="chart-two-content">
+            <canvas id="states-chart-id"></canvas>
+        </div>
+    </section>
+    <!-- Chart Two Seciton --> 
 
     <!-- FOR TESTING, REMOVE IN FINAL PRODUCT -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -137,6 +154,112 @@
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap contributors',
         }).addTo(map);
+
+        const ctx = document.getElementById("top-25-chart-id").getContext("2d");
+        const ctx2 = document.getElementById("states-chart-id").getContext("2d");
+        const eventChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: ["Item A", "Item B", "Item C", "Item D", "Item E", "Item F"],
+                datasets: [{
+                    label: "Test Data",
+                    data: [44, 66, 22, 250, 330, 15],
+                    backgroundColor: "#42a5f5"
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        title: {
+                            color: "white",
+                            display: true,
+                            text: "Test",
+                            font: (ctx) => {
+                                const width = ctx.chart.width;
+                                return {
+                                    family: "Poppins, sans-serif",
+                                    size: width < 400 ? 10 : width < 800 ? 12 : 13
+                                };
+                            }
+                        },
+                        ticks: {
+                            color: "white",
+                            autoSkip: false,
+                            maxRotation: 90,
+                            minRotation: 90
+                        },
+                        grid: {
+                            color: "rgba(255, 255, 255, 0.2)"
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            color: "white",
+                            text: "Test2",
+                            font: (ctx) => {
+                                const width = ctx.chart.width;
+                                return {
+                                    family: "Poppins, sans-serif",
+                                    size: width < 400 ? 10 : width < 800 ? 12 : 13
+                                };
+                            }
+                        },
+                        ticks: {
+                            color: "white"
+                        },
+                        grid: {
+                            color: "rgba(255, 255, 255, 0.2)"
+                        },
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const playerChart = new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: ['California', 'Texas', 'New York', 'Florida', 'Washington'],
+                datasets: [{
+                    label: 'Player Count',
+                    data: [120, 90, 60, 80, 40], // Example counts per state
+                    backgroundColor: [
+                        '#FF6384', // red
+                        '#36A2EB', // blue
+                        '#FFCE56', // yellow
+                        '#4BC0C0', // teal
+                        '#9966FF'  // purple
+                    ],
+                    borderColor: '#fff',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top', // 'top', 'left', 'bottom' also available
+                    },
+                    title: {
+                        display: true,
+                        text: 'Player Distribution by State'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                let value = context.parsed;
+                                return `${label}: ${value} players`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
     </script>
     <!-- FOR TESTING PURPOSES, REMOVE IN FINAL PRODUCT -->
 </body>
