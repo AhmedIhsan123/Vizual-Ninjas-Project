@@ -1,5 +1,5 @@
 import { currentMembers } from "./event-page-map.js";
-const chartTitle = document.querySelector("#chart1 h3");
+const chartTitle = document.querySelector(".chart-one-container h3");
 let tchart = null;
 let stateChart = null;
 
@@ -17,7 +17,7 @@ export function buildTChart() {
     chartTitle.textContent = `Top ${topMembers.length} Players by Distance Traveled`;
 
     // Create the chart using Chart.js
-    const ctx = document.getElementById("chartDistance").getContext("2d");
+    const ctx = document.getElementById("top-25-chart-id").getContext("2d");
 
     // Create a new chart instance
     tchart = new Chart(ctx, {
@@ -89,7 +89,7 @@ export function buildTChart() {
         `hsl(${(i * 360 / stateLabels.length)}, 70%, 60%)`
     );
 
-    const stateCtx = document.getElementById("chartStates").getContext("2d");
+    const stateCtx = document.getElementById("states-chart-id").getContext("2d");
     stateChart = new Chart(stateCtx, {
         type: 'pie',
         data: {
