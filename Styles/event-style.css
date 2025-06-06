@@ -260,6 +260,8 @@ body {
   align-items: center; /* Center items vertically */
   justify-content: center; /* Center items horizontally */
   padding: 1rem; /* Inner spacing */
+  min-height: 0; /* Prevent overflow from flex children */
+  overflow: hidden; /* Optional: hide overflow if needed */
 
   /* Style */
   /* (No additional styles) */
