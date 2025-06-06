@@ -227,8 +227,8 @@ body {
 /* Chart one content styles */
 .chart-one-content {
   /* Layout */
-  height: 100%; /* Fill container vertically */
-  width: 100%; /* Fill container horizontally */
+  flex: 1;
+  display: flex;
   padding: 1rem; /* Inner spacing */
 
   /* Style */
