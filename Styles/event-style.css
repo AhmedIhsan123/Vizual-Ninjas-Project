@@ -234,6 +234,9 @@ body {
   /* Style */
   /* (No additional styles) */
 }
+.chart-one-content canvas {
+  height: 100% !important;
+}
 /******* CHART ONE SECTION *******/
 
 /******* CHART TWO SECTION *******/
