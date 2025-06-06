@@ -215,6 +215,7 @@ body {
 .chart-one-container {
   /* Layout */
   display: flex;
+  flex-direction: column;
   grid-area: top-25-chart; /* Assign to 'top-25-chart' grid area */
   margin-left: 1rem; /* Space to the left */
   padding: 1rem;
