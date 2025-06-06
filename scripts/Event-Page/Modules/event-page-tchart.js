@@ -77,7 +77,7 @@ export function buildTChart() {
     // Count members per state
     const stateCounts = {};
     currentMembers.forEach(member => {
-        const state = member.MEMBER_STATE_PROV || "Unknown";
+        const state = member.MEMBER_STATE_NAME || "Unknown";
         stateCounts[state] = (stateCounts[state] || 0) + 1;
     });
 
