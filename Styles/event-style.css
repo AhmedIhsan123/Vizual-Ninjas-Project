@@ -240,6 +240,8 @@ body {
 /* Chart two container styles */
 .chart-two-container {
   /* Layout */
+  display: flex;
+  flex-direction: column;
   grid-area: per-state-chart; /* Assign to 'per-state-chart' grid area */
   margin-right: 1rem; /* Space to the right */
   padding: 1rem;
@@ -253,6 +255,7 @@ body {
 /* Chart two content styles */
 .chart-two-content {
   /* Layout */
+  flex: 1;
   display: flex; /* Use flexbox layout */
   align-items: center; /* Center items vertically */
   justify-content: center; /* Center items horizontally */
