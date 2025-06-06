@@ -214,6 +214,7 @@ body {
 /* Chart one container styles */
 .chart-one-container {
   /* Layout */
+  display: flex;
   grid-area: top-25-chart; /* Assign to 'top-25-chart' grid area */
   margin-left: 1rem; /* Space to the left */
   padding: 1rem;
@@ -226,6 +227,8 @@ body {
 
 /* Chart one content styles */
 .chart-one-content {
+  display: flex;
+  flex: 1;
   /* Layout */
   height: 100%; /* Fill container vertically */
   width: 100%; /* Fill container horizontally */
@@ -233,6 +236,9 @@ body {
 
   /* Style */
   /* (No additional styles) */
+}
+.chart-one-content canvas {
+  padding: 5px;
 }
 /******* CHART ONE SECTION *******/
 
