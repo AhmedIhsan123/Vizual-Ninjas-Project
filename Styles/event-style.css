@@ -227,16 +227,12 @@ body {
 /* Chart one content styles */
 .chart-one-content {
   /* Layout */
-  flex: 1;
-  display: flex;
+  height: 100%; /* Fill container vertically */
+  width: 100%; /* Fill container horizontally */
   padding: 1rem; /* Inner spacing */
 
   /* Style */
   /* (No additional styles) */
-}
-.chart-one-content canvas {
-  display: flex !important;
-  flex: 1;
 }
 /******* CHART ONE SECTION *******/
 
