@@ -235,7 +235,7 @@ body {
   /* (No additional styles) */
 }
 .chart-one-content canvas {
-  height: 100% !important;
+  flex: 1;
 }
 /******* CHART ONE SECTION *******/
 
