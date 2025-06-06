@@ -1,15 +1,15 @@
 import { fetchData } from "../../utils.js";
 
 // event-stats.js
-const totalPlayersRef = document.querySelector("#total-players");
-const averageDistanceRef = document.querySelector("#average-distance");
-const moreThanRef = document.querySelector("#more-than");
-const lessThanRef = document.querySelector("#less-than");
-const outOfStateRef = document.querySelector("#out-of-state");
-const inStateRef = document.querySelector("#in-state");
-const maxDistanceRef = document.querySelector("#max-dist");
-const minDistanceRef = document.querySelector("#min-dist");
-const selectedEventNameRef = document.querySelector("#selectedEventName");
+const totalPlayersRef = document.querySelector("#total-players-card");
+const averageDistanceRef = document.querySelector("#average-distance-card");
+const moreThanRef = document.querySelector("#over-1000-miles-card");
+const lessThanRef = document.querySelector("#under-500-miles-card");
+const outOfStateRef = document.querySelector("#out-of-state-card");
+const inStateRef = document.querySelector("#in-state-card");
+const maxDistanceRef = document.querySelector("#max-distance-card");
+const minDistanceRef = document.querySelector("#min-dist-distance-card");
+const selectedEventNameRef = document.querySelector("#selected-event-name");
 
 let members = [];
 

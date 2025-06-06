@@ -5,7 +5,7 @@ import { updateTopPlayers } from "./event-page-top-players.js";
 import { buildTChart } from "./event-page-tchart.js";
 // Local Variables
 // Set the initial view to a specific location and zoom level
-const map = L.map('mapid').setView([45.5, -98.35], 4);
+const map = L.map('players-map').setView([45.5, -98.35], 4);
 export let currentMembers = [];
 export const eventMarkers = [];
 let memberMarkers = [];
