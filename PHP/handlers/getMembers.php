@@ -8,39 +8,42 @@ $event_id = isset($_GET['event_id']) ? intval($_GET['event_id']) : 0;
 
 if ($event_id > 0) {
     $sql = "SELECT 
-                r.DIVISION_ID,
-                r.EVENT_PLACE,
-                r.EVENT_ID,
-                m.PDGA_NUMBER, 
-                m.MEMBER_FULL_NAME, 
-                m.MEMBER_CITY, 
-                m.MEMBER_STATE_PROV, 
-                m.COUNTRY_ID, 
-                m.MEMBER_POSTAL_ZIP, 
-                m.MEMBER_ADDRESS, 
-                m.MEMBER_LAT, 
-                m.MEMBER_LON, 
-                e.EVENT_LATITUDE,
-                e.EVENT_LONGITUDE
-            FROM EVENT_RESULT r
-            JOIN MEMBER m ON r.PDGA_NUMBER = m.PDGA_NUMBER
-            JOIN EVENT e ON r.EVENT_ID = e.EVENT_ID
-            WHERE r.EVENT_ID = :event_id";
-
+            r.DIVISION_ID,
+            r.EVENT_PLACE,
+            r.EVENT_ID,
+            m.PDGA_NUMBER, 
+            m.MEMBER_FULL_NAME, 
+            m.MEMBER_CITY, 
+            m.MEMBER_STATE_PROV, 
+            s.STATE_NAME,
+            m.COUNTRY_ID, 
+            m.MEMBER_POSTAL_ZIP, 
+            m.MEMBER_ADDRESS, 
+            m.MEMBER_LAT, 
+            m.MEMBER_LON, 
+            e.EVENT_LATITUDE,
+            e.EVENT_LONGITUDE
+        FROM EVENT_RESULT r
+        JOIN MEMBER m ON r.PDGA_NUMBER = m.PDGA_NUMBER
+        JOIN EVENT e ON r.EVENT_ID = e.EVENT_ID
+        LEFT JOIN STATE s ON m.MEMBER_STATE_PROV = s.STATE_ID
+        WHERE r.EVENT_ID = :event_id";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':event_id', $event_id, PDO::PARAM_INT);
 } else {
     $sql = "SELECT DISTINCT 
-                m.PDGA_NUMBER, 
-                m.MEMBER_FULL_NAME, 
-                m.MEMBER_CITY, 
-                m.MEMBER_STATE_PROV, 
-                m.COUNTRY_ID, 
-                m.MEMBER_POSTAL_ZIP, 
-                m.MEMBER_ADDRESS, 
-                m.MEMBER_LAT, 
-                m.MEMBER_LON
-            FROM MEMBER m";
+            m.PDGA_NUMBER, 
+            m.MEMBER_FULL_NAME, 
+            m.MEMBER_CITY, 
+            m.MEMBER_STATE_PROV, 
+            s.STATE_NAME,
+            m.COUNTRY_ID, 
+            m.MEMBER_POSTAL_ZIP, 
+            m.MEMBER_ADDRESS, 
+            m.MEMBER_LAT, 
+            m.MEMBER_LON
+        FROM MEMBER m
+        LEFT JOIN STATE s ON m.MEMBER_STATE_PROV = s.STATE_ID";
     $stmt = $pdo->prepare($sql);
 }
 
