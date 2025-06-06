@@ -224,22 +224,35 @@ body {
   /* Style */
   background-color: #2e2e40; /* Dark background */
   border-radius: 5px; /* Rounded corners */
+  box-sizing: border-box; /* Include padding in size calculations */
+  height: 100%; /* Fill grid area vertically */
 }
 
 /* Chart one content styles */
 .chart-one-content {
   display: flex;
-  flex: 1;
-  /* Layout */
-  height: 100%; /* Fill container vertically */
-  width: 100%; /* Fill container horizontally */
-  padding: 1rem; /* Inner spacing */
-
-  /* Style */
-  /* (No additional styles) */
+  flex: 1 1 auto;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box; /* Include padding in size calculations */
+  align-items: stretch;
+  justify-content: stretch;
 }
+
+/* Make children fill available space */
+.chart-one-content > * {
+  flex: 1 1 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
 .chart-one-content canvas {
   padding: 5px;
+  width: 100% !important;
+  height: 100% !important;
+  box-sizing: border-box;
 }
 /******* CHART ONE SECTION *******/
 
