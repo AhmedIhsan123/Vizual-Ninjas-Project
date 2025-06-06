@@ -216,6 +216,8 @@ body {
   /* Layout */
   grid-area: top-25-chart; /* Assign to 'top-25-chart' grid area */
   margin-left: 1rem; /* Space to the left */
+  padding: 1rem;
+  text-align: center;
 
   /* Style */
   background-color: #2e2e40; /* Dark background */
@@ -240,6 +242,8 @@ body {
   /* Layout */
   grid-area: per-state-chart; /* Assign to 'per-state-chart' grid area */
   margin-right: 1rem; /* Space to the right */
+  padding: 1rem;
+  text-align: center;
 
   /* Style */
   background-color: #2e2e40; /* Dark background */
