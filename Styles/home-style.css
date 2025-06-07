@@ -126,6 +126,19 @@ body {
     align-items: center; /* THIS NEW LINE: Centers children horizontally */
 }
 
+/* Specific styling for filter item container divs */
+.filters-content > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center children horizontally within this div */
+    width: 100%; /* Ensure it takes full width available within filters-content */
+    max-width: 130px; /* Constrain the max width of each filter block */
+}
+
+div > .number-input {
+    max-width: 100px;
+}
+
 .visualization-container {
     /* Layout */
     height: 100%;                  /* Take full height of parent container */
@@ -311,21 +324,6 @@ h2#map-event-label {
     transition: background-color 0.2s ease; /* Smooth transition */
 }
 /******* TABLE SECTION *******/
-
-input[type="number"] {
-    width: 50%;
-}
-
-/* Specific styling for filter item container divs */
-.filters-content > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center children horizontally within this div */
-    width: 100%; /* Ensure it takes full width available within filters-content */
-    max-width: 200px; /* NEW: Constrain the max width of each filter block */
-    /* Removed any individual margins on the div that might conflict with gap */
-}
-
 
 /******* MEDIA QUERIES (1600px) *******/
 @media (max-width: 1600px) {
