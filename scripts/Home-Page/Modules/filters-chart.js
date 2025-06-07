@@ -9,6 +9,8 @@ const startDateInput = document.querySelector("#start-date");
 const endDateInput = document.querySelector("#end-date"); 
 const maxPlayersInput = document.querySelector("#max-players");
 const minPlayersInput = document.querySelector("#min-players"); 
+const maxDistInput = document.querySelector("#max-dist");
+const minDistInput = document.querySelector("#min-dist"); 
 const resetFiltersButton = document.querySelector("#reset-filters"); 
 let eventChart = null;
 /* -------- GLOBAL VARIABLES END -------- */
@@ -44,12 +46,18 @@ listOfFilters.forEach(filter => {
     })
 })
 
-// Event listeners for min/max player input
+// Event listeners for number input elements
 maxPlayersInput.addEventListener("input", function () {
     buildEventChart(); // Calls buildEventChart whenever the maxPlayersInput changes.
 });
 minPlayersInput.addEventListener("input", function () {
     buildEventChart(); // Calls buildEventChart whenever the minPlayersInput changes.
+});
+maxDistInput.addEventListener("input", function () {
+    buildEventChart(); // Calls buildEventChart whenever the maxDistInput changes.
+});
+minDistInput.addEventListener("input", function () {
+    buildEventChart(); // Calls buildEventChart whenever the minDistInput changes.
 });
 
 // Event listener for the reset filters button
@@ -62,6 +70,8 @@ resetFiltersButton.addEventListener("click", async () => {
     endDateInput.value = ""; 
     maxPlayersInput.value = ""; 
     minPlayersInput.value = ""; 
+    maxDistInput.value = ""; 
+    minDistInput.value = ""; 
 
     // Rebuild the filters and chart
     await updateFilters(); // Calls updateFilters to refresh the filter options.
@@ -118,6 +128,8 @@ export async function buildEventChart() {
     const endDate = endDateInput.value; 
     const maxPlayers = maxPlayersInput.value; 
     const minPlayers = minPlayersInput.value; 
+    const minDistance = minDistInput.value;
+    const maxDistance = maxDistInput.value;
     const xTitle = "Event Names"; // Defines the x-axis title for the chart.
     const yTitle = "Average Distance Traveled"; // Defines the y-axis title for the chart.
 
@@ -149,9 +161,11 @@ export async function buildEventChart() {
     const filteredEvents = []; // Initializes an array to hold filtered event data.
     data.forEach(event => {
         const totalPlayers = event.TOTAL_MEMBERS; // Gets the total number of members for the event.
-
+        const avgTravelDistance = event.AVG_TRAVEL_DISTANCE_MILES;
+        const passesPlayerFilter = (!maxPlayers || totalPlayers <= parseFloat(maxPlayers)) && (!minPlayers || parseFloat(minPlayers) <= totalPlayers);
+        const passesDistanceFilter = (!maxDistance || avgTravelDistance <= parseFloat(maxDistance)) && (!minDistance || parseFloat(minDistance) <= avgTravelDistance);
         // Checks if the event meets the player count criteria
-        if((!maxPlayers || totalPlayers <= maxPlayers) && (!minPlayers || minPlayers <= totalPlayers)) {
+        if(passesDistanceFilter && passesPlayerFilter) {
             filteredEvents.push(event); // Adds the event to the filtered events array.
             chartData.labels.push(event.EVENT_NAME); // Adds the event name to the chart labels.
             chartData.datasets[0].data.push({ // Adds the event data to the chart dataset.
@@ -175,9 +189,9 @@ export async function buildEventChart() {
 
     // Variables to track annotation information
     const averages = chartData.datasets[0].data.map(point => point.y); // Maps the y-values (average travel distance) for annotations.
-    const minValue = Math.min(...averages); // Calculates the minimum average travel distance.
-    const maxValue = Math.max(...averages); // Calculates the maximum average travel distance.
-    const avgValue = averages.reduce((sum, value) => sum + value, 0) / averages.length; // Calculates the average of average travel distances.
+    const minValue = averages.length > 0 ? Math.min(...averages) : 0; // Calculates the minimum average travel distance.
+    const maxValue = averages.length > 0 ? Math.max(...averages) : 0; // Calculates the maximum average travel distance.
+    const avgValue = averages.length > 0 ? averages.reduce((sum, value) => sum + value, 0) / averages.length : 0; // Calculates the average of average travel distances.
 
     // Set overview data
     updateOverview(minValue, maxValue, avgValue.toFixed(2), filteredEvents); // Calls a function to update an overview section with calculated values.
@@ -206,6 +220,15 @@ export async function buildEventChart() {
         parts.push(`Since ${(startDate)}`); // Adds the start date to the title.
     } else if (endDate) {
         parts.push(`Up To ${(endDate)}`); // Adds the end date to the title.
+    }
+
+    // Distance range
+    if (minDistance && maxDistance) {
+        parts.push(`Between ${minDistance} and ${maxDistance} mi`);
+    } else if (minDistance) {
+        parts.push(`Over ${minDistance} mi`);
+    } else if (maxDistance) {
+        parts.push(`Under ${maxDistance} mi`);
     }
 
     // Join the parts to create the title
