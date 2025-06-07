@@ -25,7 +25,7 @@ export function buildTChart() {
         data: {
             labels: topMembers.map(member => member.MEMBER_FULL_NAME),
             datasets: [{
-                label: 'Distance to Event',
+                label: 'Miles from Event',
                 data: topMembers.map(member => member.DISTANCE_TRAVELED_MILES),
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
