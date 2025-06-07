@@ -18,6 +18,14 @@ const redIcon = new L.Icon({
     popupAnchor: [1, -34],
     shadowSize: [41, 41]
 });
+const greenIcon = new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+    shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+});
 
 // Initialize the map
 export async function initMap() {
@@ -111,7 +119,7 @@ export async function plotMemberPins(event) {
         const coordinate = [member.MEMBER_LAT, member.MEMBER_LON];
 
         // Store the member pin
-        const marker = L.marker(coordinate, { icon: redIcon });
+        const marker = L.marker(coordinate, { icon: member.MEMBER_STATE_PROV == event.EVENT_STATE_ID ? redIcon : greenIcon});
 
         // Draw a line from member to event
         drawLine([[event.EVENT_LATITUDE, event.EVENT_LONGITUDE], [member.MEMBER_LAT, member.MEMBER_LON]]);
