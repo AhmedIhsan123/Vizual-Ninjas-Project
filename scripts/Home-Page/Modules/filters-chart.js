@@ -224,7 +224,7 @@ export async function buildEventChart() {
 
     // Distance range
     if (minDistance && maxDistance) {
-        parts.push(`Between ${minDistance} and ${maxDistance} mi`);
+        parts.push(`With Average Distance Between ${minDistance} and ${maxDistance} Miles`);
     } else if (minDistance) {
         parts.push(`Over ${minDistance} mi`);
     } else if (maxDistance) {
