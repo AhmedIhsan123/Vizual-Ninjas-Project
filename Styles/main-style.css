@@ -108,3 +108,12 @@ body {
     text-decoration: none;             /* Removes underlines from links/buttons */
 }
 /******* BUTTONS *******/
+
+/******* MEDIA QUERIES (400px) *******/
+@media (max-width: 500px) {
+    .navbar-content {
+        gap: 1rem;
+        margin-right: 1rem;
+    }
+}
+/******* MEDIA QUERIES (400px) *******/
