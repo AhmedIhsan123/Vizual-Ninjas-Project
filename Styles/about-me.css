@@ -11,13 +11,13 @@ body {
 }
 
 /* Assign areas */
-header {
+/* header {
   grid-area: header;
   padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
+} */
 
 
 
@@ -29,23 +29,24 @@ main {
   align-items: center;
 }
 
-/* Link section */
-main section:first-of-type {
-  margin-bottom: 2rem;
-}
-
-main section:first-of-type ul {
-  list-style: none;
-  padding: 0;
+section h1{
   display: flex;
-  gap: 2rem;
+  justify-content: center;
+  font-size: 2.5rem;
+  margin-bottom: 5rem;
 }
 
-main section:first-of-type a {
-  color: #0077cc;
-  font-weight: bold;
+/* Link section */
+.content-container a {
+  color: rgb(79, 79, 252);
   text-decoration: none;
 }
+
+.content-container a:hover {
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
+}
+
 
 /* Content layout */
 .content-container {
@@ -55,12 +56,18 @@ main section:first-of-type a {
   width: 100%;
 }
 
-.content-container h3 {
+.content-container h2,
+.content-container p {
+  text-align: center;
+}
+
+.content-container h2 {
   margin-top: 1.5rem;
 }
 
 .content-container p {
-  line-height: 1.6;
+  font-size: 1.2rem;
+  line-height: 1.5;
 }
 
 /* Responsive tweaks */
