@@ -73,7 +73,7 @@ body {
     flex-direction: row;            /* Arranges items horizontally */
     justify-content: space-between; /* Spreads items evenly with space between them */
     gap: 2rem;                      /* Adds 2rem of space between flex items */
-    margin-right: 5rem;             /* Adds 5rem of space to the right of the navigation bar */
+    margin-right: 3rem;             /* Adds 5rem of space to the right of the navigation bar */
 
     /* Styles */
     list-style: none;               /* Removes default list bullets */
