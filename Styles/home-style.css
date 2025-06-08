@@ -403,7 +403,7 @@ h2#map-event-label {
     }
         .filters-content > div {
         max-width: unset; /* Remove max-width constraint for full width on very small screens */
-        width: 100%; /* Ensure it takes full width of its flex container */
+        width: calc(50% - 0.5rem); /* 50% width minus half of the 1rem gap */
     }
 
     .filters-container .select-filter {
