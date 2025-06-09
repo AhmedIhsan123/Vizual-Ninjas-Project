@@ -1,85 +1,122 @@
-/* Make sure body uses grid layout */
+/* --- Global Body Styling --- */
 body {
+  /* Uses CSS Grid for overall page layout. */
   display: grid;
+
+  /* Defines named grid areas: 'header' and 'main', each spanning two columns. */
   grid-template-areas:
     "header header"
     "main main";
+
+  /* Sets row heights: header row to content height, main row to fill remaining space. */
   grid-template-rows: auto 1fr;
+
+  /* Ensures the body takes up at least the full viewport height. */
   min-height: 100vh;
+
+  /* Removes default browser margin. */
   margin: 0;
+
+  /* Sets the default font. */
   font-family: Arial, sans-serif;
 }
 
-/* Assign areas */
-/* header {
-  grid-area: header;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-} */
-
-
-
+/* --- Main Content Area Styling --- */
 main {
+  /* Assigns this element to the 'main' grid area. */
   grid-area: main;
+
+  /* Adds internal padding. */
   padding: 2rem;
+
+  /* Uses Flexbox for internal layout of main content. */
   display: flex;
+
+  /* Arranges flex items vertically. */
   flex-direction: column;
+
+  /* Centers flex items horizontally. */
   align-items: center;
 }
 
-section h1{
+/* --- Section Heading Styling --- */
+section h1 {
+  /* Centers the heading text horizontally using Flexbox. */
   display: flex;
   justify-content: center;
+
+  /* Sets the font size. */
   font-size: 2.5rem;
+
+  /* Adds significant bottom margin. */
   margin-bottom: 5rem;
 }
 
-/* Link section */
+/* --- Link Styling within Content Container --- */
 .content-container a {
+  /* Sets link color. */
   color: rgb(79, 79, 252);
+
+  /* Removes default underline. */
   text-decoration: none;
 }
 
 .content-container a:hover {
+  /* Changes link color on hover. */
   color: rgb(255, 255, 255);
+
+  /* Adds underline on hover for feedback. */
   text-decoration: underline;
 }
 
-
-/* Content layout */
+/* --- General Content Container Layout --- */
 .content-container {
+  /* Adds internal padding. */
   padding: 2rem;
+
+  /* Rounds the corners. */
   border-radius: 12px;
+
+  /* Sets a maximum width for larger screens. */
   max-width: 800px;
+
+  /* Ensures it takes full width up to max-width. */
   width: 100%;
 }
 
+/* --- Text Alignment within Content Container --- */
 .content-container h2,
 .content-container p {
+  /* Centers text horizontally. */
   text-align: center;
 }
 
+/* --- Specific Heading and Paragraph Spacing --- */
 .content-container h2 {
+  /* Adds top margin to headings. */
   margin-top: 1.5rem;
 }
 
 .content-container p {
+  /* Sets font size. */
   font-size: 1.2rem;
+
+  /* Adjusts line spacing for readability. */
   line-height: 1.5;
 }
 
-/* Responsive tweaks */
+/* --- Responsive Adjustments (for screens up to 600px wide) --- */
 @media (max-width: 600px) {
+  /* Stacks list items in the first section's unordered list. */
   main section:first-of-type ul {
     flex-direction: column;
-    gap: 1rem;
+    gap: 1rem; /* Adds space between stacked items. */
   }
 
+  /* Adjusts header layout for small screens. */
   header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
+    flex-direction: column; /* Stacks header items. */
+    align-items: flex-start; /* Aligns items to the left. */
+    gap: 0.5rem; /* Adds small space between stacked items. */
   }
 }
