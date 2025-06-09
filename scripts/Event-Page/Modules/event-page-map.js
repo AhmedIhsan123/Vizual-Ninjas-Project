@@ -153,10 +153,10 @@ export function hideMemberLines() {
     currentDrawnLines = [];
 }
 
-export function drawLine(coordinate) {
+export function drawLine(coordinate, event) {
     // Store line drawn
     const line = L.polyline(coordinate, {
-        color: 'red',
+        color: member.MEMBER_STATE_PROV == event.EVENT_STATE_ID ? 'red' : 'green',
         weight: 4,
         opacity: 0.8,
         dashArray: '2, 5', // dash-dot style
