@@ -108,7 +108,7 @@ try {
                 e.EVENT_ID, e.EVENT_NAME, e.EVENT_TIER_ID, e.EVENT_STATE_ID, e.COUNTRY_ID, -- Group results by event details to allow aggregation
                 e.EVENT_LATITUDE, e.EVENT_LONGITUDE, e.DATE_EVENT_END
             ORDER BY 
-                AVG_TRAVEL_DISTANCE_MILES DESC, e.DATE_EVENT_END DESC"; -- Order results by average travel distance (descending) then by event end date (descending)
+                AVG_TRAVEL_DISTANCE_MILES DESC, e.DATE_EVENT_END DESC"; // Order results by average travel distance (descending) then by event end date (descending)
 
     // Prepare the SQL statement for safe execution (prevents SQL injection by using placeholders).
     $stmt = $pdo->prepare($sql);
