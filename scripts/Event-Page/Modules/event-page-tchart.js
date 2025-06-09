@@ -104,9 +104,11 @@ export function buildTChart() {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             plugins: {
                 legend: {
                     labels: {
+                        position: 'right',
                         color: '#fff'
                     }
                 },
@@ -115,8 +117,11 @@ export function buildTChart() {
                     titleColor: '#fff',
                     callbacks: {
                         label: function (context) {
-                            // context.parsed is the value for this slice (number of players)
-                            return `Players: ${context.parsed}`;
+                            const label = context.label || '';
+                            const value = context.parsed;
+                            const total = context.dataset.data.reduce((acc, current) => acc + current, 0);
+                            const percentage = ((value / total) * 100).toFixed(1);
+                            return `${label}: ${value} players (${percentage}%)`;
                         }
                     }
                 }
