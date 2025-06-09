@@ -313,11 +313,6 @@ body {
   .map-container {
     margin: 0 1rem; /* Horizontal margin */
   }
-
-  .chart-one-container,
-  .chart-two-container {
-    margin-bottom: 1rem; /* Space below charts */
-  }
 }
 /******* MEDIA QUERIES (1000px) *******/
 
