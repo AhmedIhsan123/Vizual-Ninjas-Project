@@ -251,7 +251,7 @@ body {
 .chart-one-content canvas {
   padding: 5px;
   width: 100% !important;
-  height: 100% !important;
+  /* height: 100% !important; */
   box-sizing: border-box;
 }
 /******* CHART ONE SECTION *******/
