@@ -41,7 +41,7 @@ function createCard(eventTitle, eventTierID, eventTotal, eventTravelDistance, ev
     cardTitleRef.innerHTML = `<strong>${eventTitle}</strong>`;
     cardTierRef.innerHTML = `Tier: <strong>${eventTierID}</strong>`;
     cardTotalRef.innerHTML = `Players Attending: <strong>${eventTotal}</strong>`;
-    cardDistanceRef.innerHTML = `Average Travel Distance: <strong>${eventTravelDistance}</strong>`;
+    cardDistanceRef.innerHTML = `Average Travel Distance: <strong>${eventTravelDistance} mi</strong>`;
     btnRef.textContent = "View Details"; // Set the text for the button.
 
     // Add necessary classes and attributes to the created elements.
