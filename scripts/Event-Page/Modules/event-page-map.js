@@ -122,7 +122,7 @@ export async function plotMemberPins(event) {
         const marker = L.marker(coordinate, { icon: member.MEMBER_STATE_PROV == event.EVENT_STATE_ID ? redIcon : greenIcon});
 
         // Draw a line from member to event
-        drawLine([[event.EVENT_LATITUDE, event.EVENT_LONGITUDE], [member.MEMBER_LAT, member.MEMBER_LON]]);
+        drawLine([[event.EVENT_LATITUDE, event.EVENT_LONGITUDE], [member.MEMBER_LAT, member.MEMBER_LON]], event, member);
 
         // Add the pin to the map and store the marker
         map.addLayer(marker);
@@ -153,7 +153,7 @@ export function hideMemberLines() {
     currentDrawnLines = [];
 }
 
-export function drawLine(coordinate, event) {
+export function drawLine(coordinate, event, member) {
     // Store line drawn
     const line = L.polyline(coordinate, {
         color: member.MEMBER_STATE_PROV == event.EVENT_STATE_ID ? 'red' : 'green',
