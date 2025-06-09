@@ -8,7 +8,7 @@ const lessThanRef = document.querySelector("#under-500-miles-text");
 const outOfStateRef = document.querySelector("#out-of-state-text");
 const inStateRef = document.querySelector("#in-state-text");
 const maxDistanceRef = document.querySelector("#max-distance-text");
-const minDistanceRef = document.querySelector("#min-dist-distance-text");
+const minDistanceRef = document.querySelector("#min-distance-text");
 const selectedEventNameRef = document.querySelector("#selected-event-name");
 
 let members = [];
