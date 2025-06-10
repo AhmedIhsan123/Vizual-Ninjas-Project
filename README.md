@@ -112,11 +112,11 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
 
 ![image](./readme_images/image4.png)
 
-3. Click on **public_html**
+2. Click on **public_html**
    
 ![image](./readme_images/image1.png)
 
-5. Click **Upload** and select the project folder
+3. Click **Upload** and select the project folder
    
 ![cPanel Upload](./readme_images/image12.png)
 
@@ -155,15 +155,15 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
    
 ![image](./readme_images/image2.png)
 
-4. Click **Manage** on the repo
+3. Click **Manage** on the repo
    
 ![image](./readme_images/image8.png)
 
-6. Go to the **Pull or Deploy** tab
+4. Go to the **Pull or Deploy** tab
    
 ![image](./readme_images/image6.png)
 
-8. Click **Update from Remote**
+5. Click **Update from Remote**
    
 ![image](./readme_images/image10.png)
 
