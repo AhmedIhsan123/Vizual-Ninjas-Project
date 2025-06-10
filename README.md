@@ -26,7 +26,7 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
 
 - **Map of Events** with On-Click Information  
 ![Events Map](./readme_images/image18.png)
-!(./readme_images/image15.png)
+![image](./readme_images/image15.png)
 
 - **Statistics Overview**  
 ![Statistics Overview](./readme_images/image13.png)
@@ -92,7 +92,7 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
 
 ### 1. Fork the Repository
 
-!(./readme_images/image11.png)
+![image](./readme_images/image11.png)
 
 ### 2. Configure PHP Database Connection
 
@@ -107,25 +107,25 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
 
 #### Option 1: Local (Using cPanel or Web Hosting Tool)
 
-1. Upload the project folder to cPanel  
-2. Navigate to **File Manager**  
-3. Click on **public_html**  
+1. Navigate to **File Manager**
+   ![image](./readme_images/image4.png)
+2. Click on **public_html**
+  ![image](./readme_images/image1.png)
 4. Click **Upload** and select the project folder
-
-![cPanel Upload](./readme_images/image11.png)
+  ![cPanel Upload](./readme_images/image12.png)
 
 #### Option 2: Live Website with Domain (Using cPanel Git Version Control)
 
 1. Go to **Git Version Control**
 2. Click on **Create**
 3. Ensure **Clone a Repository** is enabled
-4. Enter:
+   ![image](./readme_images/image14.png)
+5. Enter:
    - **Clone URL** for the forked repository
    - **Repository Path** as `public_html`
    - **Repo Display Name**
-5. Click **Create**
-
-![Git Setup](./readme_images/image12.png)
+6. Click **Create**
+![image](./readme_images/image16.png)
 
 ---
 
@@ -135,19 +135,20 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
 
 1. Make and commit code changes  
 2. In cPanel, go to **Git Version Control**
-3. Click **Manage** on the repo  
-4. Go to the **Pull or Deploy** tab  
-5. Click **Update from Remote**
+   ![image](./readme_images/image2.png)
+4. Click **Manage** on the repo
+   ![image](./readme_images/image8.png)
+5. Go to the **Pull or Deploy** tab
+   ![image](./readme_images/image6.png)
+6. Click **Update from Remote**
+  ![image](./readme_images/image10.png)
 
-![Update from Remote](./readme_images/image13.png)
 
 ### Restarting the Project
 
 - Use `Ctrl + Shift + R` to clear browser cache  
   *(Required to see the latest changes)*
-
-![Browser Cache Reset](./readme_images/image14.png)
-
+  
 ---
 
 ## 🔧 Status / Backlog
@@ -162,8 +163,6 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
 
 - **Player Deficiency Display**  
   (Show events with fewer players than expected, based on local player density or traffic)
-
-![Backlog Feature](./readme_images/image15.png)
 
 ---
 
