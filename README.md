@@ -18,7 +18,6 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
   - Start/End Date
   - Min/Max Players
   - Min/Max Average Distance
-
 ![Event Filtering UI](./readme_images/image9.png)
 
 - **Dynamic Bar Chart** of Events  
@@ -26,7 +25,6 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
 
 - **Map of Events** with On-Click Information  
 ![Events Map](./readme_images/image18.png)
-![image](./readme_images/image15.png)
 
 - **Statistics Overview**  
 ![Statistics Overview](./readme_images/image13.png)
@@ -101,7 +99,8 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
 - Adjust the database connection file path to your `db.php`
 - Currently set to:  
   `/home/aabualha/db.php`
-  ![Statistics Overview](./readme_images/image3.png)
+
+![Statistics Overview](./readme_images/image3.png)
 
 
 
@@ -112,11 +111,13 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
 1. Navigate to **File Manager**
 
 ![image](./readme_images/image4.png)
-2. Click on **public_html**
 
+3. Click on **public_html**
+   
 ![image](./readme_images/image1.png)
-4. Click **Upload** and select the project folder
 
+5. Click **Upload** and select the project folder
+   
 ![cPanel Upload](./readme_images/image12.png)
 
 #### Option 2: Live Website with Domain (Using cPanel Git Version Control)
@@ -124,15 +125,24 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
 1. Go to **Git Version Control**
 2. Click on **Create**
 3. Ensure **Clone a Repository** is enabled
-
+   
 ![image](./readme_images/image14.png)
-5. Enter:
-   - **Clone URL** for the forked repository
-   - **Repository Path** as `public_html`
-   - **Repo Display Name**
-6. Click **Create**
 
+4. Enter:
+   
+- **Clone URL** for the forked repository
+     
+![image](./readme_images/image7.png)
+
+   - **Repository Path** as `public_html`
+     
+![image](./readme_images/image5.png)
+
+   - **Repository Display Name**
+     
 ![image](./readme_images/image16.png)
+     
+5. Click **Create**
 
 ---
 
@@ -142,16 +152,19 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
 
 1. Make and commit code changes  
 2. In cPanel, go to **Git Version Control**
-
+   
 ![image](./readme_images/image2.png)
+
 4. Click **Manage** on the repo
-
+   
 ![image](./readme_images/image8.png)
-5. Go to the **Pull or Deploy** tab
 
+6. Go to the **Pull or Deploy** tab
+   
 ![image](./readme_images/image6.png)
-6. Click **Update from Remote**
 
+8. Click **Update from Remote**
+   
 ![image](./readme_images/image10.png)
 
 
