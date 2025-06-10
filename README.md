@@ -47,9 +47,11 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
 - **Bar Chart** showcasing furthest player travel distance  
 
 - **Pie Chart** showcasing number of players per state  
+
 ![Pie Chart by State](./readme_images/image21.png)
 
 - **Map** with player and event pins with lines to visualize outreach  
+
 ![Player Outreach Map](./readme_images/image20.png)
 
 ---
@@ -108,23 +110,28 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
 #### Option 1: Local (Using cPanel or Web Hosting Tool)
 
 1. Navigate to **File Manager**
-   ![image](./readme_images/image4.png)
+
+![image](./readme_images/image4.png)
 2. Click on **public_html**
-  ![image](./readme_images/image1.png)
+
+![image](./readme_images/image1.png)
 4. Click **Upload** and select the project folder
-  ![cPanel Upload](./readme_images/image12.png)
+
+![cPanel Upload](./readme_images/image12.png)
 
 #### Option 2: Live Website with Domain (Using cPanel Git Version Control)
 
 1. Go to **Git Version Control**
 2. Click on **Create**
 3. Ensure **Clone a Repository** is enabled
-   ![image](./readme_images/image14.png)
+
+![image](./readme_images/image14.png)
 5. Enter:
    - **Clone URL** for the forked repository
    - **Repository Path** as `public_html`
    - **Repo Display Name**
 6. Click **Create**
+
 ![image](./readme_images/image16.png)
 
 ---
@@ -135,13 +142,17 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
 
 1. Make and commit code changes  
 2. In cPanel, go to **Git Version Control**
-   ![image](./readme_images/image2.png)
+
+![image](./readme_images/image2.png)
 4. Click **Manage** on the repo
-   ![image](./readme_images/image8.png)
+
+![image](./readme_images/image8.png)
 5. Go to the **Pull or Deploy** tab
-   ![image](./readme_images/image6.png)
+
+![image](./readme_images/image6.png)
 6. Click **Update from Remote**
-  ![image](./readme_images/image10.png)
+
+![image](./readme_images/image10.png)
 
 
 ### Restarting the Project
