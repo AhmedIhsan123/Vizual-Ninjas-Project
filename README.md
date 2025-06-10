@@ -173,6 +173,6 @@ For questions or support, please contact:
 - **Allen:** [allen.resulidze@gmail.com](mailto:allen.resulidze@gmail.com)  
 - **Hosea:** [h.nacanaynay@gmail.com](mailto:h.nacanaynay@gmail.com)  
 - **Ahmed:** [Alhawar0001@gmail.com](mailto:Alhawar0001@gmail.com)  
-- **Kevin:** Email and/or phone (not listed)
+- **Kevin:** [kevsandoval16@gmail.com](mailto:kevsandoval16@gmail.com)
 
 ![Contact Info](./readme_images/image16.png)
