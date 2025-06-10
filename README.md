@@ -7,7 +7,7 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
 
 ---
 
-## Working Features
+## 🟢 Working Features
 
 ### Home Page
 
@@ -19,16 +19,17 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
   - Min/Max Players
   - Min/Max Average Distance
 
-![Event Filtering UI](./readme_images/image1.png)
+![Event Filtering UI](./readme_images/image9.png)
 
 - **Dynamic Bar Chart** of Events  
-![Bar Chart of Events](./readme_images/image2.png)
+![Bar Chart of Events](./readme_images/image19.png)
 
 - **Map of Events** with On-Click Information  
-![Events Map](./readme_images/image3.png)
+![Events Map](./readme_images/image18.png)
+!(./readme_images/image15.png)
 
 - **Statistics Overview**  
-![Statistics Overview](./readme_images/image4.png)
+![Statistics Overview](./readme_images/image13.png)
 
 ### Event Page
 
@@ -41,36 +42,33 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
   - Minimum and Maximum Player Distance Traveled
   - Top Players
 
-![Event Stats](./readme_images/image5.png)
+![Event Stats](./readme_images/image17.png)
 
 - **Bar Chart** showcasing furthest player travel distance  
-![Bar Chart - Furthest Travel](./readme_images/image6.png)
 
 - **Pie Chart** showcasing number of players per state  
-![Pie Chart by State](./readme_images/image7.png)
+![Pie Chart by State](./readme_images/image21.png)
 
 - **Map** with player and event pins with lines to visualize outreach  
-![Player Outreach Map](./readme_images/image8.png)
+![Player Outreach Map](./readme_images/image20.png)
 
 ---
 
-## Partially Working Features
+## 🟡 Partially Working Features
 
 - **Player Location Accuracy**  
   While the web app can calculate distances, it cannot ensure the players' addresses are fully accurate or up to date, potentially causing skewed data.
 
-![Accuracy Note](./readme_images/image9.png)
-
 ---
 
-## Potential Implementations
+## 🧠 Potential Implementations
 
 - Event Page Filters  
 - Event Page Search Bar
 
 ---
 
-## Architecture
+## 🧱 Architecture
 
 ### Tech Stack
 
@@ -88,19 +86,22 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
 - PHP
 - MySQL
 
-![Architecture Overview](./readme_images/image10.png)
-
 ---
 
-## Setup Instructions
+## ⚙️ Setup Instructions
 
 ### 1. Fork the Repository
+
+!(./readme_images/image11.png)
 
 ### 2. Configure PHP Database Connection
 
 - Adjust the database connection file path to your `db.php`
 - Currently set to:  
   `/home/aabualha/db.php`
+  ![Statistics Overview](./readme_images/image3.png)
+
+
 
 ### 3. Deployment Options
 
@@ -128,7 +129,7 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
 
 ---
 
-## Common Tasks
+## 🔁 Common Tasks
 
 ### Updating the Live Website
 
@@ -149,7 +150,7 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
 
 ---
 
-## Status / Backlog
+## 🔧 Status / Backlog
 
 ### Not Yet Implemented
 
@@ -166,13 +167,11 @@ This web app is an interactive dashboard that visualizes and analyzes statistics
 
 ---
 
-## Contact
+## 📬 Contact
 
 For questions or support, please contact:
 
 - **Allen:** [allen.resulidze@gmail.com](mailto:allen.resulidze@gmail.com)  
 - **Hosea:** [h.nacanaynay@gmail.com](mailto:h.nacanaynay@gmail.com)  
 - **Ahmed:** [Alhawar0001@gmail.com](mailto:Alhawar0001@gmail.com)  
-- **Kevin:** [kevsandoval16@gmail.com](mailto:kevsandoval16@gmail.com)
-
-![Contact Info](./readme_images/image16.png)
+- **Kevin:** Email and/or phone (not listed)
